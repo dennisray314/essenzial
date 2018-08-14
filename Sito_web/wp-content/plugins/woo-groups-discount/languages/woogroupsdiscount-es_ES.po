@@ -1,0 +1,255 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Groups Pricing\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-04-13 09:40+0200\n"
+"PO-Revision-Date: 2017-04-13 09:40+0200\n"
+"Last-Translator: eggemplo <eggemplo@gmail.com>\n"
+"Language-Team: eggemplo <info@eggemplo.com>\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../woo-groups-discount.php:76
+msgid ""
+"The <strong>Woocommerce Groups Discount</strong> plugin requires the <a href="
+"\"http://wordpress.org/extend/plugins/groups\" target=\"_blank\">Groups</a> "
+"plugin to be activated."
+msgstr ""
+"El plugin <strong>Woocommerce Groups Discount</strong> requiere <a href="
+"\"http://wordpress.org/extend/plugins/groups\" target=\"_blank\">Groups</a> "
+"para funcionar."
+
+#: ../woo-groups-discount.php:79
+msgid ""
+"The <strong>Woocommerce Groups Discount</strong> plugin requires the <a href="
+"\"http://wordpress.org/extend/plugins/woocommerce\" target=\"_blank"
+"\">Woocommerce</a> plugin to be activated."
+msgstr ""
+"El plugin <strong>Woocommerce Groups Discount</strong> requiere <a href="
+"\"http://wordpress.org/extend/plugins/woocommerce\" target=\"_blank"
+"\">Woocommerce</a> para funcionar."
+
+#: ../woo-groups-discount.php:137 ../woo-groups-discount.php:138
+msgid "Groups Discount"
+msgstr "Groups Discount"
+
+#: ../woo-groups-discount.php:151
+msgid "Method"
+msgstr "Método"
+
+#: ../woo-groups-discount.php:152
+msgid "Groups"
+msgstr "Grupos"
+
+#: ../woo-groups-discount.php:170
+msgid "Saved Groups subsection"
+msgstr "Guarda subsección Grupos"
+
+#: ../woo-groups-discount.php:189
+msgid "Saved Method subsection"
+msgstr "Guardada subsección Método"
+
+#: ../woo-groups-discount.php:202
+msgid "Woocommerce Groups Discount"
+msgstr "Woocommerce Groups Discount"
+
+#: ../woo-groups-discount.php:239
+msgid "Products discount method:"
+msgstr "Método de descuento:"
+
+#: ../woo-groups-discount.php:245 ../woo-groups-discount.php:250
+msgid "Rate"
+msgstr "Ratio"
+
+#: ../woo-groups-discount.php:246 ../woo-groups-discount.php:251
+msgid "Amount"
+msgstr "Cantidad"
+
+#: ../woo-groups-discount.php:259
+msgid "Apply to:"
+msgstr "Aplicar a:"
+
+#: ../woo-groups-discount.php:265 ../woo-groups-discount.php:270
+msgid "Regular price"
+msgstr "Precio normal"
+
+#: ../woo-groups-discount.php:266 ../woo-groups-discount.php:271
+msgid "Sale price"
+msgstr "Precio en oferta"
+
+#: ../woo-groups-discount.php:277
+msgid ""
+"If you select <b>Sale Price</b> then if the product has a sale price then "
+"discount is applied over this sale price. But if it doesn't, then the "
+"discount is applied on the regular price."
+msgstr ""
+"Si selecciona <b>Precio en oferta</b> y el product está en oferta, entonces "
+"el descuento se aplicará sobre él. Si el producto no está en oferta, "
+"entonces se aplicará sobre el precio normal."
+
+#: ../woo-groups-discount.php:281
+msgid "If in several groups:"
+msgstr "Si está en varios grupos:"
+
+#: ../woo-groups-discount.php:288 ../woo-groups-discount.php:297
+#: ../woo-groups-discount.php:305 ../woo-groups-discount.php:313
+msgid "Higher discount"
+msgstr "Mayor descuento"
+
+#: ../woo-groups-discount.php:289 ../woo-groups-discount.php:298
+#: ../woo-groups-discount.php:306 ../woo-groups-discount.php:314
+msgid "Lower discount"
+msgstr "Menor descuento"
+
+#: ../woo-groups-discount.php:290 ../woo-groups-discount.php:299
+#: ../woo-groups-discount.php:307 ../woo-groups-discount.php:315
+msgid "Higher group ID"
+msgstr "Mayor ID de grupo"
+
+#: ../woo-groups-discount.php:291 ../woo-groups-discount.php:300
+#: ../woo-groups-discount.php:308 ../woo-groups-discount.php:316
+msgid "Lower group ID"
+msgstr "Menor ID de grupo"
+
+#: ../woo-groups-discount.php:325
+msgid "Display original prices:"
+msgstr "Mostrar precios originales:"
+
+#: ../woo-groups-discount.php:338
+msgid "Both prices text:"
+msgstr "Texto de ambos precios:"
+
+#: ../woo-groups-discount.php:347
+msgid "You can use the tokens: [original_price], [discounted_price]."
+msgstr "Puede usar los tokens: [original_price], [discounted_price]."
+
+#: ../woo-groups-discount.php:352 ../woo-groups-discount.php:389
+msgid "Save"
+msgstr "Guardar"
+
+#: ../woo-groups-discount.php:367
+msgid "Groups:"
+msgstr "Grupos:"
+
+#~ msgid "Original:"
+#~ msgstr "Original:"
+
+#~ msgid " Discounted:"
+#~ msgstr "Descontado:"
+
+#~ msgid "Saved"
+#~ msgstr "Guardado"
+
+#~ msgid ""
+#~ "Leave empty if no custom group discount should be applied to this "
+#~ "category."
+#~ msgstr "Deje vacío si no desea un valor personalizado para esta categoría."
+
+#~ msgid "Groups Pricing"
+#~ msgstr "Groups Discount"
+
+#~ msgid ""
+#~ "Leave empty if no custom group discount should be applied to this product "
+#~ "(default setting)."
+#~ msgstr ""
+#~ "Deje vacío si no desea un descuento personalizado para este producto (se "
+#~ "usará el valor por defecto)."
+
+#~ msgid "eShop2MailChimp"
+#~ msgstr "eShop2MailChimp"
+
+#~ msgid "eShop 2 MailChimp"
+#~ msgstr "eShop 2 MailChimp"
+
+#~ msgid "API Key:"
+#~ msgstr "API Key:"
+
+#~ msgid ""
+#~ "MailChimp API KEY. You can get it in MailChimp: Account -> API Keys & "
+#~ "Authorized Apps "
+#~ msgstr ""
+#~ "API KEY de Mailchimp. Puede conseguirla dentro de tu cuenta de Mailchimp: "
+#~ "Mi cuenta -> API Keys"
+
+#~ msgid "List name:"
+#~ msgstr "Nombre de la lista:"
+
+#~ msgid "Subgroups name:"
+#~ msgstr "Nombre de los subgrupos:"
+
+#~ msgid "Comma separated subgroups."
+#~ msgstr "Subgrupos separados por comas."
+
+#~ msgid "Opt-in"
+#~ msgstr "Opt-in"
+
+#~ msgid "Signup form title:"
+#~ msgstr "Título del formulario:"
+
+#~ msgid "Newsletter"
+#~ msgstr "Boletín de noticias"
+
+#~ msgid "Signup form text:"
+#~ msgstr "Texto del formulario:"
+
+#~ msgid "Subscribe me to newsletter."
+#~ msgstr "Suscríbeme al boletín de noticias."
+
+#~ msgid "Opt-in confirmation email:"
+#~ msgstr "Opt-in email de confirmación:"
+
+#~ msgid "YES"
+#~ msgstr "SI"
+
+#~ msgid "NO"
+#~ msgstr "NO"
+
+#~ msgid ""
+#~ "Control whether a double opt-in confirmation message is sent. Abusing "
+#~ "this may cause your mailchimp account to be suspended."
+#~ msgstr ""
+#~ "Un mensaje de confirmación será enviado a los usuarios. Si abusa de no "
+#~ "usar confirmaciones, su cuenta de mailchimp puede ser suspendida por "
+#~ "considerarle spam."
+
+#~ msgid "Subscribed"
+#~ msgstr "Suscrito"
+
+#~ msgid "Not subscribed"
+#~ msgstr "No suscrito"
+
+#~ msgid "Groups to MailChimp"
+#~ msgstr "Groups to MailChimp"
+
+#~ msgid "Need confirm:"
+#~ msgstr "Necesita confirmación:"
+
+#~ msgid "Synchronize"
+#~ msgstr "Sincronizar"
+
+#~ msgid ""
+#~ "Use this for synchronize existing users in website with mailchimp. If the "
+#~ "user has not subscribed, then he will not be synchronized."
+#~ msgstr ""
+#~ "Úsalo para sincronizar los usuarios ya existentes con Mailchimp. Si el "
+#~ "usuario no se ha suscrito, entonces no será sincronizado."
+
+#~ msgid "Subscribe me to newsletter"
+#~ msgstr "Suscríbeme al boletín de noticias"
+
+#~ msgid "Use roles as subgroups:"
+#~ msgstr "Usar roles como subgrupos:"
+
+#~ msgid ""
+#~ "Creates as many subgroups as there are roles (if checked, \"Subgroup name"
+#~ "\" is ignored)."
+#~ msgstr ""
+#~ "Crea tantos subgrupos como roles tienen los usuarios (la opción de "
+#~ "\"Nombre del subgrupo\" será ignorada)."

@@ -1,0 +1,329 @@
+/*
+
+Theme Name: X &ndash; Child Theme
+Theme URI: http://theme.co/x/
+Author: Themeco
+Author URI: http://theme.co/
+Description: Make all of your modifications to X in this child theme.
+Version: 1.0.0
+Template: x
+
+*/
+.site,
+.x-navbar,
+.fixed-slider-template .x-main.full,
+.x-sidebar,
+.x-breadcrumb-wrap,
+.widget_shopping_cart .total,
+.widget_shopping_cart .buttons,
+.woocommerce div.product .summary .variations .label,
+.x-tab-content .x-tab-pane,
+.x-nav-tabs.top>.active>a,.x-nav-tabs>li>a,
+.x-colophon.top,
+.x-colophon.bottom,
+table th, table td{
+
+    background-color: beige !important; /*#f1f1f1*/
+}
+
+.form-search .search-query,
+.form-search input[type="search"],
+.widget_product_search form .search-query,
+.widget_product_search form input[type="search"],
+.wpcf7 select,
+select,
+.wpcf7 textarea,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.select2-container .select2-choice,
+.select2-drop,.select2-results,
+.x-callout:before,
+.with-container{
+    background-color: beige!important; 
+}
+
+div.entry-featured {
+    /*border: 2px solid #ca255d !important;*/
+border:0 !important;
+padding:0!important;
+}
+
+.cart .quantity{
+    float: left;
+    margin-right: 24px;
+}
+
+
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {font-family: 'Spectral', serif !important;}
+.entry-title,
+.woocommerce li.product .entry-header h3{text-transform:none!important;}
+
+div#text-2 {
+    margin-top: 12px;
+}
+div#search-3 {
+    margin-top: 24px !important;
+}
+
+ul.product-categories .children {
+    background-color: rgb(247, 217, 217);
+}
+
+.promozioni {
+    -webkit-animation: promozione-animazione2 2s infinite !important;
+    -moz-animation: promozione-animazione2 2s infinite !important;
+    -o-animation: promozione-animazione2 2s infinite !important;
+    animation: promozione-animazione2 2s infinite !important;
+}
+
+#profitti_capoarea {
+    border:1px solid #e8e8e8;
+    width: 50%;
+    min-width:320px;
+}
+
+#profitti_capoarea .this_month,
+#profitti_capoarea .prev_month,
+#profitti_capoarea .all_profits{color:#fff;}
+#profitti_capoarea .this_month{background-color: #ca255d;}
+#profitti_capoarea .prev_month{background-color: #a92555;}
+#profitti_capoarea .all_profits{background-color: #9a204d;}
+
+@-webkit-keyframes promozione-animazione2 {
+    0%   { background-color: #ca255d; }
+    50%  { background-color: #ec265f; }
+    100% { background-color: #ca255d; }
+}
+@-moz-keyframes promozione-animazione2 {
+    0%   { background-color: #ca255d; }
+    50%  { background-color: #ec265f; }
+    100% { background-color: #ca255d; }
+}
+@-o-keyframes promozione-animazione2 {
+    0%   { background-color: #ca255d; }
+    50%  { background-color: #ec265f; }
+    100% { background-color: #ca255d; }
+}
+@keyframes promozione-animazione2 {
+    0%   { background-color: #ca255d; }
+    50%  { background-color: #ec265f; }
+    100% { background-color: #ca255d; }
+}
+
+.search-results article.product p.p-meta{display:none;}
+
+h2.woocommerce-loop-category__title { font-size: 148%; }
+
+@media(min-width:768px){
+	.x-nav-tabs.two-up>li a{
+	font-size:23px;
+	}
+	
+
+    .search-results .entry-title{
+        height: 100px;
+        font-size:30px;
+    }
+
+    .search-results article.product{
+        height: 800px;
+        overflow: hidden;
+        display: inline-block;
+        width: 24%;
+        float:none;
+    }
+}
+
+@media (min-width:1200px){
+
+    .search-results .entry-title{
+        font-size:25px;
+    }
+
+    .search-results article.product{
+        width: 33%;
+    }
+
+}
+
+@media (min-width:1400px){
+
+    .search-results .entry-title{
+        font-size:25px;
+    }
+
+    .search-results article.product{
+        width: 24%;
+    }
+
+}
+
+
+@media (max-width:1200px){
+
+    .search-results .entry-title{
+        height: 80px;
+        font-size:25px;
+    }
+
+    .search-results article.product{
+        width: 49.8%;
+    }
+
+}
+
+@media (max-width:768px){
+.x-nav-tabs.two-up>li a{
+	font-size:19px;
+	}
+
+    .search-results article.product{
+        float: none;
+        width:100%;
+    }
+
+}
+
+.fixed-slider-template #rev_slider_1_1_wrapper {
+    position: fixed !important;
+}
+/*
+.fixed-slider-template .x-main.full{
+    background:#fff;
+}*/
+.fixed-slider-template .x-colophon.bottom{
+    position:relative!important;
+}
+
+/*DATE PICKER*/
+.ui-widget-header {
+    border: 1px solid #ce01cc;
+    background: #ce01cc;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+    color: #7e007e;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: 1px solid #ce01cc;
+    background: hsl(301, 100%, 84%);
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+    border: 1px solid #ffaefe;
+    background: #fdcafc;
+    font-weight: bold;
+    color: #ec39ec;
+}
+select.ui-datepicker-month, select.ui-datepicker-year {
+    height: 30px;
+    padding: 0;
+}
+#myAccountEvolutersTableContainer table td{
+    background-color:inherit;
+}
+#myAccountEvolutersTableContainer table tbody tr:nth-child(odd) {
+    background-color: #ededed;
+}
+
+
+@media screen and (min-width: 768px){
+    p#order_comments_field {
+       /* background: #fdf;*/
+        padding: 20px;
+        width: 103%;
+        margin-left: -20px;
+        border-radius: 4px;
+        -webkit-border-radius:4px;
+    }
+
+    #myAccountEvolutersTableContainer{
+        height: 320px;
+        overflow-y: scroll;
+        border: 1px solid #ececec;
+    }
+
+#wp-live-chat{
+right:6px!important;
+}
+
+}
+
+@media screen and (max-width:1383px) and (min-width:1200px),(max-width:1081px) and (min-width:980px)
+{
+	.page-id-1115 .hentry .entry-wrap:last-child {
+    		padding-top: 145px;
+	}
+}
+
+.woocommerce #comments .x-comment-img .avatar-wrap .avatar,
+.woocommerce #comments .x-comment-header {
+    display: none;
+}
+
+.woocommerce #comments article.comment{
+margin:0 !important;
+}
+
+article.comment{
+background-color:transparent;
+}
+
+.single_add_to_cart_button{margin-left:24px;}
+.quantity input{background-color:#fff!important;}
+
+#mobile-select-variation {
+    border-color: #ca255d;
+    background-color: #fff!important;
+}
+
+.x-tab-pane.description_pane{
+	position:relative;
+	height:300px;
+	overflow:hidden;
+	}
+
+#detail_read_more{
+	border-top: 5px solid beige;
+	position:absolute;
+    background-color: #f2f2cf;
+	bottom:0;
+	left:0;
+	display:block;
+	width:100%;
+	text-align:center;
+	padding:6px;
+	cursor:pointer;
+	-webkit-transition:.5s;
+	-moz-transition:.5s;
+	transition:.5s;
+	
+}
+
+#detail_read_more:hover{
+	color:#fff;
+	background-color:#ca255d;
+}
+
+#detail_read_more .meno{display:none;}
+
+footer.x-colophon .x-column.x-1-3{
+	width:100%}
+
+footer.x-colophon .x-column.x-1-3:not(:first-child{
+	display:none}

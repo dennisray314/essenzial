@@ -1,0 +1,39 @@
+#gdpr-alert {
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	width:100%;
+	height:100%;
+	background: #ca255d;
+    z-index: 999999999999;
+}
+
+#gdpr-alert .form-container{
+	background: #f5f5dc;
+	padding:2em;
+    overflow:auto;
+    width: 100%;
+    height:100%;
+    max-width: 640px;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 0 24px #00000052;
+   
+}
+
+#gdpr-alert .form-container header{
+    text-align: center;
+}
+
+#gdpr-alert form.acceptance input[type=radio] {
+    margin-right: 10px;
+}
+
+#gdpr-alert form.acceptance .submit-container {
+    text-align: center;
+}

@@ -1,0 +1,4653 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: X\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-07-07 07:39+0000\n"
+"PO-Revision-Date: 2017-07-07 10:20+0000\n"
+"Last-Translator: Roberto Dallemura <romax1407@gmail.com>\n"
+"Language-Team: Italian\n"
+"Language: it-IT\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco - https://localise.biz/"
+
+#: ../x/searchform.php:12 ../x/searchform.php:13
+#: ../x/framework/functions/global/navbar.php:170
+msgid "Search"
+msgstr ""
+
+#: ../x/bbpress/content-search.php:37
+msgid "Enter in your query in the search form above."
+msgstr ""
+
+#: ../x/bbpress/form-topic-tag.php:21
+msgid ""
+"Leave the slug empty to have one automatically generated. Changing the slug "
+"affects its permalink. Any links to the old slug will stop working."
+msgstr ""
+
+#: ../x/bbpress/form-topic-tag.php:83
+msgid ""
+"Deleting a tag cannot be undone. This does not delete your topics. Only the "
+"tag itself is deleted. Any links to this tag will no longer function."
+msgstr ""
+
+#: ../x/bbpress/form-user-edit.php:156
+msgid "Update"
+msgstr ""
+
+#: ../x/bbpress/form-topic-split.php:29
+msgid ""
+"<strong>WARNING:</strong> This process cannot be undone. When you split a "
+"topic, you are slicing it in half starting with the reply you just selected. "
+"Choose to use that reply as a new topic with a new title, or merge those "
+"replies into an existing topic. If you use the existing topic option, "
+"replies within both topics will be merged chronologically. The order of the "
+"merged replies is based on the time and date they were posted."
+msgstr ""
+
+#: ../x/bbpress/form-user-lost-pass.php:18
+msgid ""
+"Enter in your username or email address below then select the &ldquo;"
+"Reset&rdquo; button."
+msgstr ""
+
+#: ../x/bbpress/form-user-lost-pass.php:30
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-customizer-manager.php:51
+msgid "Reset"
+msgstr ""
+
+#: ../x/bbpress/form-user-register.php:18
+msgid ""
+"Your username must be unique, and cannot be changed later. We use your email "
+"address to email you a secure password and verify your account."
+msgstr ""
+
+#: ../x/bbpress/form-reply-move.php:29
+msgid ""
+"<strong>WARNING:</strong> This process cannot be undone. You can either make "
+"this reply a new topic with a new title, or merge it into an existing topic. "
+"If you choose an existing topic, replies will be ordered by the time and "
+"date they were created."
+msgstr ""
+
+#: ../x/bbpress/form-topic-merge.php:29
+msgid ""
+"<strong>WARNING:</strong> This process cannot be undone. Select the topic to "
+"merge this one into. The destination topic will remain the lead topic, and "
+"this one will change into a reply. To keep this topic as the lead, go to the "
+"other topic and use the merge tool from there instead. All replies within "
+"both topics will be merged chronologically. The order of the merged replies "
+"is based on the time and date they were posted. If the destination topic was "
+"created after this one, it's post date will be updated to second earlier "
+"than this one."
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:23
+msgid "Your Name *"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:24
+msgid "Your Email *"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:25
+msgid "Your Comment *"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:40
+#, php-format
+msgid "%s review for %s"
+msgid_plural "%s reviews for %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../x/woocommerce/single-product-reviews.php:42
+msgid "Reviews"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:63
+msgid "There are no reviews yet."
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:78
+msgid "<span>Add a Review</span>"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:78
+msgid "Be the First to Review"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:79
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:84
+#: ../x/framework/views/ethos/wp-comments.php:70
+msgid "Name"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:87
+#: ../x/framework/views/ethos/wp-comments.php:75
+msgid "Email"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:90
+msgid "Submit Review"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:98
+msgid "Rate&hellip;"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:99
+msgid "Perfect"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:100
+msgid "Good"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:101
+msgid "Average"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:102
+msgid "Not that bad"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:103
+msgid "Very Poor"
+msgstr ""
+
+#: ../x/woocommerce/single-product-reviews.php:121
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: ../x/framework/functions/renew.php:55 ../x/framework/functions/renew.php:76
+#: ../x/framework/functions/integrity.php:55
+#: ../x/framework/functions/integrity.php:76
+#: ../x/framework/functions/ethos.php:62 ../x/framework/functions/ethos.php:84
+#, php-format
+msgid "View all posts in: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:100
+#: ../x/framework/functions/integrity.php:99
+#: ../x/framework/functions/ethos.php:108
+#, php-format
+msgid "%s Comment"
+msgid_plural "%s Comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../x/framework/functions/renew.php:105 ../x/framework/functions/icon.php:155
+#: ../x/framework/functions/integrity.php:103
+#: ../x/framework/functions/ethos.php:112
+#, php-format
+msgid "Leave a comment on: &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:172 ../x/framework/functions/icon.php:78
+#: ../x/framework/functions/integrity.php:170
+#: ../x/framework/functions/ethos.php:333
+msgid "Pingback:"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:172 ../x/framework/functions/icon.php:78
+#: ../x/framework/functions/integrity.php:170
+#: ../x/framework/functions/ethos.php:333
+msgid "(Edit)"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:195
+#: ../x/framework/functions/integrity.php:219
+#: ../x/framework/functions/ethos.php:363
+msgid ""
+"Reply <span class=\"comment-reply-link-after\"><i class=\"x-icon-reply\" "
+"data-x-icon=\"&#xf112;\"></i></span>"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:206 ../x/framework/functions/icon.php:109
+#: ../x/framework/functions/integrity.php:205
+#: ../x/framework/functions/ethos.php:374
+#, php-format
+msgid "Rated %d out of 5"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:207 ../x/framework/functions/icon.php:110
+#: ../x/framework/functions/integrity.php:206
+#: ../x/framework/functions/ethos.php:375
+msgid "out of 5"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:214 ../x/framework/functions/icon.php:89
+#: ../x/framework/functions/integrity.php:196
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:219 ../x/framework/functions/icon.php:119
+#: ../x/framework/functions/integrity.php:201
+msgid "<i class=\"x-icon-edit\" data-x-icon=\"&#xf044;\"></i> Edit"
+msgstr ""
+
+#: ../x/framework/functions/renew.php:223 ../x/framework/functions/icon.php:123
+#: ../x/framework/functions/integrity.php:212
+#: ../x/framework/functions/ethos.php:381
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../x/framework/functions/icon.php:87 ../x/framework/functions/ethos.php:357
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: ../x/framework/functions/icon.php:93
+msgid ""
+"Reply<span class=\"comment-reply-link-after\"><i class=\"x-icon-reply\" data-"
+"x-icon=\"&#xf112;\"></i></span>"
+msgstr ""
+
+#: ../x/framework/functions/icon.php:97
+#: ../x/framework/functions/integrity.php:184
+msgid "Post<br>Author"
+msgstr ""
+
+#: ../x/framework/functions/ethos.php:34
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-approved-plugins.php:56
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:58
+msgid "by"
+msgstr ""
+
+#: ../x/framework/functions/ethos.php:70 ../x/framework/functions/ethos.php:92
+msgid "In"
+msgstr ""
+
+#: ../x/framework/functions/ethos.php:207
+msgid "See All Posts"
+msgstr ""
+
+#: ../x/framework/functions/ethos.php:242
+#: ../x/framework/functions/ethos.php:244
+#: ../x/framework/views/ethos/_index-featured.php:20
+#: ../x/framework/views/ethos/_index-featured.php:22
+#: ../x/framework/views/ethos/_post-slider.php:78
+msgid "View Post"
+msgstr ""
+
+#: ../x/framework/functions/ethos.php:347
+msgid "Author"
+msgstr ""
+
+#: ../x/framework/functions/ethos.php:365
+msgid "Edit <i class=\"x-icon-edit\" data-x-icon=\"&#xf044;\"></i>"
+msgstr ""
+
+#: ../x/buddypress/activity/comment.php:30
+#, php-format
+msgid ""
+"<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-"
+"since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr ""
+
+#: ../x/buddypress/activity/comment.php:40
+#: ../x/buddypress/members/single/messages/single.php:86
+#: ../x/buddypress/groups/single/forum/edit.php:10
+msgid "Reply"
+msgstr ""
+
+#: ../x/buddypress/activity/comment.php:46
+#: ../x/buddypress/groups/single/admin.php:344
+#: ../x/buddypress/members/single/messages/single.php:24
+#: ../x/buddypress/members/single/messages/messages-loop.php:45
+#: ../x/buddypress/members/single/settings/delete-account.php:28
+msgid "Delete"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:19
+msgid "The public activity for everyone on this site."
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:19 ../x/buddypress/members/index.php:19
+#, php-format
+msgid "All Members <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:29
+msgid "The activity of my friends only."
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:29 ../x/buddypress/members/index.php:22
+#, php-format
+msgid "My Friends <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:41
+msgid "The activity of groups I am a member of."
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:41 ../x/buddypress/groups/index.php:22
+#, php-format
+msgid "My Groups <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:51
+msgid "The activity I've marked as a favorite."
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:51
+#, php-format
+msgid "My Favorites <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:59
+msgid "Activity that I have been mentioned in."
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:59
+msgid "Mentions"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:59
+#, php-format
+msgctxt "Number of new activity mentions"
+msgid "%s new"
+msgid_plural "%s new"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../x/buddypress/activity/index.php:71
+#: ../x/buddypress/groups/single/activity.php:3
+msgid "RSS Feed"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:71
+#: ../x/buddypress/groups/single/activity.php:3
+msgid "RSS"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:76
+#: ../x/buddypress/members/single/activity.php:18
+#: ../x/buddypress/groups/single/activity.php:8
+msgid "Show:"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:78
+#: ../x/buddypress/members/single/activity.php:20
+#: ../x/buddypress/groups/single/activity.php:10
+msgid "Everything"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:79
+#: ../x/buddypress/members/single/activity.php:21
+#: ../x/buddypress/groups/single/activity.php:11
+msgid "Updates"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:83
+#: ../x/buddypress/forums/forums-loop.php:24
+#: ../x/buddypress/members/single/activity.php:27
+msgid "Posts"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:84
+#: ../x/framework/views/integrity/wp-comments.php:30
+#: ../x/framework/views/ethos/wp-comments.php:36
+#: ../x/framework/views/icon/wp-comments.php:30
+#: ../x/buddypress/members/single/activity.php:28
+msgid "Comments"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:90
+#: ../x/buddypress/members/single/activity.php:43
+#: ../x/buddypress/groups/single/activity.php:14
+msgid "Forum Topics"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:91
+#: ../x/buddypress/members/single/activity.php:44
+#: ../x/buddypress/groups/single/activity.php:15
+msgid "Forum Replies"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:97
+#: ../x/buddypress/members/single/activity.php:50
+msgid "New Groups"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:98
+#: ../x/buddypress/members/single/activity.php:51
+#: ../x/buddypress/groups/single/activity.php:18
+msgid "Group Memberships"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:104
+#: ../x/buddypress/members/single/activity.php:35
+msgid "Friendships"
+msgstr ""
+
+#: ../x/buddypress/activity/index.php:108
+msgid "New Members"
+msgstr ""
+
+#: ../x/buddypress/activity/post-form.php:17
+#, php-format
+msgid "What's new in %s, %s?"
+msgstr ""
+
+#: ../x/buddypress/activity/post-form.php:19
+#, php-format
+msgid "What's new, %s?"
+msgstr ""
+
+#: ../x/buddypress/activity/post-form.php:30
+msgid "Post In"
+msgstr ""
+
+#: ../x/buddypress/activity/post-form.php:30
+#: ../x/buddypress/activity/entry.php:95
+msgid "Post"
+msgstr ""
+
+#: ../x/buddypress/activity/entry.php:40
+msgid "View Conversation"
+msgstr ""
+
+#: ../x/buddypress/activity/entry.php:48
+#, php-format
+msgid "Comment <span class=\"x-bp-count\">%s</span>"
+msgstr ""
+
+#: ../x/buddypress/activity/entry.php:56
+msgid "Mark as Favorite"
+msgstr ""
+
+#: ../x/buddypress/activity/entry.php:56
+#: ../x/framework/functions/global/plugins/buddypress.php:592
+msgid "Favorite"
+msgstr ""
+
+#: ../x/buddypress/activity/entry.php:60 ../x/buddypress/activity/entry.php:60
+#: ../x/framework/functions/global/plugins/buddypress.php:595
+msgid "Remove Favorite"
+msgstr ""
+
+#: ../x/buddypress/activity/entry.php:95 ../x/buddypress/forums/index.php:116
+msgid "Cancel"
+msgstr ""
+
+#: ../x/buddypress/forums/forums-loop.php:23
+msgid "Topic"
+msgstr ""
+
+#: ../x/buddypress/forums/forums-loop.php:25
+msgid "Freshness"
+msgstr ""
+
+#: ../x/buddypress/forums/forums-loop.php:38
+#: ../x/buddypress/groups/single/forum/topic.php:95
+msgid "Permanent link to this post"
+msgstr ""
+
+#. "started by [poster] in [forum]"
+#: ../x/buddypress/forums/forums-loop.php:45
+#, php-format
+msgid "Started by %1$s"
+msgstr ""
+
+#. "started by [poster] in [forum]"
+#: ../x/buddypress/forums/forums-loop.php:56
+#, php-format
+msgid "in %1$s"
+msgstr ""
+
+#: ../x/buddypress/forums/forums-loop.php:102
+msgid "Sorry, there were no forum topics found."
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:22
+#, php-format
+msgid "All Topics <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:26
+#, php-format
+msgid "My Topics <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:42 ../x/buddypress/members/index.php:35
+#: ../x/buddypress/blogs/index.php:36 ../x/buddypress/groups/index.php:36
+#: ../x/buddypress/members/single/groups.php:20
+#: ../x/buddypress/members/single/friends.php:20
+#: ../x/buddypress/members/single/forums.php:18
+#: ../x/buddypress/members/single/blogs.php:19
+#: ../x/buddypress/groups/single/forum.php:36
+msgid "Order By:"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:44 ../x/buddypress/members/index.php:37
+#: ../x/buddypress/blogs/index.php:38 ../x/buddypress/groups/index.php:39
+#: ../x/buddypress/members/single/groups.php:22
+#: ../x/buddypress/members/single/friends.php:22
+#: ../x/buddypress/members/single/forums.php:20
+#: ../x/buddypress/members/single/blogs.php:21
+#: ../x/buddypress/groups/single/forum.php:38
+msgid "Last Active"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:45
+#: ../x/buddypress/members/single/forums.php:21
+#: ../x/buddypress/groups/single/forum.php:39
+msgid "Most Posts"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:46
+#: ../x/buddypress/members/single/forums.php:22
+#: ../x/buddypress/groups/single/forum.php:40
+msgid "Unreplied"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:82
+msgid "Create New Topic:"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:86
+#: ../x/buddypress/groups/single/forum.php:75
+#: ../x/buddypress/groups/single/forum/edit.php:47
+msgid "Title:"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:89
+#: ../x/buddypress/groups/single/forum.php:78
+#: ../x/buddypress/groups/single/forum/edit.php:50
+msgid "Content:"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:92
+#: ../x/buddypress/groups/single/forum.php:81
+#: ../x/buddypress/groups/single/forum/edit.php:53
+msgid "Tags (comma separated):"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:95
+msgid "Post In Group Forum:"
+msgstr ""
+
+#. no option picked in select box
+#: ../x/buddypress/forums/index.php:98
+msgid "----"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:115
+#: ../x/buddypress/groups/single/forum.php:87
+msgid "Post Topic"
+msgstr ""
+
+#: ../x/buddypress/forums/index.php:127
+#, php-format
+msgid ""
+"You are not a member of any groups so you don't have any group forums you "
+"can post in. To start posting, first find a group that matches the topic "
+"subject you'd like to start. If this group does not exist, why not <a "
+"href='%s'>create a new group</a>? Once you have joined or created the group "
+"you can post your topic in that group's forum."
+msgstr ""
+
+#: ../x/buddypress/members/register.php:13
+msgid "User registration is currently not allowed."
+msgstr ""
+
+#: ../x/buddypress/members/register.php:30
+msgid "Account Details"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:32
+msgid "Username"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:32
+#: ../x/buddypress/members/register.php:36
+#: ../x/buddypress/members/register.php:40
+#: ../x/buddypress/members/register.php:44
+#: ../x/buddypress/members/register.php:132
+#: ../x/buddypress/members/register.php:141
+msgid "(required)"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:36
+msgid "Email Address"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:40
+msgid "Choose a Password"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:44
+msgid "Confirm Password"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:62
+msgid "Profile Details"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:79
+#: ../x/buddypress/members/register.php:94
+#: ../x/buddypress/members/single/profile/edit.php:33
+#: ../x/buddypress/members/single/profile/edit.php:47
+#, php-format
+msgid ""
+"This field can be seen by: <span class=\"current-visibility-level\">%s</span>"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:79
+msgctxt "Change profile field visibility level"
+msgid "Change"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:84
+#: ../x/buddypress/members/single/profile/edit.php:38
+msgid "Who can see this field?"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:89
+#: ../x/framework/functions/global/plugins/buddypress.php:589
+#: ../x/buddypress/members/single/profile/edit.php:43
+msgid "Close"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:126
+msgid "Blog Details"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:128
+msgid "Yes, I'd like to create a new site"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:132
+msgid "Blog URL"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:145
+msgid ""
+"I would like my site to appear in search engines, and in public listings "
+"around this network."
+msgstr ""
+
+#: ../x/buddypress/members/register.php:148
+msgid "Yes"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:149
+msgid "No"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:164
+msgid "Sign Up"
+msgstr ""
+
+#: ../x/buddypress/members/register.php:179
+msgid ""
+"You have successfully created your account! To begin using this site you "
+"will need to activate your account via the email we have just sent to your "
+"address."
+msgstr ""
+
+#: ../x/buddypress/members/register.php:181
+msgid ""
+"You have successfully created your account! Please log in using the username "
+"and password you have just created."
+msgstr ""
+
+#: ../x/buddypress/members/activate.php:14
+msgid ""
+"Your account was activated successfully! Your account details have been sent "
+"to you in a separate email."
+msgstr ""
+
+#: ../x/buddypress/members/activate.php:16
+#, php-format
+msgid ""
+"Your account was activated successfully! You can now <a href=\"%s\">log "
+"in</a> with the username and password you provided when you signed up."
+msgstr ""
+
+#: ../x/buddypress/members/activate.php:23
+msgid "Please provide a valid activation key."
+msgstr ""
+
+#: ../x/buddypress/members/activate.php:27
+msgid "Activate"
+msgstr ""
+
+#: ../x/buddypress/members/index.php:38
+#: ../x/buddypress/members/single/friends.php:23
+msgid "Newest Registered"
+msgstr ""
+
+#: ../x/buddypress/members/index.php:41 ../x/buddypress/blogs/index.php:40
+#: ../x/buddypress/groups/index.php:42
+#: ../x/buddypress/members/single/groups.php:25
+#: ../x/buddypress/members/single/friends.php:24
+#: ../x/buddypress/members/single/blogs.php:23
+msgid "Alphabetical"
+msgstr ""
+
+#: ../x/buddypress/members/members-loop.php:76
+msgid "Sorry, no members were found."
+msgstr ""
+
+#: ../x/buddypress/blogs/blogs-loop.php:66
+msgid "Sorry, there were no sites found."
+msgstr ""
+
+#: ../x/buddypress/blogs/index.php:16
+#, php-format
+msgid "All Sites <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/blogs/index.php:20
+#, php-format
+msgid "My Sites <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/blogs/index.php:39
+#: ../x/buddypress/members/single/blogs.php:22
+msgid "Newest"
+msgstr ""
+
+#: ../x/buddypress/groups/groups-loop.php:71
+msgid "There were no groups found."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:39
+#: ../x/buddypress/groups/single/admin.php:30
+msgid "Group Name (required)"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:44
+#: ../x/buddypress/groups/single/admin.php:33
+msgid "Group Description (required)"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:61
+#: ../x/buddypress/groups/single/admin.php:70
+msgid "Privacy Options"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:65
+#: ../x/buddypress/groups/single/admin.php:75
+msgid "This is a public group"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:67
+#: ../x/buddypress/groups/single/admin.php:77
+msgid "Any site member can join this group."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:68 ../x/buddypress/groups/create.php:77
+#: ../x/buddypress/groups/single/admin.php:78
+#: ../x/buddypress/groups/single/admin.php:88
+msgid ""
+"This group will be listed in the groups directory and in search results."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:69
+#: ../x/buddypress/groups/single/admin.php:79
+msgid "Group content and activity will be visible to any site member."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:74
+#: ../x/buddypress/groups/single/admin.php:85
+msgid "This is a private group"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:76
+#: ../x/buddypress/groups/single/admin.php:87
+msgid "Only users who request membership and are accepted can join the group."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:78 ../x/buddypress/groups/create.php:87
+#: ../x/buddypress/groups/single/admin.php:89
+#: ../x/buddypress/groups/single/admin.php:99
+msgid ""
+"Group content and activity will only be visible to members of the group."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:83
+#: ../x/buddypress/groups/single/admin.php:95
+msgid "This is a hidden group"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:85
+#: ../x/buddypress/groups/single/admin.php:97
+msgid "Only users who are invited can join the group."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:86
+#: ../x/buddypress/groups/single/admin.php:98
+msgid ""
+"This group will not be listed in the groups directory or search results."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:92
+#: ../x/buddypress/groups/single/admin.php:104
+msgid "Group Invitations"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:94
+#: ../x/buddypress/groups/single/admin.php:106
+msgid "Which members of this group are allowed to invite others?"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:99
+#: ../x/buddypress/groups/single/admin.php:111
+msgid "All group members"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:104
+#: ../x/buddypress/groups/single/admin.php:116
+msgid "Group admins and mods only"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:109
+#: ../x/buddypress/groups/single/admin.php:121
+msgid "Group admins only"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:115
+msgid "Group Forums"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:119
+msgid "Should this group have a forum?"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:122
+#: ../x/buddypress/groups/single/admin.php:61
+msgid "Enable discussion forum"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:126
+#, php-format
+msgid ""
+"<strong>Attention Site Admin:</strong> Group forums require the <a "
+"href=\"%s\">correct setup and configuration</a> of a bbPress installation."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:152
+#: ../x/buddypress/groups/single/admin.php:137
+msgid ""
+"Upload an image to use as an avatar for this group. The image will be shown "
+"on the main group page, and in search results."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:156
+#: ../x/buddypress/groups/single/admin.php:141
+msgid "Upload"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:160
+msgid "To skip the avatar upload process, hit the \"Next\" button."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:167
+msgid "Crop Group Avatar"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:169
+#: ../x/buddypress/groups/single/admin.php:162
+msgid "Avatar to crop"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:172
+#: ../x/buddypress/groups/single/admin.php:165
+msgid "Avatar preview"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:175
+#: ../x/buddypress/groups/single/admin.php:168
+msgid "Crop"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:214
+#: ../x/buddypress/groups/single/invites-loop.php:61
+msgid "Select people to invite from your friends list."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:232
+#: ../x/buddypress/groups/single/invites-loop.php:37
+msgid "Remove Invite"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:249
+msgid ""
+"Once you have built up friend connections you will be able to invite others "
+"to your group."
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:271
+#: ../x/framework/functions/global/tco-setup.php:68
+msgid "Back"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:278
+msgid "Next"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:285
+msgid "Create"
+msgstr ""
+
+#: ../x/buddypress/groups/create.php:292
+msgid "Finish"
+msgstr ""
+
+#: ../x/buddypress/groups/index.php:19
+#, php-format
+msgid "All Groups <span>%s</span>"
+msgstr ""
+
+#: ../x/buddypress/groups/index.php:40
+#: ../x/buddypress/members/single/groups.php:23
+msgid "Most Members"
+msgstr ""
+
+#: ../x/buddypress/groups/index.php:41
+#: ../x/buddypress/members/single/groups.php:24
+msgid "Newly Created"
+msgstr ""
+
+#: ../x/woocommerce/single-product/up-sells.php:43
+msgid "You may also like&hellip;"
+msgstr ""
+
+#: ../x/woocommerce/single-product/product-image.php:44
+msgid "Placeholder"
+msgstr ""
+
+#: ../x/woocommerce/single-product/related.php:40
+msgid "Altre Persone hanno acquistato anche questi prodotti"
+msgstr ""
+
+#: ../x/woocommerce/cart/cart-empty.php:20
+msgid "Your cart is currently empty."
+msgstr ""
+
+#: ../x/woocommerce/cart/cart-empty.php:27
+msgid "Return To Shop"
+msgstr ""
+
+#: ../x/woocommerce/cart/cross-sells.php:42
+msgid "You May Be Interested In&hellip;"
+msgstr ""
+
+#: ../x/framework/views/renew/_content-post-footer.php:13
+msgid "Tags:"
+msgstr ""
+
+#: ../x/framework/views/renew/wp-comments.php:32
+#, php-format
+msgid "One Comment on %2$s"
+msgid_plural "%1$s Comments on %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../x/framework/views/renew/wp-comments.php:50
+#: ../x/framework/views/integrity/wp-comments.php:42
+#: ../x/framework/views/ethos/wp-comments.php:48
+#: ../x/framework/views/icon/wp-comments.php:42
+msgid "Comment navigation"
+msgstr ""
+
+#: ../x/framework/views/renew/wp-comments.php:51
+#: ../x/framework/views/integrity/wp-comments.php:43
+#: ../x/framework/views/ethos/wp-comments.php:49
+#: ../x/framework/views/icon/wp-comments.php:43
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../x/framework/views/renew/wp-comments.php:52
+#: ../x/framework/views/integrity/wp-comments.php:44
+#: ../x/framework/views/ethos/wp-comments.php:50
+#: ../x/framework/views/icon/wp-comments.php:44
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../x/framework/views/renew/wp-comments.php:57
+#: ../x/framework/views/integrity/wp-comments.php:49
+#: ../x/framework/views/ethos/wp-comments.php:55
+#: ../x/framework/views/icon/wp-comments.php:49
+msgid "Comments are closed."
+msgstr ""
+
+#: ../x/framework/views/renew/wp-comments.php:66
+#: ../x/framework/views/integrity/wp-comments.php:58
+#: ../x/framework/views/ethos/wp-comments.php:65
+#: ../x/framework/views/icon/wp-comments.php:58
+msgid "Submit"
+msgstr ""
+
+#: ../x/framework/views/renew/content-page.php:21
+#: ../x/framework/views/renew/content-quote.php:24
+#: ../x/framework/views/renew/content-link.php:23
+#: ../x/framework/views/renew/_content-post-header.php:16
+#: ../x/framework/views/renew/content-portfolio.php:21
+#: ../x/framework/views/integrity/content-page.php:29
+#: ../x/framework/views/integrity/content-quote.php:28
+#: ../x/framework/views/integrity/content-link.php:26
+#: ../x/framework/views/integrity/_content-post-header.php:16
+#: ../x/framework/views/integrity/content-image.php:25
+#: ../x/framework/views/integrity/content-portfolio.php:38
+#: ../x/framework/views/ethos/_content-post-header.php:17
+#: ../x/framework/views/icon/content-page.php:25
+#: ../x/framework/views/icon/content-link.php:26
+#: ../x/framework/views/icon/_content-post-header.php:16
+#: ../x/framework/functions/global/featured.php:57
+#, php-format
+msgid "Permalink to: \"%s\""
+msgstr ""
+
+#: ../x/framework/views/renew/content-link.php:19
+#: ../x/framework/views/renew/content-link.php:24
+#: ../x/framework/views/integrity/content-link.php:22
+#: ../x/framework/views/integrity/content-link.php:27
+#: ../x/framework/views/ethos/content-link.php:31
+#: ../x/framework/views/icon/content-link.php:20
+#: ../x/framework/views/icon/content-link.php:25
+#, php-format
+msgid "Shared link from post: \"%s\""
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:55
+#: ../x/framework/views/integrity/_landmark-header.php:25
+#: ../x/framework/views/ethos/_landmark-header.php:53
+msgid "Search Results"
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:62
+#: ../x/framework/views/integrity/_landmark-header.php:34
+#: ../x/framework/views/integrity/_landmark-header.php:49
+#: ../x/framework/views/ethos/_landmark-header.php:61
+msgid "Category Archive"
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:73
+#: ../x/framework/views/integrity/_landmark-header.php:64
+#: ../x/framework/views/integrity/_landmark-header.php:79
+#: ../x/framework/views/ethos/_landmark-header.php:74
+msgid "Tag Archive"
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:81
+#: ../x/framework/views/integrity/_landmark-header.php:92
+#: ../x/framework/views/ethos/_landmark-header.php:85
+msgid "Oops!"
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:85
+#: ../x/framework/views/integrity/_landmark-header.php:99
+#: ../x/framework/views/ethos/_landmark-header.php:91
+msgid "Post Archive by Year"
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:89
+#: ../x/framework/views/integrity/_landmark-header.php:106
+#: ../x/framework/views/ethos/_landmark-header.php:97
+msgid "Post Archive by Month"
+msgstr ""
+
+#: ../x/framework/views/renew/_landmark-header.php:93
+#: ../x/framework/views/integrity/_landmark-header.php:113
+#: ../x/framework/views/ethos/_landmark-header.php:103
+msgid "Post Archive by Day"
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:26
+msgid "Below you'll see everything we could locate for your search of "
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:35
+msgid "Below you'll find a list of all posts that have been categorized as "
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:50
+msgid "Below you'll find a list of all items that have been categorized as "
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:65
+msgid "Below you'll find a list of all posts that have been tagged as "
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:80
+msgid "Below you'll find a list of all items that have been tagged as "
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:93
+msgid "You blew up the Internet. "
+msgstr ""
+
+#: ../x/framework/views/integrity/_landmark-header.php:100
+#: ../x/framework/views/integrity/_landmark-header.php:107
+#: ../x/framework/views/integrity/_landmark-header.php:114
+msgid "Below you'll find a list of all posts from "
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:66
+msgid "<span>Leave a Comment</span>"
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:71
+msgid "Your Name"
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:76
+msgid "Your Email"
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:80
+msgid "Website"
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:81
+msgid "Your Website"
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:85
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: ../x/framework/views/ethos/wp-comments.php:86
+msgctxt "noun"
+msgid "Your Comment *"
+msgstr ""
+
+#: ../x/framework/views/ethos/_index.php:17
+msgid "Filter by Topic"
+msgstr ""
+
+#. Name of the template
+msgid "Search Page"
+msgstr ""
+
+#: ../x/framework/views/global/_content-404.php:11
+msgid ""
+"The page you are looking for is no longer here, or never existed in the "
+"first place (bummer). You can try searching for what you are looking for "
+"using the form below. If that still doesn't provide the results you are "
+"looking for, you can always start over from the home page."
+msgstr ""
+
+#: ../x/framework/views/global/_nav-primary.php:15
+msgid "Navigation"
+msgstr ""
+
+#: ../x/framework/views/global/_content-none.php:14
+msgid "Nothing to Show Right Now"
+msgstr ""
+
+#: ../x/framework/views/global/_content-none.php:17
+msgid ""
+"It appears whatever you were looking for is no longer here or perhaps wasn't "
+"here to begin with. You might want to try starting over from the homepage to "
+"see if you can find what you're after from there."
+msgstr ""
+
+#: ../x/framework/views/global/_header-widget-areas.php:39
+msgid "Toggle the Widgetbar"
+msgstr ""
+
+#: ../x/framework/views/global/_footer-scroll-top.php:13
+msgid "Back to Top"
+msgstr ""
+
+#: ../x/framework/functions/global/breadcrumbs.php:131
+msgid "Search Results for "
+msgstr ""
+
+#: ../x/framework/functions/global/breadcrumbs.php:230
+msgid "Posts by "
+msgstr ""
+
+#: ../x/framework/functions/global/breadcrumbs.php:234
+msgid "404 (Page Not Found)"
+msgstr ""
+
+#: ../x/framework/functions/global/breadcrumbs.php:241
+msgid "Archives "
+msgstr ""
+
+#: ../x/framework/functions/global/content.php:44
+msgid "Pages:"
+msgstr ""
+
+#: ../x/framework/functions/global/content.php:76
+#: ../x/framework/functions/global/content.php:78
+#: ../x/framework/functions/global/content.php:97
+#: ../x/framework/functions/global/plugins/buddypress.php:44
+msgid "Read More"
+msgstr ""
+
+#: ../x/framework/functions/global/content.php:132
+msgid "Previous Post"
+msgstr ""
+
+#: ../x/framework/functions/global/content.php:138
+msgid "Next Post"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:174
+#: ../x/framework/functions/global/portfolio.php:191
+msgid "All"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:187
+msgid "Filter by Category"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:286
+msgid "Share on Facebook"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:287
+msgid "Share on Twitter"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:288
+msgid "Share on Google+"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:289
+msgid "Share on LinkedIn"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:290
+msgid "Share on Pinterest"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:291
+msgid "Share on Reddit"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:292
+msgid "Hey, thought you might enjoy this! Check it out when you have a chance:"
+msgstr ""
+
+#: ../x/framework/functions/global/portfolio.php:292
+msgid "Share via Email"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:170
+#: ../x/framework/functions/global/stack-data.php:187
+msgid "The Blog"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:171
+msgid ""
+"Welcome to our little corner of the Internet. Kick your feet up and stay a "
+"while."
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:172
+msgid "Sort Portfolio"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:175
+#: ../x/framework/functions/global/stack-data.php:192
+#: ../x/framework/functions/global/stack-data.php:215
+#: ../x/framework/functions/global/stack-data.php:238
+msgid "The Shop"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:176
+msgid ""
+"Welcome to our online store. Take some time to browse through our items."
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:338
+msgid "Skills"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:339
+msgid "Launch Project"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:340
+msgid "See it Live!"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:341
+msgid "Share this Project"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:354
+msgid "Activity"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:355
+msgid "Groups"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:356
+msgid "Sites"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:357
+#: ../x/buddypress/groups/single/admin.php:247
+msgid "Members"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:358
+msgid "Create An Account"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:359
+msgid "Activate Your Account"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:360
+msgid "Meet new people, get involved, and stay connected."
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:361
+msgid "Find others with similar interests and get plugged in."
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:362
+msgid ""
+"See what others are writing about. Learn something new and exciting today!"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:363
+msgid "Meet your new online community. Kick up your feet and stay awhile."
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:364
+msgid ""
+"Just fill in the fields below and we'll get a new account set up for you in "
+"no time!"
+msgstr ""
+
+#: ../x/framework/functions/global/stack-data.php:365
+msgid ""
+"You're almost there! Simply enter your activation code below and we'll take "
+"care of the rest."
+msgstr ""
+
+#: ../x/framework/functions/global/tco-setup.php:67
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-approved-plugins.php:46
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:48
+msgid "Details"
+msgstr ""
+
+#: ../x/framework/functions/global/tco-setup.php:69
+msgid "Yep"
+msgstr ""
+
+#: ../x/framework/functions/global/tco-setup.php:70
+msgid "Nope"
+msgstr ""
+
+#: ../x/framework/functions/global/tco-setup.php:80
+msgid ""
+"Could not establish connection. For assistance, please start by reviewing "
+"our article on troubleshooting <a href=\"https://community.theme."
+"co/kb/connection-issues/\">connection issues.</a>"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:40
+msgid "Notify group members of these changes via email"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:46
+#: ../x/buddypress/groups/single/admin.php:127
+#: ../x/buddypress/members/single/profile/edit.php:61
+#: ../x/buddypress/members/single/settings/capabilities.php:13
+#: ../x/buddypress/members/single/settings/profile.php:41
+#: ../x/buddypress/members/single/settings/notifications.php:9
+#: ../x/buddypress/members/single/settings/general.php:24
+msgid "Save"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:148
+msgid ""
+"If you'd like to remove the existing avatar but not upload a new one, please "
+"use the following link:"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:149
+#: ../x/buddypress/groups/single/admin.php:149
+msgid "Delete Avatar"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:160
+msgid "Crop Avatar"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:188
+msgid "Administrators"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:201
+msgid "View Activity"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:204
+#: ../x/buddypress/groups/single/admin.php:233
+msgid "Demote to Member"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:220
+msgid "Moderators"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:232
+#: ../x/buddypress/groups/single/admin.php:232
+#: ../x/buddypress/groups/single/admin.php:285
+#: ../x/buddypress/groups/single/admin.php:285
+msgid "Promote to Admin"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:279
+msgid "Unban this member"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:279
+msgid "Remove Ban"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:283
+msgid "Kick and ban this member"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:283
+msgid "Kick &amp; Ban"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:284
+#: ../x/buddypress/groups/single/admin.php:284
+msgid "Promote to Mod"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:289
+msgid "Remove this member"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:289
+msgid "Remove from group"
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:303
+#: ../x/buddypress/groups/single/members.php:54
+msgid "This group has no members."
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:337
+msgid ""
+"WARNING: Deleting this group will completely remove ALL content associated "
+"with it. There is no way back, please be careful with this option."
+msgstr ""
+
+#: ../x/buddypress/groups/single/admin.php:340
+msgid "I understand the consequences of deleting this group."
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum.php:19
+msgid "New Topic"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum.php:27
+#: ../x/buddypress/groups/single/forum/edit.php:16
+#: ../x/buddypress/groups/single/forum/topic.php:17
+msgid "Forum Directory"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum.php:69
+msgid "You will auto join this group when you start a new topic."
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum.php:73
+msgid "Post a New Topic:"
+msgstr ""
+
+#: ../x/buddypress/groups/single/group-header.php:12
+#, php-format
+msgid "active %s"
+msgstr ""
+
+#: ../x/buddypress/groups/single/group-header.php:36
+msgid "Admins"
+msgstr ""
+
+#: ../x/buddypress/groups/single/group-header.php:45
+msgid "Mods"
+msgstr ""
+
+#: ../x/buddypress/groups/single/invites-loop.php:71
+#: ../x/buddypress/members/single/messages/compose.php:28
+msgid "Send"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/migration.php:256
+msgid ""
+"Congratulations, you&apos;ve successfully updated X! Be sure to <a "
+"href=\"//theme.co/changelog/\" target=\"_blank\">check out the release notes "
+"and changelog</a> to see all that has changed, especially if you&apos;re "
+"utilizing any additional plugins or have made modifications to your website "
+"via a child theme."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/setup.php:83
+msgid "Primary Menu"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/setup.php:84
+#: ../x/framework/functions/global/admin/customizer/register.php:948
+msgid "Footer Menu"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:30
+#: ../x/framework/functions/global/admin/customizer/register.php:239
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:126
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:151
+msgid "Portfolio"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:31
+msgid "Portfolio Item"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:32
+msgid "Add New Item"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:33
+#: ../x/framework/functions/global/admin/custom-post-types.php:35
+msgid "Add New Portfolio Item"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:34
+msgid "Edit Portfolio Item"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:36
+msgid "View Item"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:37
+msgid "Search Portfolio"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:38
+msgid "No portfolio items found"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:39
+msgid "No portfolio items found in trash"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:65
+#: ../x/framework/functions/global/admin/custom-post-types.php:79
+msgid "Portfolio Tags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:66
+msgid "Portfolio Tag"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:67
+msgid "Search Portfolio Tags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:68
+msgid "Popular Portfolio Tags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:69
+msgid "All Portfolio Tags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:70
+msgid "Parent Portfolio Tag"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:71
+msgid "Parent Portfolio Tag:"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:72
+msgid "Edit Portfolio Tag"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:73
+msgid "Update Portfolio Tag"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:74
+msgid "Add New Portfolio Tag"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:75
+msgid "New Portfolio Tag Name"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:76
+msgid "Separate portfolio tags with commas"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:77
+msgid "Add or remove portfolio tags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:78
+msgid "Choose from the most used portfolio tags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:102
+#: ../x/framework/functions/global/admin/custom-post-types.php:116
+msgid "Portfolio Categories"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:103
+msgid "Portfolio Category"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:104
+msgid "Search Portfolio Categories"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:105
+msgid "Popular Portfolio Categories"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:106
+msgid "All Portfolio Categories"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:107
+msgid "Parent Portfolio Category"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:108
+msgid "Parent Portfolio Category:"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:109
+msgid "Edit Portfolio Category"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:110
+msgid "Update Portfolio Category"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:111
+msgid "Add New Portfolio Category"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:112
+msgid "New Portfolio Category Name"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:113
+msgid "Separate portfolio categories with commas"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:114
+msgid "Add or remove portfolio categories"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:115
+msgid "Choose from the most used portfolio categories"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/custom-post-types.php:154
+msgid "Thumbnail"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/widgets.php:54
+msgid "Main Sidebar"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/widgets.php:56
+msgid "Appears on posts and pages that include the sidebar."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/widgets.php:71
+msgid "Header "
+msgstr ""
+
+#: ../x/framework/functions/global/admin/widgets.php:73
+msgid "Widgetized header area."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/widgets.php:89
+msgid "Footer "
+msgstr ""
+
+#: ../x/framework/functions/global/admin/widgets.php:91
+msgid "Widgetized footer area."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:123
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-validation.php:34
+msgid "You&apos;re almost finished!"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:124
+msgid ""
+"Great to see you&apos;re using Cornerstone with X, but it is ​<strong>not "
+"validated</strong>. Once X is validated, Cornerstone will automatically be "
+"validated as well. You&apos;ll also have instant access to support, "
+"automatic updates, custom templates, and more."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:125
+msgid "CLICK HERE TO VALIDATE"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:146
+#: ../x/framework/functions/global/admin/addons/setup.php:55
+msgid "How do I unlock this feature?"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:147
+#, php-format
+msgid ""
+"By validating X. Once X is validated, Cornerstone will automatically be "
+"validated as well.<br><br>You can validate X <a href=\"%s\">here</a>."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:202
+msgid ""
+"We see this is an X site, would you like to purchase another X license? "
+"Cornerstone is always included for free with X."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:204
+msgid "Purchase X (includes Cornerstone)"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/cornerstone.php:205
+msgid "Just Cornerstone"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:332
+#: ../x/framework/functions/global/plugins/buddypress.php:386
+#: ../x/framework/functions/global/plugins/buddypress.php:461
+#: ../x/framework/functions/global/plugins/bbpress.php:524
+msgid "Log in"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:337
+#: ../x/framework/functions/global/plugins/buddypress.php:388
+msgid "Register"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:357
+msgid "Edit Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:407
+msgid "Your Activity"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:463
+#: ../x/framework/functions/global/plugins/bbpress.php:526
+msgid "Profile"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:469
+#: ../x/framework/functions/global/admin/customizer/register.php:240
+msgid "Social"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:588
+msgid "Accepted"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:590
+msgid "comments"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:591
+msgid "Are you sure you want to leave this group?"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:593
+msgid "My Favorites"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:594
+msgid "Rejected"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:596
+msgid "Show all"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:597
+msgid "Show all comments for this thread"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:598
+#, php-format
+msgid "Show all %d comments"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:599
+msgid ""
+"Your profile has unsaved changes. If you leave the page, the changes will be "
+"lost."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:600
+msgid "View"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/buddypress.php:601
+msgid "Show: "
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:77
+msgid "To Forums List"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:188
+msgid "Topic Tags"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:302
+msgid "To Parent Forum"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:491
+msgid "Content"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:515
+msgid "Forums Search"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:518
+msgid "Favorites"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:519
+msgid "Subscriptions"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/bbpress.php:533
+msgid "Forums"
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/the-grid.php:28
+msgid ""
+"This is an exclusive deal for X users only. Your validated X license unlocks "
+"all features of The Grid including the skin builder. Updates are distributed "
+"automatically by Themeco as well as support provided in our forum."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/woocommerce.php:333
+#: ../x/framework/functions/global/plugins/woocommerce.php:335
+msgid ""
+"There doesn&lsquo;t seem to be any available shipping methods. Please double "
+"check your address, or contact us if you need any help."
+msgstr ""
+
+#: ../x/framework/functions/global/plugins/woocommerce.php:358
+msgid "Apply Coupon"
+msgstr "Applica Codice Promozionale"
+
+#: ../x/framework/functions/global/plugins/woocommerce.php:430
+#, php-format
+msgid "%d Item"
+msgid_plural "%d Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../x/buddypress/members/single/notifications/notifications-loop.php:4
+msgid "Notification"
+msgstr ""
+
+#: ../x/buddypress/members/single/notifications/notifications-loop.php:5
+msgid "Date Received"
+msgstr ""
+
+#: ../x/buddypress/members/single/notifications/notifications-loop.php:6
+msgid "Actions"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/edit.php:10
+#, php-format
+msgid "Editing '%s' Profile Group"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/edit.php:33
+msgid "Change"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:12
+msgid "Change Profile Photo"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:13
+msgid ""
+"Your profile photo will be used on your profile and throughout the site. If "
+"there is a <a href=\"http://gravatar.com\">Gravatar</a> associated with your "
+"account email we will use that, or you can upload an image from your "
+"computer."
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:20
+msgid ""
+"Click below to select a JPG, GIF or PNG format photo from your computer and "
+"then click 'Upload Image' to proceed."
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:24
+msgid "Upload Image"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:29
+msgid ""
+"If you'd like to delete your current profile photo but not upload a new one, "
+"please use the delete profile photo button."
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:30
+msgid "Delete Profile Photo"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:30
+msgid "Delete My Profile Photo"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:37
+msgid "Crop Your New Profile Photo"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:39
+msgid "Profile Photo to crop"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:42
+msgid "Profile Photo preview"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:45
+msgid "Crop Image"
+msgstr ""
+
+#: ../x/buddypress/members/single/profile/change-avatar.php:69
+msgid ""
+"Your profile photo will be used on your profile and throughout the site. To "
+"change your profile photo, please create an account with <a href=\"http:"
+"//gravatar.com\">Gravatar</a> using the same email address as you used to "
+"register with this site."
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/single.php:14
+msgid "You are alone in this conversation."
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/single.php:18
+#, php-format
+msgid "Conversation between %s and you."
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/single.php:24
+#: ../x/buddypress/members/single/messages/notices-loop.php:43
+#: ../x/buddypress/members/single/messages/messages-loop.php:45
+msgid "Delete Message"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/notices-loop.php:36
+msgid "Sent:"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/notices-loop.php:54
+msgid "Sorry, no notices were found."
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/compose.php:5
+msgid "Send To (Username or Friend's Name)"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/compose.php:14
+msgid "This is a notice to all users."
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/compose.php:20
+#: ../x/buddypress/members/single/messages/messages-loop.php:11
+msgid "Message"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/messages-loop.php:10
+msgid "From"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/messages-loop.php:10
+msgid "To"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/messages-loop.php:12
+msgid "Action"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/messages-loop.php:37
+msgid "View Message"
+msgstr ""
+
+#: ../x/buddypress/members/single/messages/messages-loop.php:73
+msgid "Sorry, no messages were found."
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/delete-account.php:8
+msgid ""
+"Deleting your account will delete all of the content you have created. It "
+"will be completely irrecoverable."
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/delete-account.php:12
+msgid ""
+"Deleting this account will delete all of the content it has created. It will "
+"be completely irrecoverable."
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/delete-account.php:23
+msgid "I understand the consequences."
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/capabilities.php:9
+msgid "This user is a spammer."
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/profile.php:15
+msgid "Visibility"
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/general.php:9
+msgid "Lost your password?"
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/general.php:13
+msgid "Account Email"
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/general.php:16
+msgid "Change Password <span>(leave blank for no change)</span>"
+msgstr ""
+
+#: ../x/buddypress/members/single/settings/general.php:19
+msgid "Repeat New Password <span>(confirm above entry)</span>"
+msgstr ""
+
+#: ../x/buddypress/members/single/friends/requests.php:20
+#: ../x/buddypress/members/single/groups/invites.php:22
+msgid "Accept"
+msgstr ""
+
+#: ../x/buddypress/members/single/friends/requests.php:21
+#: ../x/buddypress/members/single/groups/invites.php:23
+msgid "Reject"
+msgstr ""
+
+#: ../x/buddypress/members/single/friends/requests.php:46
+msgid "You have no pending friendship requests."
+msgstr ""
+
+#: ../x/buddypress/members/single/groups/invites.php:42
+msgid "You have no outstanding group invites."
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/edit.php:25
+msgid "Edit:"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/edit.php:58
+#: ../x/buddypress/groups/single/forum/edit.php:74
+msgid "Save Changes"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/edit.php:87
+msgid "This topic does not exist."
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:9
+msgid "New Reply"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:32
+msgid "Topic tags:"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:81
+#, php-format
+msgid "%1$s said %2$s:"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:119
+msgid "There are no posts for this topic."
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:134
+msgid "You will auto join this group when you reply to this topic."
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:139
+msgid "Add a reply:"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:144
+msgid "Post Reply"
+msgstr ""
+
+#: ../x/buddypress/groups/single/forum/topic.php:155
+msgid "This topic is closed, replies are no longer accepted."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:32
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:68
+msgid "Archive Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:34
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:72
+msgid "Enter in a value to overwrite the default title of the archive page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:37
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:77
+msgid "Archive Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:39
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:81
+msgid "Enter in a value to overwrite the default subtitle of the archive page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:42
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:86
+msgid "Accent"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:44
+#: ../x/framework/functions/global/admin/meta/taxonomies.php:90
+msgid "Choose an accent color to be used for certain design elements."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:24
+msgid "Page Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:25
+msgid ""
+"Here you will find various options you can use to create different page "
+"layouts and styles."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:31
+#: ../x/framework/functions/global/admin/meta/entries.php:325
+#: ../x/framework/functions/global/admin/meta/entries.php:592
+msgid "Body CSS Class(es)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:32
+#: ../x/framework/functions/global/admin/meta/entries.php:326
+#: ../x/framework/functions/global/admin/meta/entries.php:593
+msgid ""
+"Add a custom CSS class to the &lt;body&gt; element. Separate multiple class "
+"names with a space."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:38
+#: ../x/framework/functions/global/admin/meta/entries.php:339
+#: ../x/framework/functions/global/admin/meta/entries.php:599
+msgid "Alternate Index Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:39
+#: ../x/framework/functions/global/admin/meta/entries.php:340
+#: ../x/framework/functions/global/admin/meta/entries.php:600
+msgid ""
+"Filling out this text input will replace the standard title on all index "
+"pages (i.e. blog, category archives, search, et cetera) with this one."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:45
+msgid "Disable Page Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:46
+msgid ""
+"Select to disable the page title. Disabling the page title provides greater "
+"stylistic flexibility on individual pages."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:52
+msgid "One Page Navigation"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:53
+msgid ""
+"To activate your one page navigation, select a menu from the dropdown. To "
+"deactivate one page navigation, set the dropdown back to \"Deactivated.\""
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:59
+#: ../x/framework/functions/global/admin/meta/entries.php:346
+#: ../x/framework/functions/global/admin/meta/entries.php:636
+msgid "Background Image(s)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:60
+#: ../x/framework/functions/global/admin/meta/entries.php:347
+#: ../x/framework/functions/global/admin/meta/entries.php:637
+msgid ""
+"Click the button to upload your background image(s), or enter them in "
+"manually using the text field above. Loading multiple background images will "
+"create a slideshow effect. To clear, delete the image URLs from the text "
+"field and save your page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:66
+#: ../x/framework/functions/global/admin/meta/entries.php:353
+#: ../x/framework/functions/global/admin/meta/entries.php:643
+msgid "Background Image(s) Fade"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:67
+#: ../x/framework/functions/global/admin/meta/entries.php:354
+#: ../x/framework/functions/global/admin/meta/entries.php:644
+msgid ""
+"Set a time in milliseconds for your image(s) to fade in. To disable this "
+"feature, set the value to \"0.\""
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:73
+#: ../x/framework/functions/global/admin/meta/entries.php:360
+#: ../x/framework/functions/global/admin/meta/entries.php:650
+msgid "Background Images Duration"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:74
+#: ../x/framework/functions/global/admin/meta/entries.php:361
+#: ../x/framework/functions/global/admin/meta/entries.php:651
+msgid ""
+"Only applicable if multiple images are selected, creating a background image "
+"slider. Set a time in milliseconds for your images to remain on screen."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:93
+msgid "Icon Page Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:94
+msgid ""
+"Here you will find some options specific to Icon that you can use to create "
+"different page layouts."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:100
+msgid "Blank Template Sidebar"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:101
+msgid ""
+"Because of Icon's unique layout, there may be times where you wish to show a "
+"sidebar on your blank templates. If that is the case, select \"Yes\" to "
+"activate your sidebar."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:123
+msgid "Slider Settings: Above Masthead"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:124
+msgid "Select your options to display a slider above the masthead."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:130
+#: ../x/framework/functions/global/admin/meta/entries.php:194
+msgid "Slider"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:131
+#: ../x/framework/functions/global/admin/meta/entries.php:195
+msgid ""
+"To activate your slider, select an option from the dropdown. To deactivate "
+"your slider, set the dropdown back to \"Deactivated.\""
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:137
+#: ../x/framework/functions/global/admin/meta/entries.php:201
+msgid "Optional Background Video"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:138
+#: ../x/framework/functions/global/admin/meta/entries.php:202
+msgid ""
+"Include your video URL(s) here. If using multiple sources, separate them "
+"using the pipe character (|) and place fallbacks towards the end (i.e. .webm "
+"then .mp4 then .ogv)."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:144
+#: ../x/framework/functions/global/admin/meta/entries.php:208
+msgid "Video Poster Image (For Mobile)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:145
+#: ../x/framework/functions/global/admin/meta/entries.php:209
+msgid ""
+"Click the button to upload your video poster image to show on mobile devices,"
+" or enter it in manually using the text field above. Only select one image "
+"for this field. To clear, delete the image URL from the text field and save "
+"your page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:151
+#: ../x/framework/functions/global/admin/meta/entries.php:215
+msgid "Enable Scroll Bottom Anchor"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:152
+#: ../x/framework/functions/global/admin/meta/entries.php:216
+msgid "Select to enable the scroll bottom anchor for your slider."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:158
+#: ../x/framework/functions/global/admin/meta/entries.php:222
+msgid "Scroll Bottom Anchor Alignment"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:159
+#: ../x/framework/functions/global/admin/meta/entries.php:223
+msgid "Select the alignment of the scroll bottom anchor for your slider."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:166
+#: ../x/framework/functions/global/admin/meta/entries.php:230
+msgid "Scroll Bottom Anchor Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:167
+#: ../x/framework/functions/global/admin/meta/entries.php:231
+msgid "Select the color of the scroll bottom anchor for your slider."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:173
+#: ../x/framework/functions/global/admin/meta/entries.php:237
+msgid "Scroll Bottom Anchor Color Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:174
+#: ../x/framework/functions/global/admin/meta/entries.php:238
+msgid "Select the hover color of the scroll bottom anchor for your slider."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:187
+msgid "Slider Settings: Below Masthead"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:188
+msgid "Select your options to display a slider below the masthead."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:257
+msgid "Portfolio Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:258
+msgid "Here you will find various options you can use to setup your portfolio."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:264
+msgid "Category Select"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:265
+msgid ""
+"To select multiple nonconsecutive pages or posts, hold down \"CTRL\" "
+"(Windows) or \"COMMAND\" (Mac), and then click each item you want to select. "
+"To cancel the selection of individual items, hold down \"CTRL\" or "
+"\"COMMAND\", and then click the items that you don't want to include."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:271
+#: ../x/framework/functions/global/admin/customizer/register.php:985
+#: ../x/framework/functions/global/admin/customizer/register.php:999
+msgid "Columns"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:272
+msgid "Select how many columns you would like to display for your portfolio."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:279
+#: ../x/framework/functions/global/admin/customizer/register.php:785
+#: ../x/framework/functions/global/admin/customizer/register.php:982
+#: ../x/framework/functions/global/admin/customizer/register.php:996
+#: ../x/framework/functions/global/admin/customizer/register.php:1085
+#: ../x/framework/functions/global/admin/customizer/register.php:1108
+msgid "Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:280
+msgid ""
+"Select the layout you would like to display for your portfolio. The \"Use "
+"Global Content Layout\" option allows you to keep your sidebar if you have "
+"already selected \"Content Left, Sidebar Right\" or \"Sidebar Left, Content "
+"Right\" for your \"Content Layout\" in the Customizer."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:287
+#: ../x/framework/functions/global/admin/customizer/register.php:506
+#: ../x/framework/functions/global/admin/customizer/register.php:543
+#: ../x/framework/functions/global/admin/customizer/register.php:560
+#: ../x/framework/functions/global/admin/customizer/register.php:1218
+msgid "Posts Per Page"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:288
+msgid ""
+"Select how many posts you would like to display per page for your portfolio."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:294
+msgid "Disable Filtering"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:295
+msgid ""
+"Turning off the portfolio filters will remove the ability to sort portfolio "
+"items by category."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:318
+msgid "Post Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:319
+msgid ""
+"Here you will find various options you can use to create different page "
+"styles."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:332
+msgid "Fullwidth Post Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:333
+msgid ""
+"If your global content layout includes a sidebar, selecting this option will "
+"remove the sidebar for this post."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:378
+msgid "Quote Post Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:379
+#: ../x/framework/functions/global/admin/meta/entries.php:386
+msgid "Input your quote."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:385
+msgid "The Quote"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:392
+msgid "Citation"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:393
+msgid "Specify who originally said the quote."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:410
+msgid "Link Post Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:411
+msgid "Input your link."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:417
+msgid "The Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:418
+msgid "Insert your link URL, e.g. http://www.themeforest.net."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:435
+msgid "Video Post Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:436
+msgid "These settings enable you to embed videos into your posts."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:442
+msgid "Aspect Ratio"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:443
+msgid "Select the aspect ratio for your video."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:450
+#: ../x/framework/functions/global/admin/meta/entries.php:683
+msgid "M4V File URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:451
+msgid "The URL to the .m4v video file."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:457
+#: ../x/framework/functions/global/admin/meta/entries.php:690
+msgid "OGV File URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:458
+msgid "The URL to the .ogv video file."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:464
+#: ../x/framework/functions/global/admin/meta/entries.php:697
+msgid "Embedded Video Code"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:465
+#: ../x/framework/functions/global/admin/meta/entries.php:698
+msgid ""
+"If you are using something other than self hosted video such as YouTube, "
+"Vimeo, or Wistia, paste the embed code here. This field will override the "
+"above."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:482
+msgid "Audio Post Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:483
+msgid "These settings enable you to embed audio into your posts."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:489
+msgid "MP3 File URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:490
+msgid "The URL to the .mp3 audio file."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:496
+msgid "OGA File URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:497
+msgid "The URL to the .oga or .ogg audio file."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:503
+msgid "Embedded Audio Code"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:504
+msgid ""
+"If you are using something other than self hosted audio such as Soundcloud "
+"paste the embed code here. This field will override the above."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:523
+msgid "Ethos Post Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:524
+msgid ""
+"Here you will find some options specific to Ethos that you can use to create "
+"different post layouts."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:530
+msgid "Index Featured Post Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:531
+msgid "Make the featured image of this post fullwidth on the blog index page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:537
+msgid "Index Featured Post Size"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:538
+msgid ""
+"If the \"Index Featured Post Layout\" option above is selected, select a "
+"size for the output."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:545
+msgid "Post Carousel Display"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:546
+msgid ""
+"Display this post in the Post Carousel if you have \"Featured\" selected in "
+"the Customizer."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:552
+msgid "Post Slider Display &ndash; Blog"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:553
+msgid ""
+"Display this post in the Blog Post Slider if you have \"Featured\" selected "
+"in the Customizer."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:559
+msgid "Post Slider Display &ndash; Archives"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:560
+msgid ""
+"Display this post in the Archives Post Slider if you have \"Featured\" "
+"selected in the Customizer."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:585
+msgid "Portfolio Item Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:586
+msgid "Select the appropriate options for your portfolio item."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:606
+msgid "Portfolio Parent"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:607
+msgid ""
+"Assign the parent portfolio page for this portfolio item. This will be used "
+"in various places throughout the theme such as your breadcrumbs. If "
+"\"Default\" is selected then the first page with the \"Layout - Portfolio\" "
+"template assigned to it will be used."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:613
+msgid "Media Type"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:614
+msgid ""
+"Select which kind of media you want to display for your portfolio. If "
+"selecting a \"Gallery,\" simply upload your images to this post and organize "
+"them in the order you want them to display."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:621
+msgid "Featured Content"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:622
+msgid ""
+"Select \"Media\" if you would like to show your video or gallery on the "
+"index page in place of the featured image."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:629
+msgid "Project Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:630
+msgid ""
+"Provide an external link to the project you worked on if one is available."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:668
+msgid "Video Portfolio Item Settings"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:669
+msgid "These settings enable you to embed videos into your portfolio items."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:675
+msgid "Video Aspect Ratio"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:676
+msgid ""
+"If selecting \"Video,\" choose the aspect ratio you would like for your "
+"video."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:684
+msgid "If selecting \"Video,\" place the URL to your .m4v video file here."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/meta/entries.php:691
+msgid "If selecting \"Video,\" place the URL to your .ogv video file here."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:60
+msgid "On (no submenu support)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:61
+msgid "Off"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:66
+#: ../x/framework/functions/global/admin/customizer/register.php:229
+msgid "Integrity"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:67
+#: ../x/framework/functions/global/admin/customizer/register.php:230
+msgid "Renew"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:68
+#: ../x/framework/functions/global/admin/customizer/register.php:209
+#: ../x/framework/functions/global/admin/customizer/register.php:231
+msgid "Icon"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:69
+#: ../x/framework/functions/global/admin/customizer/register.php:232
+msgid "Ethos"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:73
+#: ../x/framework/functions/global/admin/customizer/register.php:80
+#: ../x/framework/functions/global/admin/customizer/register.php:85
+msgid "Fullwidth"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:74
+msgid "Boxed"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:78
+msgid "Content Left, Sidebar Right"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:79
+msgid "Sidebar Left, Content Right"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:84
+msgid "Use Global Content Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:89
+msgid "Light"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:90
+msgid "Dark"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:94
+#: ../x/framework/functions/global/admin/customizer/register.php:151
+msgid "Standard"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:95
+msgid "Creative"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:99
+msgid "Most Commented"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:100
+msgid "Random"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:101
+msgid "Featured"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:105
+msgid "3D"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:106
+msgid "Flat"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:107
+msgid "Transparent"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:111
+#: ../x/framework/functions/global/admin/customizer/register.php:204
+msgid "Square"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:112
+#: ../x/framework/functions/global/admin/customizer/register.php:205
+msgid "Rounded"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:113
+msgid "Pill"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:117
+msgid "Mini"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:118
+msgid "Small"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:119
+msgid "Regular"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:120
+msgid "Large"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:121
+msgid "Extra Large"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:122
+msgid "Jumbo"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:126
+msgid "Static Top"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:127
+msgid "Fixed Top"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:128
+msgid "Fixed Left"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:129
+msgid "Fixed Right"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:133
+#: ../x/framework/functions/global/admin/customizer/register.php:199
+msgid "Inline"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:134
+#: ../x/framework/functions/global/admin/customizer/register.php:200
+msgid "Stacked"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:138
+msgid "None (Disabled)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:139
+#: ../x/framework/functions/global/admin/customizer/register.php:161
+msgid "One"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:140
+#: ../x/framework/functions/global/admin/customizer/register.php:156
+#: ../x/framework/functions/global/admin/customizer/register.php:162
+msgid "Two"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:141
+#: ../x/framework/functions/global/admin/customizer/register.php:157
+#: ../x/framework/functions/global/admin/customizer/register.php:163
+msgid "Three"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:142
+#: ../x/framework/functions/global/admin/customizer/register.php:164
+msgid "Four"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:146
+msgid "Left"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:147
+msgid "Right"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:152
+msgid "Masonry"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:192
+msgid "Single (Inner)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:193
+msgid "Single (Outer)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:194
+msgid "Double (Inner / Outer)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:195
+msgid "Double (Outer / Inner)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:210
+msgid "Cart Total"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:211
+msgid "Item Count"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:228
+msgid "Stack"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:233
+msgid "Layout and Design"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:234
+msgid "Typography"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:235
+msgid "Buttons"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:236
+msgid "Header"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:237
+msgid "Footer"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:238
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:114
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:178
+msgid "Blog"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:241
+msgid "Site Icons"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:242
+msgid "Custom"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:245
+msgid "bbPress"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:249
+msgid "BuddyPress"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:253
+msgid "WooCommerce"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:262
+msgid "Select"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:270
+msgid "Design"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:273
+msgid "Topbar Transparency"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:276
+msgid "Navbar Transparency"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:279
+msgid "Footer Transparency"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:287
+msgid "Blog Header"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:290
+#: ../x/framework/functions/global/admin/customizer/register.php:370
+msgid "Blog Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:293
+msgid "Blog Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:301
+msgid "Sort Button Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:304
+msgid "Portfolio Index Sharing"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:314
+msgid "Shop Header"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:317
+#: ../x/framework/functions/global/admin/customizer/register.php:392
+#: ../x/framework/functions/global/admin/customizer/register.php:475
+#: ../x/framework/functions/global/admin/customizer/register.php:584
+msgid "Shop Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:320
+msgid "Shop Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:330
+msgid "Topbar Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:333
+msgid "Logobar Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:336
+msgid "Navbar Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:339
+msgid "Mobile Button Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:342
+msgid "Mobile Button Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:345
+msgid "Mobile Button Background Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:348
+msgid "Footer Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:356
+msgid "Topbar Links and Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:359
+msgid "Topbar Links Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:362
+msgid "Footer Links and Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:373
+msgid "Entry Icons"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:376
+msgid "Entry Icon Position"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:379
+msgid "Entry Icon Horizontal Alignment (%)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:382
+msgid "Entry Icon Vertical Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:402
+msgid "Post Title Icon"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:405
+msgid "Standard Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:408
+msgid "Standard Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:411
+msgid "Standard Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:414
+msgid "Image Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:417
+msgid "Image Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:420
+msgid "Image Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:423
+msgid "Gallery Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:426
+msgid "Gallery Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:429
+msgid "Gallery Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:432
+msgid "Video Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:435
+msgid "Video Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:438
+msgid "Video Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:441
+msgid "Audio Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:444
+msgid "Audio Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:447
+msgid "Audio Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:450
+msgid "Quote Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:453
+msgid "Quote Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:456
+msgid "Quote Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:459
+msgid "Link Post Custom Colors"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:462
+msgid "Link Post Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:465
+msgid "Link Post Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:486
+msgid "Topbar Background Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:489
+msgid "Navbar Background Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:492
+msgid "Sidebar Widget Headings Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:495
+msgid "Sidebar Text Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:503
+msgid "Post Carousel"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:509
+#: ../x/framework/functions/global/admin/customizer/register.php:546
+#: ../x/framework/functions/global/admin/customizer/register.php:563
+msgid "Display"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:517
+msgid "Over 1500 Pixels"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:520
+msgid "1200 &ndash; 1499 Pixels"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:523
+msgid "979 &ndash; 1199 Pixels"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:526
+msgid "550 &ndash; 978 Pixels"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:529
+msgid "Below 549 Pixels"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:537
+msgid "Post Slider for Blog"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:540
+#: ../x/framework/functions/global/admin/customizer/register.php:557
+msgid "Slider Height (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:554
+msgid "Post Slider for Archives"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:571
+msgid "Filterable Index"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:574
+msgid "Category IDs"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:594
+msgid "Site Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:597
+msgid "Site Max Width (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:600
+msgid "Site Width (%)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:603
+msgid "Content Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:606
+msgid "Content Width (%)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:609
+msgid "Sidebar Width (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:622
+#: ../x/framework/functions/global/admin/customizer/register.php:1278
+msgid "Background Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:625
+msgid "Background Pattern"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:628
+msgid "Background Image"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:631
+msgid "Background Image Fade (ms)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:639
+msgid "Google Fonts Subsets"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:642
+msgid "Cyrillic"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:645
+msgid "Greek"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:648
+msgid "Vietnamese"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:656
+msgid "Body Font"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:659
+msgid "Body Font Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:662
+msgid "Body Font Size (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:665
+msgid "Content Font Size (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:668
+msgid "Body Font Weight"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:676
+msgid "Headings Font"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:679
+msgid "Headings Font Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:682
+msgid "Headings Font Weight"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:685
+msgid "h1 Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:688
+msgid "h2 Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:691
+msgid "h3 Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:694
+msgid "h4 Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:697
+msgid "h5 Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:700
+msgid "h6 Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:703
+#: ../x/framework/functions/global/admin/customizer/register.php:825
+#: ../x/framework/functions/global/admin/customizer/register.php:873
+msgid "Uppercase"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:706
+msgid "Widget Icons"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:714
+msgid "Site Links"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:717
+msgid "Site Links Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:725
+msgid "Button Style"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:728
+msgid "Button Shape"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:731
+msgid "Button Size"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:740
+#: ../x/framework/functions/global/admin/customizer/register.php:757
+msgid "Button Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:743
+#: ../x/framework/functions/global/admin/customizer/register.php:760
+msgid "Button Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:746
+#: ../x/framework/functions/global/admin/customizer/register.php:763
+msgid "Button Border"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:749
+#: ../x/framework/functions/global/admin/customizer/register.php:766
+msgid "Button Bottom"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:774
+msgid "Navbar Position"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:777
+msgid "Navbar Scrolling"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:788
+msgid "Logobar Top Spacing (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:791
+msgid "Logobar Bottom Spacing (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:799
+msgid "Navbar Top Height (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:802
+msgid "Navbar Side Width (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:810
+msgid "Logo Font"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:813
+msgid "Logo Font Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:816
+msgid "Logo Font Size (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:819
+msgid "Logo Font Weight"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:822
+msgid "Logo Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:833
+msgid "Logo Upload"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:836
+msgid "Logo Width (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:844
+msgid "Navbar Top Logo Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:847
+msgid "Navbar Side Logo Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:855
+msgid "Navbar Font"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:858
+msgid "Navbar Links"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:861
+msgid "Navbar Links Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:864
+msgid "Navbar Font Size (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:867
+msgid "Navbar Font Weight"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:870
+msgid "Navbar Letter Spacing (em)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:881
+msgid "Navbar Top Link Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:884
+msgid "Navbar Top Link Spacing (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:887
+msgid "Navbar Side Link Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:895
+msgid "Navbar Search"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:903
+msgid "Mobile Navbar Button Size (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:906
+msgid "Mobile Navbar Button Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:914
+msgid "Header Widget Areas"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:917
+msgid "Widgetbar Button Background"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:920
+msgid "Widgetbar Button Background Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:928
+msgid "Topbar"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:931
+msgid "Topbar Content"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:934
+msgid "Breadcrumbs"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:942
+msgid "Footer Widget Areas"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:945
+msgid "Bottom Footer"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:951
+msgid "Footer Social"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:954
+#: ../x/framework/functions/global/admin/customizer/register.php:957
+msgid "Footer Content"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:965
+msgid "Scroll Top Anchor"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:968
+msgid "Scroll Top Anchor Position"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:971
+msgid "When to Display the Scroll Top Anchor (%)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:979
+#: ../x/framework/functions/global/admin/customizer/register.php:993
+msgid "Style"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1007
+#: ../x/framework/functions/global/admin/customizer/register.php:1032
+msgid "Post Meta"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1010
+msgid "Full Post Content on Index"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1013
+msgid "Excerpt Length"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1021
+msgid "Custom URL Slug"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1029
+msgid "Cropped Featured Images"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1040
+msgid "Tag List Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1043
+msgid "Launch Project Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1046
+msgid "Launch Project Button Text"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1049
+msgid "Share Project Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1057
+msgid "Facebook Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1060
+msgid "Twitter Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1063
+msgid "Google+ Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1066
+msgid "LinkedIn Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1069
+msgid "Pinterest Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1072
+msgid "Reddit Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1075
+msgid "Email Sharing Link"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1088
+msgid "Topic/Reply Quicktags"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1096
+#: ../x/framework/functions/global/admin/customizer/register.php:1116
+#: ../x/framework/functions/global/admin/customizer/register.php:1174
+msgid "Navbar Menu"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1124
+msgid "Activity Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1127
+msgid "Groups Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1130
+msgid "Sites Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1133
+msgid "Members Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1136
+msgid "Register Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1139
+msgid "Activate Title"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1147
+msgid "Activity Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1150
+msgid "Groups Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1153
+msgid "Sites Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1156
+msgid "Members Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1159
+msgid "Register Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1162
+msgid "Activate Subtitle"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1177
+msgid "Cart Information"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1180
+msgid "Cart Style"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1183
+msgid "Cart Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1186
+msgid "Cart Alignment (px)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1189
+msgid "Cart Content &ndash; Inner"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1192
+msgid "Cart Content &ndash; Outer"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1195
+msgid "Cart Content &ndash; Inner Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1198
+msgid "Cart Content &ndash; Inner Color Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1201
+msgid "Cart Content &ndash; Outer Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1204
+msgid "Cart Content &ndash; Outer Color Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1212
+msgid "Shop Layout"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1215
+msgid "Shop Columns"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1226
+msgid "Product Tabs"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1229
+msgid "Description Tab"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1232
+msgid "Additional Information Tab"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1235
+msgid "Reviews Tab"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1238
+msgid "Related Products"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1241
+msgid "Related Product Columns"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1244
+msgid "Related Product Post Count"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1247
+msgid "Upsells"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1250
+msgid "Upsell Columns"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1253
+msgid "Upsell Post Count"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1261
+msgid "Cross Sells"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1264
+msgid "Cross Sell Columns"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1267
+msgid "Cross Sell Post Count"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1275
+msgid "Icon Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1281
+msgid "Icon Color Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1284
+msgid "Background Color Hover"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1292
+msgid "Image Alignment"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1302
+msgid "Facebook Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1305
+msgid "Twitter Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1308
+msgid "Google+ Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1311
+msgid "LinkedIn Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1314
+msgid "XING Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1317
+msgid "Foursquare Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1320
+msgid "YouTube Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1323
+msgid "Vimeo Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1326
+msgid "Instagram Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1329
+msgid "Pinterest Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1332
+msgid "Dribbble Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1335
+msgid "Flickr Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1338
+msgid "GitHub Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1341
+msgid "Behance Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1344
+msgid "Tumblr Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1347
+msgid "Whatsapp Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1350
+msgid "SoundCloud Profile URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1353
+msgid "RSS Feed URL"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1361
+msgid "Enable Open Graph"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1369
+msgid "Social Fallback Image"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1377
+msgid "Favicon (Set Path to Image Below)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1380
+msgid "Touch Icon (iOS and Android)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1383
+msgid "Tile Icon (Microsoft)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1386
+msgid "Tile Icon Background Color"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1394
+#: ../x/framework/functions/global/admin/customizer/register.php:1397
+msgid "Custom Code"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1394
+msgid "Edit Global CSS"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/register.php:1397
+msgid "Edit Global JavaScript"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/preloader.php:95
+msgid "Powered by Themeco"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/setup.php:56
+msgid ""
+"If you have purchased X from ThemeForest already, you can find your purchase "
+"code <a href=\"https://community.theme.co/images/find-item-purchase-code."
+"png\" target=\"_blank\">here</a>. If you do not have a license or need to "
+"get another, you can <a href=\"https://theme.co/go/join-validation.php\" "
+"target=\"_blank\">purchase</a> one."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/setup.php:57
+msgid "Where do I enter my purchase code?"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/setup.php:58
+#, php-format
+msgid ""
+"Once you have a purchase code you can <a %s href=\"#\">enter</a> it in the "
+"input at the top of this page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/setup.php:142
+#, php-format
+msgid ""
+"This X license is ​<strong>not validated</strong>​. <a href=\"%s\">Fix</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/page-home.php:83
+msgid ""
+"<strong>NOTE:</strong> A separate license is required for each site using X. "
+"Each X purchase includes a Cornerstone license."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/page-home.php:86
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:92
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:103
+msgid "Manage Licenses"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/page-home.php:87
+msgid "Purchase Another License"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/page-home.php:91
+msgid ""
+"Your site is validated. <a href=\"#\" data-tco-module-target=\"revoke\">"
+"Revoke validation</a>."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:41
+msgid "100 &ndash; Ultra Light"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:42
+msgid "100 &ndash; Ultra Light (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:43
+msgid "200 &ndash; Light"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:44
+msgid "200 &ndash; Light (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:45
+msgid "300 &ndash; Book"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:46
+msgid "300 &ndash; Book (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:47
+msgid "400 &ndash; Regular"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:48
+msgid "400 &ndash; Regular (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:49
+msgid "500 &ndash; Medium"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:50
+msgid "500 &ndash; Medium (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:51
+msgid "600 &ndash; Semi-Bold"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:52
+msgid "600 &ndash; Semi-Bold (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:53
+msgid "700 &ndash; Bold"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:54
+msgid "700 &ndash; Bold (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:55
+msgid "800 &ndash; Extra Bold"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:56
+msgid "800 &ndash; Extra Bold (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:57
+msgid "900 &ndash; Ultra Bold"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/customizer/fonts/control-values.php:58
+msgid "900 &ndash; Ultra Bold (Italic)"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-session.php:41
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-session.php:53
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:25
+#: ../x/framework/functions/global/admin/addons/demo/legacy/ajax-handler.php:29
+msgid "We&apos;re sorry, the demo failed to finish importing."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-session.php:89
+msgid "Incompatible demo version. Please update X."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:148
+msgid "Initializing..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:180
+msgid "Revolution Slider downloaded..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:229
+msgid "Downloading images..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:267
+msgid "Preparing taxonomies..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:319
+msgid "Attaching thumbnails..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:389
+msgid "Creating posts..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:446
+msgid "Adding post data..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:492
+msgid "Creating menus..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:591
+msgid "Setting Customizer values..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/class-x-demo-import-processor.php:614
+msgid "Assigning menus..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-validation.php:35
+msgid ""
+"Your license of X is <strong class=\"tco-c-nope\">not validated</strong>. "
+"Place your Envato purchase code or Themeco license to unlock automatic "
+"updates, access to support, and Extensions. <a href=\"https://community."
+"theme.co/kb/product-validation/\" target=\"_blank\">Learn more</a> about "
+"product validation or <a href=\"https://community.theme.co/my-licenses/\" "
+"target=\"_blank\">manage licenses</a> directly in your Themeco account."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-validation.php:49
+msgid "Input Code and Hit Enter"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-approved-plugins.php:25
+msgid "Approved Plugins"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-approved-plugins.php:29
+#, php-format
+msgid ""
+"Once installed, each can be activated or deactivated on the <a href=\"%s\">"
+"Plugins</a> page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-approved-plugins.php:48
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:50
+msgid "Install"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:25
+msgid "Demo Content"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:41
+msgid ""
+"<strong>Standard Demos</strong> include placeholder content for the home "
+"page along with example posts. <strong>Expanded Demos</strong> include "
+"everything you see in the demo&mdash;all content, graphics, widgets, sliders,"
+" settings, and more."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:46
+msgid "Setup Demo Content"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:57
+msgid "Get Free Content"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:58
+msgid "Build on top of a firm foundation"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:64
+msgid "Spark Your Creativity"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:65
+msgid "Great for any project"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:71
+msgid "Customize Away"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-demo-content.php:72
+msgid "Tailor with our child theme"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:25
+msgid "Automatic Updates"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:35
+msgid "Installed Version"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:36
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:43
+msgid "Changelog"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:42
+msgid "Latest Version Available"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:49
+msgid "Checked Every 12 Hours"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:50
+msgid "Check Now"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:63
+msgid "Admin Notifications"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:64
+msgid "Get updates in WordPress"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:70
+msgid "Stay Up to Date"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:71
+msgid "Use the latest features right away"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:77
+msgid "Manual No More"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-automatic-updates.php:78
+msgid "Say goodbye to your FTP client"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:25
+msgid "Support"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:33
+msgid "Real People"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:34
+msgid "A professional and courteous staff"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:40
+msgid "Around the Clock"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:41
+msgid "Get help at any time, day or night"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:47
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:54
+msgid "Knowledge Base"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:48
+msgid "Dozens of articles and videos"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-support.php:54
+msgid "Forum"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:25
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:77
+msgid "Extensions"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:31
+#, php-format
+msgid ""
+"Once installed, you can activate or deactivate each Extension on the <a "
+"href=\"%s\">Plugins</a> page."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:74
+msgid "Over $1,000 in Value!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-extensions.php:75
+msgid ""
+"20+ Extensions (plugins) created by Themeco and 3rd parties to work "
+"seamlessly with X. Instantly download with each verified purchase. <strong>"
+"Oh, and they are all free!</strong>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-customizer-manager.php:25
+msgid "Customizer Manager"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-customizer-manager.php:35
+msgid "<strong>Choose an XCS file</strong> or drag it here to import."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/markup/page-home-box-customizer-manager.php:45
+msgid "Export"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:18
+msgid "Verifying license&hellip;"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:19
+msgid ""
+"<strong>Uh oh</strong>, we couldn&apos;t check if this license was valid. <a "
+"data-tco-error-details href=\"#\">Details.</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:21
+msgid ""
+"<strong>Congratulations!</strong> Your site is validated. Addons are now "
+"unlocked."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:23
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:74
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:28
+msgid "Go Back"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:29
+msgid ""
+"By revoking validation, you will no longer receive automatic updates, access "
+"to demo content, or the ability to install Extensions. The site will still "
+"be linked in your Themeco account, so you can re-validate at anytime.<br/>"
+"<br/> Visit \"Licenses\" in your Themeco account to transfer a license to "
+"another site."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:30
+msgid "Yes, revoke validation"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:31
+msgid "Stay validated"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:32
+msgid "Revoking&hellip;"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:34
+#, php-format
+msgid ""
+"<strong>Validation revoked.</strong> You can re-assign licenses from <a "
+"href=\"%s\" target=\"_blank\">Manage Licenses</a>."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:73
+msgid ""
+"We&apos;ve checked the code, but it <strong>doesn&apos;t appear to be an X "
+"purchase code or Themeco license.</strong> Please double check the code and "
+"try again."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:82
+msgid ""
+"This looks like a <strong>brand new purchase code that hasn&apos;t been "
+"added to a Themeco account yet.</strong> Login to your existing account or "
+"register a new one to continue."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:83
+msgid "Login or Register"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:91
+msgid ""
+"Your code is valid, but <strong>we couldn&apos;t automatically link it to "
+"your site.</strong> You can add this site from within your Themeco account."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:102
+msgid ""
+"Your code is valid but looks like it has <strong>already been used on "
+"another site.</strong> You can revoke and re-assign within your Themeco "
+"account."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-validation.php:112
+msgid "<strong>Congratulations,</strong> your site is now validated!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:16
+#, php-format
+msgid ""
+"We attempted to installed Cornerstone (required by X) automatically, but "
+"were unable to. You may need to <a target=\"_blank\" href=\"%s\">install "
+"Cornerstone manually</a>. <a data-tco-error-details href=\"#\">Error Details."
+"</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:17
+#, php-format
+msgid ""
+"Cornerstone has been installed, but could not be automatically activated. "
+"Please activate from the <a href=\"%s\">plugins page</a>. <a data-tco-error-"
+"details href=\"#\">Error Details.</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:24
+msgid "Error encountered."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:25
+msgid "Go Activate"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:26
+msgid "Installed & Activated"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:100
+msgid "Cornerstone (required by X) has been automatically installed."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:119
+msgid ""
+"We noticed Cornerstone was installed but not activated. By visiting the X "
+"Addons page, Cornerstone has been activated automatically."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:150
+msgid "Plugin already installed."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-extensions.php:155
+msgid "Your WordPress file permissions do not allow plugins to be installed."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:16
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:97
+msgid "Yes, Proceed"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:17
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:98
+msgid "No, Take me back"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:18
+msgid "Let&apos;s get started!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:19
+msgid "Have fun!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:20
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:22
+msgid "Working on it..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:23
+msgid "Hang in there, trying to reconnect..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:24
+msgid "Experiencing technical difficulties..."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:26
+#, php-format
+msgid "Setup Standard Demo: %s"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:27
+#, php-format
+msgid "Setup Expanded Demo: %s"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:39
+msgid ""
+"Note: Revolution Slider is not active. Activate it from the plugins page, as "
+"Expanded Demos use it to import sliders."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:43
+#, php-format
+msgid ""
+"%sInstalling demo content will not alter any of your pages or posts, but it "
+"will overwrite your Customizer settings. This is not reversible unless you "
+"have previously made a backup of your settings. Are you sure you want to "
+"proceed?"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:78
+msgid ""
+"Unable to retrieve demo content. Your WordPress install may be having issues "
+"making outbound HTTP requests. For more information, please review the <a "
+"href=\"https://theme.co/community/kb/connection-issues/\">connection "
+"issues</a> article in our Knowledge Base."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-demo-content.php:91
+msgid ""
+"No demos found. Refreshing this page may resolve the issue. If it persists, "
+"please review the <a href=\"https://theme.co/community/kb/connection-"
+"issues/\">connection issues</a> article in our Knowledge Base."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:81
+msgid "Nothing to report."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:82
+msgid "New version available!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:83
+msgid "Unable to check for updates. Try again later."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:84
+msgid "Checking&hellip;"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:190
+msgid "API Key Successfuly Validated!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:209
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:213
+#, php-format
+msgid "<a href=\"%s\">Validate X to enable automatic updates</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:217
+#, php-format
+msgid ""
+"X is not validated. <a href=\"%s\">Validate X to enable automatic updates</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:221
+#, php-format
+msgid "<a href=\"%s\">Validate X to enable automatic updates</a>."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:225
+#, php-format
+msgid ""
+"<a href=\"%s\">Validate X to enable automatic updates (go to \"Addons\" &gt; "
+"\"Home\" to learn more.)</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:229
+#, php-format
+msgid ""
+"X is not validated. <a href=\"%s\">Validate X to enable automatic updates."
+"</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-updates.php:246
+msgid ""
+"Could not retrieve extensions list. For assistance, please start by "
+"reviewing our article on troubleshooting <a href=\"https://community.theme."
+"co/kb/connection-issues/\">connection issues.</a>"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:99
+msgid "Modern browser required to use importer."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:100
+msgid "Importing&hellip;"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:101
+msgid "All set! Settings imported."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:102
+msgid "The uploaded file was not a valid XCS export."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:103
+msgid ""
+"This will overwrite your Customizer settings and is not reversible unless "
+"you have previously made a backup of your settings. Are you sure you want to "
+"proceed?"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:104
+msgid "Downloading XCS file&hellip;"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:105
+msgid "Resetting&hellip;"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:106
+msgid "Customizer settings successfully reset!"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:107
+msgid "X was unable to reset the Customizer."
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/modules/class-addons-customizer-manager.php:108
+msgid ""
+"This will reset your Customizer settings and is not reversible unless you "
+"have previously made a backup of your settings. Are you sure you want to "
+"proceed?"
+msgstr ""
+
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:104
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:143
+#: ../x/framework/functions/global/admin/addons/demo/legacy/helper.php:168
+msgid "Home"
+msgstr ""
+
+#. Name of the theme
+msgid "X &ndash; Child Theme"
+msgstr ""
+
+#. Description of the theme
+msgid "Make all of your modifications to X in this child theme."
+msgstr ""
+
+#. URI of the theme
+msgid "http://theme.co/x/"
+msgstr ""
+
+#. Author of the theme
+msgid "Themeco"
+msgstr ""
+
+#. Author URI of the theme
+msgid "http://theme.co/"
+msgstr ""
+
+#: ../x/framework/functions/global/navbar.php:143
+msgid "Type and Press &ldquo;enter&rdquo; to Search"
+msgstr "Scrivi e premi Enter per cercare"

@@ -1,0 +1,75 @@
+/*
+tema natalizio 25/12/17
+*/
+.x-navbar,
+#post-8730 .entry-wrap, /*pagina offerte*/
+.x-breadcrumb-wrap,
+.page-id-5927 .x-main,
+.home .x-main.x-container{
+		background-image : url(http://www.essenzial.it/wp-content/uploads/2017/12/essenzial-deco-natale.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+}
+
+div.x-breadcrumb-wrap{
+	margin-top:0 !important;
+}
+
+.home #x-content-band-1,
+.home #x-content-band-1 .x-container.wpb_row{
+	position:relative;
+}
+
+.home #x-content-band-1 .x-container.wpb_row::before{
+	content: '';
+	background-image : url(http://www.essenzial.it/wp-content/uploads/2017/12/fiocco-essenzial-welcome.png);
+	background-repeat: no-repat;
+	position: absolute;
+    z-index: 9;
+    width: 131px;
+    height: 120px;
+    left: -20px;
+    bottom: -16px;
+    background-size: cover;
+}
+
+.home #x-content-band-1::before{
+	content: '';
+	background-image : url(http://www.essenzial.it/wp-content/uploads/2017/12/cornice-essenzial-welcome.png);
+	background-repeat: no-repat;
+	position: absolute;
+    z-index: 9;
+    width: 196px;
+    height: 182px;
+    right: -32px;
+    top: 7px;
+    background-size: contain;	
+}
+
+.home #x-content-band-1 .p-callout{
+    z-index: 99;
+    text-shadow: 0 0 3px #fff;
+}
+
+@media (max-width:767px){
+	.home #x-content-band-1::before{
+		top: -25px;
+	}
+}
+
+@media (min-width: 1200px){
+	.home #x-content-band-1 .x-container.wpb_row::before{
+	    width: 263px;
+	    height: 240px;
+	    bottom: -70px;
+	    left: -80px;
+	
+	}
+	
+	.home #x-content-band-1::before{
+		width: 392px;
+	    height: 364px;
+	    right: -65px;
+	    top: -20px;
+	}
+}

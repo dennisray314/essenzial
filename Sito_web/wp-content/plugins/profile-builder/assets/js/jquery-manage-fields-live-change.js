@@ -199,6 +199,23 @@ var fields 	=	{
 																	}
 																},
 
+						'GDPR Checkbox':						{	'show_rows'	:	[
+																						'.row-field-title',
+																						'.row-meta-name',
+																						'.row-description',
+																						'.row-required',
+																						'.row-overwrite-existing'
+																					],
+																	'properties':	{
+																						'meta_name_value'	: 'user_consent_gdpr',
+																						'field_title'		: wppb_fields_strings.gdpr_title,
+																						'description'		: wppb_fields_strings.gdpr_description
+																					},
+																	'required'	:	[
+																						true
+																					]
+																},
+
 						'Heading':								{	'show_rows'	:	[
 																						'.row-field-title',
 																						'.row-description',
@@ -602,6 +619,12 @@ function wppb_display_needed_fields( index, container_name, current_field_select
 				jQuery( container_name + ' ' + '#meta-name' ).val( properties['meta_name_value'] );
 				jQuery( container_name + ' ' + '#meta-name' ).attr( 'readonly', true );
 			}
+			if ( ( typeof properties['field_title'] !== 'undefined' ) ){
+				jQuery( container_name + ' ' + '#field-title' ).val( properties['field_title'] );
+			}
+			if ( ( typeof properties['description'] !== 'undefined' ) ){
+				jQuery( container_name + ' ' + '#description' ).val( properties['description'] );
+			}
 		}
 		
 	}else{
@@ -721,7 +744,7 @@ function wppb_handle_user_role_field( container_name ) {
 
 function wppb_initialize_live_select( container_name ){
 	wppb_hide_all( container_name );
-	jQuery(document).on( 'change', container_name + ' ' + '.mb-list-entry-fields #field', function () {
+    jQuery(document).on( 'change', container_name + ' ' + '.mb-list-entry-fields #field', function () {
 		field = jQuery(this).val();
 
 		if ( field != ''){
@@ -733,10 +756,35 @@ function wppb_initialize_live_select( container_name ){
 	});
 }
 
+
+function wppb_enable_select2(container_name){
+    // Select2 initialization on manage fields.
+
+    jQuery( container_name + ' #field').select2({
+        placeholder: 'Select an option',
+        allowClear: true
+    })
+
+    var $eventSelect = jQuery( container_name + ' #field');
+    $eventSelect.on("select2:open", function (e) {
+        jQuery('#wppb_select2_overlay').fadeIn('100')
+    });
+    $eventSelect.on("select2:close", function (e) {
+        jQuery('#wppb_select2_overlay').hide();
+    });
+}
+
+
 jQuery(function(){
  	wppb_initialize_live_select ( '#wppb_manage_fields' );
 	wppb_initialize_live_select ( '#container_wppb_manage_fields' );
 
 	wppb_hide_properties_for_already_added_fields( '#container_wppb_manage_fields' );
 	wppb_disable_add_entry_button ( '#wppb_manage_fields' );
+
+    var overlay = jQuery('<div id="wppb_select2_overlay"> </div>')
+    overlay.appendTo(document.body)
+
+    wppb_enable_select2('#wppb_manage_fields');
+
 });

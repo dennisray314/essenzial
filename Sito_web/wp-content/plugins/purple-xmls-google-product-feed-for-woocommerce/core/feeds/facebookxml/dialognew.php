@@ -15,6 +15,7 @@ class FacebookXMLDlg extends PBaseFeedDialog {
 		parent::__construct();
 		$this->service_name = 'FacebookXML';
 		$this->service_name_long = 'Facebook XML Export';
+		$this->doc_link = "https://www.exportfeed.com/documentation/facebook-dynamic-product-ads/";
 	}
 
 	function convert_option($option) {

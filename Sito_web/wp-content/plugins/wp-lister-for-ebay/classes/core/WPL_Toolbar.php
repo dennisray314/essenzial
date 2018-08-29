@@ -254,7 +254,7 @@ class WPLister_Toolbar  {
 
 			// echo "<pre>";print_r($profile);echo"</pre>";#die();
 			$profile_id = $profile['profile_id'];
-			$url = admin_url( 'admin.php?page=wplister&action=wpl_prepare_single_listing&product_id='.$post_id.'&profile_id='.$profile_id );
+			$url = admin_url( 'admin.php?page=wplister&action=wpl_prepare_single_listing&product_id='.$post_id.'&profile_id='.$profile_id .'&_wpnonce='. wp_create_nonce( 'wplister_prepare_single_listing' ) );
 			$args = array(
 				'id'    => 'wplister_list_on_ebay_'.$profile['profile_id'],
 				'title' => $profile['profile_name'],

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -13,7 +13,6 @@ require_once 'ExtendedPictureDetailsType.php';
 
 /**
   * Contains the data for the pictures associated with an item.
-  *  Not applicable to Half.com.
   * 
  **/
 
@@ -23,11 +22,6 @@ class PictureDetailsType extends EbatNs_ComplexType
 	* @var GalleryTypeCodeType
 	**/
 	protected $GalleryType;
-
-	/**
-	* @var anyURI
-	**/
-	protected $GalleryURL;
 
 	/**
 	* @var PhotoDisplayCodeType
@@ -85,14 +79,6 @@ class PictureDetailsType extends EbatNs_ComplexType
 					'required' => false,
 					'type' => 'GalleryTypeCodeType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'GalleryURL' =>
-				array(
-					'required' => false,
-					'type' => 'anyURI',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -180,22 +166,6 @@ class PictureDetailsType extends EbatNs_ComplexType
 	function setGalleryType($value)
 	{
 		$this->GalleryType = $value;
-	}
-
-	/**
-	 * @return anyURI
-	 **/
-	function getGalleryURL()
-	{
-		return $this->GalleryURL;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setGalleryURL($value)
-	{
-		$this->GalleryURL = $value;
 	}
 
 	/**

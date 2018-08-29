@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,10 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'BuyingGuideType.php';
 
 /**
-  * Information about zero or more buying guides and the site's buying guide hub.
-  * Buying guides contain content about particular product areas, categories, or subjects
-  * to help buyers decide which type of item to purchase based on their particular interests.
-  * Multiple buying guides can be returned. See the <a href="http://developer.ebay.com/Devzone/guides/ebayfeatures/Development/Items-Searching.html">eBay Features Guide</a> for additional information.
+  * This type is deprecated.
   * 
  **/
 

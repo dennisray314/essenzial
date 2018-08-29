@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'SellingManagerProductDetailsType.php';
 require_once 'FeesType.php';
 
 /**
-  * Contains values indicating template information for a newly-exported item.
+  * The base response of the <b>AddSellingManagerTemplate</b> call. The response includes the unique identifier and name of the new Selling Manager template, the listing category, some information on the Selling Manager product associated with the template, and the expected listing fees if a listing is created using this Selling Manager template.
   * 
  **/
 

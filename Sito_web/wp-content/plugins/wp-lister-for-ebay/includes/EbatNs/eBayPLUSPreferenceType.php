@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,14 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'CountryCodeType.php';
 
 /**
-  * This type is reserved for future use.
+  * Contains information about a country where a specified seller is eligible to offer eBay Plus on listings, as well as the seller's opt-in status and listing preference for that country. 
+  * <br/><br/>
+  * eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top Rated eBay sellers must opt in to eBay Plus to be able offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.
+  * <br/><br/>
+  * <span class="tablenote">
+  * <strong>Note:</strong> Currently, eBay Plus is available only to buyers in Germany (DE).
+  * </span>
+  * For more details about eBay Plus, see <a href="../../../../guides/ebayfeatures/Development/Feature-eBayPlus.html">Offering eBay Plus</a>.
   * 
  **/
 

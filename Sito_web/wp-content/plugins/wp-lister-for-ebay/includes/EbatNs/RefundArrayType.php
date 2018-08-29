@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,6 +8,8 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'RefundType.php';
 
 /**
+  * <span class="tablenote"><b>Note: </b> This type was only used for Half.com order refunds, and since the Half.com site has been shut down, this type is no longer applicable.
+  * </span>
   * Type used by the <strong>RefundArray</strong> container, which consists of an array of Half.com refunds.
   * 
  **/

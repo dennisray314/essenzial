@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'CharacteristicsSetType.php';
 
 /**
-  * A list of one or more characteristics sets mapped to the category, 
-  * if any. Use this information when working with Item Specifics (Attributes) 
-  * and Pre-filled Item Information (Catalogs) functionality.
+  * This type is deprecated.
   * 
  **/
 

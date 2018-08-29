@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'ReminderCustomizationType.php';
 
 /**
-  * Requests totals for the Buying and Selling reminders from the user's
-  * My eBay account.
+  * This is the base request type of the <b>GetMyeBayReminders</b> call. This call returns the total counts for My eBay Buying and/or My eBay Selling Reminders for a user.
   * 
  **/
 

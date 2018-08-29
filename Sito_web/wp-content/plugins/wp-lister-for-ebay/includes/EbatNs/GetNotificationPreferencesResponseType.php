@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,12 +11,7 @@ require_once 'NotificationUserDataType.php';
 require_once 'NotificationEventPropertyType.php';
 
 /**
-  * Contains the requesting application's notification preferences.
-  * GetNotificationPreferences retrieves preferences that you have
-  * deliberately set. For example, if you enable the EndOfAuction event and
-  * then later disable it, the response shows the EndOfAuction event
-  * preference as Disabled. But if you have never set a preference for the
-  * EndOfAuction event, no EndOfAuction preference is returned at all.
+  * Contains the requesting application's notification preferences. <b>GetNotificationPreferences</b> retrieves preferences that you have deliberately set. For example, if you enable the <b>EndOfAuction</b> event and then later disable it, the response shows the <b>EndOfAuction</b> event preference as <b>Disabled</b>. But if you have never set a preference for the <b>EndOfAuction</b> event, no <b>EndOfAuction</b> preference is returned at all.
   * 
  **/
 

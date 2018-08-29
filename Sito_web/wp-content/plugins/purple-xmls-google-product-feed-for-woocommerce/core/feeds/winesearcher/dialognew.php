@@ -16,6 +16,7 @@ class WinesearcherDlg extends PBaseFeedDialog {
 		$this->service_name = 'Winesearcher';
 		$this->service_name_long = 'Winesearcher XML Feed';
 		$this->blockCategoryList = true;
+		// $this->doc_link = "https://www.exportfeed.com/documentation/";
 	}
 
 }

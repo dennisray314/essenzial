@@ -4,7 +4,7 @@ Donate link: https://themehigh.com/
 Tags: woocommerce extra product options, product field editor, product field customizer, product form editor, product form customizer, product, WooCommerce product, product form designer, custom, custom product fields, custom product option, custom options, customize product, customize variation, extra options, extra product options, form editor, price fields, prices, product, product choices, product price, woocommerce
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.2.8
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,18 +33,21 @@ If you are looking for a custom product fields plugin, WooCommerce Extra Product
 <blockquote>
 = PREMIUM VERSION FEATURES =
 <ul>		
-	<li><strong>11 field types are available:</strong> In new field form or edit field form you can choose field type from a list of 11 including 9 input fields, one field for title/heading and one field for lable/text.
+	<li><strong>14 field types are available:</strong> In new field form or edit field form you can choose field type from a list of 14 including 12 input fields, one field for title/heading and one field for lable/text.
 		 <p>Available field types:</p>
 		 <ol>                  
 			  <li><strong>Text</strong> – A basic input text field.</li>
+			  <li><strong>Hidden</strong> – A hidden field.</li>
 			  <li><strong>Password</strong> – An input password text box.</li>
 			  <li><strong>Textarea</strong> – A textarea field.</li>
 			  <li><strong>Radio</strong> – Radio button input (for selecting one of many choices)</li>
-			  <li><strong>Checkbox</strong> – A checkbox field.</li>                 
+			  <li><strong>Checkbox</strong> – A checkbox field.</li>  
+			  <li><strong>Checkbox Group</strong> – A group of checkboxes (allows multiple selections from many choices).</li>               
 			  <li><strong>Select</strong> – A drop-down list (for selecting one of many choices)</li>
 			  <li><strong>Multi-select</strong> – A drop-down list (allows multiple selections from many choices)</li>               
 			  <li><strong>Date picker</strong> – Select a date from a popup.</li>
 			  <li><strong>Time picker</strong> – Select a time from a list.</li>
+			  <li><strong>File Upload</strong> – A file upload field.</li>
 			  <li><strong>Heading</strong> – Display a heading/ title</li>
 			  <li><strong>Label</strong> – Display a label/ text</li>
 		 </ol>
@@ -56,8 +59,9 @@ If you are looking for a custom product fields plugin, WooCommerce Extra Product
 			  <li>After Add To Cart Button</li>
 		 </ol>
 	</li>
-	<li><strong>Price Fields:</strong> Add price fields in product page.</li>
-	<li><strong>Conditional Fields:</strong> Add fields specific to selected products and categories.</li>
+	<li><strong>Conditional Fields:</strong> Conditionally display fields & sections based on products, categories, user roles and other field(s) values.</li>
+	<li><strong>Custom Validations:</strong> Custom validator feature can be used to define custom validation rules using RegEx.</li>
+	<li><strong>Price Fields:</strong> Add an extra cost to the product price based on field selection.</li>
 </ul>
 </blockquote>
 
@@ -92,6 +96,13 @@ Yes, but in premium version.
 8. Newly added option
 
 == Changelog ==
+= 1.3.0 =
+* Fix for the WooCommerce older version comatibility issue.
+
+= 1.2.9 =
+* Changes in hook parameters to support latest version of WooCommerce.
+* WooCommerce tested up to version updated.
+
 = 1.2.8 =
 * New filter to allow deactivated products also for conditional rules.
 

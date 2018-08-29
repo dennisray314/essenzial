@@ -61,6 +61,7 @@
     <!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
     <form id="listings-filter" method="get" action="<?php echo $wpl_form_action; ?>" >
         <!-- For plugins, we also need to ensure that the form posts back to our current page -->
+        <input type="hidden" id="_wpnonce" name="_wpnonce" value="<?php echo wp_create_nonce( 'bulk-auctions' ); ?>">
         <input type="hidden" name="page" value="<?php echo esc_attr( $_REQUEST['page'] ) ?>" />
         <input type="hidden" name="listing_status" value="<?php echo isset($_REQUEST['listing_status']) ? $_REQUEST['listing_status'] : ''; ?>" />
         <!-- Now we can render the completed list table -->
@@ -77,8 +78,8 @@
 
 			<form method="post" action="<?php echo $wpl_form_action; ?>">
 				<div class="submit" style="padding-top: 0; float: left;">
-					<?php #wp_nonce_field( 'e2e_tools_page' ); ?>
-					<input type="hidden" name="action" value="wpl_clean_listing_archive" />
+					<?php wp_nonce_field( 'wplister_clean_listing_archive' ); ?>
+					<input type="hidden" name="action" value="wple_clean_listing_archive" />
 					<input type="hidden" name="listing_status" value="archived" />
 					<input type="submit" value="<?php echo __('Clean Archive','wplister') ?>" name="submit" class="button"
 						   title="<?php echo __('Delete all listings which have never been listed from the archive.','wplister') ?>">
@@ -179,14 +180,14 @@
 
 				// handle bulk actions click
 				jQuery(".tablenav .actions input[type='submit'].action").on('click', function() {
-					
+
 					if ( 'doaction'  == this.id ) var selected_action = jQuery("select[name='action']").first().val();
 					if ( 'doaction2' == this.id ) var selected_action = jQuery("select[name='action2']").first().val();
 
 					// console.log( this.id );
 					// console.log('action',selected_action);
 
-					if ( selected_action == 'delete_listing' ) {
+					if ( selected_action == 'wple_delete_listing' ) {
 						var confirmed = confirm("<?php echo __('Are you sure you want to do this?','wplister') .' '.  __('You should not delete listings which have been recently published on eBay!','wplister') ?>");
 						if ( ! confirmed ) return false;
 					}
@@ -211,28 +212,28 @@
 							'listing_ids': item_ids
 						}
 
-						if ( 'verify' == selected_action ) {
+						if ( 'wple_verify' == selected_action ) {
 							WpLister.JobRunner.runJob( 'verifyItems', 'Verifying selected items...', params );
 							return false;
 						}
-						if ( 'publish2e' == selected_action ) {
+						if ( 'wple_publish2e' == selected_action ) {
 							WpLister.JobRunner.runJob( 'publishItems', 'Publishing selected items...', params );
 							return false;
 						}
-						if ( 'revise' == selected_action ) {
+						if ( 'wple_revise' == selected_action ) {
 							WpLister.JobRunner.runJob( 'reviseItems', 'Revising selected items...', params );
 							return false;
 						}
-						if ( 'update' == selected_action ) {
+						if ( 'wple_update' == selected_action ) {
 							WpLister.JobRunner.runJob( 'updateItems', 'Updating selected items...', params );
 							return false;
 						}
 
-						if ( 'end_item' == selected_action ) {
+						if ( 'wple_end_item' == selected_action ) {
 							WpLister.JobRunner.runJob( 'endItems', 'Ending selected items...', params );
 							return false;
 						}
-						if ( 'relist' == selected_action ) {
+						if ( 'wple_relist' == selected_action ) {
 							WpLister.JobRunner.runJob( 'relistItems', 'Relisting selected items...', params );
 							return false;
 						}

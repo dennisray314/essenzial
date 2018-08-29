@@ -52,6 +52,7 @@ function CPF_render_navigation()
     $active_tab = isset($_GET['tab']) ? $_GET['tab'] : 'createfeed';
     $tutorials_url = site_url() . '/wp-admin/admin.php?page=cart-product-feed-tutorials-page';
     $url = site_url() . '/wp-admin/admin.php?page=cart-product-feed-manage-page';
+
     ?>
     <div class="nav-wrapper">
         <nav class="nav-tab-wrapper">
@@ -62,20 +63,38 @@ function CPF_render_navigation()
             <a href="http://www.exportfeed.com/contact/"
                target="_blank"
                class="nav-tab <?php echo $active_tab == 'contactus' ? 'nav-tab-active ' : ''; ?>"><?php _e('Contact Us', 'cart-product-strings'); ?></a>
-            <a href="<?php echo $tutorials_url; ?>&tab=tutorials"
+            <a target="_blank" href="<?php echo $tutorials_url; ?>&tab=tutorials"
                class="nav-tab <?php echo $active_tab == 'tutorials' ? 'nav-tab-active ' : ''; ?>"><?php _e('Tutorials', 'cart-product-strings'); ?></a>
 
-            <a href="http://www.exportfeed.com/woocommerce-product-feed/" target="_blank"
-               class="nav-tab"><?php _e('Go Pro', 'cart-product-strings'); ?></a>
+            <?php
+            require_once 'cart-product-wpincludes.php';
+            $ifpremium = false;
+            $reg = new PLicense();
+            if (isset($reg->results['status']) && $reg->results['status'] == 'Active') {
+                $checklicense = $reg->results;
+                $productname = explode(':', $checklicense['productname']);
+                if (strpos($productname[0], 'TRIAL') !== false) {
+                    $ifpremium = false;
+                }else{
+                    $ifpremium = true;
+                }
+            }
+            if ($ifpremium == false) {?>
+                <a href="http://www.exportfeed.com/woocommerce-product-feed/" target="_blank"
+                   class="nav-tab"><?php _e('Go Pro', 'cart-product-strings'); ?></a>
 
-            <ul class="subsubsub" style="float: right;">
-                <li><a href="http://www.exportfeed.com/woocommerce-product-feed/" target="_blank">Go Premium</a> |</li>
-                <li><a href="http://www.exportfeed.com/woocommerce-product-feed/" target="_blank">Product Site</a> |
+            <?php } ?>
+
+            <ul class="subsubsub prem" style="float: right;">
+                <?php if ($ifpremium == false) {?>
+                <li><a href="https://shop.exportfeed.com/cart.php?gid=8" target="_blank">Go Premium</a></li>
+                <?php } ?>
+                <!-- <li><a href="http://www.exportfeed.com/woocommerce-product-feed/" target="_blank">Product Site</a> |
                 </li>
-                <li><a href="http://www.exportfeed.com/faq/" target="_blank">FAQ/Help</a></li>
+                <li><a href="http://www.exportfeed.com/faq/" target="_blank">FAQ/Help</a></li> -->
             </ul>
         </nav>
     </div>
-   
+
     <?php
 }

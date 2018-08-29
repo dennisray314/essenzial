@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,10 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'BuyerPaymentMethodCodeType.php';
 
 /**
-  * This type is deprecated; use 
-  * <b>GetCategoryFeatures</b> with <b>PaymentMethods</b> as a 
-  * <b>FeatureID</b> value in the request.
-  * 
+  * This type is deprecated.
   * 
  **/
 

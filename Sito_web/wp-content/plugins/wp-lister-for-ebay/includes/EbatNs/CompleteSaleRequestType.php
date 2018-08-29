@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,11 +12,11 @@ require_once 'ShipmentType.php';
 
 /**
   * Enables a seller to do various tasks after the creation of a single line item or
-  * multiple line item order. Typically, this call is used after the
-  * buyer has paid for the order, but it can be called by the
-  * seller beforehand. Typical post-payment tasks available to this call include
-  * marking the order as paid, marking the order as shipped, providing shipment tracking
-  * details, and leaving feedback for the buyer.
+  * multiple line item (Combined Invoice) order. Typically, this call is used after the order has been paid
+  * by the buyer, but it can be called by the seller beforehand. Typical post-
+  * payment tasks available to this call include marking the order as paid, marking
+  * the order as shipped, providing shipment tracking details, and leaving feedback
+  * for the buyer.
   * 
  **/
 

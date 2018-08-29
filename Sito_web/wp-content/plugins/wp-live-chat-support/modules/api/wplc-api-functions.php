@@ -85,10 +85,20 @@ function wplc_api_end_chat(WP_REST_Request $request){
 			if($check_token !== false && $request['token'] === $check_token){
 				if(isset($request['chat_id'])){
 					if(isset($request['agent_id'])){
-						if(wplc_change_chat_status(intval($request['chat_id']), 1, intval($request['agent_id']))){
+
+						$cid = $request['chat_id'];
+						if( ! filter_var($request['chat_id'], FILTER_VALIDATE_INT) ) {
+					        /*  We need to identify if this CID is a node CID, and if so, return the WP CID */
+					        $cid = wplc_return_chat_id_by_rel($cid);
+					    }
+
+						if(wplc_change_chat_status($cid, 1, intval($request['agent_id']))){
+
+							do_action('wplc_send_transcript_hook', $cid);
+
 							$return_array['response'] = "Chat ended successfully";
 							$return_array['code'] = "200";
-							$return_array['data'] = array("chat_id" => intval($request['chat_id']),
+							$return_array['data'] = array("chat_id" => $cid,
 														  "agent_id" => intval($request['agent_id']));
 						} else {
 							$return_array['response'] = "Status could not be changed";
@@ -630,8 +640,9 @@ function wplc_api_call_start_chat( WP_REST_Request $request ){
 			    global $wplc_tblname_chats;
 
 			    $wplc_settings = get_option('WPLC_SETTINGS');
-			        
-			    if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
+			      
+			    /** DEPRECATED BY GDPR */  
+			    /*if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
 			        if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
 			            $ip_address = sanitize_text_field($_SERVER['HTTP_X_FORWARDED_FOR']);
 			        } else {
@@ -648,7 +659,13 @@ function wplc_api_call_start_chat( WP_REST_Request $request ){
 			            'user_agent' => sanitize_text_field($_SERVER['HTTP_USER_AGENT'])
 			        );
 			        $wplc_ce_ip = null;
-			    }
+			    }*/
+
+			    $user_data = array(
+		            'ip' => "",
+		            'user_agent' => sanitize_text_field($_SERVER['HTTP_USER_AGENT'])
+		        );
+		        $wplc_ce_ip = null;
 			    
 			    
 		
@@ -688,13 +705,18 @@ function wplc_api_call_start_chat( WP_REST_Request $request ){
 		        $cid = $wpdb->insert_id;
 
 		        /* Nick: moved from top of function to bottom of function to try speed up the process of accepting the chart - version 7 */
-		        if (function_exists("wplc_list_chats_pro")) { /* check if functions-pro is around */
-		            wplc_pro_notify_via_email();
+		        if (function_exists("wplc_pro_notify_via_email")) { /* check if pro is around */
+		            wplc_pro_notify_via_email( array(
+		            	'name' => $request['wplc_name'],
+			            'email' => $request['wplc_email'],
+		            ) );
 		        }
 
 		        do_action("wplc_start_chat_hook_after_data_insert", $cid, 2, $request['wplc_name']);
 
     			do_action("wplc_change_chat_status_hook", $cid, 2); /* so we fire off onesignal events */
+
+    			do_action("wplc_hook_initiate_chat",array("cid" => $request['cid'], "name" => $request['wplc_name'], "email" => $request['wplc_email']));
 		 
 
 				$return_array['response'] = "Visitor successfully started chat";

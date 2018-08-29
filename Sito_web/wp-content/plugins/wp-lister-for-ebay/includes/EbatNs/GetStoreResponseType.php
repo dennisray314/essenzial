@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,11 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'StoreType.php';
 
 /**
-  * Returns the data describing a seller's eBay store, including name, description,
-  * URL, and other information. The caller making the request must be the owner
-  * of an eBay store. If the authenticated caller does not have an eBay store, the
-  * response is an error. A successful response contains either the complete store
-  * configuration or information about the category hierarchy for the store only.
+  * The base response of the <b>GetStore</b> call. This response consists of the data describing a seller's eBay store, and includes the eBay Store name, the description of the store, the URL to the eBay Store, the subscription level, store theme information, and eBay Store Category hierarchy.
   * 
  **/
 

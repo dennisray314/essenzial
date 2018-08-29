@@ -56,7 +56,7 @@
 	<form method="post" action="<?php echo $wpl_form_action; ?>">
 		<p>
 			<?php #wp_nonce_field( 'e2e_tools_page' ); ?>
-			<input type="hidden" name="action" value="update_messages" />
+			<input type="hidden" name="action" value="wple_update_messages" />
 			<input type="submit" value="<?php echo __('Update messages','wplister') ?>" name="submit" class="button"
 				   title="<?php echo __('Update recent messages from eBay.','wplister') ?>">
 		</p>

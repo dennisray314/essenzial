@@ -1291,6 +1291,19 @@ class WPLE_UpgradeHelper {
             $msg  = __('Database was upgraded to version', 'wplister') .' '. $new_db_version . '.';
         }
 
+        // upgrade to version 52
+        if ( 52 > $db_version ) {
+            $new_db_version = 52;
+
+            // Adjust the user_name length
+            $sql = "ALTER TABLE `{$wpdb->prefix}ebay_accounts`
+			        CHANGE user_name user_name VARCHAR(128) ";
+            $wpdb->query($sql);	echo $wpdb->last_error;
+
+            update_option('wplister_db_version', $new_db_version);
+            $msg  = __('Database was upgraded to version', 'wplister') .' '. $new_db_version . '.';
+        }
+
 		// show update message
 		if ( $msg && ! $hide_message ) wple_show_message($msg,'info');		
 

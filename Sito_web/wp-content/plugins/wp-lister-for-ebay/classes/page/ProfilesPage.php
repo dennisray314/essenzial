@@ -25,22 +25,31 @@ class ProfilesPage extends WPL_Page {
 	}
 
 	public function handleSubmit() {
-        WPLE()->logger->debug("handleSubmit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
-		// handle duplicate profile
+        // handle duplicate profile
 		if ( $this->requestAction() == 'duplicate_auction_profile' ) {
+		    check_admin_referer( 'duplicate_auction_profile' );
 			$this->duplicateProfile();
 		}
 		// handle download profile
 		if ( isset( $_REQUEST['profile'] ) && ( $this->requestAction() == 'download_listing_profile' ) ) {
+            check_admin_referer( 'download_listing_profile' );
 			$this->downloadProfile( $_REQUEST['profile'] );
 		}
 		// handle upload profile
 		if ( $this->requestAction() == 'wple_upload_listing_profile' ) {
+            check_admin_referer( 'wple_upload_listing_profile' );
 			$this->uploadProfile();
 		}
 		// handle delete action
-		if ( isset( $_REQUEST['profile'] ) && ( $this->requestAction() == 'delete_profile' ) ) {
+		if ( isset( $_REQUEST['profile'] ) && ( $this->requestAction() == 'wplister_delete_profile' ) ) {
+		    if ( is_array( $_REQUEST['profile'] ) ) {
+		        check_admin_referer( 'bulk-profiles' );
+            } else {
+                check_admin_referer( 'wplister_delete_profile' );
+            }
+
 			$this->initEC();
 			$this->EC->deleteProfiles( $_REQUEST['profile'] );
 			$this->EC->closeEbay();
@@ -66,10 +75,14 @@ class ProfilesPage extends WPL_Page {
 	// handle save profile action
 	// this needs to be called after WooCommerce initialized its taxonomies, but before the first byte is sent
 	public function onWpAdminInit() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// handle save profile
-		if ( $this->requestAction() == 'save_profile' ) {
+		if ( $this->requestAction() == 'save_listing_profile' ) {
+		    check_admin_referer( 'wplister_save_profile' );
+
 			$this->saveProfile();
+
 			if ( @$_POST['return_to'] == 'listings' ) {
 				$return_url = get_admin_url().'admin.php?page=wplister';
 		        if ( isset($_REQUEST['listing_status']) )	$return_url = add_query_arg( 'listing_status', $_REQUEST['listing_status'], $return_url );
@@ -723,7 +736,7 @@ class ProfilesPage extends WPL_Page {
 	public function onWpPrintStyles() {
 
 		// jqueryFileTree
-		wp_register_style('jqueryFileTree_style', self::$PLUGIN_URL.'/js/jqueryFileTree/jqueryFileTree.css' );
+		wp_register_style('jqueryFileTree_style', self::$PLUGIN_URL.'js/jqueryFileTree/jqueryFileTree.css' );
 		wp_enqueue_style('jqueryFileTree_style'); 
 
 		// load styles for chosen.js
@@ -737,7 +750,7 @@ class ProfilesPage extends WPL_Page {
 		// wp_enqueue_style('jQueryUITheme'); 
 
 		if ( version_compare( WC_VERSION, '2.6.0', '>=' ) ) {
-			wp_register_style( 'chosen_css', self::$PLUGIN_URL.'/js/chosen/chosen.css' );
+			wp_register_style( 'chosen_css', self::$PLUGIN_URL.'js/chosen/chosen.css' );
 			wp_enqueue_style( 'chosen_css' ); 
 		}
 
@@ -746,7 +759,7 @@ class ProfilesPage extends WPL_Page {
 	public function onWpEnqueueScripts() {
 
 		// jqueryFileTree
-		wp_register_script( 'jqueryFileTree', self::$PLUGIN_URL.'/js/jqueryFileTree/jqueryFileTree.js', array( 'jquery' ) );
+		wp_register_script( 'jqueryFileTree', self::$PLUGIN_URL.'js/jqueryFileTree/jqueryFileTree.js', array( 'jquery' ) );
 		wp_enqueue_script( 'jqueryFileTree' );
 
 		// nano template engine
@@ -754,13 +767,13 @@ class ProfilesPage extends WPL_Page {
 		// wp_enqueue_script( 'jquery_nano' );
 
 		// mustache template engine
-		wp_register_script( 'mustache', self::$PLUGIN_URL.'/js/template/mustache.js', array( 'jquery' ) );
+		wp_register_script( 'mustache', self::$PLUGIN_URL.'js/template/mustache.js', array( 'jquery' ) );
 		wp_enqueue_script( 'mustache' );
 
 		// enqueue chosen.js from WooCommerce (removed in WC2.6)
       	// wp_enqueue_script( 'ajax-chosen' );
 		if ( version_compare( WC_VERSION, '2.6.0', '>=' ) ) {
-			wp_register_script( 'chosen', self::$PLUGIN_URL.'/js/chosen/chosen.jquery.min.js', array( 'jquery' ) );
+			wp_register_script( 'chosen', self::$PLUGIN_URL.'js/chosen/chosen.jquery.min.js', array( 'jquery' ) );
 		}
 	   	wp_enqueue_script( 'chosen' );
 

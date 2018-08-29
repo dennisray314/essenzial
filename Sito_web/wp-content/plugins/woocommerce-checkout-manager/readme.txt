@@ -2,10 +2,10 @@
 
 Contributors: visser, visser.labs, Emark
 Donate link: https://www.visser.com.au/donations/
-Tags: woocommerce, ecommerce, e-commerce, store, cart, checkout, manager, editor, field, shipping, billing, order
+Tags: woocommerce, field manager, checkout editor, checkout field, shipping field, billing field, order field, additional field
 Requires at least: 3.0
-Tested up to: 4.9.5
-Stable tag: 4.2.1
+Tested up to: 4.9.6
+Stable tag: 4.2.3
 License: GPLv2 or later
 
 Manages WooCommerce Checkout, the advanced way.
@@ -134,6 +134,16 @@ Example:
 8. Customize Checkout fields from the WooCheckout menu item in the WordPress Administration.
 
 == Changelog ==
+
+= 4.2.3 =
+* Changed: Hide translation notice in error log
+* Changed: Removed excess characters from required field notice
+* Changed: Cleaned up the code across the Plugin
+
+= 4.2.2 =
+* Fixed: Missing Checkout fields from WooCheckout screen (thanks Laura)
+* Changed: Compatibility with WooCommerce 3.4
+* Fixed: Enable 24 hour time option not saving on WooCheckout screen
 
 = 4.2.1 =
 * Fixed: PHP warning on Checkout screen (thanks @chefpanda123)

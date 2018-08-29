@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,10 +11,7 @@ require_once 'ItemBestOffersArrayType.php';
 require_once 'PaginationResultType.php';
 
 /**
-  * All Best Offers for the item according to the filter or Best Offer
-  * ID (or both) used in the input.
-  * For the notification client usage, this response includes a
-  * single Best Offer.
+  * All Best Offers for the item according to the filter or Best Offer ID (or both) used in the input. For the notification client usage, this response includes a single Best Offer.
   * 
  **/
 

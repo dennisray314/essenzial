@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,13 +9,13 @@ require_once 'ItemIDType.php';
 require_once 'PaginationType.php';
 
 /**
-  * Retrieves status information about VeRO reported items you have submitted. You 
-  * can receive the status of individual items you have reported or, by specifying 
-  * VeROReportPacketID, you can retrieve status for all items reported with a given 
-  * VeROReportItems request. You can also retrieve items that were reported during a 
-  * given time period. If no input parameters are specified, status is returned on all 
+  * Retrieves status information about VeRO reported items you have submitted. You
+  * can receive the status of individual items you have reported or, by specifying
+  * <strong>VeROReportPacketID</strong>, you can retrieve status for all items reported with a given
+  * <strong>VeROReportItems</strong> request. You can also retrieve items that were reported during a
+  * given time period. If no input parameters are specified, status is returned on all
   * items you have reported in the last two years.
-  * You must be a member of the Verified Rights Owner (VeRO) Program to use this 
+  * You must be a member of the Verified Rights Owner (VeRO) Program to use this
   * call.
   * 
  **/

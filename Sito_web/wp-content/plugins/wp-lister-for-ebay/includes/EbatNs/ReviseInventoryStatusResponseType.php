@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'InventoryStatusType.php';
 require_once 'InventoryFeesType.php';
 
 /**
-  * Returns the Item ID or SKU with changed Price and Quantity for the revised listing.
+  * The base response type for the <b>ReviseInventoryStatus</b> call. The response includes a <b>Fees</b> container and an <b>InventoryStatus</b> container for each item and/or item variation that was revised.
   * 
  **/
 

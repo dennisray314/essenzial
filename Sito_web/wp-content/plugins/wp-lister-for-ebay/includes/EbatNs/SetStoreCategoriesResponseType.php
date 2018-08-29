@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,7 @@ require_once 'TaskStatusCodeType.php';
 require_once 'StoreCustomCategoryArrayType.php';
 
 /**
-  * Returns the status of the processing progress for changes to the category
-  * structure for a store.
+  * Base response of the <b>SetStoreCategories</b> call. Returns the status of the eBay Store category changes.
   * 
  **/
 

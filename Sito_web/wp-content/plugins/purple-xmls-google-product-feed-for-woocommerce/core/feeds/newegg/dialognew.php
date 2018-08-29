@@ -16,6 +16,7 @@ class NeweggDlg extends PBaseFeedDialog {
     $this->service_name = 'Newegg';
     $this->service_name_long = 'Newegg Products CSV Export';
 	  $this->options = array();
+    $this->doc_link = "https://www.exportfeed.com/documentation/newegg-integration-guide/";
   }
 
 }

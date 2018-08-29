@@ -14,6 +14,7 @@ class MiintoDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Miinto';
         $this->service_name_long = 'Miinto TSV Export';
+        $this->doc_link = "https://www.exportfeed.com/documentation/miinto-guide/";
     }
 
     function convert_option($option)

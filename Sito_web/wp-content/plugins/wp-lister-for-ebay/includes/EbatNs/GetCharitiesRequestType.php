@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,10 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'StringMatchCodeType.php';
 
 /**
-  * Searches for nonprofit charity organizations that meet the
-  * criteria specified in the request.
-  * It is recommended that you use at least one input filter, because this call
-  * no longer returns all charities when made without filters.
+  * This is the base request type for the <b>GetCharities</b> call. This call is used to search for eBay for Charity nonprofit organizations. This call allows users to search for a specific nonprofit organization, or to search for multiple nonprofit organizations from a particular category and/or geographical region, or by using a search string.
   * 
  **/
 

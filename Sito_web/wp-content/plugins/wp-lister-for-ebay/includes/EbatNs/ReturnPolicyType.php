@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type for the return policy details of an item.
+  * Type used to express the details of the return policy for an item.
   * 
  **/
 
@@ -77,11 +77,6 @@ class ReturnPolicyType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $WarrantyDuration;
-
-	/**
-	* @var string
-	**/
-	protected $EAN;
 
 	/**
 	* @var token
@@ -216,14 +211,6 @@ class ReturnPolicyType extends EbatNs_ComplexType
 					'cardinality' => '0..1'
 				),
 				'WarrantyDuration' =>
-				array(
-					'required' => false,
-					'type' => 'string',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'EAN' =>
 				array(
 					'required' => false,
 					'type' => 'string',
@@ -483,22 +470,6 @@ class ReturnPolicyType extends EbatNs_ComplexType
 	function setWarrantyDuration($value)
 	{
 		$this->WarrantyDuration = $value;
-	}
-
-	/**
-	 * @return string
-	 **/
-	function getEAN()
-	{
-		return $this->EAN;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setEAN($value)
-	{
-		$this->EAN = $value;
 	}
 
 	/**

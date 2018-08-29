@@ -161,6 +161,7 @@ document.getElementById(thediv).style.display="none"
 <?php
   $spider="robot";
   $num_row=0;
+  $robot="";
   foreach ($qry as $rk) {  // Bot Spy
     if ($robot <> $rk->spider) {
       echo "<div align='left'>

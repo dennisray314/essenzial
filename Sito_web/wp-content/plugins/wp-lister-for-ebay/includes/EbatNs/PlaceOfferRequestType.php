@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,8 +11,7 @@ require_once 'AffiliateTrackingDetailsType.php';
 require_once 'NameValueListArrayType.php';
 
 /**
-  * Enables the authenticated user to make a bid, a Best Offer, or
-  * a purchase on the item specified by the ItemID input field.
+  * Enables the authenticated user to to make a bid on an auction item, propose a Best Offer, or purchase a fixed-price/Buy It Now item.
   * 
  **/
 

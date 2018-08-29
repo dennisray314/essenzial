@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -21,12 +21,13 @@ require_once 'PayPalAccountStatusCodeType.php';
 require_once 'EBaySubscriptionTypeCodeType.php';
 require_once 'SellerPaymentMethodCodeType.php';
 require_once 'BiddingSummaryType.php';
+require_once 'MembershipDetailsType.php';
 
 /**
   * Type to contain the data for one eBay user. Depending on the context, the user
   * might be the seller or the buyer on either side of an order, or the bidder or winning bidder
   * in a listing. An object of this type is returned by a number of calls, including
-  * the GetUser call.
+  * the <b>GetUser</b> call.
   * 
  **/
 
@@ -246,6 +247,11 @@ class UserType extends EbatNs_ComplexType
 	* @var AddressType
 	**/
 	protected $ShippingAddress;
+
+	/**
+	* @var MembershipDetailsType
+	**/
+	protected $Membership;
 
 	/**
 	* @var string
@@ -608,6 +614,14 @@ class UserType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'AddressType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'Membership' =>
+				array(
+					'required' => false,
+					'type' => 'MembershipDetailsType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -1372,6 +1386,22 @@ class UserType extends EbatNs_ComplexType
 	function setShippingAddress($value)
 	{
 		$this->ShippingAddress = $value;
+	}
+
+	/**
+	 * @return MembershipDetailsType
+	 **/
+	function getMembership()
+	{
+		return $this->Membership;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setMembership($value)
+	{
+		$this->Membership = $value;
 	}
 
 	/**

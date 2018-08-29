@@ -16,6 +16,7 @@ class ShareASaleADlg extends PBaseFeedDialog
         $this->service_name = 'ShareASaleA';
         $this->service_name_long = 'ShareASale Affiliate Data Feed';
         $this->options = explode('|', 'Custom1|Custom2|Custom3|Custom4|Custom5|Manufacturer|PartNumber|MerchantCategory|MerchantSubcategory|ShortDescription|ISBN|UPC');
+        $this->doc_link = "https://www.exportfeed.com/documentation/shareasale-integration-guide/";
     }
 
 }

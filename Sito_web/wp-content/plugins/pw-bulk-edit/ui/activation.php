@@ -25,26 +25,26 @@ if ( !defined( 'ABSPATH' ) ) {
 
 ?>
 <div id="pwbe-activation-main" class="pwbe-activation-main">
-	<div class="pwbe-activation-p">Need more power? Upgrade to Pro and you can do things like: <span id="pwbe-features"></span></div>
-	<div class="pwbe-heading"><a href="https://www.pimwick.com/pw-bulk-edit/" target="_blank">See what else the Pro version can do</a></div>
+	<div class="pwbe-activation-p"><?php _e( 'Need more power? Upgrade to Pro and you can do things like:', 'pw-bulk-edit' ); ?> <span id="pwbe-features"></span></div>
+	<div class="pwbe-heading"><a href="https://www.pimwick.com/pw-bulk-edit/" target="_blank"><?php _e( 'See what else the Pro version can do', 'pw-bulk-edit' ); ?></a></div>
 </div>
 <br />
 <script>
 	var pwbeFeatures = [
-		"Bulk edit Sale Price, Sale Start Date, and Sale End Date",
-		"Bulk change the Sale price based on Regular price",
-		"Edit any of YOUR custom Attributes",
-		"Set default values for Variable products",
-		"Edit Categories",
-		"Edit the Short Description field",
-		"Edit the Sold Individually field",
-		"Edit Tags",
-		"Edit Variation Descriptions",
-		"Edit dimensions (Weight, Length, Width, and Height)",
-		"Edit the Shipping Class",
-		"Use \"Is Empty\" and \"Is Not Empty\" filter options",
-		"Filter by Status, Variation Description, and more",
-		"Save and load filters"
+		'<?php _e( 'Bulk edit Sale Price, Sale Start Date, and Sale End Date', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Bulk change the Sale price based on Regular price', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit any of YOUR custom Attributes', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Set default values for Variable products', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit Categories', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit the Short Description field', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit the Sold Individually field', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit Tags', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit Variation Descriptions', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit dimensions (Weight, Length, Width, and Height)', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Edit the Shipping Class', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Use "Is Empty" and "Is Not Empty" filter options', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Filter by Status, Variation Description, and more', 'pw-bulk-edit' ); ?>',
+		'<?php _e( 'Save and load filters', 'pw-bulk-edit' ); ?>',
 	];
 
 	jQuery(document).ready(function() {

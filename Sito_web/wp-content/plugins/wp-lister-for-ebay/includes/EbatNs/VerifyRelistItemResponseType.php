@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,9 +12,7 @@ require_once 'ProductSuggestionsType.php';
 require_once 'ListingRecommendationsType.php';
 
 /**
-  * Returns the listing recommendations (if applicable), the estimated fees for the
-  * proposed new listing (except the Final Value Fee, which isn't calculated until the item
-  * has sold), and other details.
+  * The base response type for the <b>VerifyRelistItem</b> call. The response includes the Item ID for the relisted item, the SKU value for the item (if any), listing recommendations (if applicable), the estimated fees for the relisted item (except the Final Value Fee, which isn't calculated until the item has sold), the start and end times of the listing, and other details.
   * 
  **/
 

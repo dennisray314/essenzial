@@ -140,20 +140,20 @@ class ListingsTable extends WP_List_Table {
 
         //Build row actions
         $actions = array(
-            'preview_auction' => sprintf('<a href="?page=%s&action=%s&auction=%s&width=820&height=550&TB_iframe=true" target="%s" class="%s">%s</a>',$page,'preview_auction',$item['id'],$preview_target,$preview_class,__('Preview','wplister')),
-            'edit'            => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'edit',$item['id'],__('Edit','wplister')),
-            'lock'            => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'lock',$item['id'],__('Lock','wplister')),
-            'unlock'          => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'unlock',$item['id'],__('Unlock','wplister')),
-            'verify'          => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'verify',$item['id'],__('Verify','wplister')),
-            'publish2e'       => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'publish2e',$item['id'],__('Publish','wplister')),
-            'open'            => sprintf('<a href="%s" target="_blank">%s</a>',$item['ViewItemURL'],__('View on eBay','wplister')),
-            'revise'          => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'revise',$item['id'],__('Revise','wplister')),
-            'end_item'        => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'end_item',$item['id'],__('End Listing','wplister')),
+            'wple_preview_auction' => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s&width=820&height=550&TB_iframe=true" target="%s" class="%s">%s</a>',$page,'wple_preview_auction',$item['id'], wp_create_nonce( 'wplister_preview_auction' ), $preview_target,$preview_class,__('Preview','wplister')),
+            'wple_edit'            => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'edit',$item['id'],__('Edit','wplister')),
+            'wple_lock'            => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_lock',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Lock','wplister')),
+            'wple_unlock'          => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_unlock',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Unlock','wplister')),
+            'wple_verify'          => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_verify',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Verify','wplister')),
+            'wple_publish2e'       => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_publish2e',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Publish','wplister')),
+            'wple_open'            => sprintf('<a href="%s" target="_blank">%s</a>',$item['ViewItemURL'],__('View on eBay','wplister')),
+            'wple_revise'          => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_revise',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Revise','wplister')),
+            'wple_end_item'        => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_end_item',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('End Listing','wplister')),
             #'open'           => sprintf('<a href="%s" target="_blank">%s</a>',$item['ViewItemURL'],__('Open in new tab','wplister')),
-            'relist'          => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'relist',$item['id'],__('Relist','wplister')),
-            'update'          => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'update',$item['id'],__('Update from eBay','wplister')),
-            'delete'          => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'delete_listing',$item['id'],__('Delete','wplister')),
-            'archive'         => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'archive',$item['id'],__('Archive','wplister')),
+            'wple_relist'          => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_relist',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Relist','wplister')),
+            'wple_update'          => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_update',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Update from eBay','wplister')),
+            'wple_delete'          => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_delete_listing',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Delete','wplister')),
+            'wple_archive'         => sprintf('<a href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_archive',$item['id'], wp_create_nonce( 'bulk-auctions' ),__('Archive','wplister')),
         );
 
         $profile_data  = $this->getProfileData( $item );
@@ -265,39 +265,39 @@ class ListingsTable extends WP_List_Table {
         */
 
         // disable some actions depending on status
-        if ( $item['status'] != 'published' )   unset( $actions['lock'] );
-        if ( $item['status'] != 'published' )   unset( $actions['end_item'] );
-        if ( $item['status'] != 'prepared' )    unset( $actions['verify'] );
-        if ( $item['status'] != 'changed' )     unset( $actions['revise'] );
+        if ( $item['status'] != 'published' )   unset( $actions['wple_lock'] );
+        if ( $item['status'] != 'published' )   unset( $actions['wple_end_item'] );
+        if ( $item['status'] != 'prepared' )    unset( $actions['wple_verify'] );
+        if ( $item['status'] != 'changed' )     unset( $actions['wple_revise'] );
         if (($item['status'] != 'prepared' ) &&
-            ($item['status'] != 'verified'))    unset( $actions['publish2e'] );
+            ($item['status'] != 'verified'))    unset( $actions['wple_publish2e'] );
         if (($item['status'] != 'published' ) &&
             ($item['status'] != 'changed') &&
-            ($item['status'] != 'ended'))       unset( $actions['open'] );
+            ($item['status'] != 'ended'))       unset( $actions['wple_open'] );
         // if ( $item['status'] == 'ended' )       unset( $actions['preview_auction'] ); // uncomment for debugging
-        if ( $item['status'] != 'ended' )       unset( $actions['archive'] );
-        if ( $item['status'] != 'archived' )    unset( $actions['delete'] );
+        if ( $item['status'] != 'ended' )       unset( $actions['wple_archive'] );
+        if ( $item['status'] != 'archived' )    unset( $actions['wple_delete'] );
         if (($item['status'] != 'sold' ) &&
-            ($item['status'] != 'ended'))       unset( $actions['relist'] );
+            ($item['status'] != 'ended'))       unset( $actions['wple_relist'] );
         if (($item['status'] != 'relisted' ) && 
-           ( $needs_update == false ) )         unset( $actions['update'] );
+           ( $needs_update == false ) )         unset( $actions['wple_update'] );
 
-        if (   $item['locked'] )                unset( $actions['lock'] );
-        if (   $item['locked'] )                unset( $actions['edit'] );
-        if ( ! $item['locked'] )                unset( $actions['unlock'] );
+        if (   $item['locked'] )                unset( $actions['wple_lock'] );
+        if (   $item['locked'] )                unset( $actions['wple_edit'] );
+        if ( ! $item['locked'] )                unset( $actions['wple_unlock'] );
 
         // make edit listing link only available to developers
         if ( ! get_option('wplister_enable_item_edit_link') ) {
-            unset( $actions['edit'] );
-            if ( $item['status'] == 'ended' )   unset( $actions['preview_auction'] ); // developer may preview ended items
+            unset( $actions['wple_edit'] );
+            if ( $item['status'] == 'ended' )   unset( $actions['wple_preview_auction'] ); // developer may preview ended items
         }
 
         if ( ! current_user_can( 'publish_ebay_listings' ) ) {
-            unset( $actions['publish2e'] );
-            unset( $actions['revise'] );
-            unset( $actions['end_item'] );
-            unset( $actions['relist'] );
-            unset( $actions['delete'] );
+            unset( $actions['wple_publish2e'] );
+            unset( $actions['wple_revise'] );
+            unset( $actions['wple_end_item'] );
+            unset( $actions['wple_relist'] );
+            unset( $actions['wple_delete'] );
         }
 
         //Return the title contents
@@ -397,7 +397,8 @@ class ListingsTable extends WP_List_Table {
                 // last column: price
                 $variations_html .= '<td align="right">';
                 $price = ListingsModel::applyProfilePrice( $var['price'], @$profile_data['details']['start_price'] );
-                $variations_html .= $this->number_format( $price, 2 );
+                //$variations_html .= $this->number_format( $price, 2 );
+                $variations_html .= $price;
 
                 $variations_html .= '</td></tr>';
 
@@ -469,8 +470,8 @@ class ListingsTable extends WP_List_Table {
                 $html .= '<br><span style="color:inherit"><i>Scheduled to be relisted in '.$time_diff.' ('.$relist_time.')</i></span>';
             }
 
-            $html .= '<br><a href="admin.php?page=wplister&action=relist&auction='.$item['id'].'" class="button button-small">'.'Relist Now'.'</a>';
-            $html .= '&nbsp;<a href="admin.php?page=wplister&action=cancel_schedule&auction='.$item['id'].'" class="button button-small">'.'Cancel Schedule'.'</a>';
+            $html .= '<br><a href="admin.php?page=wplister&action=wple_relist&auction='.$item['id'].'&_wpnonce='. wp_create_nonce( 'wplister_relist_auction' ) .'" class="button button-small">'.'Relist Now'.'</a>';
+            $html .= '&nbsp;<a href="admin.php?page=wplister&action=wple_cancel_schedule&auction='.$item['id'].'&_wpnonce='. wp_create_nonce( 'bulk-auctions' ) .'" class="button button-small">'.'Cancel Schedule'.'</a>';
 
         }
 
@@ -578,7 +579,7 @@ class ListingsTable extends WP_List_Table {
 
         // $thumb = get_the_post_thumbnail( $post_id, 'thumbnail' );
         $thumb = get_the_post_thumbnail( $post_id, array(90,90) );
-        $link  = 'admin.php?page=wplister&action=preview_auction&auction='.$item['id'].'&width=820&height=550&TB_iframe=true';
+        $link  = 'admin.php?page=wplister&action=wple_preview_auction&auction='.$item['id'].'&_wpnonce='. wp_create_nonce( 'wplister_preview_auction' ) .'&width=820&height=550&TB_iframe=true';
         $thumb_link = '<a href="'.$link.'" class="thickbox">'.$thumb.'</a>';
 
         return $thumb_link;
@@ -1028,40 +1029,40 @@ class ListingsTable extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'verify'              => __('Verify with eBay','wplister'),
-            'publish2e'           => __('Publish to eBay','wplister'),
-            'update'              => __('Update status from eBay','wplister'),
+            'wple_verify'              => __('Verify with eBay','wplister'),
+            'wple_publish2e'           => __('Publish to eBay','wplister'),
+            'wple_update'              => __('Update status from eBay','wplister'),
             // 'reselect'            => __('Select another profile','wplister'),
-            'wple_change_profile' => __('Select another profile','wplister'),
-            'reapply'             => __('Re-apply profile','wplister'),
-            'revise'              => __('Revise items','wplister'),
-            'end_item'            => __('End listings','wplister'),
-            'relist'              => __('Re-list ended items','wplister'),
-            'lock'                => __('Lock listings','wplister'),
-            'unlock'              => __('Unlock listings','wplister'),
-            'archive'             => __('Move to archive','wplister'),
-            'delete_listing'      => __('Delete listings','wplister'),
-            'cancel_schedule'     => __('Cancel relist schedule','wplister'),
+            'wple_change_profile'      => __('Select another profile','wplister'),
+            'wple_reapply'             => __('Re-apply profile','wplister'),
+            'wple_revise'              => __('Revise items','wplister'),
+            'wple_end_item'            => __('End listings','wplister'),
+            'wple_relist'              => __('Re-list ended items','wplister'),
+            'wple_lock'                => __('Lock listings','wplister'),
+            'wple_unlock'              => __('Unlock listings','wplister'),
+            'wple_archive'             => __('Move to archive','wplister'),
+            'wple_delete_listing'      => __('Delete listings','wplister'),
+            'wple_cancel_schedule'     => __('Cancel relist schedule','wplister'),
             'wple_reset_status'   => __('Reset ended items','wplister'),
             'wple_clear_eps_data' => __('Clear EPS cache','wplister'),
         );
 
         if ( ! current_user_can( 'publish_ebay_listings' ) ) {
-            unset( $actions['publish2e'] );
-            unset( $actions['revise'] );
-            unset( $actions['end_item'] );
-            unset( $actions['relist'] );
-            unset( $actions['delete_listing'] );
+            unset( $actions['wple_publish2e'] );
+            unset( $actions['wple_revise'] );
+            unset( $actions['wple_end_item'] );
+            unset( $actions['wple_relist'] );
+            unset( $actions['wple_delete_listing'] );
         }
 
         if ( isset($_GET['listing_status']) && ( $_GET['listing_status'] == 'archived' ) ) {
-            unset( $actions['archive'] );
+            unset( $actions['wple_archive'] );
         } else {
-            unset( $actions['delete_listing'] );            
+            unset( $actions['wple_delete_listing'] );
         }
 
         if ( ! isset($_GET['listing_status']) || ( $_GET['listing_status'] != 'autorelist' ) ) {
-            unset( $actions['cancel_schedule'] );            
+            unset( $actions['wple_cancel_schedule'] );
         }
 
         return $actions;
@@ -1079,12 +1080,12 @@ class ListingsTable extends WP_List_Table {
         global $wbdb;
         
         //Detect when a bulk action is being triggered...
-        if( 'delete_listing'===$this->current_action() ) {
+        if( 'wple_delete_listing'===$this->current_action() ) {
             #wp_die('Items deleted (or they would be if we had items to delete)!');
             #$wpdb->query("DELETE FROM {$wpdb->prefix}ebay_auctions WHERE id = ''",)
         }
 
-        if( 'verify'===$this->current_action() ) {
+        if( 'wple_verify'===$this->current_action() ) {
 			#echo "<br>verify handler<br>";			
         }
         
@@ -1177,6 +1178,14 @@ class ListingsTable extends WP_List_Table {
            $class = ($current == 'locked' ? ' class="current"' :'');
            $views['locked'] = "<a href='{$sold_url}' {$class} title='Show locked listings'>".__('Locked','wplister')."</a>";
            if ( isset($summary->locked) ) $views['locked'] .= '<span class="count">('.$summary->locked.')</span>';        
+        }
+
+        // unlocked link
+        if ( $summary->unlocked ) {
+            $sold_url = add_query_arg( 'listing_status', 'unlocked', $base_url );
+            $class = ($current == 'unlocked' ? ' class="current"' :'');
+            $views['unlocked'] = "<a href='{$sold_url}' {$class} title='Show unlocked listings'>".__('Unlocked','wplister')."</a>";
+            if ( isset($summary->unlocked) ) $views['unlocked'] .= '<span class="count">('.$summary->unlocked.')</span>';
         }
 
         return $views;

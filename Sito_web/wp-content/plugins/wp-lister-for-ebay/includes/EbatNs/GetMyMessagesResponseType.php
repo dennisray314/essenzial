@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,11 +10,9 @@ require_once 'MyMessagesAlertArrayType.php';
 require_once 'MyMessagesMessageArrayType.php';
 
 /**
-  * Contains information about the messages sent to
-  * a user. Depending on the detail level, this
-  * information can include message counts,
-  * resolution and flagged status, message
-  * headers, and message text.
+  * Conains information about the messages sent to a user. Depending on the detail
+  * level, this information can include message counts, resolution and flagged status,
+  * message headers, and message text.
   * 
  **/
 

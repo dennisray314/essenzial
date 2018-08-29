@@ -58,10 +58,12 @@ class SettingsPage extends WPL_Page {
 	}
 	
 	public function handleSubmit() {
-        WPLE()->logger->debug("handleSubmit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// handle redirect to ebay auth url
-		if ( $this->requestAction() == 'wplRedirectToAuthURL') {				
+		if ( $this->requestAction() == 'wplRedirectToAuthURL') {
+		    check_admin_referer( 'wplister_redirect_to_auth_url' );
+
 			WPLE()->logger->info( "Request Action: wplRedirectToAuthURL() - METHOD: " . $_SERVER['REQUEST_METHOD'] );
 			if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) return; // avoid issue caused by calling wplRedirectToAuthURL action twice
 
@@ -76,32 +78,40 @@ class SettingsPage extends WPL_Page {
 
 		// save settings
 		if ( $this->requestAction() == 'save_wplister_settings' ) {
+		    check_admin_referer( 'wplister_save_settings' );
+
 			$this->saveSettings();
 		}
 
 		// save advanced settings
 		if ( $this->requestAction() == 'save_wplister_advanced_settings' ) {
+		    check_admin_referer( 'wplister_save_advanced_settings' );
+
 			$this->saveAdvancedSettings();
 		}
 
 		// save category map
 		if ( $this->requestAction() == 'save_wplister_categories_map' ) {
+		    check_admin_referer( 'wplister_save_categories_map' );
 			$this->saveCategoriesSettings();
 		}
 
 		// import category map
 		if ( $this->requestAction() == 'wplister_import_categories_map' ) {
+		    check_admin_referer( 'wplister_import_categories_map' );
 			$this->handleImportCategoriesMap();
 		}
 
 		// export category map
 		if ( $this->requestAction() == 'wplister_export_categories_map' ) {
+		    check_admin_referer( 'wplister_export_categories_map' );
 			$this->handleExportCategoriesMap();
 		}
 
 
 		// save developer settings
 		if ( $this->requestAction() == 'save_wplister_devsettings' ) {
+		    check_admin_referer( 'wplister_save_devsettings' );
 			$this->saveDeveloperSettings();
 		}
 
@@ -155,7 +165,7 @@ class SettingsPage extends WPL_Page {
 			'is_staging_site'     		=> $this->isStagingSite(),
 	
 			'settings_url'				=> 'admin.php?page='.self::ParentMenuId.'-settings',
-			'auth_url'					=> 'admin.php?page='.self::ParentMenuId.'-settings'.'&tab='.$active_tab.'&action=wplRedirectToAuthURL',
+			'auth_url'					=> 'admin.php?page='.self::ParentMenuId.'-settings'.'&tab='.$active_tab.'&action=wplRedirectToAuthURL&_wpnonce='. wp_create_nonce( 'wplister_redirect_to_auth_url' ),
 			'form_action'				=> 'admin.php?page='.self::ParentMenuId.'-settings'.'&tab='.$active_tab
 		);
 		$this->display( 'settings_page', $aData );
@@ -216,6 +226,7 @@ class SettingsPage extends WPL_Page {
 			'wc2_gallery_fallback'          => self::getOption( 'wc2_gallery_fallback', 'none' ),
 			'gallery_items_limit'        	=> self::getOption( 'gallery_items_limit', 12 ),
 			'hide_dupe_msg'                 => self::getOption( 'hide_dupe_msg' ),
+            'display_product_counts'        => self::getOption( 'display_product_counts', 0 ),
 			'option_uninstall'              => self::getOption( 'uninstall' ),
 			'option_foreign_transactions'   => self::getOption( 'foreign_transactions' ),
             'enable_out_of_stock_threshold' => self::getOption( 'enable_out_of_stock_threshold', 0 ),
@@ -277,6 +288,7 @@ class SettingsPage extends WPL_Page {
 			'staging_site_pattern'		=> self::getOption( 'staging_site_pattern', '' ),
 			'ignore_orders_before_ts'	=> get_option( 'ignore_orders_before_ts' ),
 			'multi_threading_limit'     => self::getOption( 'multi_threading_limit', 1 ),
+			'disable_item_specifics_cache' => self::getOption( 'disable_item_specifics_cache', 0 ),
 			'revise_all_listings_limit' => self::getOption( 'revise_all_listings_limit', '' ),
 
 			'text_log_level'			=> self::getOption( 'log_level' ),
@@ -296,6 +308,7 @@ class SettingsPage extends WPL_Page {
 
 
 	protected function saveSettings() {
+		if ( ! current_user_can('manage_ebay_options') ) return;
 
 		// TODO: check nonce
 		if ( isset( $_POST['wpl_e2e_option_cron_auctions'] ) ) {
@@ -331,6 +344,7 @@ class SettingsPage extends WPL_Page {
 	}
 
 	protected function saveAdvancedSettings() {
+		if ( ! current_user_can('manage_ebay_options') ) return;
 
 		// TODO: check nonce
 		if ( isset( $_POST['wpl_e2e_process_shortcodes'] ) ) {
@@ -343,6 +357,7 @@ class SettingsPage extends WPL_Page {
 			self::updateOption( 'default_image_size',   			$this->getValueFromPost( 'default_image_size' ) );
 			self::updateOption( 'wc2_gallery_fallback', 			$this->getValueFromPost( 'wc2_gallery_fallback' ) );
 			self::updateOption( 'hide_dupe_msg',    				$this->getValueFromPost( 'hide_dupe_msg' ) );
+            self::updateOption( 'display_product_counts',        $this->getValueFromPost( 'display_product_counts' ) );
 			self::updateOption( 'gallery_items_limit',  			$this->getValueFromPost( 'gallery_items_limit' ) );
 			self::updateOption( 'uninstall',						$this->getValueFromPost( 'option_uninstall' ) );
 			self::updateOption( 'foreign_transactions',				$this->getValueFromPost( 'option_foreign_transactions' ) );
@@ -453,6 +468,7 @@ class SettingsPage extends WPL_Page {
 	} // check_max_post_vars()
 
 	protected function saveCategoriesSettings() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		self::check_max_post_vars();
 
@@ -491,6 +507,7 @@ class SettingsPage extends WPL_Page {
 	
 	
 	protected function saveDeveloperSettings() {
+		if ( ! current_user_can('manage_ebay_options') ) return;
 
 		// TODO: check nonce
 		if ( isset( $_POST['wpl_e2e_option_log_to_db'] ) ) {
@@ -514,6 +531,7 @@ class SettingsPage extends WPL_Page {
 			self::updateOption( 'fetch_orders_page_size',		$this->getValueFromPost( 'fetch_orders_page_size' ) );
 			self::updateOption( 'staging_site_pattern',	  trim( $this->getValueFromPost( 'staging_site_pattern' ) ) );
             self::updateOption( 'revise_all_listings_limit',    $this->getValueFromPost( 'revise_all_listings_limit' ) );
+            self::updateOption( 'disable_item_specifics_cache',  $this->getValueFromPost( 'disable_item_specifics_cache' ) );
 
 			// updater instance
 			update_option( 'wple_instance',	    			trim( $this->getValueFromPost( 'wple_instance' ) ) );
@@ -869,7 +887,7 @@ class SettingsPage extends WPL_Page {
 	public function onWpPrintStyles() {
 
 		// jqueryFileTree
-		wp_register_style('jqueryFileTree_style', self::$PLUGIN_URL.'/js/jqueryFileTree/jqueryFileTree.css' );
+		wp_register_style('jqueryFileTree_style', self::$PLUGIN_URL.'js/jqueryFileTree/jqueryFileTree.css' );
 		wp_enqueue_style('jqueryFileTree_style'); 
 
 	}
@@ -877,7 +895,7 @@ class SettingsPage extends WPL_Page {
 	public function onWpEnqueueScripts() {
 
 		// jqueryFileTree
-		wp_register_script( 'jqueryFileTree', self::$PLUGIN_URL.'/js/jqueryFileTree/jqueryFileTree.js', array( 'jquery' ) );
+		wp_register_script( 'jqueryFileTree', self::$PLUGIN_URL.'js/jqueryFileTree/jqueryFileTree.js', array( 'jquery' ) );
 		wp_enqueue_script( 'jqueryFileTree' );
 
 	}

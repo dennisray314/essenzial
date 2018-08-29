@@ -101,7 +101,7 @@
     border-radius: 5px 5px 0 0 ;
     color:#999;
     max-width: 280px;  
-    max-height: 400px;
+   /* max-height: 400px;*/
     z-index: 9999;
 }
 
@@ -270,7 +270,7 @@
 }
 .wplc_close.wplc_left{
     padding-right: 45px;
-    height: 220px;
+   min-height: 220px; 
 }
 /*
 .wplc_left #wplc_chatbox, .wplc_right #wplc_chatbox{
@@ -317,7 +317,7 @@ span.wplc_system_notification {
 
 .wplc_close.wplc_right{
     padding-left: 45px;
-    height: 220px;
+    min-height: 220px;
     border-radius: 5px 0px 0px 5px !important;
 }
 .wplc_open.wplc_right #wp-live-chat-header{
@@ -445,6 +445,7 @@ span.wplc_system_notification {
 
 #wp-live-chat-2-inner #wplc_start_chat_btn {
     width:100%;
+    border:none;
 }
 
 #wplc_social_holder {
@@ -832,4 +833,91 @@ div#bleeper_chat_ended {
     top: -35px;
     opacity: .8;
   }
+}
+
+input#wplc_chat_gdpr_opt_in {
+    display:  inline-block;
+    width:  inherit;
+    vertical-align:top;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+label[for=wplc_chat_gdpr_opt_in] {
+    display:  inline-block;
+    font-size: 0.7em;
+    max-width: 90%;
+    vertical-align:  top;
+}
+
+.wplc_gdpr_privacy_notice {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 0.6em;
+    margin-left: 2em;
+    margin-right: 2em;
+    color: #bdbdbd;
+}
+
+.wplc_gdpr_privacy_notice a {
+    color: #8e8e8e;
+}
+
+.wplc_gdpr_privacy_notice a:hover{
+    color: #8e8e8e;
+    text-decoration: underline;
+}
+
+#wplc_end_chat_button {
+    position: absolute;
+    top: -32px;
+    right: 0;
+    padding: 5px;
+    font-size: 9px;
+    font-weight: 200;
+    border-radius: 4px;
+    background: #fff !important;
+    color: #333 !important;
+    line-height: 12px;
+    box-shadow: 0 0 15px 0 rgba(86, 86, 86, 0.11);
+    border: none;
+}
+
+.wplc_in_chat_notice {
+    position:  absolute;
+    background: #fff;
+    /* height: 30%; */
+    bottom: 35%;
+    padding: 30px;
+    width: 80%;
+    margin-left: 8%;
+    box-shadow: 0px 0px 20px 0px #33333324;
+    border-radius: 5px;
+    z-index: 999999;
+}
+
+.wplc_in_chat_notice_heading {
+    font-size: 16px;
+    padding-bottom: 10px;
+    border-bottom: #eee 1px solid;
+    margin-bottom: 10px;
+}
+
+.wplc_in_chat_notice_content button {
+    padding: 5px;
+    font-size: 12px;
+    display:  inline-block;
+    font-weight: 100;
+    margin-bottom: 5px;
+    border: none;
+}
+
+.wplc_in_chat_notice_content button:hover {
+    box-shadow: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.wplc_in_chat_notice_content {
+    padding-top: 15px;
 }

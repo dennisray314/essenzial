@@ -81,7 +81,8 @@ if ( preg_match_all("/<ShortMessage>(.*)<\/ShortMessage>/", $res, $matches_sm) )
 
 // hide Description content for better readability
 if ( ( ! isset( $_GET['desc'] ) ) || ( $_GET['desc'] != 'show' ) ) {
-	$description_link = '<a href="admin.php?page=wplister&action=display_log_entry&desc=show&log_id='.$id.'">show description</a>';
+	// $description_link = '<a href="admin.php?page=wplister&action=wple_display_log_entry&desc=show&log_id='.$id.'&_wpnonce='. wp_create_nonce( 'wplister_display_log_entry' ) .'">show description</a>';
+	$description_link = '<a href="admin.php?page=wplister&action=wple_display_log_entry&desc=show&log_id='.$id.'">show description</a>';
 	$req = preg_replace( "/<Description>.*<\/Description>/uUsm", "<Description> ... ___desc___ ... </Description>", $req );
 }
 
@@ -133,6 +134,11 @@ if ( isset($description_link) ) $req = preg_replace( "/___desc___/", $descriptio
 $account_exists = isset( WPLE()->accounts[ $wpl_row->account_id ] ) ? true : false;
 $ebay_account   = $account_exists ? WPLE()->accounts[ $wpl_row->account_id ] : null;
 
+// clean REQUEST_URI
+$REQUEST_URI = $_SERVER['REQUEST_URI'];
+$REQUEST_URI = remove_query_arg( 'width', $REQUEST_URI );
+$REQUEST_URI = remove_query_arg( 'height', $REQUEST_URI );
+
 ?><html>
 <head>
     <title>request details</title>
@@ -170,7 +176,7 @@ $ebay_account   = $account_exists ? WPLE()->accounts[ $wpl_row->account_id ] : n
 
 	<?php if ( ( ! isset($_REQUEST['send_to_support']) ) && ( ! isset($_REQUEST['new_tab']) ) ) : ?>
 		<div id="support_request_wrap" style="">
-			<form method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>" onsubmit="jQuery('#support_request_wrap').slideUp();" target="_blank" >
+			<form method="post" action="<?php echo $REQUEST_URI ?>" onsubmit="jQuery('#support_request_wrap').slideUp();" target="_blank" >
                 <?php wp_nonce_field( 'wple_send_to_support' ); ?>
 				<input type="hidden" name="log_id" value="<?php echo $wpl_row->id ?>" />
 				<input type="hidden" name="send_to_support" value="yes" />
@@ -194,9 +200,8 @@ $ebay_account   = $account_exists ? WPLE()->accounts[ $wpl_row->account_id ] : n
 		</div>
 
 		<div style="float:right;margin-top:10px;">
-			<!-- <a href="<?php echo $_SERVER['REQUEST_URI']; ?>&send_to_support=yes" target="_blank">send to support</a> &middot; -->
 			<a href="#" onclick="jQuery('#support_request_wrap').slideToggle();return false;" class="button"><?php echo __('Send to support','wplister') ?></a>&nbsp;
-			<a href="<?php echo $_SERVER['REQUEST_URI']; ?>&new_tab=yes" target="_blank" class="button">Open in new tab</a>
+			<a href="<?php echo $REQUEST_URI ?>&new_tab=yes" target="_blank" class="button">Open in new tab</a>
 		</div>
 	<?php endif; ?>
 

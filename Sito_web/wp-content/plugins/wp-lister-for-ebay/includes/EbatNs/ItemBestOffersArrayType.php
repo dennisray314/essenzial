@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,8 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ItemBestOffersType.php';
 
 /**
-  * A collection of details about the best offers received for a specific item. Empty if there are no best offers. Includes the buyer and seller messages only if
-  * the ReturnAll detail level is used.
+  * A collection of details about the Best Offers received for a specific item. Empty if there are no Best Offers. Includes the buyer and seller messages only if
+  * the <code>ReturnAll</code> detail level is used.
   * 
  **/
 

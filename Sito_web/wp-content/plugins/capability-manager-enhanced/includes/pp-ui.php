@@ -9,11 +9,14 @@ class Capsman_PP_UI {
 	function get_metagroup_caps( $default ) {
 		global $wpdb;
 
-		if ( defined( 'PPC_VERSION' ) )
-			$pp_supplemental_roles = $wpdb->get_col( "SELECT role_name FROM $wpdb->ppc_roles AS r INNER JOIN $wpdb->pp_groups AS g ON g.ID = r.agent_id AND r.agent_type = 'pp_group' WHERE g.metagroup_type = 'wp_role' AND g.metagroup_id = '$default'" );
-		else
-			$pp_supplemental_roles = $wpdb->get_col( "SELECT role_name FROM $wpdb->pp_roles AS r INNER JOIN $wpdb->pp_groups AS g ON g.ID = r.group_id AND r.group_type = 'pp_group' AND r.scope = 'site' WHERE g.metagroup_type = 'wp_role' AND g.metagroup_id = '$default'" );
-		
+		if ( defined( 'PPC_VERSION' ) ) {
+			$query = $wpdb->prepare( "SELECT role_name FROM $wpdb->ppc_roles AS r INNER JOIN $wpdb->pp_groups AS g ON g.ID = r.agent_id AND r.agent_type = 'pp_group' WHERE g.metagroup_type = 'wp_role' AND g.metagroup_id = %s", $default );
+			$pp_supplemental_roles = $wpdb->get_col( $query );
+		} else {
+			$query = $wpdb->prepare( "SELECT role_name FROM $wpdb->pp_roles AS r INNER JOIN $wpdb->pp_groups AS g ON g.ID = r.group_id AND r.group_type = 'pp_group' AND r.scope = 'site' WHERE g.metagroup_type = 'wp_role' AND g.metagroup_id = %s", $default );
+			$pp_supplemental_roles = $wpdb->get_col( $query );
+		}
+
 		$pp_filtered_types = pp_get_enabled_types('post');
 		$pp_metagroup_caps = array();
 		$pp_cap_caster = pp_init_cap_caster();

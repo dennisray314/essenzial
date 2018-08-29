@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ItemRatingDetailsType.php';
 
 /**
-  * Container for a set of detailed seller ratings about an order line item.
-  * If a seller has detailed ratings, they are displayed
-  * in the Feedback Profile of the seller.
+  * Type used by the <b>SellerItemRatingDetailArray</b> container in the <b>LeaveFeedback</b> request payload. This container is used by an eBay buyer to leave one or more Detailed Seller Ratings for their order partner concerning an order line item.
   * 
  **/
 

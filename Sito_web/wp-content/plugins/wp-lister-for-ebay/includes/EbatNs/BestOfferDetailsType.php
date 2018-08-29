@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,10 +10,13 @@ require_once 'BestOfferStatusCodeType.php';
 require_once 'BestOfferTypeCodeType.php';
 
 /**
-  * Type defining the <b>BestOfferDetails</b> container, which consists 
-  * of Best Offer details associated with an item. The <b>BestOfferEnabled</b>
-  * field in this container is used by Add/Revise/Relist calls to enable the Best Offer
-  * feature on a listing.
+  * Type defining the <b>BestOfferDetails</b> container, which consists
+  * of Best Offer details associated with a listing. The <b>BestOfferEnabled</b>
+  * field in this container is used by <b>Add</b>/<b>Revise</b>/<b>Relist</b> calls to enable the Best Offer feature on a listing.
+  * <br/><br/>
+  * <span class="tablenote"><b>Note: </b>
+  * Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, scheduled to roll out the first week in August 2017, sellers in the US, UK, and DE sites will be able to offer the Best Offer feature in auction listings. Once this new capability rolls out, the seller can offer Buy It Now or Best Offer in an auction listing, but not both.
+  * </span>
   * 
  **/
 

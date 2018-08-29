@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,10 +11,10 @@ require_once 'PricingTreatmentCodeType.php';
 
 /**
   * Using this container, a seller can supply original retail price and
-  * discount price for an item to clarify the discount treatment (also known 
-  * as strike-through pricing). This only applies to fixed-price listings and auction listings with the Buy It Now 
-  * option. This feature is available for large enterprise sellers via 
-  * white list. A seller can provide discount treatment regardless of 
+  * discount price for an item to clarify the discount treatment (also known
+  * as strike-through pricing). This only applies to fixed-price listings and auction listings with the Buy It Now
+  * option. This feature is available for large enterprise sellers via
+  * white list. A seller can provide discount treatment regardless of
   * whether the listing includes a SKU.
   * 
  **/

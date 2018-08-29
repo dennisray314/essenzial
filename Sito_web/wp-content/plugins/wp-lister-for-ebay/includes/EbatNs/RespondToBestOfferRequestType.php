@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,9 +11,11 @@ require_once 'BestOfferActionCodeType.php';
 require_once 'AmountType.php';
 
 /**
-  * Enables the seller of a Best Offer item to accept, decline, or counter offers
-  * made by bidders. Best offers can be declined in bulk, using the same message
-  * from the seller to the bidders of all rejected offers.
+  * This call enables the seller to accept or decline a buyer's Best Offer on an item, or make a counter offer to the buyer's Best Offer. A seller can decline multiple Best Offers with one call, but the seller cannot accept or counter offer multiple Best Offers with one call. Best Offers are not applicable to auction listings.
+  * <br/><br/>
+  * <span class="tablenote"><b>Note: </b>
+  * Historically, the Best Offer feature has not been available for auction listings, but beginning with Version 1027, sellers in the US, UK, and DE sites are able to offer the Best Offer feature in auction listings. The seller can offer Buy It Now or Best Offer in an auction listing, but not both.
+  * </span>
   * 
  **/
 

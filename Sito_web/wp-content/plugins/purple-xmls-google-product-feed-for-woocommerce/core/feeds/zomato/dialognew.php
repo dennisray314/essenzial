@@ -16,6 +16,7 @@ class ZomatoDlg extends PBaseFeedDialog {
 		$this->service_name = 'Zomato';
 		$this->service_name_long = 'Zomato Products XML Export';
         $this->blockCategoryList = true;
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
 	}
 
 	function convert_option($option) {

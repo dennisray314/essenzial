@@ -7,6 +7,11 @@
     clear      : both;
 }
 
+.yith-plugin-fw span.description.inline {
+    display : inline-block;
+    margin  : 0 0 0 5px;
+}
+
 .yith-disabled {
     opacity        : 0.3;
     pointer-events : none;
@@ -187,6 +192,10 @@ ul.yit-icons-manager-list li.active {
 }
 
 /* ------- OnOff ------- */
+.yith-plugin-fw-onoff-container {
+    display : inline-block;
+}
+
 .yith-plugin-fw-onoff-container input {
     display : none;
 }

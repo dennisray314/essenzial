@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,7 +10,7 @@ require_once 'DiscountProfileType.php';
 
 /**
   * Details of an individual discount profile defined by the
-  * user for flat rate shipping.
+  * user for flat-rate shipping.
   * 
  **/
 

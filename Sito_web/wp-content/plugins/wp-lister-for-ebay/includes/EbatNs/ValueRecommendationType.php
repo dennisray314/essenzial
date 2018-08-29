@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'RecommendationValidationRulesType.php';
 
 /**
-  * Defines details about recommended values for custom Item Specifics.
+  * Type used by the <b>ValueRecommendation<b> container to provide recommended names for recommended item specifics.
   * 
  **/
 

@@ -549,7 +549,10 @@ class EbatNs_Result {
    * @access public 
    * @return void 
    */
-  function EbatNs_Result()
+  // ***** BEGIN EBATNS PATCH *****
+  // function EbatNs_Result()
+  function __construct()
+  // ***** END EBATNS PATCH ***** 
   {
     // call to initialisation
     // (be sure to call this always on the actual class and prevent any overwriting)

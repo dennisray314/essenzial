@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,10 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Contains the data for one type of feedback for one predefined time
-  * period. Parent FeedbackPeriodArrayType object indicates the type of
-  * feedback counted: positive, neutral, negative, or total. Output only,
-  * in the summary feedback data returned by GetFeedback.
+  * This type is used by the <b>FeedbackPeriod</b> containers that are returned in the <b>GetFeedback</b> call to indicate how many Negative, Neutral, Positive, Retracted, and Total Feedback entries a user has received within different periods of time, typically 30 days, 180 days, and 365 days.
   * 
  **/
 

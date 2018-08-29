@@ -20,8 +20,15 @@ $data = '';
 if (class_exists('CPF_Taxonomy'))
     $data = CPF_Taxonomy::onLoadTaxonomy(strtolower($_POST['service_name']));
 
-if (strlen($data) == 0)
-    $data = file_get_contents(dirname(__FILE__) . '/../../feeds/' . strtolower($service_name) . '/categories/' . strtolower($countryCode) . '_categories.txt');
+if (strlen($data) == 0){
+    if(file_exists(dirname(__FILE__) . '/../../feeds/' . strtolower($service_name) . '/categories/' . strtolower($countryCode) . '_categories.txt')){
+         $data = file_get_contents(dirname(__FILE__) . '/../../feeds/' . strtolower($service_name) . '/categories/' . strtolower($countryCode) . '_categories.txt');
+    }
+    else{
+         $data = file_get_contents(dirname(__FILE__) . '/../../feeds/' . strtolower($service_name) . '/categories/default_categories.txt');
+    }
+   
+}
 $data = explode("\n", $data);
 $searchTerm = strtolower($_POST['partial_data']);
 $count = 0;

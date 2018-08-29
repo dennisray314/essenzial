@@ -53,8 +53,10 @@ abstract class WEPOF_Settings_Page extends WEPOF_Product_Options_Utils{
                     	<td width="70%">
                         	<p><strong><i>WooCommerce Extra Product Options Pro</i></strong> premium version provides more features to customise product page.</p>
                             <ul>
-                            	<li>11 field types available,<br/>(<i>Text, Password, Textarea, Radio, Checkbox, Select, Multi-select, Date Picker, Time Picker, Heading, Label</i>).</li>
+                            	<li>14 field types available,<br/>(<i>Text, Hidden, Password, Textarea, Radio, Checkbox, Checkbox Group, Select, Multi-select, Date Picker, Time Picker, File Upload Heading, Label</i>).</li>
                                 <li>Option to add price fields.</li>
+                                <li>Option to display fields based on different rules.</li>
+                                <li>Option to set RegEx based custom validations.</li>
                                 <li>Option to add custom fields in different sections and positions.</li>
                             </ul>
                         </td>

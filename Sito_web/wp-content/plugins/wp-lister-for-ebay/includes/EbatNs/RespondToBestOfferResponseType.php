@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'BestOfferArrayType.php';
 
 /**
-  * Contains a list of BestOffers that were either accepted or declined.
+  * This is the base response type for the <b>RespondToBestOffer</b> call. Along with the standard output fields for Trading API calls, this type contains a <b>RespondToBestOffer</b> container that indicates whether or not the action specified in the call request (accept, decline, or counter offer) was successful.
   * 
  **/
 

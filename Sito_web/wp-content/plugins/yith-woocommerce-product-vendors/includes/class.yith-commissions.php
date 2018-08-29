@@ -414,7 +414,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
 			/**
 			 * If exists yith_product_vendors_commissions_table_created option return null
 			 */
-			if ( get_option( 'yith_product_vendors_commissions_table_created' ) ) {
+			if ( get_option( 'yith_product_vendors_commissions_table_created' ) && ! isset( $_GET['yith_wcmv_force_create_commissions_table'] ) ) {
 				return;
 			}
 
@@ -890,7 +890,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
                     }
 
 					// add line item to retrieve simply the commission associated (parent order)
-					wc_add_order_item_meta( $item_id, '_commission_id', $commission_id );
+					wc_update_order_item_meta( $item_id, '_commission_id', $commission_id );
 
 					// add commission_included_tax and _commission_included_coupon to parent and vendor order
                     $parent_item_id = wc_get_order_item_meta( $item_id, '_parent_line_item_id', true );
@@ -903,8 +903,8 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
                     );
 
                     foreach( $item_ids as $type => $id ){
-                        wc_add_order_item_meta( $id, '_commission_included_tax',    $tax_management );
-                        wc_add_order_item_meta( $id, '_commission_included_coupon', $commission_included_coupon ? 'yes' : 'no' );
+                        wc_update_order_item_meta( $id, '_commission_included_tax',    $tax_management );
+                        wc_update_order_item_meta( $id, '_commission_included_coupon', $commission_included_coupon ? 'yes' : 'no' );
 
                         do_action( 'yith_wcmv_add_extra_commission_order_item_meta', $id );
                     }
@@ -1516,7 +1516,7 @@ if ( ! class_exists( 'YITH_Commissions' ) ) {
             // add line item to retrieve simply the commission associated (child order)
             $order_class = get_class( YITH_Vendors()->orders );
             $parent_item_id = $order_class::get_parent_item_id ( $suborder, $child_item_id );
-            ! empty( $parent_item_id ) && wc_add_order_item_meta ( $parent_item_id, '_child_' . $key, $commission_id );
+            ! empty( $parent_item_id ) && wc_update_order_item_meta ( $parent_item_id, '_child_' . $key, $commission_id );
         }
 
         /**

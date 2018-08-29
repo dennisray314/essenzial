@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'GetAllBiddersModeCodeType.php';
 
 /**
-  * Provides three modes for retrieving a list of the users that bid on
-  * a listing.
+  * This is the base request type for the <b>GetAllBidders</b> call, which is used to retrieve bidders from an active or recently-ended auction listing.
   * 
  **/
 

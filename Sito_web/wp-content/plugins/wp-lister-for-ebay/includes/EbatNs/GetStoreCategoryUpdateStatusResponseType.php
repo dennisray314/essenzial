@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,11 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'TaskStatusCodeType.php';
 
 /**
-  * Returns the store category structure update status, when a prior 
-  * SetStoreCategories call was processed asynchronously. If a SetStoreCategories 
-  * request affects many listings, then the category structure changes will be 
-  * processed asynchronously. If not many listings are affected by category structure 
-  * changes, the status is returned in the SetStoreCategories response.
+  * The base response of a <b>GetStoreCategoryUpdateStatus</b> call. The response includes the status of an eBay Store Category hierarchy change that was made with a <b>SetStoreCategories</b> call.
   * 
  **/
 

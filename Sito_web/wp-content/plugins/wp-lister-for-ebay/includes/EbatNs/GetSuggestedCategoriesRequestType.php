@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,7 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Returns a list of up to 10 categories that have the highest percentage of listings
-  * whose titles or descriptions contain the keywords you specify.
+  * This call returns a list of up to 10 eBay categories that have the highest percentage of listings whose listing titles or descriptions contain the keywords you specify.
   * 
  **/
 

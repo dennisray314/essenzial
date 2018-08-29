@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 
 /**
   * This type defines the <b>ShippingCategoryDetails</b> container. When the <b>DetailName</b> field
-  * is set to ShippingCategoryDetails in a GeteBayDetails request, one
+  * is set to ShippingCategoryDetails in a <b>GeteBayDetails</b> request, one
   * <b>ShippingCategoryDetails</b> container is returned for each valid shipping category
   * used on the eBay site. Besides being useful to view the list of valid shipping
   * categories, this container is also useful to discover when the last update to

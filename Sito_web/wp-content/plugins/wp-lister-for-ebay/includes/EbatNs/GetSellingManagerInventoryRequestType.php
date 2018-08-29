@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,10 +12,8 @@ require_once 'SellingManagerSearchType.php';
 require_once 'SellingManagerInventoryPropertyTypeCodeType.php';
 
 /**
-  *       Retrieves a paginated list containing details of a user's Selling Manager inventory.
-  * This call is subject to change without notice; the deprecation process is
-  * inapplicable to this call.
-  *     
+  *       Retrieves a paginated list containing details of a user's Selling Manager Inventory. This call is subject to change without notice; the deprecation process is inapplicable to this call. The user must have a Selling Manager Pro subscription to use this call.
+  * 
  **/
 
 class GetSellingManagerInventoryRequestType extends AbstractRequestType

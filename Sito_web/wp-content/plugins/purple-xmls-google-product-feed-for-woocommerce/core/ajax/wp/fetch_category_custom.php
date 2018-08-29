@@ -45,7 +45,7 @@ if (!empty($searchTerm)) {
             $text = htmlentities(trim($this_item));
 
             if ($canDisplay)
-                echo '<div class="categoryItem" onclick="doSelectCategory_custom(this, \'' . $option . '\', \'' . $service_name . '\')">' . $text . '</div>';
+                echo '<div class="categoryItem" onclick="doSelectCategory_custom(this, \'' . $option . '\', \'' . $service_name . '\'),moveSelected(\'assigncategory\');">' . $text . '</div>';
             $count++;
             if ((strlen($searchTerm) < 3) && ($count > 15))
                 $canDisplay = false;
@@ -61,7 +61,7 @@ if (!empty($searchTerm)) {
         //Transform a category from chicken-scratch into something the user can read
         $text = htmlentities(trim($this_item));
 
-        echo '<div class="categoryItem" onclick="doSelectCategory_custom(this, \'' . $option . '\', \'' . $service_name . '\')">' . $text . '</div>';
+        echo '<div class="categoryItem" onclick="doSelectCategory_custom(this, \'' . $option . '\', \'' . $service_name . '\'),moveSelected(\'assigncategory\');">' . $text . '</div>';
 
     }
 }

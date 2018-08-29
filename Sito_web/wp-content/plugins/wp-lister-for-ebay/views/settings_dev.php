@@ -47,6 +47,7 @@
 
 								<div id="major-publishing-actions">
 									<div id="publishing-action">
+                                        <?php wp_nonce_field( 'wplister_save_devsettings' ); ?>
 										<input type="hidden" name="action" value="save_wplister_devsettings" >
 										<input type="submit" value="<?php echo __('Save Settings','wplister'); ?>" id="save_settings" class="button-primary" name="save">
 									</div>
@@ -288,6 +289,15 @@
 								<option value="100"  <?php if ( $wpl_fetch_orders_page_size == '100'  ): ?>selected="selected"<?php endif; ?>>100 orders</option>
 							</select>
 
+
+                            <label for="wpl-option-item_specifics_cache" class="text_label">
+                                <?php _e( 'Disable Item Specifics Cache', 'wplister' ); ?>
+                                <?php wplister_tooltip( 'Disable the cache to force WP-Lister to pull the item specifics from eBay.' ); ?>
+                            </label>
+                            <select id="wpl-option-item_specifics_cache" name="wpl_e2e_disable_item_specifics_cache" class=" required-entry select">
+                                <option value="0" <?php selected( $wpl_disable_item_specifics_cache, 0 ); ?>><?php echo __('No','wplister'); ?> (default)</option>
+                                <option value="1" <?php selected( $wpl_disable_item_specifics_cache, 1 ); ?>><?php echo __('Yes','wplister'); ?></option>
+                            </select>
 
                             <label for="wpl-option-revise_all_listings_limit" class="text_label">
                                 <?php _e( 'Revise All Items Limit', 'wplister' ); ?>

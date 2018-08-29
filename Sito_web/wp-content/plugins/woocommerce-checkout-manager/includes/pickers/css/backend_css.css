@@ -159,12 +159,6 @@ input.wccs_submit_button {
 	margin-bottom: 10px;
 	margin-left: 15px;
 }
-/*
-input#wccs_reset_submit,
-input#wccs_submit_button {
-	margin-top:10px;
-}
-*/
 .reset_form {
 	float: left;
 }

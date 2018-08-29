@@ -1,19 +1,20 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
 require_once 'UserIDType.php';
+require_once 'FeedbackRatingStarCodeType.php';
 require_once 'CommentTypeCodeType.php';
 require_once 'ItemIDType.php';
 require_once 'TradingRoleCodeType.php';
 require_once 'AmountType.php';
 
 /**
-  * Container consisting of detailed information on a Feedback entry for a specific 
-  * order line item.
+  * Container consisting of detailed information on a Feedback entry for a specific
+  * order line item. This container will only be returned for a detail level of <code>ReturnAll</code>. For Feedback entries that were left for the buyer by the seller, some of the fields of this container will not be returned to users who were not involved in the transaction as either the buyer or seller.
   *   
  **/
 
@@ -23,6 +24,11 @@ class FeedbackDetailType extends EbatNs_ComplexType
 	* @var UserIDType
 	**/
 	protected $CommentingUser;
+
+	/**
+	* @var FeedbackRatingStarCodeType
+	**/
+	protected $FeedbackRatingStar;
 
 	/**
 	* @var int
@@ -129,6 +135,14 @@ class FeedbackDetailType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'UserIDType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'FeedbackRatingStar' =>
+				array(
+					'required' => false,
+					'type' => 'FeedbackRatingStarCodeType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -297,6 +311,22 @@ class FeedbackDetailType extends EbatNs_ComplexType
 	function setCommentingUser($value)
 	{
 		$this->CommentingUser = $value;
+	}
+
+	/**
+	 * @return FeedbackRatingStarCodeType
+	 **/
+	function getFeedbackRatingStar()
+	{
+		return $this->FeedbackRatingStar;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setFeedbackRatingStar($value)
+	{
+		$this->FeedbackRatingStar = $value;
 	}
 
 	/**

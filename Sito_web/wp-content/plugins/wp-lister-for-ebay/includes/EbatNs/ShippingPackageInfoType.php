@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>ShippingPackageInfoType</b> container, which is returned in order management calls. Various fields are returned if the order is being delivered through eBay Now; other fields are returned for non-eBay Now orders.
+  * Type defining the <b>ShippingPackageInfoType</b> container, which is returned in order management calls. The <b>ShippingPackageInfoType</b> container provides information on delivery times and tracking information for a shipping package.
   * 
  **/
 
@@ -47,6 +47,21 @@ class ShippingPackageInfoType extends EbatNs_ComplexType
 	* @var dateTime
 	**/
 	protected $EstimatedDeliveryTimeMax;
+
+	/**
+	* @var dateTime
+	**/
+	protected $HandleByTime;
+
+	/**
+	* @var dateTime
+	**/
+	protected $MinNativeEstimatedDeliveryTime;
+
+	/**
+	* @var dateTime
+	**/
+	protected $MaxNativeEstimatedDeliveryTime;
 
 
 	/**
@@ -108,6 +123,30 @@ class ShippingPackageInfoType extends EbatNs_ComplexType
 					'cardinality' => '0..1'
 				),
 				'EstimatedDeliveryTimeMax' =>
+				array(
+					'required' => false,
+					'type' => 'dateTime',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'HandleByTime' =>
+				array(
+					'required' => false,
+					'type' => 'dateTime',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'MinNativeEstimatedDeliveryTime' =>
+				array(
+					'required' => false,
+					'type' => 'dateTime',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'MaxNativeEstimatedDeliveryTime' =>
 				array(
 					'required' => false,
 					'type' => 'dateTime',
@@ -231,6 +270,54 @@ class ShippingPackageInfoType extends EbatNs_ComplexType
 	function setEstimatedDeliveryTimeMax($value)
 	{
 		$this->EstimatedDeliveryTimeMax = $value;
+	}
+
+	/**
+	 * @return dateTime
+	 **/
+	function getHandleByTime()
+	{
+		return $this->HandleByTime;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setHandleByTime($value)
+	{
+		$this->HandleByTime = $value;
+	}
+
+	/**
+	 * @return dateTime
+	 **/
+	function getMinNativeEstimatedDeliveryTime()
+	{
+		return $this->MinNativeEstimatedDeliveryTime;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setMinNativeEstimatedDeliveryTime($value)
+	{
+		$this->MinNativeEstimatedDeliveryTime = $value;
+	}
+
+	/**
+	 * @return dateTime
+	 **/
+	function getMaxNativeEstimatedDeliveryTime()
+	{
+		return $this->MaxNativeEstimatedDeliveryTime;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setMaxNativeEstimatedDeliveryTime($value)
+	{
+		$this->MaxNativeEstimatedDeliveryTime = $value;
 	}
 
 }

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'MultiLegShippingServiceType.php';
 require_once 'AddressType.php';
 
 /**
-  *    This type provides information about the shipping service, cost, address, and delivery estimates for the domestic leg of a Global Shipping Program shipment.
+  *    This type provides information about the shipping service, cost, address, and delivery estimates for the domestic leg of a Global Shipping Program shipment. This type is only applicable for international shipments using the GSP program.
   * 
  **/
 

@@ -16,6 +16,7 @@ class PriceRunnerDlg extends PBaseFeedDialog {
 		$this->service_name_long = 'PriceRunner XML Feed';
 		$this->blockCategoryList = false;
 		$this->options = array(	);
+		$this->doc_link = "https://www.exportfeed.com/documentation/price-runner-guide/";
 	}
 
 }

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,7 @@
 require_once 'AbstractResponseType.php';
 
 /**
-  * Includes the acknowledgement of date and time the auction was
-  * ended due to the call to EndItem.
+  * This type includes the acknowledgement of the date and time when the eBay listing was ended due to the call to <b>EndItem</b>.
   * 
  **/
 

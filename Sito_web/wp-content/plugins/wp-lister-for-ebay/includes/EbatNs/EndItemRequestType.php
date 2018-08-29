@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'EndReasonCodeType.php';
 
 /**
-  * Ends the specified item listing before the date and time at which it would normally end per the listing duration.&nbsp;<b>Also for Half.com</b>.
+  * Ends the specified item listing before the date and time at which it would normally end per the listing duration.
   * 
  **/
 

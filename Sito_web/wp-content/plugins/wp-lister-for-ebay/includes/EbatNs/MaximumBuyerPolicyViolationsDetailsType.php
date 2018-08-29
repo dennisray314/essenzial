@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,9 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'NumberOfPolicyViolationsDetailsType.php';
 require_once 'PolicyViolationDurationDetailsType.php';
 
-/**The maximum number of policy violations and the durations that can be designated by sellers at this site. This is applicable only to sellers.
+/**
+  * The maximum number of policy violations and the durations that can be designated by sellers at this site. This is applicable only to sellers.
+  * 
  **/
 
 class MaximumBuyerPolicyViolationsDetailsType extends EbatNs_ComplexType

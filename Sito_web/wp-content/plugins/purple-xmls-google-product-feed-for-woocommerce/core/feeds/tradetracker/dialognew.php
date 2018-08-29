@@ -16,6 +16,7 @@ class TRadeTRackerDlg extends PBaseFeedDialog {
 		$this->service_name = 'TradeTracker';
 		$this->service_name_long = 'TradeTracker Products XML Export';
 		$this->blockCategoryList = true;
+		// $this->doc_link = "https://www.exportfeed.com/documentation/";
 	}
 
 	function convert_option($option) {

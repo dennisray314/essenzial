@@ -15,6 +15,7 @@ class GraziaShopDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'GraziaShop';
         $this->service_name_long = 'GraziaShop CSV Export';
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
     }
 
     function convert_option($option)

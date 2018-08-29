@@ -20,6 +20,7 @@ class HouzzDlg extends PBaseFeedDialog
             'LeadTimeMax',
             'Style',
         );
+        $this->doc_link = "https://www.exportfeed.com/documentation/houzz-export-guide/";
     }
 
     function convert_option($option)

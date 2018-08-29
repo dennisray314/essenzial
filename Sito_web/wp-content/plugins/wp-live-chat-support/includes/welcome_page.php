@@ -88,7 +88,7 @@
 
 <div class="feature-section normal clear" >
     <div class="changelog ">
-        <h2 style="font-size: 25px; text-align: left;"><?php _e('How did you find us?', 'wplivechat'); ?></h2>
+        <!--<h2 style="font-size: 25px; text-align: left;"><?php _e('How did you find us?', 'wplivechat'); ?></h2>
         <form method="post" name="wplc_find_us_form" style="font-size: 16px;">
             <div  style="text-align: left; width:275px;">
                 <input type="radio" name="wplc_find_us" id="wordpress" value='repository'>
@@ -130,7 +130,7 @@
         </form> 
         <br/><br/>
         
-        <hr />
+        <hr /> -->
         
         <div class="feature-section three-col">
             <div class='col'>

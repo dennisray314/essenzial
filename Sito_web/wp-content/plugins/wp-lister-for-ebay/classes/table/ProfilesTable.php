@@ -111,9 +111,9 @@ class ProfilesTable extends WP_List_Table {
         //Build row actions
         $actions = array(
             'edit'      => sprintf('<a href="?page=%s&action=%s&profile=%s">%s</a>',$_REQUEST['page'],'edit',$item['profile_id'],__('Edit','wplister')),
-            'duplicate' => sprintf('<a href="?page=%s&action=%s&profile=%s">%s</a>',$_REQUEST['page'],'duplicate_auction_profile',$item['profile_id'],__('Duplicate','wplister')),
-            'download'  => sprintf('<a href="?page=%s&action=%s&profile=%s">%s</a>',$_REQUEST['page'],'download_listing_profile',$item['profile_id'],__('Download','wplister')),
-            'delete'    => sprintf('<a href="?page=%s&action=%s&profile=%s">%s</a>',$_REQUEST['page'],'delete_profile',$item['profile_id'],__('Delete','wplister')),
+            'duplicate' => sprintf('<a href="?page=%s&action=%s&profile=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'duplicate_auction_profile', $item['profile_id'], wp_create_nonce( 'duplicate_auction_profile' ), __('Duplicate','wplister')),
+            'download'  => sprintf('<a href="?page=%s&action=%s&profile=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'download_listing_profile', $item['profile_id'], wp_create_nonce( 'download_listing_profile' ), __('Download','wplister')),
+            'delete'    => sprintf('<a href="?page=%s&action=%s&profile=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wplister_delete_profile',$item['profile_id'], wp_create_nonce( 'wplister_delete_profile' ),__('Delete','wplister')),
         );
 
         // make title link to edit page
@@ -235,7 +235,7 @@ class ProfilesTable extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'delete_profile'    => __('Delete','wplister')
+            'wplister_delete_profile'    => __('Delete','wplister')
         );
         return $actions;
     }

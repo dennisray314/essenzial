@@ -53,10 +53,9 @@ var wplc_cid = null;
 var initial_data = {};
 var wplc_fist_run = true;
 var wplc_long_poll_delay = 1500;
-
-
+ 
 jQuery(document).ready(function() {
-    
+
     /* Gutenberg functions */
     jQuery('.wp-block-wp-live-chat-support-wplc-chat-box').on('click',function(){
         jQuery("#wplc_hovercard").fadeOut("fast");
@@ -64,7 +63,7 @@ jQuery(document).ready(function() {
         wplc_is_chat_open = true;
         jQuery.event.trigger({type: "wplc_open_chat"});
     });
-    
+
     wplc_map_node_variables();
 
     /* preload the images */
@@ -205,15 +204,19 @@ jQuery(document).ready(function() {
 
                     wplc_call_to_server_chat(data,true,false);
                 }
-                
+
                 if(wplc_cid !== null   && wplc_init_chat_box_check == true && wplc_init_chat_box !== false){
-                    
+
                     wplc_init_chat_box(wplc_cid,wplc_chat_status);
                 } else {
                     //Node and offline
                     if(typeof wplc_use_node_server !== "undefined" && (wplc_use_node_server === "true" || wplc_use_node_server  === true)){
 
-                        wplc_cbox_animation();
+						if(wplc_check_hide_cookie != "yes"){
+							wplc_dc = setTimeout(function (){
+								wplc_cbox_animation();
+							}, parseInt(window.wplc_delay));
+						}
                     }
                 }
 
@@ -233,9 +236,11 @@ jQuery(document).ready(function() {
         if (typeof wplc_preload_images !== "undefined" && typeof wplc_preload_images === "object" ) {
             var wplc_i = 0;
             for (var key in wplc_preload_images) {
-                images[wplc_i] = new Image();
-                images[wplc_i].src = wplc_preload_images[key];
-                wplc_i++;
+                if (wplc_preload_images.hasOwnProperty(key)) {
+                    images[wplc_i] = new Image();
+                    images[wplc_i].src = wplc_preload_images[key];
+                    wplc_i++;
+                }
             }
         }
     }
@@ -264,6 +269,62 @@ jQuery(document).ready(function() {
             jQuery("#wplc_start_chat_btn").trigger("click")
         }
     });
+
+   jQuery("body").on("click", "#wplc_end_chat_button", function(e){
+        var data = {
+            security: wplc_nonce,
+            chat_id: wplc_cid,
+            agent_id: 0
+        };
+
+        wplc_rest_api('end_chat', data, 12000, null);
+
+        jQuery.event.trigger({type: "wplc_end_chat_as_user"});
+   });
+
+   jQuery("body").on("click", "#wplc_gdpr_download_data_button", function(e){
+        var wplc_init_nonce = jQuery(this).attr('data-wplc-init-nonce');
+        var wplc_gdpr_last_cid = jQuery(this).attr('data-wplc-last-cid');
+
+        if(typeof wplc_gdpr_last_cid !== 'undefined'){
+            var reference_href = window.location.href;
+            reference_href = reference_href.indexOf("?") !== -1 ? reference_href.substr(0, reference_href.indexOf("?")) : reference_href;
+            var download_url = reference_href + "?wplc_action=wplc_gdpr_download_chat_json&wplc_cid=" + wplc_gdpr_last_cid + "&wplc_init_nonce=" + wplc_init_nonce;
+            window.open(download_url);
+        }
+   });
+
+   jQuery("body").on("click", "#wplc_gdpr_remove_data_button", function(e){
+        var current_button = jQuery(this);
+
+        var wplc_rest_nonce = current_button.attr('data-wplc-rest-nonce');
+        var wplc_gdpr_rest_url = current_button.attr('data-wplc-rest-url');
+        var wplc_gdpr_last_cid = current_button.attr('data-wplc-last-cid');
+
+        current_button.text('Processing...');
+
+        if(typeof wplc_gdpr_last_cid !== 'undefined'){
+
+            jQuery.ajax({
+                url: wplc_gdpr_rest_url + "/delete_chat",
+                data: {
+                    wplc_cid: wplc_gdpr_last_cid,
+                    _wpnonce: wplc_rest_nonce
+                },
+                type:"POST",
+                complete: function() {
+                    current_button.text('Complete');
+                }   
+            });
+        }
+
+   });
+
+   jQuery(document).on("wplc_update_gdpr_last_chat_id", function(e) {
+        jQuery('#wplc_gdpr_remove_data_button,#wplc_gdpr_download_data_button').attr('data-wplc-last-cid', wplc_cid);
+   });
+
+   
 
     // Fix conflict with Responsive Lighbox plugin
     setTimeout(function () {
@@ -537,7 +598,7 @@ function wplc_loop_response_handler(response, data){
                                 wplc_scroll_to_bottom();
                             });
 
-
+							wplc_new_message_sound = true;
                         }
                     }
                 }
@@ -811,11 +872,11 @@ function wplc_cbox_animation() {
             break;
     }
 
-    //jQuery("#wp-live-chat").css({ "display" : "block" }); 
+    //jQuery("#wp-live-chat").css({ "display" : "block" });
     if(jQuery("#wp-live-chat").attr('wplc-auto-pop-up') === "1"){
 
         var wplc_force_must_min = Cookies.get('wplc_minimize');
-        if(wplc_force_must_min === 'yes'){ 
+        if(wplc_force_must_min === 'yes'){
             /* User has actively chosen to minimize the chat, leave it alone */
         } else {
             setTimeout(function(){
@@ -890,26 +951,26 @@ function wplc_strip(str) {
 }
 
 (function($) {
-	
+
 	$(document).ready(function(event) {
-		
+
 		if(!window.wdtEmojiBundle)
 			return;
-		
+
 		$(document.body).on("click", function(event) {
-			
+
 			// If click event isn't on the emoji window, or the emoji open button, close the emoji window
 			if($(event.target).closest(".wdt-emoji-picker, .wdt-emoji-popup").length == 0 && !(
 				event.target.parentNode == null && $(event.target).hasClass("fa-smile-o")
 				))
 				wdtEmojiBundle.close();
-			
+
 		});
-		
+
 		// Close emoji window on scroll
 		$(window).scroll(function(event) {
 			wdtEmojiBundle.close();
 		});
 	});
-	
+
 })(jQuery);

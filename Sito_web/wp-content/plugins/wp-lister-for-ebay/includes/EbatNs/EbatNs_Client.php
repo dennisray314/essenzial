@@ -666,7 +666,8 @@ class EbatNs_Client
 			$this->_currentResult = new EbatNs_ResponseError();
 			$this->_currentResult->raise( 'curl_error ' . curl_errno( $ch ) . ' ' . curl_error( $ch ), 80000 + 1, EBAT_SEVERITY_ERROR );
 	        // ***** BEGIN EBATNS PATCH *****
-            $this->log( curl_error( $ch ) . ' - ref: sendMessage()', 'curl_error' );
+       		$cURLresponse_info = curl_getinfo($ch);
+            $this->log( curl_error( $ch ) . ' - ref: sendMessage() - '.print_r( $cURLresponse_info, 1 ), 'curl_error' );
 	        // ***** END EBATNS PATCH *****
 			curl_close( $ch );
 			
@@ -837,7 +838,7 @@ class EbatNs_Client
 				curl_setopt( $ch, CURLOPT_PROXY, WP_PROXY_HOST . ':' . WP_PROXY_PORT );
         }
         // ***** END EBATNS PATCH *****	
-
+		
 		// added support for multi-threaded clients
 		if (isset($this->_transportOptions['HTTP_CURL_MULTITHREADED']))
 		{
@@ -1190,3 +1191,4 @@ class EbatNs_Client
 		return $this->_session;
 	}
 } 
+?>

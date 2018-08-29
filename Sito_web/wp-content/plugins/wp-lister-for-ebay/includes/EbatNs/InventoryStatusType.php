@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,8 +10,7 @@ require_once 'ItemIDType.php';
 require_once 'AmountType.php';
 
 /**
-  * Lightweight type for updating basic inventory status details. 
-  * Primarily intended for bulk use cases.
+  * This type is used by the <b>ReviseInventoryStatus</b> call to update the price and/or quantity of an item or an item variation within a single-variation or multiple-variation, fixed-price listing.
   * 
  **/
 

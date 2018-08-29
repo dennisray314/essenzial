@@ -44,9 +44,9 @@ WPLC_U_Admin_Chatbox_UI_Events.prototype = {
             if (this.showDate || this.showTime) {
 
                 if (this.showDate && this.showTime) {
-                    return '<span class="'+ this.CLASSES.POPUP_TIMESTAMP +'">' + $(dateTime).text() + '</span>';
+                    return '<span class="'+ this.CLASSES.POPUP_TIMESTAMP +'">' + jQuery(dateTime).text() + '</span>';
                 } else {
-                    return '<span class="'+ this.CLASSES.POPUP_TIMESTAMP +' '+ this.CLASSES.ONLY_HOURS +'">' + $(dateTime).text() + '</span>';
+                    return '<span class="'+ this.CLASSES.POPUP_TIMESTAMP +' '+ this.CLASSES.ONLY_HOURS +'">' + jQuery(dateTime).text() + '</span>';
                 }
             }
         } catch(err) {

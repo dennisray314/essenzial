@@ -26,32 +26,37 @@ class WPLE_AccountsPage extends WPL_Page {
 
 	
 	public function handleActions() {
-        // WPLE()->logger->debug("handleActions()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// add new account (triggered by 'Fetch eBay Token' button on accounts page)
 		if ( $this->requestAction() == 'wplister_add_account' ) {
+		    check_admin_referer( 'wplister_add_account' );
 			$this->newAccount();
 		}
 
 		// fetch token for account (triggered from edit account page, right sidebar)
 		if ( $this->requestAction() == 'wplister_fetch_ebay_token' ) {
+		    check_admin_referer( 'wplister_fetch_ebay_token' );
 			$this->fetchTokenForAccount( $_REQUEST['account_id'] );
 		}
 
 		// update account details from ebay
-		if ( $this->requestAction() == 'update_account' ) {
+		if ( $this->requestAction() == 'wple_update_account' ) {
+		    check_admin_referer( 'wplister_update_account' );
 			$this->updateAccount( $_REQUEST['ebay_account'] );
 		}
 
 		// delete account
-		if ( $this->requestAction() == 'delete_account' ) {
+		if ( $this->requestAction() == 'wple_delete_account' ) {
+		    check_admin_referer( 'wplister_delete_account' );
 			$account = new WPLE_eBayAccount( $_REQUEST['ebay_account'] );
 			$account->delete();
 			$this->showMessage( __('Account has been deleted.','wplister') );
 		}
 
 		// enable account
-		if ( $this->requestAction() == 'enable_account' ) {
+		if ( $this->requestAction() == 'wple_enable_account' ) {
+		    check_admin_referer( 'wplister_enable_account' );
 			$account = new WPLE_eBayAccount( $_REQUEST['ebay_account'] );
 			$account->active = 1;
 			$account->update();
@@ -59,7 +64,8 @@ class WPLE_AccountsPage extends WPL_Page {
 		}
 
 		// disable account
-		if ( $this->requestAction() == 'disable_account' ) {
+		if ( $this->requestAction() == 'wple_disable_account' ) {
+		    check_admin_referer( 'wplister_disable_account' );
 			$account = new WPLE_eBayAccount( $_REQUEST['ebay_account'] );
 			$account->active = 0;
 			$account->update();
@@ -67,18 +73,21 @@ class WPLE_AccountsPage extends WPL_Page {
 		}
 
 		// set default account
-		if ( $this->requestAction() == 'make_default' ) {
+		if ( $this->requestAction() == 'wple_make_default' ) {
+		    check_admin_referer( 'wplister_make_account_default' );
 			$this->makeDefaultAccount( $_REQUEST['ebay_account'] );
 			$this->showMessage( __('Default account has been changed successfully.','wplister') );
 		}
 
 		// add empty developer account
 		if ( $this->requestAction() == 'wple_add_dev_account' ) {
+		    check_admin_referer( 'wple_add_dev_account' );
 			$this->addEmptyAccount();
 		}
 
 		// assign invalid data to default account
 		if ( $this->requestAction() == 'wple_assign_invalid_data_to_default_account' ) {
+		    check_admin_referer( 'wple_assign_invalid_data_to_default_account' );
 			WPL_Setup::fixItemsUsingInvalidAccounts();
 		}
 
@@ -162,10 +171,11 @@ class WPLE_AccountsPage extends WPL_Page {
 		// handle actions and show notes
 		$this->handleActions();
 
-		if ( $this->requestAction() == 'save_account' ) {
+		if ( $this->requestAction() == 'wple_save_account' ) {
+		    check_admin_referer( 'wplister_save_account' );
 			$this->saveAccount();
 		}
-		if ( $this->requestAction() == 'edit_account' ) {
+		if ( $this->requestAction() == 'wple_edit_account' ) {
 			return $this->displayEditAccountsPage();
 		}
 
@@ -210,7 +220,7 @@ class WPLE_AccountsPage extends WPL_Page {
 			'default_account'			=> get_option( 'wplister_default_account_id' ),
 
 			'settings_url'				=> 'admin.php?page='.self::ParentMenuId.'-settings',
-			'auth_url'					=> $form_action.'&action=wplRedirectToAuthURL',
+			'auth_url'					=> $form_action.'&action=wplRedirectToAuthURL&_wpnonce='. wp_create_nonce( 'wplister_redirect_to_auth_url' ),
 			'form_action'				=> $form_action
 		);
 		$this->display( 'settings_accounts', $aData );
@@ -241,7 +251,7 @@ class WPLE_AccountsPage extends WPL_Page {
 			'default_account'			=> get_option( 'wplister_default_account_id' ),
 
 			'settings_url'				=> 'admin.php?page='.self::ParentMenuId.'-settings',
-			'auth_url'					=> $form_action.'&action=wplRedirectToAuthURL'.'&site_id='.$account->site_id.'&sandbox='.$account->sandbox_mode,
+			'auth_url'					=> $form_action.'&action=wplRedirectToAuthURL'.'&site_id='.$account->site_id.'&sandbox='.$account->sandbox_mode .'&_wpnonce='. wp_create_nonce( 'wplister_redirect_to_auth_url' ),
 			'form_action'				=> $form_action
 		);
 		$this->display( 'account/account_edit_page', $aData );
@@ -250,6 +260,7 @@ class WPLE_AccountsPage extends WPL_Page {
 
 
 	protected function saveAccount() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// TODO: check nonce
 		if ( isset( $_POST['wplister_account_id'] ) ) {

@@ -53,7 +53,7 @@
 
 		<form method="post" action="<?php echo $wpl_form_action; ?>">
 			<div class="submit" style="padding-top: 0; float: left;">
-				<?php #wp_nonce_field( 'e2e_log_page' ); ?>
+				<?php wp_nonce_field( 'wplister_clear_ebay_log' ); ?>
 				<input type="hidden" name="action" value="wpl_clear_ebay_log" />
 				<input type="submit" value="<?php echo __('Empty log','wplister') ?>" name="submit" class="button">
 				<!-- &nbsp; current size: <?php echo $wpl_tableSize ?> mb -->
@@ -62,7 +62,7 @@
 
 		<form method="post" action="<?php echo $wpl_form_action; ?>">
 			<div class="submit" style="padding-top: 0; float: left; padding-left:15px;">
-				<?php #wp_nonce_field( 'e2e_log_page' ); ?>
+				<?php wp_nonce_field( 'wplister_optimize_ebay_log' ); ?>
 				<input type="hidden" name="action" value="wpl_optimize_ebay_log" />
 				<input type="submit" value="<?php echo __('Optimize log','wplister') ?>" name="submit" class="button">
 			</div>

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,9 +11,7 @@ require_once 'NameValueListArrayType.php';
 require_once 'SKUType.php';
 
 /**
-  * Enables users to add, replace, and delete My eBay notes for
-  * items that are being tracked in the My eBay All Selling and
-  * All Buying areas.
+  * Enables users to add, modify, or delete a pinned note for any item that is being tracked in the My eBay All Selling and All Buying areas.
   * 
  **/
 

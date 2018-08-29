@@ -21,8 +21,8 @@ class ListingsPage extends WPL_Page {
 		// Add custom screen options
 		add_action( "load-toplevel_page_wplister", array( &$this, 'addScreenOptions' ) );
 
-		// $this->handleSubmitOnInit();
-		add_action( "wp_loaded", array( &$this, 'handleSubmitOnInit' ), 1 );
+		// handle actions when WP is loaded
+		add_action( "wp_loaded", array( &$this, 'handleActionsOnWpLoaded' ), 1 );
 	}
 
 	// public function onWpNetworkAdminMenu() {
@@ -38,10 +38,11 @@ class ListingsPage extends WPL_Page {
 		// $page_id: toplevel_page_wplister
 	}
 
-	public function handleSubmitOnInit() {
-        WPLE()->logger->debug("handleSubmit()");
+	public function handleActionsOnWpLoaded() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
-		if ( $this->requestAction() == 'prepare_auction' ) {
+		if ( $this->requestAction() == 'wple_prepare_auction' ) {
+		    check_admin_referer( 'prepare_listing' );
 
 			$listingsModel = new ListingsModel();
 	        $listings = $listingsModel->prepareListings( $_REQUEST['post'] );
@@ -51,7 +52,7 @@ class ListingsPage extends WPL_Page {
 			exit();
 		}
 
-		if ( $this->requestAction() == 'reselect' ) {
+		if ( $this->requestAction() == 'wple_reselect' ) {
 
 			ListingsModel::reSelectListings( $_REQUEST['auction'] );
 	        
@@ -60,9 +61,12 @@ class ListingsPage extends WPL_Page {
 			exit();
 		}
 
-		if ( $this->requestAction() == 'apply_listing_profile' ) {
+		if ( $this->requestAction() == 'wple_apply_listing_profile' ) {
 
 	        WPLE()->logger->info( 'apply_listing_profile' );
+
+	        check_admin_referer( 'wplister_apply_listing_profile' );
+
 	        #WPLE()->logger->info( print_r( $_REQUEST, 1 ) );
 			$profilesModel = new ProfilesModel();
 	        $profile = $profilesModel->getItem( $_REQUEST['wpl_e2e_profile_to_apply'] );
@@ -84,13 +88,15 @@ class ListingsPage extends WPL_Page {
 		}
 
 		// handle preview action
-		if ( $this->requestAction() == 'preview_auction' ) {
+		if ( $this->requestAction() == 'wple_preview_auction' ) {
+		    check_admin_referer( 'wplister_preview_auction' );
 			$this->previewListing( $_REQUEST['auction'] );
 			exit();
 		}
 
 		// handle remove_from_ebay action (WooCommerce Products page)
-		if ( $this->requestAction() == 'remove_from_ebay' ) {
+		if ( $this->requestAction() == 'wple_remove_from_ebay' ) {
+		    check_admin_referer( 'bulk-posts' );
 			$products =  is_array( $_REQUEST['post'] ) ? $_REQUEST['post'] : array( $_REQUEST['post'] );
 			// WPLE()->logger->info('remove_from_ebay / products: '.print_r($products,1));
 			if ( empty($products) ) return;
@@ -116,7 +122,7 @@ class ListingsPage extends WPL_Page {
 			wple_show_message( __('Selected listings were ended.','wplister') ); // TODO: implement as persistent admin message (save to db and show once)
 		}
 
-	} // handleSubmitOnInit()
+	} // handleActionsOnWpLoaded()
 
 	function addScreenOptions() {
 		
@@ -141,7 +147,7 @@ class ListingsPage extends WPL_Page {
 		wp_enqueue_style( 'thickbox' );
 
 		// ProfileSelector
-		wp_register_script( 'wple_profile_selector', self::$PLUGIN_URL.'/js/classes/ProfileSelector.js?ver='.time(), array( 'jquery' ) );
+		wp_register_script( 'wple_profile_selector', self::$PLUGIN_URL.'js/classes/ProfileSelector.js?ver='.time(), array( 'jquery' ) );
 		wp_enqueue_script ( 'wple_profile_selector' );
 		wp_localize_script( 'wple_profile_selector', 'wple_ProfileSelector_i18n', array(
 				'WPLE_URL' 	=> WPLISTER_URL
@@ -153,9 +159,11 @@ class ListingsPage extends WPL_Page {
 
 
 	public function handleActions() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// handle save listing
-		if ( $this->requestAction() == 'save_listing' ) {
+		if ( $this->requestAction() == 'wple_save_listing' ) {
+		    check_admin_referer( 'wplister_save_listing' );
 			$this->saveListing();
 		}
 
@@ -163,7 +171,9 @@ class ListingsPage extends WPL_Page {
 		$account_id = isset( $_REQUEST['auction'] ) ? WPLE_ListingQueryHelper::getAccountID( $_REQUEST['auction'] ) : false;
 
 		// handle verify action
-		if ( $this->requestAction() == 'verify' ) {
+		if ( $this->requestAction() == 'wple_verify' ) {
+		    check_admin_referer( 'bulk-auctions' );
+
 			$this->initEC( $account_id );
 			$this->EC->verifyItems( $_REQUEST['auction'] );
 			$this->EC->closeEbay();
@@ -174,7 +184,9 @@ class ListingsPage extends WPL_Page {
 			}
 		}
 		// handle revise action
-		if ( $this->requestAction() == 'revise' ) {
+		if ( $this->requestAction() == 'wple_revise' ) {
+		    check_admin_referer( 'bulk-auctions' );
+
 			$this->initEC( $account_id );
 			$this->EC->reviseItems( $_REQUEST['auction'] );
 			$this->EC->closeEbay();
@@ -185,7 +197,9 @@ class ListingsPage extends WPL_Page {
 			}
 		}
 		// handle publish to eBay action
-		if ( $this->requestAction() == 'publish2e' ) {
+		if ( $this->requestAction() == 'wple_publish2e' ) {
+            check_admin_referer( 'bulk-auctions' );
+
 			$this->initEC( $account_id );
 			$this->EC->sendItemsToEbay( $_REQUEST['auction'] );
 			$this->EC->closeEbay();
@@ -196,7 +210,9 @@ class ListingsPage extends WPL_Page {
 			}
 		}
 		// handle relist action
-		if ( $this->requestAction() == 'relist' ) {
+		if ( $this->requestAction() == 'wple_relist' ) {
+            check_admin_referer( 'bulk-auctions' );
+
 			$this->initEC( $account_id );
 			$this->EC->relistItems( $_REQUEST['auction'] );
 			$this->EC->closeEbay();
@@ -207,21 +223,26 @@ class ListingsPage extends WPL_Page {
 			}
 		}
 		// handle end_item action
-		if ( $this->requestAction() == 'end_item' ) {
+		if ( $this->requestAction() == 'wple_end_item' ) {
+            check_admin_referer( 'bulk-auctions' );
+
 			$this->initEC( $account_id );
 			$this->EC->endItemsOnEbay( $_REQUEST['auction'] );
 			$this->EC->closeEbay();
 			$this->showMessage( __('Selected listings were ended.','wplister') );
 		}
 		// handle update from eBay action
-		if ( $this->requestAction() == 'update' ) {
+		if ( $this->requestAction() == 'wple_update' ) {
+            check_admin_referer( 'bulk-auctions' );
+
 			$this->initEC( $account_id );
 			$this->EC->updateItemsFromEbay( $_REQUEST['auction'] );
 			$this->EC->closeEbay();
 			$this->showMessage( __('Selected items were updated from eBay.','wplister') );
 		}
 		// handle delete action
-		if ( isset( $_REQUEST['auction'] ) && ( $this->requestAction() == 'delete_listing' ) ) {
+		if ( isset( $_REQUEST['auction'] ) && ( $this->requestAction() == 'wple_delete_listing' ) ) {
+            check_admin_referer( 'bulk-auctions' );
 
 	        $id = $_REQUEST['auction'];
 
@@ -237,7 +258,8 @@ class ListingsPage extends WPL_Page {
 		}
 
 		// handle archive action
-		if ( $this->requestAction() == 'archive' ) {
+		if ( $this->requestAction() == 'wple_archive' ) {
+            check_admin_referer( 'bulk-auctions' );
 
 	        $id = $_REQUEST['auction'];
 	        $data = array( 'status' => 'archived' );
@@ -255,6 +277,7 @@ class ListingsPage extends WPL_Page {
 
 		// handle wple_reset_status action
 		if ( $this->requestAction() == 'wple_reset_status' ) {
+            check_admin_referer( 'bulk-auctions' );
 
 	        $lm = new ListingsModel();
 	        $id = $_REQUEST['auction'];
@@ -268,11 +291,18 @@ class ListingsPage extends WPL_Page {
 
 	        if ( is_array( $id ) ) {
 	            foreach( $id as $single_id ) {
-	            	$status = WPLE_ListingQueryHelper::getStatus( $single_id );
+	                $item = ListingsModel::getItem( $single_id );
+	                $status = $item['status'];
 	            	if ( ! in_array( $status, array('ended','sold','archived') ) ) {
 	            		wple_show_message("Item with status <i>$status</i> was skipped. Only ended and sold items can have their status reset to <i>prepared</i>.", 'warn' );
 	            		continue;
 	            	}
+
+	            	if ( ! $item['ebay_id'] ) {
+                        wple_show_message("Skipped item without an eBay ID (#$single_id)", 'warn' );
+                        continue;
+                    }
+
 	                ListingsModel::updateListing( $single_id, $data );
 			        $lm->reapplyProfileToItem( $single_id );
 	            }
@@ -283,6 +313,8 @@ class ListingsPage extends WPL_Page {
 
 		// handle wple_clear_eps_data action
 		if ( $this->requestAction() == 'wple_clear_eps_data' ) {
+		    check_admin_referer( 'bulk-auctions' );
+
 	        $id = $_REQUEST['auction'];
 
 	        if ( is_array( $id ) ) {
@@ -298,7 +330,8 @@ class ListingsPage extends WPL_Page {
 		}
 
 		// handle lock action
-		if ( $this->requestAction() == 'lock' ) {
+		if ( $this->requestAction() == 'wple_lock' ) {
+            check_admin_referer( 'bulk-auctions' );
 
 	        $id = $_REQUEST['auction'];
 	        $data = array( 'locked' => true );
@@ -315,7 +348,8 @@ class ListingsPage extends WPL_Page {
 		}
 
 		// handle unlock action
-		if ( $this->requestAction() == 'unlock' ) {
+		if ( $this->requestAction() == 'wple_unlock' ) {
+            check_admin_referer( 'bulk-auctions' );
 
 	        $id = $_REQUEST['auction'];
 	        $data = array( 'locked' => false );
@@ -332,7 +366,8 @@ class ListingsPage extends WPL_Page {
 		}
 
 		// handle cancel_schedule action
-		if ( $this->requestAction() == 'cancel_schedule' ) {
+		if ( $this->requestAction() == 'wple_cancel_schedule' ) {
+		    check_admin_referer( 'bulk-auctions' );
 
 	        $id = $_REQUEST['auction'];
 	        $data = array( 'relist_date' => null );
@@ -349,13 +384,16 @@ class ListingsPage extends WPL_Page {
 		}
 
 		// clean listing archive
-		if ( $this->requestAction() == 'wpl_clean_listing_archive' ) {
+		if ( $this->requestAction() == 'wple_clean_listing_archive' ) {
+            check_admin_referer( 'wplister_clean_listing_archive' );
+
 	        WPLE_ListingQueryHelper::cleanArchive();				
 			$this->showMessage( __('Archive was cleared.','wplister') );
 		}
 
 		// handle toolbar action - prepare listing from product
 		if ( $this->requestAction() == 'wpl_prepare_single_listing' ) {
+		    check_admin_referer( 'wplister_prepare_single_listing' );
 
 	        // get profile
 			$profilesModel = new ProfilesModel();
@@ -392,14 +430,17 @@ class ListingsPage extends WPL_Page {
 
 
 		// handle reapply profile action
-		if ( $this->requestAction() == 'reapply' ) {
+		if ( $this->requestAction() == 'wple_reapply' ) {
+		    check_admin_referer( 'bulk-auctions' );
+
 			$listingsModel = new ListingsModel();
 	        $listingsModel->reapplyProfileToItems( $_REQUEST['auction'] );
 			$this->showMessage( __('Profiles were re-applied to selected items.','wplister') );
 		}
 
 		// cancel (re-)selecting profile process
-		if ( $this->requestAction() == 'cancel_profile_selection' ) {
+		if ( $this->requestAction() == 'wple_cancel_profile_selection' ) {
+		    check_admin_referer( 'wplister_cancel_profile_selection' );
 			ListingsModel::cancelSelectingListings();
 		}
 
@@ -668,12 +709,12 @@ class ListingsPage extends WPL_Page {
 				$msg .= ' &ndash; <i>'.$listing->status.'</i>';					
 				$msg .= '<br>';
 				if ( in_array( $listing->status, array( 'prepared', 'verified', 'ended', 'sold' ) ) ) {
-					$archive_link = sprintf('<a class="archive button button-small" href="?page=%s&action=%s&auction=%s">%s</a>',$page,'archive',$listing->id,__('Click to move to archive','wplister'));
+					$archive_link = sprintf('<a class="archive button button-small" href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_archive',$listing->id, wp_create_nonce( 'bulk-auctions' ), __('Click to move to archive','wplister'));
 					$msg .= '&nbsp;&nbsp;&nbsp;&nbsp;'.$archive_link;
 					$msg .= '<br>';
 				}
 				if ( in_array( $listing->status, array( 'selected' ) ) ) {
-					$delete_link = sprintf('<a class="delete button button-small button-primary" href="?page=%s&action=%s&auction=%s">%s</a>',$page,'delete_listing',$listing->id,__('Click to remove this listing','wplister'));
+					$delete_link = sprintf('<a class="delete button button-small button-primary" href="?page=%s&action=%s&auction=%s&_wpnonce=%s">%s</a>',$page,'wple_delete_listing',$listing->id, wp_create_nonce( 'wplister_delete_auction' ), __('Click to remove this listing','wplister'));
 					$msg .= '&nbsp;&nbsp;&nbsp;&nbsp;'.$delete_link;
 					$msg .= '<br>';
 				}

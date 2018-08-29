@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -13,9 +13,7 @@ require_once 'PaginationType.php';
 require_once 'SortOrderCodeType.php';
 
 /**
-  * Retrieves the orders for which the authenticated user is a participant, either as the buyer
-  * or the seller.&nbsp;<b>Also for Half.com</b>. The call returns all the
-  * orders that meet the request specifications.
+  * Retrieves the orders for which the authenticated user is a participant, either as the buyer or the seller. The call returns all the orders that meet the request criteria. Orders older than 90 days old will not be returned.
   * 
  **/
 

@@ -14,16 +14,11 @@ class WPL_Core {
 	static public $PLUGIN_DIR;
 	static public $PLUGIN_VERSION;
 
-	// const ParentName		= 'eBay';
-	// const ParentTitle	= 'eBay';
 	const ParentPermissions	= 'manage_ebay_listings';
 	const ParentMenuId		= 'wplister';
 	
 	const InputPrefix 		= 'wpl_e2e_';
 	const OptionPrefix 		= 'wplister_';
-
-	// const ViewExt			= '.php';
-	// const ViewDir			= '../views';
 
 	var $logger;
 	var $message;
@@ -32,10 +27,6 @@ class WPL_Core {
 	var $app_name;
 	
 	public function __construct() {
-		// deprecated
-		// global $wpl_logger;
-		// $this->logger   = &$wpl_logger;
-		// $this->logger = WPLE()->logger;
 
 		$this->app_name = apply_filters( 'wplister_app_name', 'eBay' );
 
@@ -78,7 +69,6 @@ class WPL_Core {
 		$ebay_token      = self::getOption('ebay_token');
 
 		// set site_id dynamically during authentication
-		// if ( isset( $_REQUEST['site_id'] ) && isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'wplRedirectToAuthURL' ) {
 		if ( isset( $_REQUEST['site_id'] ) && isset( $_REQUEST['sandbox'] ) ) {
 			$ebay_site_id    = $_REQUEST['site_id']; 
 			$sandbox_enabled = $_REQUEST['sandbox'];
@@ -90,7 +80,6 @@ class WPL_Core {
 			$account_id = $_REQUEST['account_id'];
 		}
 		if ( $account_id ) {
-			// $account = new WPLE_eBayAccount( $account_id ); // not suitable to check if an account exists
 			$account = WPLE_eBayAccount::getAccount( $account_id );
 			if ( $account ) {
 				$ebay_site_id    = $account->site_id; 
@@ -186,17 +175,6 @@ class WPL_Core {
 		return self::ParentMenuId.'-'.$insId;
 	}
 
-	/* more template methods */	
-	// protected function redirect( $insUrl, $innTimeout = 1 ) {
-	// 	echo '
-	// 		<script type="text/javascript">
-	// 			function redirect() {
-	// 				window.location = "'.$insUrl.'";
-	// 			}
-	// 			//var oTimer = setTimeout( "redirect()", "'.($innTimeout * 1000).'" );
-	// 		</script>'; 
-	// }
-			
-
-}
+		
+} // class WPL_Core
 

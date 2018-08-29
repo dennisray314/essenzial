@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,10 +12,12 @@ require_once 'BotBlockResponseType.php';
 
 /**
   * Base type definition of a response payload that can carry any
-  * type of payload content with following optional elements:<br>
-  * - timestamp of response message<br>
-  * - application-level acknowledgement<br>
-  * - application-level (business-level) errors and warnings
+  * type of payload content with following optional elements:
+  * <ul>
+  * <li>timestamp of response message</li>
+  * <li>application-level acknowledgement</li>
+  * <li>application-level (business-level) errors and warnings</li>
+  * </ul>
   * 
  **/
 

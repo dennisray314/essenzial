@@ -31,7 +31,7 @@ class PAggXmlFeed extends PAggregateFeed
 
     }
 
-    function getFeedData($category, $remote_category, $file_name, $saved_feed = null)
+    function getFeedData($category, $remote_category, $file_name, $saved_feed = null, $miinto_country_code = null)
     {
 
         $this->logActivity('Initializing...');
@@ -95,11 +95,11 @@ class PAggXmlFeed extends PAggregateFeed
         $content = '
   </products>';
 
-        /* Google Merge
-           $content = '
-           </channel>
+        /* Google Merge */
+        $content .= '
+         
         </rss>';
-        */
+
         file_put_contents($this->filename, $content, FILE_APPEND);
         global $pfcore;
         if ($this->shopID > 0)
@@ -124,18 +124,19 @@ class PAggXmlFeed extends PAggregateFeed
 
 
         $content = '<?xml version="1.0" encoding="UTF-8" ?>
-  <products>';
+          <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">
+          <products>';
 
 
         //Google:
         /*
         $content = '<?xml version="1.0" encoding="UTF-8" ?>
-      <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">
-        <channel>
-          <title>' . $file_name . '</title>
-          <link><![CDATA[' . $this->file_url . ']]></link>
-          <description>' . $file_name . '</description>';
-          */
+          <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0" xmlns:c="http://base.google.com/cns/1.0">
+            <channel>
+              <title>' . $file_name . '</title>
+              <link><![CDATA[' . $this->file_url . ']]></link>
+              <description>' . $file_name . '</description>';
+       */
 
         file_put_contents($this->filename, $content);
 

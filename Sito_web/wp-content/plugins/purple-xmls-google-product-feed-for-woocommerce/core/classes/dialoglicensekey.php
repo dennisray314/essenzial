@@ -48,7 +48,7 @@ class PLicenseKeyDialog
 
         //Only load absolute position in WordPress
         if ($pfcore->cmsName == 'WordPress')
-            $style = 'style="position:absolute; left:300px; top:59px"';
+           $style = 'style="display: inline-block; vertical-align: middle; margin-top: 40px;"';
         else
             $style = '';
 
@@ -58,6 +58,9 @@ class PLicenseKeyDialog
 		     <label for="edtLicenseKey">License:</label>
 		      <input style="width:300px" type="text" name="license_key" id="edtLicenseKey" value="' . $current_licensekey . '" placeholder="Enter full license key" />
 		      <input class="button-primary" type="submit" value="Save Key" title="Enter license key.License key field will disappear if it is valid one after you reload the page." id="submit" name="submit" onclick="submitLicenseKey(\'' . $key_name . '\')">
+              <ul class="license-key-text" style="text-align:center;">
+                        <li><span class="license-key-info">Include all text and generated numeric value </span><a href="http://www.exportfeed.com/woocommerce-product-feed/">Get License Key</a>
+                    </ul>
 		    </div>
 		    ';
 

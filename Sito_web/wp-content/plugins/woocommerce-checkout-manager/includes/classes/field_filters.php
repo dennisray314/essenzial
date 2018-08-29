@@ -33,7 +33,7 @@ function wooccm_checkout_field_text_handler( $field = '', $key, $args, $value ) 
 	$required = false;
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	}
 
 	$args['maxlength'] = ( $args['maxlength'] ) ? 'maxlength="' . absint( $args['maxlength'] ) . '"' : '';
@@ -106,7 +106,7 @@ function wooccm_checkout_field_textarea_handler( $field = '', $key, $args, $valu
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -185,7 +185,7 @@ function wooccm_checkout_field_password_handler( $field = '', $key, $args, $valu
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -260,7 +260,7 @@ function wooccm_checkout_field_radio_handler( $field = '', $key, $args, $value )
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -310,7 +310,7 @@ function wooccm_checkout_field_select_handler( $field = '', $key, $args, $value 
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -319,10 +319,11 @@ function wooccm_checkout_field_select_handler( $field = '', $key, $args, $value 
 
 	$options = '';
 
-	if( !empty( $args['options'] ) )
-		$options .= ($args['default']) ?'<option value="">' . $args['default'] .'</option>': '';
-		foreach (explode('||',$args['options']) as $option_key => $option_text )
+	if( !empty( $args['options'] ) ) {
+		$options .= ( $args['default'] ? '<option value="">' . $args['default'] .'</option>' : '' );
+		foreach( explode( '||', $args['options'] ) as $option_key => $option_text )
 			$options .= '<option '. selected( $value, $option_key, false ) . '>' . wooccm_wpml_string( esc_attr( $option_text ) ) .'</option>';
+	}
 
 	$field = '<p class="form-row ' . esc_attr( implode( ' ', $args['class'] ) ) .'" id="' . esc_attr( $key ) . '_field">';
 
@@ -330,7 +331,7 @@ function wooccm_checkout_field_select_handler( $field = '', $key, $args, $value 
 		$field .= '<label for="' . esc_attr( $key ) . '" class="' . implode( ' ', $args['label_class'] ) .'">' . $args['label']. $required . '</label>';
 
 	$field .= '
-		<select class="' . esc_attr( $args['fancy'] ) .'" data-placeholder="' . __( $args['default'], 'wc_checkout_fields' ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $key ) . '" >
+		<select class="' . esc_attr( $args['fancy'] ) .'" data-placeholder="' . ( !empty( $args['default'] ) ? __( $args['default'], 'woocommerce-checkout-manager' ) : '' ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $key ) . '" >
 			' . $options . '
 		</select>
 	</p>' . $after;
@@ -368,15 +369,16 @@ function wooccm_checkout_field_checkbox_handler( $field = '', $key, $args, $valu
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
 
 	$field = '
 <p class="form-row ' . implode( ' ', $args['class'] ) .'" id="' . $key . '_field">
-	<label for="' . $key . '_checkbox" class="checkbox ' . implode( ' ', $args['label_class'] ) .'">
-		<input type="checkbox" id="' . $key . '_checkbox" name="' . $key . '" class="input-checkbox" value="1" />' . $args['label'] . $required . '
+	<label for="' . $key . '_checkbox" class="woocommerce-form__label woocommerce-form__label-for-checkbox ' . implode( ' ', $args['label_class'] ) .'">
+		<input type="checkbox" id="' . $key . '_checkbox" name="' . $key . '" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" value="1" />
+		<span>' . $args['label'] . '</span>' . $required . '
 	</label>
 </p>' . $after;
 
@@ -419,7 +421,7 @@ function wooccm_checkout_field_state_handler( $field = '', $key, $args, $value )
 		if( !empty( $states ) ) {
 			if( !in_array( 'validate-required', $args['class'] ) )
 				$args['class'][] = 'validate-required';
-			$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager' ) . '">*</abbr>';
+			$required = ' <span class="required">*</span>';
 		} else {
 			$args['class'][] = 'woocommerce-validated';
 		}
@@ -478,7 +480,7 @@ function wooccm_checkout_field_state_handler( $field = '', $key, $args, $value )
 			<option value="">' . __( 'Select a state&hellip;', 'woocommerce-checkout-manager' ) . '</option>';
 
 		foreach( $states as $ckey => $cvalue ) {
-			$field .= '<option value="' . esc_attr( $ckey ) . '" '.selected( $value, $ckey, false ) .'>'.__( $cvalue, 'woocommerce-checkout-manager' ) .'</option>';
+			$field .= '<option value="' . esc_attr( $ckey ) . '" '.selected( $value, $ckey, false ) .'>' . ( !empty( $cvalue ) ? __( $cvalue, 'woocommerce-checkout-manager' ) : '' ) .'</option>';
 		}
 
 		$field .= '</select>';
@@ -529,17 +531,16 @@ function wooccm_checkout_field_country_handler( $field = '', $key, $args, $value
 		}
 	}
 
-	if( ( !empty( $args['clear'] ) ) ) {
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
-	} else {
+	else
 		$after = '';
-	}
 
 	$args['class'][] = 'address-field';
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -594,10 +595,10 @@ function wooccm_checkout_field_country_handler( $field = '', $key, $args, $value
 		$field = '<p class="form-row ' . esc_attr( implode( ' ', $args['class'] ) ) .'" id="' . esc_attr( $args['id'] ) . '_field">'
 				. '<label for="' . esc_attr( $args['id'] ) . '" class="' . esc_attr( implode( ' ', $args['label_class'] ) ) .'">' . $args['label'] . $required  . '</label>'
 				. '<select name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" class="country_to_state country_select ' . esc_attr( implode( ' ', $args['input_class'] ) ) .'" ' . implode( ' ', $custom_attributes ) . '>'
-				. '<option value="">'.__( 'Select a country&hellip;', 'woocommerce-checkout-manager' ) .'</option>';
+				. '<option value="">' . __( 'Select a country&hellip;', 'woocommerce-checkout-manager' ) . '</option>';
 
 		foreach( $countries as $ckey => $cvalue ) {
-			$field .= '<option value="' . esc_attr( $ckey ) . '" '.selected( $value, $ckey, false ) .'>'.__( $cvalue, 'woocommerce-checkout-manager' ) .'</option>';
+			$field .= '<option value="' . esc_attr( $ckey ) . '" '.selected( $value, $ckey, false ) .'>' . ( !empty( $cvalue ) ? __( $cvalue, 'woocommerce-checkout-manager' ) : '' ) . '</option>';
 		}
 
 		$field .= '</select>';
@@ -636,14 +637,14 @@ function wooccm_checkout_field_multiselect_handler( $field = '', $key, $args, $v
 		}
 	}
 
-	if ( ( ! empty( $args['clear'] ) ) )
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
 	else
 		$after = '';
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -661,7 +662,7 @@ function wooccm_checkout_field_multiselect_handler( $field = '', $key, $args, $v
 	if ( $args['label'] )
 		$field .= '<label for="' . esc_attr( $key ) . '" class="' . implode( ' ', $args['label_class'] ) .'">' . $args['label']. $required . '</label>';
 
-	$field .= '<select data-placeholder="' . __( 'Select some options', 'wc_checkout_fields' ) . '" multiple="multiple" name="' . esc_attr( $key ) . '[]" id="' . esc_attr( $key ) . '" class="checkout_chosen_select select">
+	$field .= '<select data-placeholder="' . __( 'Select some options', 'woocommerce-checkout-manager' ) . '" multiple="multiple" name="' . esc_attr( $key ) . '[]" id="' . esc_attr( $key ) . '" class="checkout_chosen_select select">
 			' . $options . '
 		</select>
 	</p>' . $after;
@@ -690,14 +691,14 @@ function wooccm_checkout_field_multicheckbox_handler( $field = '', $key, $args, 
 		}
 	}
 
-	if( ( !empty( $args['clear'] ) ) )
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
 	else
 		$after = '';
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -744,14 +745,14 @@ function wooccm_checkout_field_colorpicker_handler( $field = '', $key, $args, $v
 		}
 	}
 	
-	if( ( !empty( $args['clear'] ) ) )
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
 	else
 		$after = '';
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
@@ -790,21 +791,20 @@ function wooccm_checkout_field_datepicker_handler( $field = '', $key, $args, $va
 			return;
 		}
 	}
-	
 
-	if( ( !empty( $args['clear'] ) ) )
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
 	else
 		$after = '';
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
 
-	$field = '<p class="form-row ' . implode( ' ', $args['class'] ) .'MyDate'.$args['cow'].' wccs-form-row-wide" id="' . $key . '_field">
+	$field = '<p class="form-row ' . implode( ' ', $args['class'] ) . 'MyDate' . $args['cow'] . ' wccs-form-row-wide" id="' . $key . '_field">
 					<label for="' . $key . '" class="' . implode( ' ', $args['label_class'] ) .'">' . $args['label'] . $required . '</label>
 					<input type="text" class="input-text" name="' . $key . '" id="' . $key . '" placeholder="' . $args['placeholder'] . '" value="'. $value.'" />
 				</p>' . $after;
@@ -833,19 +833,19 @@ function wooccm_checkout_field_timepicker_handler( $field = '', $key, $args, $va
 		}
 	}
 
-	if( ( !empty( $args['clear'] ) ) )
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
 	else
 		$after = '';
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}
 
-	$field = '<p class="form-row ' . implode( ' ', $args['class'] ) .'MyTime'.$args['cow'].' wccs-form-row-wide" id="' . $key . '_field">
+	$field = '<p class="form-row ' . implode( ' ', $args['class'] ) . 'MyTime' . $args['cow'] . ' wccs-form-row-wide" id="' . $key . '_field">
 					<label for="' . $key . '" class="' . implode( ' ', $args['label_class'] ) .'">' . $args['label'] . $required . '</label>
 					<input type="text" class="input-text" name="' . $key . '" id="' . $key . '" placeholder="' . $args['placeholder'] . '" value="'. $value.'" />
 				</p>' . $after;
@@ -876,15 +876,14 @@ function wooccm_checkout_field_upload_handler( $field = '', $key, $args, $value 
 
 	$upload_name = ( !empty($args['placeholder'] ) ? esc_attr( $args['placeholder'] ) : __( 'Upload Files', 'woocommerce-checkout-manager' ) );
 
-	if( ( !empty( $args['clear'] ) ) ) {
+	if( !empty( $args['clear'] ) )
 		$after = '<div class="clear"></div>';
-	} else {
+	else
 		$after = '';
-	}
 
 	if( $args['wooccm_required'] ) {
 		$args['class'][] = 'validate-required';
-		$required = ' <abbr class="required" title="' . esc_attr( 'required', 'woocommerce-checkout-manager'  ) . '">*</abbr>';
+		$required = ' <span class="required">*</span>';
 	} else {
 		$required = '';
 	}

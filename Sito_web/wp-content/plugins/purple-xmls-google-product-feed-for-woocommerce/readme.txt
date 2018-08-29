@@ -180,6 +180,24 @@ This will now redirect to the feed URL you just created - ready for submission!
 
  
 == Changelog ==
+<h4>3.1.9.1 2018/07/06</h4>
+<ul>
+  <li><strong>Changed:</strong> Miinto attributes mapping </li>
+</ul>
+<h4>3.1.9.0 2018/06/20</h4>
+<ul>
+  <li><strong>Added:</strong> Miinto new feed specification update </li>
+  <li><strong>Added:</strong> Miinto Brand new feed specification update </li>
+  <li><strong>Added:</strong> User friendly UI </li>
+</ul>
+<h4>3.1.8.6 2018/06/20</h4>
+<ul>
+  <li><strong>Added:</strong> Miinto new feed specification update </li>
+  <li><strong>Added:</strong> Miinto new marketplaces addition </li>
+  <li><strong>Added:</strong> Improved custom product feed </li>
+  <li><strong>Added:</strong> Bonanza new feed specification update </li>
+  <li><strong>Fixed:</strong> Design issues </li>
+</ul>
 <h4>3.1.8.5 2018/03/29</h4>
 <ul>
   <li><strong>Fixed:</strong> TradeTracker issue</li>

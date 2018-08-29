@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ItemSpecificSourceCodeType.php';
 
 /**
-  * A name and corresponding value (a name/value pair).
+  * This type is used to set or identify either an Item Specific name/value pair for a category/item/variation, a Parts Compatibility name/value pair, or a Global Trade Item Number (GTIN) or other product identifier.
   * 
  **/
 

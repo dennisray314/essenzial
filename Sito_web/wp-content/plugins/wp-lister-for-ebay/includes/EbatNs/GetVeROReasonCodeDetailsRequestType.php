@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,11 +7,11 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Retrieves details for VeRO reason codes and their descriptions. You can specify a 
-  * reason code ID to get details for a specific reason on the site specified in the 
-  * request header. If ReasonCodeID is not passed in the request, all reason codes are 
-  * returned. Set ReturnAllSites to true to retrieve reason codes for all sites.
-  * You must be a member of the Verified Rights Owner (VeRO) Program to use this call. 
+  * Retrieves details for VeRO reason codes and their descriptions. You can specify a
+  * reason code ID to get details for a specific reason on the site specified in the
+  * request header. If <strong>ReasonCodeID</strong> is not passed in the request, all reason codes are
+  * returned. Set <strong>ReturnAllSites</strong> to <code>true</code> to retrieve reason codes for all sites.
+  * You must be a member of the Verified Rights Owner (VeRO) Program to use this call.
   * 
  **/
 

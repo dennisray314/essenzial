@@ -50,6 +50,7 @@ class eBayDlg extends PBaseFeedDialog
             'Software Platform',
             'Watch Display Type'
         );
+        $this->doc_link = "https://www.exportfeed.com/documentation/ebay-commerce-network-integration-guide/";
     }
 
     function convert_option($option)

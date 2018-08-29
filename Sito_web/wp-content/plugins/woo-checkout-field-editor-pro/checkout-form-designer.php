@@ -3,13 +3,13 @@
  * Plugin Name: Woo Checkout Field Editor Pro
  * Description: Customize WooCommerce checkout fields(Add, Edit, Delete and re-arrange fields).
  * Author:      ThemeHiGH
- * Version:     1.2.6
+ * Version:     1.2.8
  * Author URI:  https://www.themehigh.com
  * Plugin URI:  https://www.themehigh.com
  * Text Domain: thwcfd
  * Domain Path: /languages
  * WC requires at least: 3.0.0
- * WC tested up to: 3.3.0
+ * WC tested up to: 3.4.3
  */
  
 if(!defined( 'ABSPATH' )) exit;
@@ -34,7 +34,7 @@ if(is_woocommerce_active()) {
 		global $supress_field_modification;
 		$supress_field_modification = false;
 		
-		define('TH_WCFD_VERSION', '1.2.6');
+		define('TH_WCFD_VERSION', '1.2.8');
 		!defined('TH_WCFD_BASE_NAME') && define('TH_WCFD_BASE_NAME', plugin_basename( __FILE__ ));
 		!defined('TH_WCFD_URL') && define('TH_WCFD_URL', plugins_url( '/', __FILE__ ));
 		!defined('TH_WCFD_ASSETS_URL') && define('TH_WCFD_ASSETS_URL', TH_WCFD_URL . 'assets/');
@@ -136,6 +136,9 @@ if(is_woocommerce_active()) {
 	
 	function thwcfd_prepare_country_locale($fields) {
 		if(is_array($fields)){
+			$sname = apply_filters('thwcfd_address_field_override_with', 'billing');
+			$address_fields = get_option('wc_fields_'.$sname);
+
 			foreach($fields as $key => $props){
 				$override_ph = apply_filters('thwcfd_address_field_override_placeholder', true);
 				$override_label = apply_filters('thwcfd_address_field_override_label', true);
@@ -149,7 +152,14 @@ if(is_woocommerce_active()) {
 					unset($fields[$key]['label']);
 				}
 				if($override_required && isset($props['required'])){
-					unset($fields[$key]['required']);
+					$fkey = $sname.'_'.$key;
+					if(is_array($address_fields) && isset($address_fields[$fkey])){
+						$cf_props = $address_fields[$fkey];
+						if(is_array($cf_props) && isset($cf_props['required'])){
+							$fields[$key]['required'] = $cf_props['required'] ? true : false;
+						}
+					}
+					//unset($fields[$key]['required']);
 				}
 				
 				if($override_priority && isset($props['priority'])){
@@ -190,7 +200,7 @@ if(is_woocommerce_active()) {
 			return thwcfd_prepare_address_fields(get_option('wc_fields_billing'), $fields, 'billing', $country);
 		}
 	}
-	add_filter('woocommerce_billing_fields', 'thwcfd_billing_fields_lite', 1000, 2);
+	add_filter('woocommerce_billing_fields', 'thwcfd_billing_fields_lite', apply_filters('thwcfd_billing_fields_priority', 1000), 2);
 
 	/**
 	 * wc_checkout_fields_modify_shipping_fields function.
@@ -209,7 +219,7 @@ if(is_woocommerce_active()) {
 			return thwcfd_prepare_address_fields(get_option('wc_fields_shipping'), $fields, 'shipping', $country);
 		}
 	}
-	add_filter('woocommerce_shipping_fields', 'thwcfd_shipping_fields_lite', 1000, 2);
+	add_filter('woocommerce_shipping_fields', 'thwcfd_shipping_fields_lite', apply_filters('thwcfd_shipping_fields_priority', 1000), 2);
 
 	/**
 	 * wc_checkout_fields_modify_shipping_fields function.
@@ -240,7 +250,7 @@ if(is_woocommerce_active()) {
 		
 		return $fields;
 	}
-	add_filter('woocommerce_checkout_fields', 'thwcfd_checkout_fields_lite', 1000);
+	add_filter('woocommerce_checkout_fields', 'thwcfd_checkout_fields_lite', apply_filters('thwcfd_checkout_fields_priority', 1000));
 	
 	/**
 	 *

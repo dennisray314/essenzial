@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,7 +10,7 @@ require_once 'ValueRecommendationType.php';
 require_once 'ItemSpecificSourceCodeType.php';
 
 /**
-  * Defines details about recommended names and values for custom Item Specifics.
+  * This type provides details about recommended names and values for custom Item Specifics and/or Product Identifier types.
   * 
  **/
 

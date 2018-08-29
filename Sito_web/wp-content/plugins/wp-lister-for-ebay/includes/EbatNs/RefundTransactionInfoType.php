@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -15,7 +15,7 @@ require_once 'TransactionReferenceType.php';
   * Type defining the <strong>Refund</strong> container, which consists of detailed information on an In-Store Pickup item refund.
   * <br/><br/>
   * <span class="tablenote">
-  * <strong>Note:</strong> At this time, the In-Store Pickup feature is generally only available to large retail merchants, and can only be applied to multi-quantity, fixed-price listings.  
+  * <strong>Note:</strong> At this time, the In-Store Pickup feature is generally only available to large retail merchants in US, and can only be applied to multi-quantity, fixed-price listings.
   * </span>
   * 
  **/

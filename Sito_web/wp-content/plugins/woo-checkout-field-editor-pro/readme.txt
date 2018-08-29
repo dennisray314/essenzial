@@ -4,7 +4,7 @@ Donate link: https://themehigh.com/
 Tags: checkout field editor, woocommerce checkout field editor, checkout manager, woocommerce checkout manager, checkout field customizer, checkout form editor, checkout form customizer, checkout, WooCommerce checkout, checkout form designer, checkout
 Requires at least: 4.0
 Tested up to: 4.9
-Stable tag: 1.2.6
+Stable tag: 1.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,24 +32,30 @@ Check out the premium version of WooCommerce Checkout Field Editor Pro - The bes
 <blockquote>
 = PREMIUM VERSION FEATURES =
 <ul>		
-	<li><strong>12 field types are available:</strong> In Add New Field form and Edit Field form you can choose field type from a list of 12 including 10 input fields and one field for title/heading and one for label.
+	<li><strong>17 field types are available:</strong> In Add New Field form and Edit Field form you can choose field type from a list of 17 including 15 input fields and one field for title/heading and one for label.
 		 <p>Available field types:</p>
 		 <ol>                  
 			  <li><strong>Text</strong> – A basic input text field.</li>
 			  <li><strong>Hidden</strong> – A hidden field.</li>
 			  <li><strong>Password</strong> – An input password text box.</li>
+			  <li><strong>Telephone</strong> – An input tel field.</li>
+			  <li><strong>Email</strong> – An input email field.</li>
+			  <li><strong>Number</strong> – An input number field.</li>
 			  <li><strong>Textarea</strong> – A textarea field.</li>
 			  <li><strong>Radio</strong> – Radio button input (for selecting one of many choices)</li>
-			  <li><strong>Checkbox</strong> – A checkbox field.</li>                 
+			  <li><strong>Checkbox</strong> – A checkbox field.</li>  
+			  <li><strong>Checkbox Group</strong> – A group of checkboxes (allows multiple selections from many choices).</li>               
 			  <li><strong>Select</strong> – A drop-down list (for selecting one of many choices)</li>
 			  <li><strong>Multi-select</strong> – A drop-down list (allows multiple selections from many choices)</li>               
 			  <li><strong>Date picker</strong> – Select a date from a popup.</li>
 			  <li><strong>Time picker</strong> – Select a time from a popup.</li>
+			  <li><strong>File Upload</strong> – A file upload field.</li>
 			  <li><strong>Heading</strong> – Display a heading/ title</li>
 			  <li><strong>Label</strong> – Display a label/ text</li>
 		 </ol>
 	</li>
-	<li><strong>Conditional Fields:</strong> Conditionally display fields based on cart items and other field(s) values.</li>
+	<li><strong>Conditional Fields:</strong> Conditionally display fields & sections based on cart items and other field(s) values.</li>
+	<li><strong>Custom Validations:</strong> Custom validator feature can be used to define custom validation rules using RegEx.</li>
 	<li><strong>Price Fields:</strong> Add an extra cost to the cart total based on field selection.</li>
 	<li><strong>Add new section:</strong> Add new section(s) in predefined positions in checkout page.
 		 <p>Available positions:</p>
@@ -62,8 +68,12 @@ Check out the premium version of WooCommerce Checkout Field Editor Pro - The bes
 			  <li>After shipping form</li>
 			  <li>Before registration form</li>               
 			  <li>After registration form</li>
-			  <li>Before order_notes</li>
+			  <li>Before order notes</li>
 			  <li>After order notes</li>
+			  <li>Before terms & conditions</li>
+			  <li>After terms & conditions</li>
+			  <li>Before submit button</li>
+			  <li>After submit button</li>
 		 </ol>
 	</li>
 	<li><strong>Edit section(s) properties:</strong> Edit custom added section(s) label and display position.</li>
@@ -102,6 +112,12 @@ Yes. There is a button 'reset to default fields' to go back to the WooCommerce d
 8. Newly added field
 
 == Changelog ==
+= 1.2.8 =
+* Fix for the issue of displaying 'Optional' text for required fields.
+
+= 1.2.7 =
+* WooCommerce tested up to version updated.
+
 = 1.2.6 =
 * New filter to allow default field names for new fields.
 * Fix for the issue of not displaying settings popup properly.

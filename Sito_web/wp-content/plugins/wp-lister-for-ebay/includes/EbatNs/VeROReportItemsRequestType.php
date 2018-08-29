@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,10 +9,10 @@ require_once 'UserIDType.php';
 require_once 'VeROReportItemsType.php';
 
 /**
-  * Reports items that allegedly infringe your copyright, trademark, or other 
-  * intellectual property rights. You can report one or more items at a time with this 
-  * call. You must be a member of the Verified Rights Owner (VeRO) Program to use this 
-  * call. 
+  * Reports items that allegedly infringe your copyright, trademark, or other
+  * intellectual property rights. You can report one or more items at a time with this
+  * call. You must be a member of the Verified Rights Owner (VeRO) Program to use this
+  * call.
   * 
  **/
 

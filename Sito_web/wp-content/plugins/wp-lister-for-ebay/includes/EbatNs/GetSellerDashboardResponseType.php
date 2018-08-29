@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -14,9 +14,7 @@ require_once 'SellerAccountDashboardType.php';
 require_once 'PerformanceDashboardType.php';
 
 /**
-  * Returns a brief summary of the requester's status as an eBay seller. The status
-  * information can help an eBay seller monitor their selling performance and keep
-  * their account in good standing.
+  * The base response type for the <b>GetSellerDashboard</b> call. This call retrieves seller performance data, including seller standards level, Power Seller status, Buyer Satisfaction status, eBay Search standing, and any seller fee discounts.
   * 
  **/
 

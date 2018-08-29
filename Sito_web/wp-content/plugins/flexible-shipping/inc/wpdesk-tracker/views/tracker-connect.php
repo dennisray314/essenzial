@@ -5,7 +5,7 @@
 
 		<p>
 			<?php printf ( __( 'Hey %s,', 'wpdesk-tracker'), $username ); ?><br/>
-			<?php _e( 'Please help us improve our plugins! If you opt-in, we will collect some non-sensitive data and usage information. If you skip this, that\'s okay! All plugins will work just fine.', 'wpdesk-tracker' ); ?>
+			<?php _e( 'Please help us improve our plugins! If you opt-in, we will collect some non-sensitive data and usage information anonymously. If you skip this, that\'s okay! All plugins will work just fine.', 'wpdesk-tracker' ); ?>
 		</p>
 	</div>
 
@@ -24,7 +24,7 @@
 		    		<i class="dashicons dashicons-admin-settings"></i>
 		    		<div>
 		    			<span><?php _e( 'Your Site Overview', 'wpdesk-tracker' ); ?></span>
-		    			<p><?php _e( 'Site URL, WP version, PHP info, admin email', 'wpdesk-tracker' ); ?></p>
+		    			<p><?php _e( 'WP version, PHP info', 'wpdesk-tracker' ); ?></p>
 		    		</div>
 		    	</li>
 		    	<li id="permission-events" class="permission events">
@@ -38,14 +38,7 @@
 		    		<i class="dashicons dashicons-store"></i>
 		    		<div>
 		    			<span><?php _e( 'Your Store Overview', 'wpdesk-tracker' ); ?></span>
-		    			<p><?php _e( 'Non-sensitive store usage information', 'wpdesk-tracker' ); ?></p>
-		    		</div>
-		    	</li>
-		    	<li id="permission-notices" class="permission notices">
-		    		<i class="dashicons dashicons-testimonial"></i>
-		    		<div>
-		    			<span><?php _e( 'Admin Updates', 'wpdesk-tracker' ); ?></span>
-		    			<p><?php _e( 'Announcements, updates, marketing, no spam and easy opt-out', 'wpdesk-tracker' ); ?></p>
+		    			<p><?php _e( 'Anonymized and non-sensitive store usage information', 'wpdesk-tracker' ); ?></p>
 		    		</div>
 		    	</li>
 		    </ul>

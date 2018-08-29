@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,9 +7,9 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>ReturnPolicyDetails.Refund</b> container that is 
-  * returned in <b>GeteBayDetails</b>. All of the values (along with descriptions 
-  * for each value) that can be used as a Refund Option when listing an item is returned 
+  * Type defining the <b>ReturnPolicyDetails.Refund</b> container that is
+  * returned in <b>GeteBayDetails</b>. All of the values (along with descriptions
+  * for each value) that can be used as a Refund Option when listing an item is returned
   * under the <b>ReturnPolicyDetails.Refund</b> container.
   * 
  **/

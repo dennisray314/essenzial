@@ -1,10 +1,11 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
+require_once 'NameValueListType.php';
 
 /**
   * This type defines the <b>VariationProductListingDetails</b> container that is used to specify an EAN, an ISBN, or a UPC value to identify a specific product variation in a multi-variation listing. For multi-variation listings, the same product identifier type must be used for all product variations within the listing. For instance, if one product variation uses ISBNs, all product variations must use ISBN values.
@@ -27,6 +28,11 @@ class VariationProductListingDetailsType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $EAN;
+
+	/**
+	* @var NameValueListType
+	**/
+	protected $NameValueList;
 
 
 	/**
@@ -62,6 +68,14 @@ class VariationProductListingDetailsType extends EbatNs_ComplexType
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
+				),
+				'NameValueList' =>
+				array(
+					'required' => false,
+					'type' => 'NameValueListType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => true,
+					'cardinality' => '0..*'
 				)));
 		}
 		$this->_attributes = array_merge($this->_attributes,
@@ -115,6 +129,48 @@ class VariationProductListingDetailsType extends EbatNs_ComplexType
 	function setEAN($value)
 	{
 		$this->EAN = $value;
+	}
+
+	/**
+	 * @return NameValueListType
+	 * @param integer $index 
+	 **/
+	function getNameValueList($index = null)
+	{
+		if ($index !== null)
+		{
+			return $this->NameValueList[$index];
+		}
+		else
+		{
+			return $this->NameValueList;
+		}
+	}
+
+	/**
+	 * @return void
+	 * @param NameValueListType $value
+	 * @param integer $index 
+	 **/
+	function setNameValueList($value, $index = null)
+	{
+		if ($index !== null)
+		{
+			$this->NameValueList[$index] = $value;
+		}
+		else
+		{
+			$this->NameValueList= $value;
+		}
+	}
+
+	/**
+	 * @return void
+	 * @param NameValueListType $value
+	 **/
+	function addNameValueList($value)
+	{
+		$this->NameValueList[] = $value;
 	}
 
 }

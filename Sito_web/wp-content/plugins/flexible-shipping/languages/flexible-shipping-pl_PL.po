@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Flexible Shipping\n"
-"POT-Creation-Date: 2017-12-22 12:55+0100\n"
-"PO-Revision-Date: 2017-12-22 12:57+0100\n"
+"POT-Creation-Date: 2018-06-25 13:10+0200\n"
+"PO-Revision-Date: 2018-06-25 13:10+0200\n"
 "Last-Translator: Piotr Jabłonowski <piotr.jablonowski@wpdesk.net>\n"
 "Language-Team: Maciej Swoboda <maciej.swoboda@gmail.com>\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.0.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: flexible-shipping.php\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
@@ -20,6 +20,47 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: classes/wpdesk/settings-api\n"
+
+#: classes/admin-notices.php:164
+#, php-format
+msgid ""
+"Flexible Shipping has changed the calculation method for shipping rules. "
+"Currently, the cart value for rules based on price is determined by "
+"WooCommerce tax option \"Display prices during cart and checkout\". You "
+"should check the %ssettings%s."
+msgstr ""
+"Flexible Shipping: zaktualizowane zostały metody obliczania reguł wysyłki. "
+"Aktualnie dla reguł opartych na cenie wartość koszyka zostanie obliczona na "
+"podstawie ustawienia podatków WooCommerce ”Wyświetlanie cen w sklepie”. "
+"Sprawdź %sustawienia podatków%s."
+
+#: classes/admin-notices.php:181
+msgid ""
+"Flexible Shipping requires at least version 2.7 of Active Payments plugin."
+msgstr ""
+"Flexible Shipping wymaga wtyczki Aktywne płatności w wersji co najmniej 2.7."
+
+#: classes/admin-notices.php:196
+msgid "Flexible Shipping requires at least version 1.2 of eNadawca plugin."
+msgstr "Flexible Shipping wymaga wtyczki eNadawca w wersji co najmniej 1.2."
+
+#: classes/admin-notices.php:211
+msgid ""
+"Flexible Shipping requires at least version 1.1 of Paczka w Ruchu plugin."
+msgstr ""
+"Flexible Shipping wymaga wtyczki Paczka w Ruchu w wersji co najmniej 1.1."
+
+#: classes/admin-notices.php:223
+#, php-format
+msgid ""
+"You are using WooCommerce Flexible Shipping below 1.4. Please deactivate it "
+"on %splugins page%s. Read about big changes in Flexible Shipping on %sour "
+"blog →%s"
+msgstr ""
+"Masz włączony WooCommerce Flexible Shipping w wersji starszej niż 1.4. "
+"Wyłącz go na %sstronie wtyczek%s. Przeczytaj o dużej zmianie we Flexible "
+"Shipping na %snaszym blogu →%s"
 
 #: classes/bulk-actions.php:46
 msgid "New"
@@ -134,29 +175,21 @@ msgstr ""
 msgid "Bulk shipping manifest - processed orders: %d"
 msgstr "Zbiorcze tworzenie protokołów nadania - przetworzone zamówienia: %d"
 
-#: classes/inspire/plugin4.php:217
-msgid ""
-"An Unexpected HTTP Error occurred during the API request. <a href=\"?\" "
-"onclick=\"document.location.reload(); return false;\">Try again</a>"
-msgstr ""
-"Wystąpił nieoczekiwany błąd HTTP podczas zapytania API.</p> <p><a href=„?” "
-"onclick=„document.location.reload(); return false;”>Spróbuj ponownie</a>"
-
-#: classes/inspire/plugin4.php:222
-msgid "An unknown error occurred"
-msgstr "Wystąpił nieznany błąd"
-
-#: classes/inspire/plugin4.php:386 flexible-shipping.php:541
+#: classes/flexible-shipping-plugin.php:260 classes/wpdesk/class-plugin.php:267
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: classes/inspire/plugin4.php:387 flexible-shipping.php:542
+#: classes/flexible-shipping-plugin.php:261 classes/wpdesk/class-plugin.php:260
 msgid "Docs"
 msgstr "Docs"
 
-#: classes/inspire/plugin4.php:388 flexible-shipping.php:543
+#: classes/flexible-shipping-plugin.php:262 classes/wpdesk/class-plugin.php:254
 msgid "Support"
 msgstr "Wsparcie"
+
+#: classes/flexible-shipping-plugin.php:268
+msgid "Upgrade"
+msgstr "Kup PRO"
 
 #: classes/manifest/cpt-shipping-manifest.php:60
 #: classes/manifest/cpt-shipping-manifest.php:62
@@ -217,7 +250,7 @@ msgstr "Data"
 
 #: classes/manifest/cpt-shipping-manifest.php:161
 #: classes/manifest/views/filter-form.php:5
-#: classes/settings-shipping-method-form.php:115
+#: classes/settings/shipping-method-form.php:115
 #: classes/views/html-orders-filter-form.php:5
 #: classes/views/html-shipping-method-settings.php:15
 msgid "Integration"
@@ -270,6 +303,16 @@ msgstr "Przesyłka"
 msgid "Order"
 msgstr "Zamówienie"
 
+#. Plugin Name of the plugin/theme
+#: classes/multilingual.php:44 classes/multilingual.php:47
+#: classes/multilingual.php:50 classes/settings/flexible-shipping.php:16
+#: classes/settings/flexible-shipping.php:30
+#: classes/settings/shipping-method-form.php:57
+#: classes/shipping-method-info.php:20 classes/shipping-method.php:24
+#: classes/shipping-method.php:25 classes/shipping-method.php:43
+msgid "Flexible Shipping"
+msgstr "Flexible Shipping"
+
 #: classes/order-add-shipping.php:30 classes/shipment/functions.php:23
 #, php-format
 msgid "Shipment for order %s, %s"
@@ -280,116 +323,106 @@ msgstr "Przesyłka do zamówienia %s, %s"
 msgid "Added new shipment via metabox. Shipment ID: %s"
 msgstr "Dodano nową przesyłkę. Numer przesyłki: %s"
 
-#: classes/order-add-shipping.php:82
+#: classes/order-add-shipping.php:84
 msgid "Select integration"
 msgstr "Wybierz integrację"
 
-#: classes/order-add-shipping.php:91
+#: classes/order-add-shipping.php:93
 msgid "Add shipping"
 msgstr "Dodaj przesyłkę"
 
-#. Plugin Name of the plugin/theme
-#: classes/settings-flexible-shipping.php:16
-#: classes/settings-flexible-shipping.php:30
-#: classes/settings-shipping-method-form.php:57 classes/shipping_method.php:24
-#: classes/shipping_method.php:25 classes/shipping_method.php:43
-#: flexible-shipping.php:423 flexible-shipping.php:426
-#: flexible-shipping.php:429
-msgid "Flexible Shipping"
-msgstr "Flexible Shipping"
-
-#: classes/settings-flexible-shipping.php:18
+#: classes/settings/flexible-shipping.php:18
 #, php-format
 msgid "See how to %sconfigure Flexible Shipping%s."
 msgstr "Zobacz jak %sskonfigurować Flexible Shipping%s."
 
-#: classes/settings-flexible-shipping.php:21
-#: classes/settings-shipping-method-form.php:48 classes/shipping_method.php:34
+#: classes/settings/flexible-shipping.php:21
+#: classes/settings/shipping-method-form.php:48 classes/shipping-method.php:34
 msgid "Enable/Disable"
 msgstr "Włącz/Wyłącz"
 
-#: classes/settings-flexible-shipping.php:23
+#: classes/settings/flexible-shipping.php:23
 msgid "Enable Flexible Shipping"
 msgstr "Włącz Flexible Shipping"
 
-#: classes/settings-flexible-shipping.php:27
+#: classes/settings/flexible-shipping.php:27
 msgid "Shipping title"
 msgstr "Tytuł"
 
-#: classes/settings-flexible-shipping.php:29
+#: classes/settings/flexible-shipping.php:29
 msgid "Visible only to admin in WooCommerce settings."
 msgstr "Widoczny tylko dla admina w ustawieniach WooCommerce."
 
-#: classes/settings-flexible-shipping.php:34
+#: classes/settings/flexible-shipping.php:34
 msgid "Tax Status"
 msgstr "Status podatku"
 
-#: classes/settings-flexible-shipping.php:39
+#: classes/settings/flexible-shipping.php:39
 msgid "Taxable"
 msgstr "Opodatkowany"
 
-#: classes/settings-flexible-shipping.php:40
+#: classes/settings/flexible-shipping.php:40
 msgctxt "Tax status"
 msgid "None"
 msgstr "Brak"
 
-#: classes/settings-flexible-shipping.php:44
-#: classes/settings-flexible-shipping.php:49
+#: classes/settings/flexible-shipping.php:44
+#: classes/settings/flexible-shipping.php:49
 msgid "Shipping Methods"
 msgstr "Metody wysyłki"
 
-#: classes/settings-shipping-method-form.php:10
+#: classes/settings/shipping-method-form.php:10
 msgid "Select shipment class"
 msgstr "Wybierz klasę wysyłkową"
 
-#: classes/settings-shipping-method-form.php:19
+#: classes/settings/shipping-method-form.php:19
 msgid ""
 "Integrate with DPD, DHL, InPost, eNadawca Poczta Polska, Paczka w Ruchu."
 msgstr "Zintegruj z DPD, DHL, InPost, eNadawca Poczta Polska, Paczka w Ruchu."
 
-#: classes/settings-shipping-method-form.php:19
+#: classes/settings/shipping-method-form.php:19
 #, php-format
 msgid "%sAdd integrations%s"
 msgstr "%sDodaj integracje%s"
 
-#: classes/settings-shipping-method-form.php:22
+#: classes/settings/shipping-method-form.php:22
 msgid "Integrate with DPD."
 msgstr "Zintegruj z DPD."
 
-#: classes/settings-shipping-method-form.php:22
+#: classes/settings/shipping-method-form.php:22
 #, php-format
 msgid "%sAdd integration%s"
 msgstr "%sDodaj integrację%s"
 
-#: classes/settings-shipping-method-form.php:32 classes/shipping_method.php:816
+#: classes/settings/shipping-method-form.php:32 classes/shipping-method.php:879
 msgid "Free"
 msgstr "Bezpłatnie"
 
-#: classes/settings-shipping-method-form.php:51 classes/shipping_method.php:36
+#: classes/settings/shipping-method-form.php:51 classes/shipping-method.php:36
 msgid "Enable this shipment method"
 msgstr "Włącz tę metodę wysyłki"
 
-#: classes/settings-shipping-method-form.php:54
+#: classes/settings/shipping-method-form.php:54
 msgid "Method Title"
 msgstr "Tytuł metody"
 
-#: classes/settings-shipping-method-form.php:56 classes/shipping_method.php:42
+#: classes/settings/shipping-method-form.php:56 classes/shipping-method.php:42
 msgid "This controls the title which the user sees during checkout."
 msgstr "Tytuł, który widzi użytkownik podczas składania zamówienia."
 
-#: classes/settings-shipping-method-form.php:63
+#: classes/settings/shipping-method-form.php:63
 msgid "Method Description"
 msgstr "Opis"
 
-#: classes/settings-shipping-method-form.php:65
+#: classes/settings/shipping-method-form.php:65
 msgid "This controls method description which the user sees during checkout."
 msgstr "Opis, który widzi użytkownik podczas składania zamówienia."
 
-#: classes/settings-shipping-method-form.php:76
+#: classes/settings/shipping-method-form.php:76
 msgid "Free Shipping"
 msgstr "Darmowa wysyłka"
 
-#: classes/settings-shipping-method-form.php:79
+#: classes/settings/shipping-method-form.php:79
 msgid ""
 "Enter a minimum order amount for free shipment. This will override the costs "
 "configured below."
@@ -397,46 +430,46 @@ msgstr ""
 "Wpisz minimalną kwotę zamówienia dla bezpłatnej wysyłki. Spowoduje to "
 "zastąpienie reguł skonfigurowanych poniżej."
 
-#: classes/settings-shipping-method-form.php:83
+#: classes/settings/shipping-method-form.php:83
 msgid "Free Shipping Label"
 msgstr "Etykieta darmowej wysyłki"
 
-#: classes/settings-shipping-method-form.php:86
+#: classes/settings/shipping-method-form.php:86
 msgid "Enter additional label for shipment when free shipment available."
 msgstr ""
 "Wpisz dodatkową etykietę, która zostanie wyświetlona dla darmowej wysyłki."
 
-#: classes/settings-shipping-method-form.php:95
+#: classes/settings/shipping-method-form.php:95
 msgid "Calculation Method"
 msgstr "Metoda obliczania"
 
-#: classes/settings-shipping-method-form.php:97
+#: classes/settings/shipping-method-form.php:97
 msgid ""
 "Select how rules will be calculated. If you choose \"sum\" the rules order "
 "is important."
 msgstr ""
 "Wybierz jak będą obliczane reguły. Dla sumy, kolejność reguł ma znaczenie."
 
-#: classes/settings-shipping-method-form.php:100
+#: classes/settings/shipping-method-form.php:100
 msgid "Sum"
 msgstr "Suma"
 
-#: classes/settings-shipping-method-form.php:103
+#: classes/settings/shipping-method-form.php:103
 #: classes/views/html-shipping-method-settings.php:13
 msgid "Visibility"
 msgstr "Wyświetlanie"
 
-#: classes/settings-shipping-method-form.php:106
+#: classes/settings/shipping-method-form.php:106
 #: classes/views/html-shipping-method-settings.php:46
 msgid "Show only for logged in users"
 msgstr "Pokaż tylko dla zalogowanych użytkowników"
 
-#: classes/settings-shipping-method-form.php:109
+#: classes/settings/shipping-method-form.php:109
 #: classes/views/html-shipping-method-settings.php:14
 msgid "Default"
 msgstr "Domyślnie"
 
-#: classes/settings-shipping-method-form.php:112
+#: classes/settings/shipping-method-form.php:112
 msgid ""
 "Check the box to set this option as the default selected choice on the cart "
 "page."
@@ -444,24 +477,24 @@ msgstr ""
 "Zaznacz, aby ustawić tę metodę wysyłki jako domyślną przy składaniu "
 "zamówienia."
 
-#: classes/settings-shipping-method-form.php:117
+#: classes/settings/shipping-method-form.php:117
 msgid "Select integration. "
 msgstr "Wybierz integrację. "
 
-#: classes/settings-shipping-method-form.php:120
+#: classes/settings/shipping-method-form.php:120
 #: classes/views/html-shipping-method-rules.php:7
 msgid "None"
 msgstr "Brak"
 
-#: classes/settings-shipping-method-form.php:131
+#: classes/settings/shipping-method-form.php:131
 msgid "Rules"
 msgstr "Reguły"
 
-#: classes/settings-shipping-method-form.php:152
+#: classes/settings/shipping-method-form.php:152
 msgid "Shipping Zone"
 msgstr "Strefa wysyłki"
 
-#: classes/settings-shipping-method-form.php:166
+#: classes/settings/shipping-method-form.php:166
 #, php-format
 msgid "See how to %sconfigure shipment methods%s."
 msgstr "Zobacz jak %sskonfigurować metody wysyłki %s."
@@ -583,108 +616,108 @@ msgstr[2] "Błąd <span class=\"count\">(%s)</span>"
 msgid "Shipment data"
 msgstr "Dane przesyłki"
 
-#: classes/shipping_method.php:40
+#: classes/shipping-method.php:40
 msgid "Shipping Title"
 msgstr "Tytuł"
 
-#: classes/shipping_method.php:112
+#: classes/shipping-method.php:112
 #: classes/views/html-shipping-method-rules.php:241
 msgid "Add New"
 msgstr "Dodaj nową"
 
-#: classes/shipping_method.php:347
+#: classes/shipping-method.php:347
 msgid ""
 "Sorry, there has been an error. The CSV is invalid or incorrect file type."
 msgstr ""
 "Przepraszamy, wystąpił błąd. Plik CSV jest niepoprawny lub typ pliku jest "
 "nieprawidłowy."
 
-#: classes/shipping_method.php:357 classes/shipping_method.php:360
+#: classes/shipping-method.php:357 classes/shipping-method.php:360
 msgid "import"
 msgstr "import"
 
-#: classes/shipping_method.php:369
+#: classes/shipping-method.php:369
 #, php-format
 msgid "Free Shipping value %s is not valid number. Row number %d."
 msgstr "Wartość darmowej wysyłki %s jest niepoprawna. Numer wiersza %d."
 
-#: classes/shipping_method.php:375
+#: classes/shipping-method.php:375
 #, php-format
 msgid "Maximum Cost value %s is not valid number. Row number %d."
 msgstr "Maksymalny koszt %s jest niepoprawny. Numer wiersza %d."
 
-#: classes/shipping_method.php:386
+#: classes/shipping-method.php:386
 #, php-format
 msgid "Invalid value for Calculation Method in row number %d."
 msgstr "Nieprawidłowa wartość dla Metody obliczania w wierszu %d."
 
-#: classes/shipping_method.php:410
+#: classes/shipping-method.php:410
 #, php-format
 msgid "Invalid value for Based On in row number %d."
 msgstr "Nieprawidłowa wartość dla Oparte na w wierszu %d."
 
-#: classes/shipping_method.php:415
+#: classes/shipping-method.php:415
 #, php-format
 msgid "Min value %s is not valid number. Row number %d."
 msgstr "Wartość Min %s jest niepoprawna. Numer wiersza %d."
 
-#: classes/shipping_method.php:421
+#: classes/shipping-method.php:421
 #, php-format
 msgid "Max value %s is not valid number. Row number %d."
 msgstr "Wartość Maks %s jest niepoprawna. Numer wiersza %d."
 
-#: classes/shipping_method.php:427
+#: classes/shipping-method.php:427
 #, php-format
 msgid "Cost per order value %s is not valid number. Row number %d."
 msgstr "Wartość Koszt na zamówienie %s jest niepoprawna. Numer wiersza %d."
 
-#: classes/shipping_method.php:433
+#: classes/shipping-method.php:433
 #, php-format
 msgid "Additional cost value %s is not valid number. Row number %d."
 msgstr "Wartość Dodatkowy koszt %s jest niepoprawna. Numer wiersza %d."
 
-#: classes/shipping_method.php:439
+#: classes/shipping-method.php:439
 #, php-format
 msgid "Value value %s is not valid number. Row number %d."
 msgstr "Wartość w polu Wartość %s jest niepoprawna. Numer wiersza %d."
 
-#: classes/shipping_method.php:491
+#: classes/shipping-method.php:491
 #, php-format
 msgid "Shipping method %s imported as %s."
 msgstr "Metoda wysyłki %s została zaimportowana jako %s."
 
-#: classes/shipping_method.php:551
+#: classes/shipping-method.php:551
 msgid "New Shipping Method"
 msgstr "Nowa metoda wysyłki"
 
-#: classes/shipping_method.php:554
+#: classes/shipping-method.php:554
 msgid "Edit Shipping Method"
 msgstr "Edytuj metodę wysyłki"
 
-#: classes/shipping_method.php:564 classes/shipping_method.php:606
+#: classes/shipping-method.php:564 classes/shipping-method.php:606
 #, php-format
 msgid "Shipping method %s added."
 msgstr "Metoda wysyłki dodana: %s."
 
-#: classes/shipping_method.php:589
+#: classes/shipping-method.php:589
 #, php-format
 msgid "Shipping method %s deleted."
 msgstr "Metoda wysyłki usunięta: %s."
 
-#: classes/shipping_method.php:592
+#: classes/shipping-method.php:592
 msgid "Shipping method not found."
 msgstr "Metoda wysyłki nie znaleziona."
 
-#: classes/shipping_method.php:618
+#: classes/shipping-method.php:618
 #, php-format
 msgid "Shipping method %s updated."
 msgstr "Metoda wysyłki zaktualizowana: %s."
 
-#: classes/tracker.php:178
+#: classes/tracker.php:183
 msgid "Opt-in"
 msgstr "Opt-in"
 
-#: classes/tracker.php:182
+#: classes/tracker.php:187
 msgid "Opt-out"
 msgstr "Opt-out"
 
@@ -701,28 +734,22 @@ msgid "Product count based costs"
 msgstr "Koszty oparte o liczbę produktów w koszyku"
 
 #: classes/views/html-ads.php:15
-msgid "Stopping a rule"
-msgstr "Zatrzymywanie reguł"
+msgid "Stopping, Cancelling a rule"
+msgstr "Zatrzymywanie, anulowanie reguł"
 
 #: classes/views/html-ads.php:16
-msgid "Cancelling a rule"
-msgstr "Anulowanie reguł"
+msgid "Additional calculation methods"
+msgstr "Dodatkowe rodzaje obliczania kosztów"
 
-#: classes/views/html-ads.php:17
-msgid "Additional calculation methods (sum, lowest cost, highest cost)"
-msgstr ""
-"Dodatkowe rodzaje obliczania kosztów (suma, najniższy, najwyższy koszt reguł "
-"spełniających warunki)"
-
-#: classes/views/html-ads.php:20
+#: classes/views/html-ads.php:19
 msgid "Upgrade Now &rarr;"
 msgstr "Zaktualizuj do wersji PRO &rarr;"
 
-#: classes/views/html-column-shipping-shipping.php:11
+#: classes/views/html-column-shipping-shipping.php:14
 msgid "Get label for: "
 msgstr "Pobierz etykietę dla "
 
-#: classes/views/html-column-shipping-shipping.php:14
+#: classes/views/html-column-shipping-shipping.php:17
 msgid "Track shipment for: "
 msgstr "Śledź przesyłkę "
 
@@ -738,6 +765,55 @@ msgstr "Wszystkie przesyłki"
 #: classes/views/html-orders-filter-form.php:13
 msgid "Shipment status"
 msgstr "Status przesyłki"
+
+#: classes/views/html-shipping-method-info-description.php:19
+#, php-format
+msgid ""
+"To add first Flexible Shipping method go to %sShipping zones%s and add "
+"Flexible Shipping to a shipping zone."
+msgstr ""
+"Aby dodać pierwszą metodę Flexible Shipping przejdź do zakładki %sStrefy "
+"wysyłki%s i dodaj Flexible Shipping do strefy wysyłki."
+
+#: classes/views/html-shipping-method-info-description.php:26
+msgid ""
+"You can start the configuration by clicking the Flexible Shipping link in "
+"the Shipping methods table."
+msgstr ""
+"Możesz rozpocząć konfigurację klikając na link Flexible Shipping w tabeli "
+"”Metody wysyłki”."
+
+#: classes/views/html-shipping-method-info-description.php:29
+msgid "Quick Video Overview"
+msgstr "Krótki przewodnik video"
+
+#: classes/views/html-shipping-method-info-description.php:40
+msgid "More resources"
+msgstr "Więcej informacji"
+
+#: classes/views/html-shipping-method-info-description.php:44
+msgid "General Settings"
+msgstr "Ustawienia główne"
+
+#: classes/views/html-shipping-method-info-description.php:45
+msgid "Adding a shipping method"
+msgstr "Dodawanie metody wysyłki"
+
+#: classes/views/html-shipping-method-info-description.php:46
+msgid "Currency Support"
+msgstr "Waluty"
+
+#: classes/views/html-shipping-method-info-description.php:47
+msgid "Weight Based Shipping"
+msgstr "Koszt na wagę"
+
+#: classes/views/html-shipping-method-info-description.php:48
+msgid "Shipping Insurance"
+msgstr "Ubezpieczenie przesyłki"
+
+#: classes/views/html-shipping-method-info-description.php:49
+msgid "Conditional Cash on Delivery"
+msgstr "Przesyłka za pobraniem"
 
 #: classes/views/html-shipping-method-rules.php:8
 msgid "Price"
@@ -770,16 +846,28 @@ msgid "Min"
 msgstr "Min"
 
 #: classes/views/html-shipping-method-rules.php:78
-msgid "Enter minimum value for the &quot;Based on&quot; parameter."
-msgstr "Wpisz minimalną wartość dla parametru &quot;Oparte na&quot;."
+msgid ""
+"Enter minimum value for the &quot;Based on&quot; parameter. Value based on "
+"the price will be calculated by WooCommerce tax settings &quot;Display "
+"prices during cart and checkout&quot;"
+msgstr ""
+"Wpisz minimalną wartość dla parametru &quot;Oparte na&quot;. Wartość oparta "
+"na cenie zostanie obliczona wg. ustawienia podatków WooCommerce &quot;"
+"Wyświetlanie cen w koszyku i zamówieniu&quot;"
 
 #: classes/views/html-shipping-method-rules.php:81
 msgid "Max"
 msgstr "Max"
 
 #: classes/views/html-shipping-method-rules.php:82
-msgid "Enter maximum value for the &quot;Based on&quot; parameter."
-msgstr "Wpisz maksymalną wartość dla parametru &quot;Oparte na&quot;."
+msgid ""
+"Enter maximum value for the &quot;Based on&quot; parameter. Value based on "
+"the price will be calculated by WooCommerce tax settings &quot;Display "
+"prices during cart and checkout&quot;"
+msgstr ""
+"Wpisz maksymalną wartość dla parametru &quot;Oparte na&quot;. Wartość oparta "
+"na cenie zostanie obliczona wg. ustawienia podatków WooCommerce &quot;"
+"Wyświetlanie cen w koszyku i zamówieniu&quot;"
 
 #: classes/views/html-shipping-method-rules.php:85
 msgid "Cost per<br/>order"
@@ -861,38 +949,78 @@ msgstr "Proszę wybrać metody wysyłki do usunięcia"
 msgid "Select file to import"
 msgstr "Wybierz plik do importu"
 
-#: flexible-shipping.php:463
-msgid ""
-"Flexible Shipping requires at least version 2.7 of Active Payments plugin."
-msgstr ""
-"Flexible Shipping wymaga wtyczki Aktywne płatności w wersji co najmniej 2.7."
-
-#: flexible-shipping.php:474
-msgid "Flexible Shipping requires at least version 1.2 of eNadawca plugin."
-msgstr "Flexible Shipping wymaga wtyczki eNadawca w wersji co najmniej 1.2."
-
-#: flexible-shipping.php:485
-msgid ""
-"Flexible Shipping requires at least version 1.1 of Paczka w Ruchu plugin."
-msgstr ""
-"Flexible Shipping wymaga wtyczki Paczka w Ruchu w wersji co najmniej 1.1."
-
-#: flexible-shipping.php:493
+#: classes/wpdesk/class-helper.php:52
 #, php-format
 msgid ""
-"You are using WooCommerce Flexible Shipping below 1.4. Please deactivate it "
-"on %splugins page%s. Read about big changes in Flexible Shipping on %sour "
-"blog →%s"
+"The %s%s%s License Key has not been activated, so the plugin is inactive! "
+"%sClick here%s to activate the license key and the plugin."
 msgstr ""
-"Masz włączony WooCommerce Flexible Shipping w wersji starszej niż 1.4. "
-"Wyłącz go na %sstronie wtyczek%s. Przeczytaj o dużej zmianie we Flexible "
-"Shipping na %snaszym blogu →%s"
+"Klucz licencyjny wtyczki %s%s%s nie został aktywowany, więc wtyczka jest "
+"nieaktywna! %sKliknij tutaj%s, aby aktywować klucz licencyjny wtyczki."
 
-#: flexible-shipping.php:549
-msgid "Upgrade"
-msgstr "Kup PRO"
+#: classes/wpdesk/class-requirement-checker.php:185
+#, php-format
+msgid ""
+"The &#8220;%s&#8221; plugin cannot run on PHP versions older than %s. Please "
+"contact your host and ask them to upgrade."
+msgstr ""
+"Wtyczka &#8220;%s&#8221; nie może działać w wersjach PHP starszych niż %s. "
+"Skontaktuj się z administratorem hostingu i poproś o aktualizację."
 
-#: flexible-shipping.php:674
+#: classes/wpdesk/class-requirement-checker.php:188
+#, php-format
+msgid ""
+"The &#8220;%s&#8221; plugin cannot run on WordPress versions older than %s. "
+"Please update WordPress."
+msgstr ""
+"Wtyczka &#8220;%s&#8221; nie może działać w wersjach WordPress starszych niż "
+"%s. Prosimy o aktualizację WordPress."
+
+#: classes/wpdesk/class-requirement-checker.php:191
+#, php-format
+msgid ""
+"The &#8220;%s&#8221; plugin cannot run on WooCommerce versions older than "
+"%s. Please update WooCommerce."
+msgstr ""
+"Wtyczka &#8220;%s&#8221; nie może działać w wersjach WooCommerce starszych "
+"niż %s. Prosimy o aktualizację WooCommerce."
+
+#: classes/wpdesk/class-requirement-checker.php:209
+#, php-format
+msgid ""
+"The &#8220;%s&#8221; plugin cannot run without %s php module installed. "
+"Please contact your host and ask them to install %s."
+msgstr ""
+"Wtyczka &#8220;%s&#8221; nie może działać bez modułu php: %s. Skontaktuj się "
+"z administratorem hostingu i poproś o instalację %s."
+
+#: classes/wpdesk/class-requirement-checker.php:226
+#, php-format
+msgid ""
+"The &#8220;%s&#8221; plugin cannot run without %s php setting set to %s. "
+"Please contact your host and ask them to set %s."
+msgstr ""
+"Wtyczka &#8220;%s&#8221; nie może działać bez ustawienia php %s ustawionego "
+"na %s. Skontaktuj się z administratorem hostingu i poproś o ustawienie %s."
+
+#: classes/wpdesk/class-requirement-checker.php:243
+#, php-format
+msgid ""
+"The &#8220;%s&#8221; plugin cannot run without %s active. Please install and "
+"activate %s plugin."
+msgstr ""
+"Wtyczka &#8220;%s&#8221; nie może działać bez aktywacji %s. Zainstaluj i "
+"aktywuj wtyczkę %s."
+
+#: classes/wpdesk/class-settings.php:106
+msgid "Insert Image"
+msgstr "Wstaw obrazek"
+
+#: classes/wpdesk/class-settings.php:107
+msgid "Select Image"
+msgstr "Wybierz obrazek"
+
+#: inc/functions.php:67
 #, php-format
 msgid "Redirecting. If page not redirects click %s here %s."
 msgstr ""
@@ -901,21 +1029,19 @@ msgstr ""
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:7
 #: inc/wpdesk-tracker/views/tracker-notice.php:5
-#: inc/wpdesk-tracker/views/tracker-notice.php:22
 #, php-format
 msgid "Hey %s,"
 msgstr "Hej %s,"
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:8
-#: inc/wpdesk-tracker/views/tracker-notice.php:23
 msgid ""
 "Please help us improve our plugins! If you opt-in, we will collect some non-"
-"sensitive data and usage information. If you skip this, that's okay! All "
-"plugins will work just fine."
+"sensitive data and usage information anonymously. If you skip this, that's "
+"okay! All plugins will work just fine."
 msgstr ""
 "Proszę pomóż nam udoskonalić nasze wtyczki! Jeśli się zgodzisz, będziemy "
-"zbierać niewrażliwe dane użytkowania. Jeśli pominiesz ten krok, w porządku! "
-"Wszystkie wtyczki będą działać."
+"zbierać niewrażliwe dane użytkowania anonimowo. Jeśli pominiesz ten krok, w "
+"porządku! Wszystkie wtyczki będą działać."
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:13
 msgid "Allow & Continue &rarr;"
@@ -934,8 +1060,8 @@ msgid "Your Site Overview"
 msgstr "Dane witryny"
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:27
-msgid "Site URL, WP version, PHP info, admin email"
-msgstr "URL strony, wersja WP, wersja PHP, email admina"
+msgid "WP version, PHP info"
+msgstr "Wersja WP, PHP info"
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:33
 msgid "Plugin Usage"
@@ -950,21 +1076,11 @@ msgid "Your Store Overview"
 msgstr "Ustawienia i informacje o użytkowaniu wtyczek WP Desk"
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:41
-msgid "Non-sensitive store usage information"
-msgstr "Tylko niewrażliwe dane o użytkowaniu sklepu"
+msgid "Anonymized and non-sensitive store usage information"
+msgstr "Tylko niewrażliwe i anonimowe dane o użytkowaniu sklepu"
 
 #: inc/wpdesk-tracker/views/tracker-connect.php:47
-msgid "Admin Updates"
-msgstr "Powiadomienia"
-
-#: inc/wpdesk-tracker/views/tracker-connect.php:48
-msgid "Announcements, updates, marketing, no spam and easy opt-out"
-msgstr ""
-"Ważne powiadomienia, uaktualnienia, marketing, żadnego spamu i łatwa "
-"rezygnacja"
-
-#: inc/wpdesk-tracker/views/tracker-connect.php:54
-#: inc/wpdesk-tracker/views/tracker-notice.php:24
+#: inc/wpdesk-tracker/views/tracker-notice.php:7
 msgid "Find out more &raquo;"
 msgstr "Dowiedz się więcej &raquo;"
 
@@ -978,7 +1094,7 @@ msgid ""
 " If you have a moment, please let us know why you are deactivating plugin "
 "(anonymous feedback):"
 msgstr ""
-"Jeśli masz chwilę, prosimy daj nam znać dlaczego dezaktywowałeś wtyczkę "
+" Jeśli masz chwilę, prosimy daj nam znać dlaczego dezaktywowałeś wtyczkę "
 "(anonimowa opinia):"
 
 #: inc/wpdesk-tracker/views/tracker-deactivate.php:16
@@ -1007,7 +1123,7 @@ msgstr "Nie potrzebuję już wtyczki"
 
 #: inc/wpdesk-tracker/views/tracker-deactivate.php:59
 msgid "It's a temporary deactivation. I'm just debugging an issue."
-msgstr "Jest to tymczasowa dezaktywacja, debaguję problem"
+msgstr "Jest to tymczasowa dezaktywacja, debaguję problem."
 
 #: inc/wpdesk-tracker/views/tracker-deactivate.php:67
 msgid "Other"
@@ -1025,28 +1141,20 @@ msgstr "Pomiń i dezaktywuj"
 msgid "Submit &amp; Deactivate"
 msgstr "Anuluj"
 
-#: inc/wpdesk-tracker/views/tracker-notice.php:8
-#, php-format
+#: inc/wpdesk-tracker/views/tracker-notice.php:6
 msgid ""
 "We need your help to improve <strong>WP Desk plugins</strong>, so they are "
-"more useful for you and the rest of <strong>10,000+ users</strong>. By "
+"more useful for you and the rest of <strong>30,000+ users</strong>. By "
 "collecting data on how you use our plugins, you will help us a lot. We will "
-"not collect any sensitive data, so you can feel safe. As a thank you for "
-"your consent, we will send you a <strong>discount coupon</strong> for %sWP "
-"Desk plugins%s, which you can use yourself or share with others. %sFind out "
-"more &raquo;%s"
+"not collect any sensitive data, so you can feel safe."
 msgstr ""
 "Potrzebujemy Twojej pomocy, aby dalej rozwijać <strong>wtyczki WP Desk</"
 "strong> i były one jeszcze bardziej pomocne dla Ciebie i pozostałych ponad "
-"<strong>10 000 użytkowników</strong>. Zbierając dane na temat tego jak "
+"<strong>30 000 użytkowników</strong>. Zbierając dane na temat tego jak "
 "korzystasz z naszych wtyczek bardzo nam w tym pomożesz. Nie będziemy zbierać "
-"żadnych danych wrażliwych, więc możesz czuć się bezpiecznie. W zamian za "
-"Twoją zgodę otrzymasz <strong>kupon rabatowy</strong> na %swtyczki WP Desk"
-"%s, który możesz wykorzystać sam lub podzielić się z innymi. %sDowiedz się "
-"więcej &raquo;%s"
+"żadnych danych wrażliwych, więc możesz czuć się bezpiecznie."
 
-#: inc/wpdesk-tracker/views/tracker-notice.php:16
-#: inc/wpdesk-tracker/views/tracker-notice.php:27
+#: inc/wpdesk-tracker/views/tracker-notice.php:10
 msgid "Allow"
 msgstr "Pozwól"
 
@@ -1079,6 +1187,44 @@ msgstr "WP Desk"
 msgid "https://www.wpdesk.net/"
 msgstr "https://www.wpdesk.pl/"
 
+#~ msgid "Admin Updates"
+#~ msgstr "Powiadomienia"
+
+#~ msgid "Announcements, updates, marketing, no spam and easy opt-out"
+#~ msgstr ""
+#~ "Ważne powiadomienia, uaktualnienia, marketing, żadnego spamu i łatwa "
+#~ "rezygnacja"
+
+#~ msgid "Stopping a rule"
+#~ msgstr "Zatrzymywanie reguł"
+
+#~ msgid "Additional calculation methods (sum, lowest cost, highest cost)"
+#~ msgstr ""
+#~ "Dodatkowe rodzaje obliczania kosztów (suma, najniższy, najwyższy koszt "
+#~ "reguł spełniających warunki)"
+
+#~ msgid "Enter minimum value for the &quot;Based on&quot; parameter."
+#~ msgstr "Wpisz minimalną wartość dla parametru &quot;Oparte na&quot;."
+
+#~ msgid "Enter maximum value for the &quot;Based on&quot; parameter."
+#~ msgstr "Wpisz maksymalną wartość dla parametru &quot;Oparte na&quot;."
+
+#, fuzzy
+#~| msgid "Settings"
+#~ msgid "Settings updated."
+#~ msgstr "Ustawienia"
+
+#~ msgid ""
+#~ "An Unexpected HTTP Error occurred during the API request. <a href=\"?\" "
+#~ "onclick=\"document.location.reload(); return false;\">Try again</a>"
+#~ msgstr ""
+#~ "Wystąpił nieoczekiwany błąd HTTP podczas zapytania API.</p> <p><a "
+#~ "href=„?” onclick=„document.location.reload(); return false;”>Spróbuj "
+#~ "ponownie</a>"
+
+#~ msgid "An unknown error occurred"
+#~ msgstr "Wystąpił nieznany błąd"
+
 #~ msgid ""
 #~ "Please help us improve our plugins and get a <strong>20&#37; discount "
 #~ "coupon</strong> for <strong>WP Desk</strong> plugins."
@@ -1105,9 +1251,6 @@ msgstr "https://www.wpdesk.pl/"
 
 #~ msgid "Free shipment label"
 #~ msgstr "Etykieta darmowej wysyłki"
-
-#~ msgid "Calculation method"
-#~ msgstr "Metoda obliczania"
 
 #~ msgid "Free shipment"
 #~ msgstr "Darmowa wysyłka"

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,7 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Returns the status of the processing for category-structure changes specified
-  * with a call to SetStoreCategories.
+  * This call is used to retrieve the status of an eBay Store Category hierarchy change that was made with a <b>SetStoreCategories</b> call.
   * 
  **/
 

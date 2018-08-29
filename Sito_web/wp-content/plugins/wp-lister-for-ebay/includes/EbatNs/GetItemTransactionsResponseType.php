@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,7 +10,7 @@ require_once 'ItemType.php';
 require_once 'TransactionArrayType.php';
 
 /**
-  * Returns an array of order line item (transaction) data for the item specified in the request.
+  * Returns an array of order line item data for the item specified in the request.
   * The results can be used to create a report of data that is commonly
   * necessary for order processing.
   * Zero, one, or many <b>Transaction</b> objects can be returned in the <b>TransactionArray</b>.

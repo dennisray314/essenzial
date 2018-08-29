@@ -36,8 +36,10 @@ function wplc_beta_settings_tab_content() {
  $wplc_end_point_override = $wplc_end_point_override === false ? "" : $wplc_end_point_override;
  $wplc_server_location = get_option("wplc_server_location");
  $wplc_server_location = $wplc_server_location === false ? "auto" : $wplc_server_location;
- 
 
+ $wplc_us_servers_enabled = apply_filters('wplc_node_server_us_options_enabled', true, $wplc_settings);
+ $wplc_server_location = apply_filters('wplc_node_server_default_selection_override', $wplc_server_location, $wplc_settings);
+ 
  $wplc_new_chat_ringer_count = 5;
  if(isset($wplc_settings['wplc_new_chat_ringer_count'])){
     $wplc_new_chat_ringer_count = intval($wplc_settings['wplc_new_chat_ringer_count']);
@@ -66,13 +68,16 @@ function wplc_beta_settings_tab_content() {
            </td>
            <td valign="top">
              <select name='wplc_server_location'>
-              <option value='auto' <?php if (isset($wplc_server_location) && $wplc_server_location === "auto") { echo "selected"; } ?>><?php _e("Automatic (suggested)"); ?></option>
-              <option value='us1' <?php if (isset($wplc_server_location) && $wplc_server_location === "us1") { echo "selected"; } ?>><?php echo sprintf(__("United States - %s","wplivechat"), "#1"); ?></option>
-              <option value='us2' <?php if (isset($wplc_server_location) && $wplc_server_location === "us2") { echo "selected"; } ?>><?php echo sprintf(__("United States - %s","wplivechat"), "#2"); ?></option>
+              <?php if($wplc_us_servers_enabled === true || $wplc_us_servers_enabled === 'true') { ?>
+                <option value='auto' <?php if (isset($wplc_server_location) && $wplc_server_location === "auto") { echo "selected"; } ?>><?php _e("Automatic (suggested)"); ?></option>
+                <option value='us1' <?php if (isset($wplc_server_location) && $wplc_server_location === "us1") { echo "selected"; } ?>><?php echo sprintf(__("United States - %s","wplivechat"), "#1"); ?></option>
+                <option value='us2' <?php if (isset($wplc_server_location) && $wplc_server_location === "us2") { echo "selected"; } ?>><?php echo sprintf(__("United States - %s","wplivechat"), "#2"); ?></option>
+              <?php } ?>
+
               <option value='eu1' <?php if (isset($wplc_server_location) && $wplc_server_location === "eu1") { echo "selected"; } ?>><?php echo sprintf(__("Europe - %s","wplivechat"), "#1"); ?></option>
               <option value='eu2' <?php if (isset($wplc_server_location) && $wplc_server_location === "eu2") { echo "selected"; } ?>><?php echo sprintf(__("Europe - %s","wplivechat"), "#2"); ?></option>
             </select>
-
+            <?php do_action('wplc_node_server_selection_notices', $wplc_settings); ?>
            </td>
          </tr>
          <tr>
@@ -151,4 +156,16 @@ function wplc_beta_settings_save_hooked($wplc_data){
     $wplc_data['wplc_new_chat_ringer_count'] = intval($_POST['wplc_new_chat_ringer_count']); 
   }
   return $wplc_data;
+}
+
+add_filter("wplc_filter_inner_live_chat_box_4th_layer", "wplc_add_end_chat_button_to_chat_box", 10, 2);
+/**
+ * Adds an end chat button to the front end of the site
+*/
+function wplc_add_end_chat_button_to_chat_box($content, $wplc_settings){
+  $custom_attr = apply_filters('wplc_end_button_custom_attributes_filter', "", $wplc_settings);
+  $text = __("End Chat", "wplivechat");
+  $html = "<button id=\"wplc_end_chat_button\" type=\"button\" $custom_attr>$text</button>";
+
+  return $content . $html;
 }

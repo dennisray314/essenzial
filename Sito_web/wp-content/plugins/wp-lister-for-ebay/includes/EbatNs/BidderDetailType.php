@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'UserIDType.php';
 
 /**
-  *         Contains the data for a user who is interested in bidding on items in a Live Auctions catalog.
+  *         This type is deprecated.
   * 
  **/
 

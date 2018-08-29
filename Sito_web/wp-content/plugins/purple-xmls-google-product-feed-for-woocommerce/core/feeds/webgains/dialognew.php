@@ -28,6 +28,7 @@ class WebgainsDlg extends PBaseFeedDialog
             'Availability',
             'Best_sellers'
         );
+        $this->doc_link = "https://www.exportfeed.com/documentation/webgains-integration-guide/";
     }
 
 }

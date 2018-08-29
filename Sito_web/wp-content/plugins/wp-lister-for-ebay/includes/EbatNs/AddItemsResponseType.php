@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,11 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'AddItemResponseContainerType.php';
 
 /**
-  * The response of the <b>AddItems</b> call. The response includes the 
-  * Item IDs of the newly created listings, the eBay category each item is listed under, 
-  * the seller-defined SKUs of the items (if any), the listing recommendations for each item 
-  * (if applicable), the start and end time of each listing, and the estimated fees that
-  * each listing will incur.
+  * The response of the <b>AddItems</b> call. The response includes the Item IDs of the newly created listings, the eBay category each item is listed under, the seller-defined SKUs of the items (if any), the listing recommendations for each item (if applicable), the start and end time of each listing, and the estimated fees that each listing will incur.
   * 
  **/
 

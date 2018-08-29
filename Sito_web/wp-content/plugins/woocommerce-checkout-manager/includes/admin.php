@@ -113,8 +113,8 @@ function wooccm_admin_plugin_actions( $links ) {
 	$support_url = 'https://wordpress.org/support/plugin/woocommerce-checkout-manager/';
 
 	$plugin_links = array(
-		'<a href="' . $page_url . '">'.__('Settings', 'woocommerce-checkout-manager' ).'</a>',
-		'<a href="' . $support_url . '">'.__('Support', 'woocommerce-checkout-manager' ).'</a>',
+		'<a href="' . $page_url . '">' . __( 'Settings', 'woocommerce-checkout-manager' ) . '</a>',
+		'<a href="' . $support_url . '">' . __( 'Support', 'woocommerce-checkout-manager' ) . '</a>',
 	);
 	return array_merge( $plugin_links, $links );
 
@@ -356,13 +356,13 @@ function wooccm_admin_woocheckout_actions() {
 if( !function_exists( 'woo_get_action' ) ) {
 	function woo_get_action( $prefer_get = false ) {
 
-		if ( isset( $_GET['action'] ) && $prefer_get )
+		if( isset( $_GET['action'] ) && $prefer_get )
 			return sanitize_text_field( $_GET['action'] );
 
-		if ( isset( $_POST['action'] ) )
+		if( isset( $_POST['action'] ) )
 			return sanitize_text_field( $_POST['action'] );
 
-		if ( isset( $_GET['action'] ) )
+		if( isset( $_GET['action'] ) )
 			return sanitize_text_field( $_GET['action'] );
 
 		return;
@@ -382,19 +382,26 @@ function wooccm_register_settings() {
 function wooccm_options_page() {
 
 	if ( !current_user_can('manage_options') )
-		wp_die( __('You do not have sufficient permissions to access this page.', 'woocommerce-checkout-manager') ); 
+		wp_die( __( 'You do not have sufficient permissions to access this page.', 'woocommerce-checkout-manager' ) ); 
 
 	$htmlshippingabbr = array( 'country', 'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode' );
 	$htmlbillingabbr = array( 'country', 'first_name', 'last_name', 'company', 'address_1', 'address_2', 'city', 'state', 'postcode', 'email', 'phone' );
 	$upload_dir = wp_upload_dir();
 	$hidden_field_name = 'mccs_submit_hidden';
 	$hidden_wccs_reset = "my_new_field_reset";
+
+	// Additional details
 	$options = get_option( 'wccs_settings' );
+	// Shipping details
 	$options2 = get_option( 'wccs_settings2' );
+	// Billing details
 	$options3 = get_option( 'wccs_settings3' );
 
 	// Check if the reset button has been clicked
-	if( isset($_POST[ $hidden_wccs_reset ]) && sanitize_text_field( $_POST[ $hidden_wccs_reset ] ) == 'Y' ) {
+	if(
+		isset( $_POST[ $hidden_wccs_reset ] ) && 
+		sanitize_text_field( $_POST[ $hidden_wccs_reset ] ) == 'Y'
+	) {
 		delete_option('wccs_settings');
 		delete_option('wccs_settings2');
 		delete_option('wccs_settings3');
@@ -424,7 +431,7 @@ function wooccm_options_page() {
 		$ship = 0;
 		foreach( $shipping as $name => $value ) {
 
-			$defaults2['shipping_buttons'][$ship]['label'] = __( $value, 'woocommerce-checkout-manager' );
+			$defaults2['shipping_buttons'][$ship]['label'] = ( !empty( $value ) ? __( $value, 'woocommerce-checkout-manager' ) : false );
 			$defaults2['shipping_buttons'][$ship]['cow'] = $name;
 			$defaults2['shipping_buttons'][$ship]['checkbox']  = 'true';
 			$defaults2['shipping_buttons'][$ship]['order'] = $ship + 1;
@@ -492,7 +499,7 @@ function wooccm_options_page() {
 
 		foreach( $billing as $name => $value ) {
 
-			$defaults3['billing_buttons'][$bill]['label'] = __( $value, 'woocommerce-checkout-manager' );
+			$defaults3['billing_buttons'][$bill]['label'] = ( !empty( $value ) ? __( $value, 'woocommerce-checkout-manager' ) : false );
 			$defaults3['billing_buttons'][$bill]['cow'] = $name;
 			$defaults3['billing_buttons'][$bill]['checkbox']  = 'true';
 			$defaults3['billing_buttons'][$bill]['order'] = $bill + 1;	
@@ -1016,7 +1023,7 @@ function wooccm_admin_notices() {
 		$support_url = 'https://wordpress.org/support/plugin/woocommerce-checkout-manager#postform';
 		$dismiss_url = add_query_arg( array( 'action' => 'wooccm_dismiss_beta_notice', '_wpnonce' => wp_create_nonce( 'wooccm_dismiss_beta_notice' ) ) );
 
-		$message = '<span style="float:right;"><a href="' . $dismiss_url . '">' . __( 'Dismiss', 'woocommerce-checkout-manager' ) . '</a></span>';
+		$message = '<span style="float:right;"><a href="' . $dismiss_url . '" class="woocommerce-message-close notice-dismiss">' . __( 'Dismiss', 'woocommerce-checkout-manager' ) . '</a></span>';
 		$message .= __( '<strong>WooCommerce Checkout Manager Notice:</strong> We urgently need developers, integrators and interested store owners to test early Plugin releases and provide feedback to help stabilise the 4.0+ series. Can you help?', 'woocommerce-checkout-manager' );
 		$message .= '
 		<p class="submit">
@@ -1039,7 +1046,7 @@ function wooccm_admin_updater_notice() {
 <form method="post" name="clickhere" action="">
 	<div id="message" class="updated settings-error click-here-wooccm">
 		<p>
-			<span style="float:right;"><a href="<?php echo $dismiss_url; ?>"><?php _e( 'Dismiss', 'woocommerce-checkout-manager' ); ?></a></span>
+			<span style="float:right;"><a href="<?php echo $dismiss_url; ?>" class="woocommerce-message-close notice-dismiss"><?php _e( 'Dismiss', 'woocommerce-checkout-manager' ); ?></a></span>
 			<?php _e( '<strong>WooCommerce Checkout Manager Data Update Required</strong> &#8211; We just need to update the settings for WooCommerce Checkout Manager to the latest version.', 'woocommerce-checkout-manager' ); ?>
 		</p>
 <?php
@@ -1073,7 +1080,10 @@ function wooccm_admin_updater_notice() {
 </script>
 <?php
 
-		if( isset($_POST['click-here-wooccm']) && sanitize_text_field( $_POST['click-here-wooccm'] ) == 'y') {
+		if(
+			isset( $_POST['click-here-wooccm'] ) && 
+			sanitize_text_field( $_POST['click-here-wooccm'] ) == 'y'
+		) {
 			// @mod - We need to check this file exists
 ?>
 
@@ -1931,9 +1941,9 @@ jQuery(document).ready(function($){
 		}
 
 		input.addEventListener("change", function (evt) {
-			$("#wccm_uploader_select").block({message: null, overlayCSS: {background: "#fff url(" + woocommerce_params.plugin_url + "/assets/images/ajax-loader.gif) no-repeat center", opacity: 0.6}});
+			$("#wccm_uploader_select").block({message: null, overlayCSS: {background: "#fff url(" + woocommerce_get_script_data.plugin_url + "/assets/images/ajax-loader.gif) no-repeat center", opacity: 0.6}});
 
-			$("#wccm_uploader_select").block({message: null, overlayCSS: {background: "#fff url(" + woocommerce_params.ajax_loader_url + ") no-repeat center", opacity: 0.6}});
+			$("#wccm_uploader_select").block({message: null, overlayCSS: {background: "#fff url(" + woocommerce_get_script_data.ajax_loader_url + ") no-repeat center", opacity: 0.6}});
 
 			var length = '.$length.';
 			var file_array = ' . wooccm_js_array( $file_types ) . ';

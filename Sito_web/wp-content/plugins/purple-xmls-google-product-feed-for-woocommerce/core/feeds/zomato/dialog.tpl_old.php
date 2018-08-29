@@ -9,7 +9,7 @@
             <div class= "service_name_long hndle">
                 <h2><?php echo $this->service_name_long; ?></h2>
                 <a target="blank" title="Generate Merchant Feed" href="http://www.exportfeed.com/documentation/generate-google-merchant-feed-woocommerce/">Generate your first feed</a> |
-                <a target=\'_blank\' href=\'http://www.exportfeed.com/tos/\' >View guides</a>
+                <a target=\'_blank\' href=\'https://www.exportfeed.com/documentation/instructions-for-trial-and-new-customers/\' >View guides</a>
             </div>
             <div class="inside export-target">
 
@@ -46,7 +46,7 @@
                         <span ><input type="text" name="feed_filename" id="feed_filename_default" class="text_big" value="<?php echo $this->initial_filename; ?>" /></span>
                     </div>
                     <div class="feed-right-row">
-                        <label>* If you use an existing file name, the file will be overwritten.</label>
+                        <label><span style="color: red">*</span> Use alpha-numeric values for the filename.<br>If you use an existing file name, the file will be overwritten.</label>
                     </div>
 
                     <!-- ROW 4: Get Feed Button -->
@@ -95,7 +95,7 @@
 
                 <div id="cpf_advance_command_default" style="padding-left: 19px;">
 					<span id="cpf_advance_command_settings">
-						<a href="#cpf_advance_command_desc"><input class="button-primary" title="This will open advance command information." type="button" id="cpf_feed_config_link_default" value=" Show Advance Command Section" onclick="toggleAdvanceCommandSectionDefault(this);"></a>
+						<a href="#cpf_advance_command_desc"><input class="button-primary" title="This will open advance command information." type="button" id="cpf_feed_config_link_default" value=" Feed Customization Options" onclick="toggleAdvanceCommandSectionDefault(this);"></a>
 					</span>
                     <div id="cpf_advance_section_default" style="display: none;">
                         <div class="advanced-section-description" id="advanced_section_description_default" style="padding-left: 17px;">
@@ -107,7 +107,7 @@
                             </ul>
                         </div>
                         <div>
-                            <label class="un_collapse_label" title="Click to open advance command field to customize your feed" ><input class="button-primary" type="button" id="toggleAdvancedSettingsButtonDefault" onclick="toggleAdvancedDialogDeafult();" value="Open Advanced Commands"/></label>
+                            <label class="un_collapse_label" title="Click to open advance command field to customize your feed" ><input class="button-primary" type="button" id="toggleAdvancedSettingsButtonDefault" onclick="toggleAdvancedDialogDeafult();" value="Open Customization Commands"/></label>
                             <label class="un_collapse_label" title="This will erase your attribute mappings from the feed." id="erase_mappings_default" onclick="doEraseMappings('<?php echo $this->service_name; ?>')"><input class="button-primary" type="button" value="Reset Attribute Mappings"  /></label>
                         </div>
                     </div>

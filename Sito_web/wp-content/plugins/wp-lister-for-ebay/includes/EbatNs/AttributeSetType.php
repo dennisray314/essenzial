@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'AttributeType.php';
 
 /**
-  * This type is deprecated as "old" eBay attributes are no longer supported.
+  * This type is deprecated.
   * 
  **/
 

@@ -16,8 +16,6 @@ class EbayGetSessionID {
 	var $compLevel;
 
 	function __construct( $site_id, $sandbox_enabled = false ) {
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
 
 		$this->siteId = $site_id;
 		$this->sandbox = $sandbox_enabled;
@@ -37,8 +35,6 @@ class EbayGetSessionID {
 		} else {
 
 			// production keys
-            // $this->appId  = 'LWSWerbu-6147-****-****-853f7b5dc6cb';
-            // $this->appId  = urlencode( get_option( 'wple_instance' ) );
             $instance_key = str_replace( array('http://','https://','www.'), '', get_site_url() ); // example.com
             $admin_email  = get_option( 'wple_activation_email' );
             $this->appId  = urlencode( $instance_key );
@@ -55,7 +51,6 @@ class EbayGetSessionID {
 	function getToken( $SessionID ) {
 		$body = "\n  <SessionID>{$SessionID}</SessionID>\n";
 		$token = $this->TradeAPI( 'FetchToken', $body, 'eBayAuthToken' );
-		#echo '<p/>Your token is:<p/>' . $token;
 		WPLE()->logger->info('FetchToken: '.$token);
 		return $token;
 	}
@@ -66,7 +61,6 @@ class EbayGetSessionID {
 		WPLE()->logger->info('getTokenExpirationTime: '.$expdate);
 		$expdate = str_replace('T', ' ', $expdate);
 		$expdate = str_replace('.000Z', '', $expdate);
-		#echo '<p/>Your token expires on:<p/>' . $expdate;
 		return $expdate;
 	}
 

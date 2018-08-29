@@ -16,6 +16,7 @@ class RakutenDlg extends PBaseFeedDialog
         $this->service_name = 'Rakuten';
         $this->service_name_long = 'Rakuten Inventory Load Feed';
         $this->blockCategoryList = true;
+        $this->doc_link = "https://www.exportfeed.com/documentation/rakuten/";
 
     }
 

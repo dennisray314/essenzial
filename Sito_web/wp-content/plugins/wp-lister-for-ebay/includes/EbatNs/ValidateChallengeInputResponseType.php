@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'AbstractResponseType.php';
 
 /**
-  * Validate the user response to botblock challenge.
+  * Base response of the <b>ValidateChallengeInput</b> call. The response indicates whether the botblock challenge was successful.
   * 
  **/
 

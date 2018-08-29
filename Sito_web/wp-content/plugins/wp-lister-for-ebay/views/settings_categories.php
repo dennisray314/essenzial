@@ -67,6 +67,7 @@
 	</p>
 
 	<form method="post" action="<?php echo $wpl_form_action; ?>">
+        <?php wp_nonce_field( 'wplister_save_categories_map' ); ?>
 		<input type="hidden" name="action" value="save_wplister_categories_map" >
 
 		<!-- display categories table -->
@@ -121,14 +122,14 @@
         <!-- <h3><?php echo __('Backup and restore category mappings','wplister'); ?></h3> -->
 
             <p>
-                <a href="<?php echo $wpl_form_action ?>&action=wplister_export_categories_map" class="button"><?php echo __('Export category mappings','wplister'); ?></a> 
+                <a href="<?php echo $wpl_form_action ?>&action=wplister_export_categories_map&_wpnonce=<?php echo wp_create_nonce( 'wplister_export_categories_map' ); ?>" class="button"><?php echo __('Export category mappings','wplister'); ?></a>
             </p>
 
             <p>
                 <form id="upload_json" method="post" action="<?php echo $wpl_form_action; ?>" enctype="multipart/form-data" >
 
                     <a href="#" onclick="alert('Please select a file using the button right next to this button.');return false;" class="button"><?php echo __('Import category mappings','wplister'); ?></a> 
-
+                    <?php wp_nonce_field( 'wplister_import_categories_map' ); ?>
                     <input type="hidden" name="action" value="wplister_import_categories_map" />
                     <input type="file" name="wpl_file_upload" onchange="this.form.submit();" />
 

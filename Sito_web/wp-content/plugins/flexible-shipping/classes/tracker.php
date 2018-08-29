@@ -5,6 +5,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! class_exists( 'WPDesk_Flexible_Shipping_Tracker' ) ) {
 	class WPDesk_Flexible_Shipping_Tracker {
 
+		const PLUGIN_ACTION_LINKS_FILTER_NAME = 'plugin_action_links_flexible-shipping/flexible-shipping.php';
+		
 		public static $script_version = '11';
 
 		public function __construct() {
@@ -16,7 +18,7 @@ if ( ! class_exists( 'WPDesk_Flexible_Shipping_Tracker' ) ) {
 			add_filter( 'wpdesk_tracker_notice_screens', array( $this, 'wpdesk_tracker_notice_screens' ) );
 			add_filter( 'wpdesk_track_plugin_deactivation', array( $this, 'wpdesk_track_plugin_deactivation' ) );
 
-			add_filter( 'plugin_action_links_flexible-shipping/flexible-shipping.php', array( $this, 'plugin_action_links' ) );
+			add_filter( self::PLUGIN_ACTION_LINKS_FILTER_NAME, array( $this, 'plugin_action_links' ) );
 			add_action( 'activated_plugin', array( $this, 'activated_plugin' ), 10, 2 );
 		}
 

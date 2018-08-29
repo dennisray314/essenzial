@@ -2,7 +2,7 @@
 Contributors: wp-lab
 Tags: ebay, woocommerce, products, export
 Requires at least: 4.2
-Tested up to: 4.9.1
+Tested up to: 4.9.7
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -94,6 +94,97 @@ Yes, there is. WP-Lister for Amazon is currently in beta and we still have to wo
 2. Profile Editor
 
 == Changelog ==
+= 2.0.40 =
+* Added option to mark an order as unpaid when completing the sale on eBay 
+* Added the Unlocked table listings view 
+* Added a developer setting to disable the item specifics cache 
+* Added wplister_set_listing_variations_quantity filter hook 
+* Added wplister_before_build_item action hook 
+* Added wplister_get_stock filter hook 
+* Skip duplicate variation specifics 
+* Decode HTML entities in the listing subtitle before sending it to eBay 
+* Create a wpnonce form field instead of using wp_nonce_field() to prevent getting looping query strings 
+* Use WC_Product::is_on_sale() to check if a product is currently on sale 
+* Compare URLs of the additional images against the main image instead of just the base name 
+* When matching order items by SKU, attempt to locate using the variation's SKU in case the parent has no SKU set 
+* Use WC_Refund::get_id() if supported 
+* Use WC_Order::save() to trigger events in the Aelia Currency Converter plugin 
+* Use WC_Order::set_status() then WC_Order::save() to prevent WPLister from making order status overrides useless 
+* Fixed the Delete action in the Profiles table 
+* Strip invalid characters from the tracking carrier when completing sale on eBay 
+* Store the item's tax class regardless of the vat_enabled status 
+* Delete shipping line item cost from orders with multileg shipping 
+* Set the order's billing address as the customer's address for tax calculation purposes 
+
+= 2.0.39 =
+* Added setting to record COD Cost from the eBay orders 
+* Added WC Rest API v2 support for editing products and variations 
+* Added message about ebay proxy for the user to accept (GDPR compliance) 
+* Fixed some links in the Listings and Accounts table 
+* Fixed warnings shown by PHP Compatibility Checker 
+* Fixed version details links on Plugins page 
+* Force update the title after new split listings have been created 
+* Show all products (in stock / out of stock) when filtering for "on ebay" and "not on ebay" - for increased clarity and performance 
+
+= 2.0.38 =
+* Fixed error "Input data for tag Item.eBayPlus is invalid or missing"
+
+= 2.0.37 =
+* Added full support to enable/disable the eBay Plus flag - enable if set on either product or profile level, disable otherwise 
+* Added a setting option to enable the product counts on "On Amazon" and "Not on Amazon" views 
+* Disabled the product counts by default to avoid rare performance issues on slow servers 
+* Do not allow user to select non-leaf store categories as they cause errors with eBay 
+* Fixed Edit Account page 
+* Fixed bulk actions on Listings page 
+* Fixed force update check button on settings page 
+* Fixed the Create Order link 
+* Fixed javascript error with italian language file 
+* Added wple_product_stock_decreased action hook 
+* Added wple_filter_unchanged_variations filter hook to allow forcing a revision 
+* Added wple_category_specifics_max_names and wple_category_specifics_max_name_values filter hooks 
+
+= 2.0.36 =
+* Fixed Lock/Unlock All actions on Tools page 
+* Fixed WPLE breaking Delete Permanently links 
+* Fixed link handling in short product description (excerpt) 
+* Added wple_template_strip_anchor_text filter hook to retain the anchor text after removing the link 
+* Added more nonces to protect against CSRF (cross site request forgery) 
+* Run wplister_product_has_changed action hook using the parent id for variations 
+
+= 2.0.35 beta =
+* Added counts to the On eBay and Not on eBay filters 
+* Added support for eBay Plus 
+* Added wple_product_attribute_values filter 
+* Handle refunded emails as well in the `Disable emails on status change` setting 
+* Make sure handle_product_update() only runs during WC product imports 
+* Skip items without eBay ID when using Reset ended listings bulk action
+* Fixed rare issue with very long ebay usernames 
+* Fixed shipping tax bug where compound rates were being ignored 
+* Fixed update interval settings of 15min, 30min and external in Lite version 
+
+= 2.0.34 beta =
+* Disabled private listing option because it has been removed in eBay API version 1045 
+* Fixed possible fatal error (undefined method setShippingPackage) 
+
+= 2.0.33 beta =
+* Use eBay API version 1045 
+* Indicate eBay Plus orders on Orders overview pages 
+* Added wplister_meta_shortcode_value filter hook 
+
+= 2.0.32 beta =
+* Added support for the built-in WooCommerce products importer 
+* Added option to match order items by SKU instead of their eBay IDs 
+* Added wplister_item_specifics_processed_attributes filter 
+* Minor CSS fixes for WooCommerce 3.3 
+* Minor CSS improvements on edit product page 
+* Enable handling of refunds by default for all new users 
+* Updated italian and german language files 
+* Query for parent_id when filtering Not on eBay listings 
+* Fixed a few rare PHP warnings 
+* Fixed issue with variation images not being passed when attributes need to be translated 
+* Fixed "Find matching product" option on edit product page 
+* Fixed possible issue with store categories map and multiple accounts 
+
 = 2.0.31 =
 * Added new "HTTPS conversion" advanced setting option to enforce using HTTPS when processing a listing template 
 * Added option to convert all HTTP content to HTTPS for the entire listing template/description 

@@ -8,7 +8,7 @@ if ( ! class_exists( 'WPDesk_Flexible_Shipping_Shipment_Ajax' ) ) {
 
         private $plugin = null;
 
-        public function __construct( WPDesk_Flexible_Shipping_Free_Plugin $plugin ) {
+        public function __construct( WPDesk_Flexible_Shipping_Plugin $plugin ) {
             $this->plugin = $plugin;
             $this->hooks();
         }

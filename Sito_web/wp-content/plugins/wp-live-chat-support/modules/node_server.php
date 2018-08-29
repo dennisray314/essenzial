@@ -382,7 +382,7 @@ add_action('admin_enqueue_scripts', 'wplc_enqueue_dashboard_popup_scripts');
 function wplc_enqueue_dashboard_popup_scripts() {
 	global $wplc_version;
 	wp_enqueue_script('jquery-ui-draggable');
-	wp_enqueue_script('wplc-admin-popup', plugin_dir_url(__DIR__) . 'js/wplc_admin_popup.js', array(), $wplc_version);
+	wp_enqueue_script('wplc-admin-popup', plugins_url('../js/wplc_admin_popup.js', __FILE__ ), array('jquery-ui-draggable'), $wplc_version);
 	
 	wp_button_pointers_load_scripts('toplevel_page_wplivechat-menu');
 }
@@ -423,7 +423,7 @@ function wplc_dashboard_display_decide() {
 	    		echo '<div class="floating-right-toolbar">';
 	      		echo '<label for="user_list_bleeper_control" style="margin-bottom: 0; display:none;"></label>';
 
-	            echo '<i id="toolbar-item-open-bleeper" class="fa fa-fw" style="background:url(\''.plugins_url('images/48px.png', dirname(__FILE__)).'\') no-repeat; background-size: cover;"></i>';
+	            echo '<i id="toolbar-item-open-bleeper" class="fa fa-fw" style="background:url(\''.plugins_url('../images/48px.png', __FILE__).'\') no-repeat; background-size: cover;"></i>';
 	    		echo '</div>';
 	    	}
 
@@ -502,7 +502,7 @@ function wplc_admin_remote_dashboard_scripts($wplc_settings){
 			wp_enqueue_script('wplc-admin-js-emoji-bundle');
 		}
 
-		wp_register_script('md5', plugins_url( 'js/md5.js', __DIR__ ), array("wplc-admin-js-sockets"), false, false);
+		wp_register_script('md5', plugins_url( '../js/md5.js', __FILE__ ), array("wplc-admin-js-sockets"), false, false);
     	wp_enqueue_script('md5');
 
 		$dependencies = array();
@@ -661,6 +661,8 @@ function wplc_admin_remote_dashboard_scripts($wplc_settings){
 
         
         $wplc_server_location = get_option( "wplc_server_location" );
+        $wplc_server_location = apply_filters('wplc_node_server_default_selection_override', $wplc_server_location, $wplc_settings);
+        
         if( $wplc_server_location !== false && $wplc_server_location !== "" && $wplc_server_location !== "auto" ){
         	if ( $wplc_server_location === "us1") { $wplc_server_location = "0"; }
         	else if ( $wplc_server_location === "us2") { $wplc_server_location = "3"; }
@@ -686,7 +688,7 @@ function wplc_admin_remote_dashboard_scripts($wplc_settings){
 
 		wp_enqueue_script('wplc-admin-js-agent');
 
-		wp_register_script('wplc-admin-chat-server', plugins_url( 'js/wplc_server.js', __DIR__ ), array("wplc-admin-js-agent", "wplc-admin-js-sockets"), $wplc_version, false); //Added this for async storage calls
+		wp_register_script('wplc-admin-chat-server', plugins_url( '../js/wplc_server.js', __FILE__ ), array("wplc-admin-js-agent", "wplc-admin-js-sockets"), $wplc_version, false); //Added this for async storage calls
     	wp_enqueue_script('wplc-admin-chat-server');
 
 		wp_localize_script( 'wplc-admin-chat-server', 'wplc_datetime_format', array(
@@ -694,7 +696,7 @@ function wplc_admin_remote_dashboard_scripts($wplc_settings){
 			'time_format' => get_option( 'time_format' ),
 		) );
 		
-		wp_register_script('wplc-admin-chat-events', plugins_url( 'js/wplc_u_admin_events.js', __DIR__ ), array("wplc-admin-js-agent", "wplc-admin-js-sockets", "wplc-admin-chat-server"), $wplc_version, false); //Added this for async storage calls
+		wp_register_script('wplc-admin-chat-events', plugins_url( '../js/wplc_u_admin_events.js', __FILE__ ), array("wplc-admin-js-agent", "wplc-admin-js-sockets", "wplc-admin-chat-server"), $wplc_version, false); //Added this for async storage calls
 		wp_enqueue_script('wplc-admin-chat-events');
 		
 		if (isset($wplc_settings['wplc_show_date']) && $wplc_settings["wplc_show_date"] == '1') {
@@ -1188,7 +1190,7 @@ add_action("wplc_admin_remoter_dashboard_scripts_localizer", "wplc_admin_remote_
 function wplc_admin_remote_dashboard_dynamic_translation_handler(){
 
 	global $wplc_version;
-    wp_register_script('wplc-admin-dynamic-translation', plugins_url( 'js/wplc_admin_dynamic_translations.js', __DIR__ ), array("wplc-admin-js-agent", "wplc-admin-js-sockets", "jquery"), $wplc_version, false); //Added this for async storage calls
+    wp_register_script('wplc-admin-dynamic-translation', plugins_url( '../js/wplc_admin_dynamic_translations.js', __FILE__ ), array("wplc-admin-js-agent", "wplc-admin-js-sockets", "jquery"), $wplc_version, false); //Added this for async storage calls
 
     $wplc_dynamic_translation_array = array(
       'nifty_bg_holder_text_inner' => __('Connecting...', 'wplivechat'),

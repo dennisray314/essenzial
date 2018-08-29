@@ -74,6 +74,11 @@ class AIOWPSecurity_General_Init_Tasks
             include_once(AIO_WP_SECURITY_PATH.'/other-includes/wp-security-stop-users-enumeration.php');
         }
         
+        //REST API security
+        if( $aio_wp_security->configs->get_value('aiowps_disallow_unauthorized_rest_requests') == 1) {
+            add_action('rest_api_init', array(&$this, 'check_rest_api_requests'), 10 ,1);
+        }
+        
         //For user unlock request feature
         if(isset($_POST['aiowps_unlock_request']) || isset($_POST['aiowps_wp_submit_unlock_request'])){
             nocache_headers();            
@@ -114,17 +119,18 @@ class AIOWPSecurity_General_Init_Tasks
         }
 
         //For woo form captcha features
-        if($aio_wp_security->configs->get_value('aiowps_enable_woo_login_captcha') == '1'){
+        if($aio_wp_security->configs->get_value('aiowps_enable_woo_login_captcha') == '1' 
+                || $aio_wp_security->configs->get_value('aiowps_enable_woo_register_captcha') == '1'){
             if (!is_user_logged_in()) {
                 add_action('woocommerce_login_form', array(&$this, 'insert_captcha_question_form'));
             }
             
-            if(isset($_POST['woocommerce-login-nonce'])){
+            if(isset($_POST['woocommerce-login-nonce']) || isset($_POST['woocommerce-register-nonce'])){
                 // If answer is empty
-                if ($_REQUEST['aiowps-captcha-answer'] == ''){
+                if (empty($_POST['aiowps-captcha-answer'])){
                     wp_die( __('Please enter an answer in the CAPTCHA field.', 'all-in-one-wp-security-and-firewall' ) );
                 }
-                $captcha_answer = trim($_REQUEST['aiowps-captcha-answer']);
+                $captcha_answer = sanitize_text_field($_POST['aiowps-captcha-answer']);
                 $captcha_secret_string = $aio_wp_security->configs->get_value('aiowps_captcha_secret_key');
                 $submitted_encoded_string = base64_encode($_POST['aiowps-captcha-temp-string'].$captcha_secret_string.$captcha_answer);
                 $trans_handle = sanitize_text_field($_POST['aiowps-captcha-string-info']);
@@ -595,4 +601,18 @@ class AIOWPSecurity_General_Init_Tasks
         }
         return $errors;
     }
+    
+    /*
+     * Re-wrote code which checks for REST API requests
+     * Below uses the "rest_api_init" action hook to check for REST requests.
+     * The code will block unauthorized requests whilst allowing genuine requests. 
+     * (P. Petreski June 2018)
+     */
+    function check_rest_api_requests($rest_server_object){
+        $rest_user = wp_get_current_user();
+        if(empty($rest_user->ID)){
+            $error_message = apply_filters('aiowps_rest_api_error_message', __('You are not authorized to perform this action.', 'disable-wp-rest-api'));
+            wp_die($error_message); 
+        }
+    }    
 }

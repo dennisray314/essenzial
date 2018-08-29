@@ -127,7 +127,8 @@ class LogTable extends WP_List_Table {
         
     function column_callname($item){        
         //Build row action
-        $link = sprintf('<a href="?page=%s&action=%s&log_id=%s&width=820&height=550" class="thickbox">%s</a>',$_REQUEST['page'],'display_log_entry',$item['id'],$item['callname']);
+        // $link = sprintf('<a href="?page=%s&action=%s&log_id=%s&_wpnonce=%s&width=820&height=550" class="thickbox">%s</a>',$_REQUEST['page'],'wple_display_log_entry',$item['id'], wp_create_nonce( 'wplister_display_log_entry' ), $item['callname']);
+        $link = sprintf('<a href="?page=%s&action=%s&log_id=%s&width=820&height=550" class="thickbox">%s</a>', $_REQUEST['page'], 'wple_display_log_entry', $item['id'], $item['callname']);
 
         if ( 'GeteBayDetails' == $item['callname'] ) {
             if ( preg_match("/<DetailName>(.*)<\/DetailName>/", $item['request'], $matches) ) {
@@ -376,7 +377,7 @@ class LogTable extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'delete'    => __('Delete','wplister')
+            'wple_bulk_delete_logs'    => __('Delete','wplister')
         );
         return $actions;
     }

@@ -16,6 +16,7 @@ class ProntoDlg extends PBaseFeedDialog
         $this->service_name = 'Pronto';
         $this->service_name_long = 'Pronto Product Feed Export';
         $this->options = array();
+        $this->doc_link = "https://www.exportfeed.com/documentation/pronto-integration-guide/";
     }
 
 }

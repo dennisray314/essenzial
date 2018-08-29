@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,6 +7,8 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
+  * This type is only applicable for Half.com listings, and since the Half.com site has been shut down, this type is no longer applicable.
+  * 
  **/
 
 class ValType extends EbatNs_ComplexType

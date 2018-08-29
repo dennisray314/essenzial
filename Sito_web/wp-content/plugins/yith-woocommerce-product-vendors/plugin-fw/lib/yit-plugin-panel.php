@@ -274,6 +274,11 @@ if ( !class_exists( 'YIT_Plugin_Panel' ) ) {
                             if ( isset( $option[ 'type' ] ) && in_array( $option[ 'type' ], array( 'checkbox', 'onoff' ) ) ) {
                                 $value = yith_plugin_fw_is_true( $value ) ? 'yes' : 'no';
                             }
+
+                            if ( !empty( $option[ 'yith-sanitize-callback' ] ) && is_callable( $option[ 'yith-sanitize-callback' ] ) ) {
+                                $value = call_user_func( $option[ 'yith-sanitize-callback' ], $value );
+                            }
+
                             $valid_input[ $option[ 'id' ] ] = $value;
                         }
                     }

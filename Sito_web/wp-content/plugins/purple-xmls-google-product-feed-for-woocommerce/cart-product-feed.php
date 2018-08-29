@@ -4,7 +4,7 @@
  * Plugin URI: www.exportfeed.com
  * Description: WooCommerce Product Feed Export :: <a target="_blank" href="http://www.exportfeed.com/tos/">How-To Click Here</a>
  * Author: ExportFeed.com
- * Version: 3.1.8.5
+ * Version: 3.1.9.1
  * Author URI: www.exportfeed.com
  * Authors: Haris, Keneto (May2014)
  * Note: The "core" folder is shared to the Joomla component.
@@ -154,6 +154,10 @@ function update_all_cart_feeds_step_2($feed_id)
     //***********************************************************
     //Main
     //***********************************************************
+    if(count($feed_ids)>0){
+        ini_set('max_execution_time', 0);
+        ini_set('memory_limit', '512M');
+    }
     foreach ($feed_ids as $index => $this_feed_id) {
 
         $saved_feed = new PSavedFeed($this_feed_id->id);
@@ -175,9 +179,12 @@ function update_all_cart_feeds_step_2($feed_id)
         $x = new $providerClass();
         $x->aggregateProviders = $aggregateProviders;
         $x->savedFeedID = $saved_feed->id;
+        $miinto_country_code = $saved_feed->miinto_country_code;
 
         $x->productList = $savedProductList;
-        $x->getFeedData($saved_feed->category_id, $saved_feed->remote_category, $saved_feed->filename, $saved_feed);
+        if($saved_feed->feed_type!=1){
+            $x->getFeedData($saved_feed->category_id, $saved_feed->remote_category, $saved_feed->filename, $saved_feed,$miinto_country_code);
+        }
 
         $savedProductList = $x->productList;
         $x->products = null;

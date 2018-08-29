@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,8 @@ require_once 'SiteCodeType.php';
 require_once 'SellereBayPaymentProcessStatusCodeType.php';
 
 /**
-  *           This type is no longer used. 
-  *         
+  * This type is deprecated.
+  * 
  **/
 
 class UserAgreementInfoType extends EbatNs_ComplexType

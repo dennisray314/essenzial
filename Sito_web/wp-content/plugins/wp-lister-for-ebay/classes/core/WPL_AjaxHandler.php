@@ -2,52 +2,64 @@
 
 class WPL_AjaxHandler extends WPL_Core {
 
-	public function __construct() {
-		parent::__construct();
+	public function config() {
 		
+		$this->configure_public_requests();
+		$this->configure_private_requests();
+
+	}
+	
+	// configure private AJAX requests
+	private function configure_private_requests() {
+
 		// called from category tree
-		add_action('wp_ajax_e2e_get_ebay_categories_tree',  array( &$this, 'ajax_get_ebay_categories_tree' ) );		
-		add_action('wp_ajax_e2e_get_store_categories_tree', array( &$this, 'ajax_get_store_categories_tree' ) );		
+		add_action('wp_ajax_e2e_get_ebay_categories_tree',  	array( &$this, 'ajax_get_ebay_categories_tree' ) );		
+		add_action('wp_ajax_e2e_get_store_categories_tree', 	array( &$this, 'ajax_get_store_categories_tree' ) );		
 
 		// called from edit products page
-		add_action('wp_ajax_wpl_getCategorySpecifics',  array( &$this, 'ajax_getCategorySpecifics' ) );		
-		add_action('wp_ajax_wpl_getCategoryConditions', array( &$this, 'ajax_getCategoryConditions' ) );		
+		add_action('wp_ajax_wpl_getCategorySpecifics',  		array( &$this, 'ajax_getCategorySpecifics' ) );		
+		add_action('wp_ajax_wpl_getCategoryConditions', 		array( &$this, 'ajax_getCategoryConditions' ) );		
 		
 		// called from jobs window
-		add_action('wp_ajax_wpl_jobs_load_tasks', array( &$this, 'jobs_load_tasks' ) );	
-		add_action('wp_ajax_wpl_jobs_run_task', array( &$this, 'jobs_run_task' ) );	
-		add_action('wp_ajax_wpl_jobs_complete_job', array( &$this, 'jobs_complete_job' ) );	
+		add_action('wp_ajax_wpl_jobs_load_tasks', 				array( &$this, 'jobs_load_tasks' ) );	
+		add_action('wp_ajax_wpl_jobs_run_task', 				array( &$this, 'jobs_run_task' ) );	
+		add_action('wp_ajax_wpl_jobs_complete_job', 			array( &$this, 'jobs_complete_job' ) );	
 
 		// logfile viewer
-		add_action('wp_ajax_wplister_tail_log', array( &$this, 'ajax_wplister_tail_log' ) );
+		add_action('wp_ajax_wplister_tail_log', 				array( &$this, 'ajax_wplister_tail_log' ) );
 
 		// profile selector
-		add_action('wp_ajax_wple_select_profile', array( &$this, 'ajax_wple_select_profile' ) );
-		add_action('wp_ajax_wple_show_profile_selection', array( &$this, 'ajax_wple_show_profile_selection' ) );
+		add_action('wp_ajax_wple_select_profile', 				array( &$this, 'ajax_wple_select_profile' ) );
+		add_action('wp_ajax_wple_show_profile_selection', 		array( &$this, 'ajax_wple_show_profile_selection' ) );
 
 		// product matcher
-		add_action('wp_ajax_wple_show_product_matches', array( &$this, 'ajax_wple_show_product_matches' ) );
+		add_action('wp_ajax_wple_show_product_matches', 		array( &$this, 'ajax_wple_show_product_matches' ) );
+	}
+	
+	// configure public AJAX requests
+	private function configure_public_requests() {
 
 		// handle dynamic listing galleries
-		add_action('wp_ajax_wpl_gallery', array( &$this, 'ajax_wpl_gallery' ) );
-		add_action('wp_ajax_nopriv_wpl_gallery', array( &$this, 'ajax_wpl_gallery' ) );
+		add_action('wp_ajax_wpl_gallery', 						array( &$this, 'ajax_wpl_gallery' ) );
+		add_action('wp_ajax_nopriv_wpl_gallery', 				array( &$this, 'ajax_wpl_gallery' ) );
 
 		// handle request for eBay store categories (JSON)
-		add_action('wp_ajax_wpl_ebay_store_categories', array( &$this, 'ajax_wpl_ebay_store_categories' ) );
-		add_action('wp_ajax_nopriv_wpl_ebay_store_categories', array( &$this, 'ajax_wpl_ebay_store_categories' ) );
+		add_action('wp_ajax_wpl_ebay_store_categories', 		array( &$this, 'ajax_wpl_ebay_store_categories' ) );
+		add_action('wp_ajax_nopriv_wpl_ebay_store_categories', 	array( &$this, 'ajax_wpl_ebay_store_categories' ) );
 
 		// handle request for eBay item queries
-		add_action('wp_ajax_wpl_ebay_item_query', array( &$this, 'ajax_wpl_ebay_item_query' ) );
-		add_action('wp_ajax_nopriv_wpl_ebay_item_query', array( &$this, 'ajax_wpl_ebay_item_query' ) );
+		add_action('wp_ajax_wpl_ebay_item_query', 				array( &$this, 'ajax_wpl_ebay_item_query' ) );
+		add_action('wp_ajax_nopriv_wpl_ebay_item_query', 		array( &$this, 'ajax_wpl_ebay_item_query' ) );
 
 		// handle incoming ebay notifications
-		add_action('wp_ajax_handle_ebay_notify', array( &$this, 'ajax_handle_ebay_notify' ) );
-		add_action('wp_ajax_nopriv_handle_ebay_notify', array( &$this, 'ajax_handle_ebay_notify' ) );
+		add_action('wp_ajax_handle_ebay_notify', 				array( &$this, 'ajax_handle_ebay_notify' ) );
+		add_action('wp_ajax_nopriv_handle_ebay_notify', 		array( &$this, 'ajax_handle_ebay_notify' ) );
 	}
 	
 
 	// show profile selection
 	public function ajax_wple_show_profile_selection() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// fetch profiles
 		$pm = new ProfilesModel();
@@ -55,10 +67,10 @@ class WPL_AjaxHandler extends WPL_Core {
 
 		// load template
 		$tpldata = array(
-			'plugin_url'				=> self::$PLUGIN_URL,
-			'message'					=> $this->message,
-			'profiles'					=> $profiles,				
-			'form_action'				=> 'admin.php?page='.self::ParentMenuId
+			'plugin_url'  => self::$PLUGIN_URL,
+			'message'     => $this->message,
+			'profiles'    => $profiles,				
+			'form_action' => 'admin.php?page='.self::ParentMenuId
 		);
 
 		WPLE()->pages['listings']->display( 'profile/select_profile', $tpldata );
@@ -69,6 +81,7 @@ class WPL_AjaxHandler extends WPL_Core {
 
 	// match product
 	public function ajax_wple_select_profile() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// TODO: check nonce
 		if ( isset( $_REQUEST['profile_id'] ) && isset( $_REQUEST['product_ids'] ) ) {
@@ -155,6 +168,7 @@ class WPL_AjaxHandler extends WPL_Core {
 
 	// fetch category specifics
 	public function ajax_getCategorySpecifics() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 		
 		$category_id = $_REQUEST['id'];
 		$account_id  = isset( $_REQUEST['account_id'] ) ? $_REQUEST['account_id'] : get_option( 'wplister_default_account_id' );
@@ -174,6 +188,7 @@ class WPL_AjaxHandler extends WPL_Core {
 	
 	// fetch category conditions
 	public function ajax_getCategoryConditions() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 		
 		$category_id = $_REQUEST['id'];
 		$account_id  = isset( $_REQUEST['account_id'] ) ? $_REQUEST['account_id'] : get_option( 'wplister_default_account_id' );
@@ -215,6 +230,7 @@ class WPL_AjaxHandler extends WPL_Core {
 
 	// run single task
 	public function jobs_run_task() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// quit if no job name provided
 		if ( ! isset( $_REQUEST['job'] ) ) return false;
@@ -561,6 +577,7 @@ class WPL_AjaxHandler extends WPL_Core {
 	
 	// load task list
 	public function jobs_load_tasks() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// quit if no job name provided
 		if ( ! isset( $_REQUEST['job'] ) ) return false;
@@ -904,6 +921,7 @@ class WPL_AjaxHandler extends WPL_Core {
 
 	// complete job
 	public function jobs_complete_job() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// quit if no job name provided
 		if ( ! isset( $_REQUEST['job'] ) ) return false;
@@ -960,6 +978,7 @@ class WPL_AjaxHandler extends WPL_Core {
 	
 	// get categories tree node - used on ProfilesPage
 	public function ajax_get_ebay_categories_tree() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		$site_id = isset($_REQUEST['site_id']) ? $_REQUEST['site_id'] : get_option('wplister_ebay_site_id');
 	
@@ -992,6 +1011,7 @@ class WPL_AjaxHandler extends WPL_Core {
 
 	// get categories tree node - used on ProfilesPage
 	public function ajax_get_store_categories_tree() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 	
 		$account_id = isset($_REQUEST['account_id']) ? $_REQUEST['account_id'] : get_option('wplister_default_account_id');
 		$site_id    = WPLE()->accounts[ $account_id ]->site_id;
@@ -1005,11 +1025,12 @@ class WPL_AjaxHandler extends WPL_Core {
 
 			echo "<ul class=\"jqueryFileTree\" style=\"display: none;\">";
 
-			// add reference to parent node - non-leaf Store Categories are allowed as well
-			if ( $parent_cat_id != 0 ) {
-				$parent_path = substr( $_POST['dir'], 0, -1 ); // strip trailing slash
-				echo '<li class="file ext_txt"><a href="#" rel="' . $parent_path . '">' . '[use this category]' . '</a></li>';
-			}
+			// // add reference to parent node - non-leaf Store Categories are allowed as well (?)
+			// // #22754: no they are not, see developer.ebay.com/.../AddFixedPriceItem.html#Request.Item.Storefront.StoreCategoryID
+			// if ( $parent_cat_id != 0 ) {
+			// 	$parent_path = substr( $_POST['dir'], 0, -1 ); // strip trailing slash
+			// 	echo '<li class="file ext_txt"><a href="#" rel="' . $parent_path . '">' . '[use this category]' . '</a></li>';
+			// }
 
 			// All dirs and files
 			foreach ( $categories as $cat ) {
@@ -1034,13 +1055,12 @@ class WPL_AjaxHandler extends WPL_Core {
 
 	// show matching products
 	public function ajax_wple_show_product_matches() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// TODO: check nonce
 		if ( isset( $_REQUEST['id'] ) ) {
 
-			// $market = WPLA_AmazonMarket::getMarket( $_REQUEST['market_id'] );
 			$product = ProductWrapper::getProduct( $_REQUEST['id'] );
-			// echo "<pre>";print_r($product);echo"</pre>";
 
 			if ( $product ) {
 
@@ -1067,7 +1087,6 @@ class WPL_AjaxHandler extends WPL_Core {
 			    		}
 			    		break;
 			    }
-				// echo '<h2>'.$query.'</h2>';
 
 			    // fall back to title when query is empty
 			    if ( empty($query) ) $query = $post->post_title;
@@ -1090,12 +1109,7 @@ class WPL_AjaxHandler extends WPL_Core {
 						// save cache
 						set_transient( $transient_key, $products, 300 );
 					}
-					// echo "<pre>";print_r($transient_key);echo"</pre>";#die();
 				}
-				// echo "<pre>products: ";print_r($products);echo"</pre>";#die();
-
-				// get market / site domain - for "view" links
-	            // $market  = new WPLA_AmazonMarket( $account->market_id );
 
 				if ( is_array( $products ) )  {
 
@@ -1107,7 +1121,6 @@ class WPL_AjaxHandler extends WPL_Core {
 						'query_product'				=> $product,				
 						'query_product_attributes'	=> $product_attributes,
 						'products'					=> $products,				
-						// 'market_url'				=> $market->url,				
 						'post_id'					=> $_REQUEST['id'],				
 						'query_select'				=> isset($_REQUEST['query_select']) ? $_REQUEST['query_select'] : false,
 						'form_action'				=> 'admin.php?page='.self::ParentMenuId
@@ -1120,6 +1133,7 @@ class WPL_AjaxHandler extends WPL_Core {
 				} else {
 					$errors  = sprintf( __('There were no products found for query %s.','wplister'), $query );
 					echo $errors;
+					echo "<pre>Debug information: ";print_r($products);echo"</pre>";
 				}
 				exit();
 
@@ -1259,6 +1273,7 @@ class WPL_AjaxHandler extends WPL_Core {
 	// handle calls to logfile viewer based on php-tail
 	// http://code.google.com/p/php-tail
 	public function ajax_wplister_tail_log() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		require_once( WPLISTER_PATH . '/includes/php-tail/PHPTail.php' );
 		

@@ -12,7 +12,7 @@ class PFeedPageDialogs
 
     public static function pageHeader()
     {
-
+        define('IMAGE_PATH',plugins_url( '/', __FILE__ ).'../../images/' );
         global $pfcore;
 
         $gap = '
@@ -23,9 +23,47 @@ class PFeedPageDialogs
         if ($pfcore->cmsName == 'WordPress') {
             $reg = new PLicense();
             if ($reg->valid) {
-                $lic = '<div style="position:absolute; left:300px; top:60px">
-					 <a class="button-primary" type="submit" value="" id="submit" name="submit" href="http://www.exportfeed.com/support/" target="_blank">Thank You For Supporting The Project</a>
-						</div>';
+				$lic = '<div class="logo-am" style="vertical-align: middle; display: inline-block;">
+				<h4 class="icon-margin">Get standalone plugin for</h4>
+				<div class="upsell-icon-logo">
+				<div class="logo amazon" style="display:inline-block;">
+					<div class="amazon">
+
+						<a value="" href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-on-amazon-seller-central/" target="_blank">
+
+							<img src="'.IMAGE_PATH.'amazon.png">
+						</a>
+						<span class="plugin-link"><a href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-on-amazon-seller-central/" target="_blank">Get Amazon plugin</a></span>
+						<span class="plugin-desc">Manage bulk products + order & inventory sync</span>
+					</div> 
+				</div>
+				<div class="logo ebay" style="display:inline-block;">
+					<div class="ebay">
+						<a value="" href="https://www.exportfeed.com/woocommerce-product-feed/send-woocommerce-data-feeds-to-ebay-seller/" target="_blank">
+
+							<img src="'.IMAGE_PATH.'ebay.png">
+						</a>
+						<span class="plugin-link"><a href="https://www.exportfeed.com/woocommerce-product-feed/send-woocommerce-data-feeds-to-ebay-seller/" target="_blank">Get eBay plugin</a></span>
+						<span class="plugin-desc">Bulk upload products and variations to eBay</span>
+					</div> 
+				</div>
+
+				<div class="logo etsy" style="display:inline-block;">
+
+					<div class="etsy">
+						<a value="" href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-to-etsy/" target="_blank">
+
+							<img src="'.IMAGE_PATH.'/etsy.png">
+					</a>
+					<span class="plugin-link"><a href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-to-etsy/" target="_blank">Get Etsy plugin</a></span>
+					<span class="plugin-desc">Bulk products upload with multiple images</span>
+					</div> 
+				</div>
+				</div>
+				
+				<div class="clear"></div>
+				
+			</div>';
                 $style_lic_text = "display:none";
             } else
                 $lic = PLicenseKeyDialog::small_registration_dialog('');
@@ -35,30 +73,28 @@ class PFeedPageDialogs
         if ($_GET['page'] == 'eBay_settings_tabs') {
             $style = 'display : none';
         } else {
-            $style = 'display : block';
+            $style = 'display : inline-block;';
         }
         $output = '
 			<div class="postbox" style="width:100%;">
-				<div class="inside-export-target">
-					<div style = "' . $style . '">
+			
+				<div class="inside-export-target upsell-section">
+					<div class="select-merchant-cpf-dropdown" style = "' . $style . '">
 						<h4>Select Merchant Type</h4>
-						<select id="selectFeedType" onchange="doSelectFeed();">
+						<select id="selectFeedType" onchange="doSelectFeed(this.value);">
 						<option></option>' .
             $providers->asOptionList() . '
 						</select>
 						<br>
 						<ul class="subsubsub" >
-						<li><a href= "http://www.exportfeed.com/supported-merchants/" class="support-channel-list">List of our support channels</a></li>
+						<li><a target="_blank" href= "http://www.exportfeed.com/supported-merchants/" class="support-channel-list">List of our supported Merchants</a></li>
 					</div>				
 					' . $lic . '
-					<ul class="subsubsub license-key-text" style="' . $style_lic_text . '">
-						<li><span class="license-key-info">Include all text and generated numeric value </span><a href="http://www.exportfeed.com/woocommerce-product-feed/">Get License Key</a>
-					</ul>
 				</div>
 				
 			</ul>
 			</div>
-			
+			<div style="display: none;" id="ajax-loader-cat-import" ><span id="gif-message-span"></span></div>
 			<div class="clear"></div>';
 
         return $output;
@@ -69,7 +105,7 @@ class PFeedPageDialogs
     {
         $output = '
 
-	  <div id="feedPageBody" class="postbox" style="width: 100%;float: left;">
+	  <div id="feedPageBody" class="cpf-pagebody-holder-p1" style="width: 100%;float: left;display:none;">
 	    <div class="inside export-target">
 	      <h4>Select a merchant type.</h4>
 		  <hr />

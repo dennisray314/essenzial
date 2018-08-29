@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,8 @@ require_once 'AbstractResponseType.php';
 require_once 'PromotionalSaleStatusCodeType.php';
 
 /**
-  * Contains the ID and status of a promotional sale.
-  * The Promotional Price Display feature enables sellers
-  * to apply discounts and/or free shipping across many listings.  
+  * The base response of the <b>SetPromotionalSale</b> call. Contains the status of a promotional sale.
+  * 
   * 
  **/
 

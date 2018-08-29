@@ -14,7 +14,7 @@ function cart_product_activate_plugin()
 
     $table_name = $wpdb->prefix . "cp_feeds";
     $sql = "
-		        CREATE TABLE $table_name (
+		      CREATE TABLE $table_name (
 		      `id` bigint(20) NOT NULL AUTO_INCREMENT,
 		      `category` varchar(250) NOT NULL,
 		      `remote_category` TEXT NOT NULL,
@@ -29,6 +29,7 @@ function cart_product_activate_plugin()
 		      `feed_type` INT(10) DEFAULT '0',
 		      `product_details` BLOB,
 		      `miinto_country_code` VARCHAR(5) DEFAULT NULL,
+          `bonanza_feed_id` varchar(50) DEFAULT NULL,
 		PRIMARY KEY (`id`)
     ) $charset_collate";
     

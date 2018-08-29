@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'SellingManagerSearchTypeCodeType.php';
 
 /**
-  * For searches of Selling Manager listings, specifies search type, such as ProductID or BuyerUserID,
+  * For searches of Selling Manager listings, specifies search type, such as <b>ProductID</b> or <b>BuyerUserID</b>,
   * and search value.
   * 
  **/

@@ -11,7 +11,7 @@
  *
 
 	Copyright 2009, 2010 Jordi Canals <devel@jcanals.cat>
-	Modifications Copyright 2012-2015 Kevin Behrens <kevin@agapetry.net>
+	Modifications Copyright 2012-2018 Kevin Behrens <kevin@agapetry.net>
 
 	This program is free software; you can redistribute it and/or
 	modify it under the terms of the GNU General Public License

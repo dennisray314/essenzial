@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,10 +9,7 @@ require_once 'SellingManagerProductType.php';
 require_once 'PaginationResultType.php';
 
 /**
-  * Contains a list of the products created by the seller. The list of products is returned as a set
-  * of tags, in which are returned zero, one, or multiple SellingManagerProductType objects. Each
-  * SellingManagerProductType object contains the information about for one Selling Manager product
-  * and any Selling Manager templates the product contains.
+  * Contains a list of the products created by the seller. The list of products is returned as a set of tags, in which are returned zero, one, or multiple SellingManagerProductType objects. Each SellingManagerProductType object contains the information about for one Selling Manager product and any Selling Manager templates the product contains.
   * 
  **/
 

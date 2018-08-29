@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,17 +8,13 @@ require_once 'AbstractRequestType.php';
 require_once 'ItemType.php';
 
 /**
-  * Enables a seller to change the properties of a currently active listing.&nbsp;<b>Also for Half.com</b>.
+  * Enables a seller to revise a listing on a specified eBay site. To revise an active listing, the seller specifies the <b>ItemID</b> value for the listing. The seller makes one or multiple changes to the listing through the <b>Item</b> container, and the seller can also use one or more <b>DeletedField</b> tags to remove an optional field/setting from the listing.
   * <br>
   * <br>
-  * After one item in a multi-quantity fixed-price listing has been sold, you can not
-  * the values in the Title, Primary Category, Secondary Category, Listing Duration,
-  * and Listing Type fields for that listing. However, all other fields in the
-  * multi-quantity, fixed-price listing are editable.
+  * After a multiple-quantity, fixed-price listing has one or more sales, or less than 12 hours remain before the listing is scheduled to end, you can not edit the values in the Listing Title, Primary Category, Secondary Category, Listing Duration, and Listing Type fields for that listing. The same applies to an auction listing that has at least one bid.
   * <br>
   * <br>
-  * Inputs are the Item ID of the listing you are revising, and the field or fields
-  * that you are updating.
+  * To revise a multiple-variation, fixed-price listing, the <b>ReviseFixedPriceItem</b> call should be used instead, as the <b>ReviseItem</b> call does not support variation-level edits.
   * 
  **/
 

@@ -1,13 +1,13 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
 
-/** 
-  * Defines the PayPalBuyerProtection feature.
+/**
+  * Defines the PayPal Buyer Protection feature.
   * If the field is present, the corresponding feature applies to the category.
   * The field is returned as an empty element (i.e., a boolean value is not returned).
   * 

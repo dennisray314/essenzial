@@ -30,6 +30,7 @@ class BingDlg extends PBaseFeedDialog
             'ProductType',
             'B_Category'
         );
+        $this->doc_link = "https://www.exportfeed.com/documentation/bing-product-ads-guide/";
     }
 
 }

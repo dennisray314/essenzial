@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,8 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>TicketListingDetails</b> container, which is used in 
-  * an Add/Revise/Relist call to provide more details about event tickets.
+  * Type defining the <b>TicketListingDetails</b> container, which is used in
+  * an <b>Add</b>/<b>Revise</b>/<b>Relist</b> call to provide more details about event tickets.
   * 
  **/
 

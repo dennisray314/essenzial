@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,8 @@ require_once 'AbstractRequestType.php';
 require_once 'CategoryItemSpecificsType.php';
 
 /**
-  * Returns the most popular custom Item Specific names and values for each
-  * category you request.
-  * 
+  *         This is the base request type for the <b>GetCategorySpecifics</b> call. This call is used to retrieve recommended Item Specifics names and values for one or multiple eBay Categories.
+  *       
  **/
 
 class GetCategorySpecificsRequestType extends AbstractRequestType

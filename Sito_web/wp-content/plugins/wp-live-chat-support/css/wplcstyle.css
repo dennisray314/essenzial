@@ -228,3 +228,15 @@
 
 
 
+#wp-live-chat-inner .wpcf_wrapper { 
+    position: inherit; 
+    padding: 25px;
+    max-height: 400px;
+    margin-bottom:20px;
+}
+
+input#wplc_chat_gdpr_opt_in.incomplete + label {
+    border-left: 1px solid #bd0000 !important;
+    background: none !important;
+    padding: 4px;
+}

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,9 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Retrieves a botblock token and URLs for an image or audio clip that the user is to
-  * match.
+  * This is the base request type for the <b>GetChallengeToken</b> call. This call retrieves a botblock token and URLs for an image or audio clip that the user is to match.
+  * <br/><br/>
+  * This call does not have any call-specific input parameters.
   * 
  **/
 

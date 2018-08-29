@@ -114,7 +114,7 @@ class TemplatesTable extends WP_List_Table {
         //Build row actions
         $nonce = wp_create_nonce( 'wple_templates_page' );
         $actions = array(
-            'preview_template'          => sprintf('<a href="?page=%s&action=%s&template=%s&width=820&height=550&TB_iframe=true" target="%s" class="%s">%s</a>',$page,'preview_template',$item['template_id'],$preview_target,$preview_class,__('Preview','wplister')),
+            'wple_preview_template'          => sprintf('<a href="?page=%s&action=%s&template=%s&_wpnonce=%s&width=820&height=550&TB_iframe=true" target="%s" class="%s">%s</a>',$page,'wple_preview_template',$item['template_id'], $nonce, $preview_target,$preview_class,__('Preview','wplister')),
             'edit'                      => sprintf('<a href="?page=%s&action=%s&template=%s">%s</a>',$_REQUEST['page'],'edit',$item['template_id'],__('Edit','wplister')),
             'duplicate'                 => sprintf('<a href="#" onclick="wpl_duplicate_tpl(\'%s\');return false;">%s</a>',$item['template_id'],__('Duplicate','wplister')),
             'delete_listing_template'   => sprintf('<a href="?page=%s&action=%s&template=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'delete_listing_template',$item['template_id'],$nonce,__('Delete','wplister')),

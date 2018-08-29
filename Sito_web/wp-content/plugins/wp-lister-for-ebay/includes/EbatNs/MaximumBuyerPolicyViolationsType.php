@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,10 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'PeriodCodeType.php';
 
 /**
-  * Type defining the <b>MaximumBuyerPolicyViolations</b> container, which is
-  * used by the seller as a mechanism to block prospective buyers who have buyer policy 
-  * violations on their account exceeding the value set in the <b>Count</b> 
-  * field during a specified time period (set in the <b>Period</b> field).
+  * Type defining the <b>MaximumBuyerPolicyViolations</b> container, which is used by the seller as a mechanism to block prospective buyers who have buyer policy violations on their account exceeding the value set in the <b>Count</b> field during a specified time period (set in the <b>Period</b> field).
   * 
  **/
 

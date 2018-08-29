@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'PromotionalSaleArrayType.php';
 
 /**
-  * Contains information about promotional sales. This call
-  * is part of the Promotional Price Display feature.
+  * The base response type for the <b>GetPromotionalSaleDetails</b> call. This call retrieves information about promotional sales set up by an eBay store owner.
   * 
  **/
 

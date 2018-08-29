@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -14,7 +14,7 @@ require_once 'TimeRangeType.php';
   * <br><br>
   * The standard Trading API
   * deprecation process is not applicable to this call.
-  *     
+  * 
  **/
 
 class GetSellingManagerEmailLogRequestType extends AbstractRequestType

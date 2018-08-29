@@ -24,7 +24,7 @@ function agp_admin_footer( $mod_id = '' ) {
 	&nbsp;&nbsp;|&nbsp;&nbsp;&copy; <?php _e( 'Copyright 2010 Jordi Canals', 'capsman-enhanced' );?>
 	&nbsp;&nbsp;|&nbsp;&nbsp;
 	<?php
-	printf( __( 'Modifications &copy; Copyright %1$s %2$s', 'capsman-enhanced' ), '2012-2015', '<a href="http://agapetry.com">Kevin Behrens</a>' );?>
+	printf( __( 'Modifications &copy; Copyright %1$s %2$s', 'capsman-enhanced' ), '2012-2018', '<a href="http://agapetry.com">Kevin Behrens</a>' );?>
 	</p>
 	<?php
 }

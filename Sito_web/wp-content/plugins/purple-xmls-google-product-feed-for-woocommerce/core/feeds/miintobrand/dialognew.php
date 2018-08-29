@@ -13,6 +13,7 @@ class MiintoBrandDlg extends PBaseFeedDialog {
 		parent::__construct();
 		$this->service_name = 'MiintoBrand';
 		$this->service_name_long = 'Miinto Brand TSV Export';
+		$this->doc_link = "https://www.exportfeed.com/documentation/miinto-guide/";
 	}
 
 	function convert_option($option) {

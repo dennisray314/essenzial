@@ -208,6 +208,46 @@ function wppb_admin_rate_us( $footer_text ) {
 }
 add_filter('admin_footer_text','wppb_admin_rate_us');
 
+/**
+ * add links on plugin page
+ */
+add_filter( 'plugin_action_links', 'wppb_plugin_action_links', 10, 2 );
+function wppb_plugin_action_links( $links, $file ) {
+    if ( $file != WPPB_PLUGIN_BASENAME ) {
+        return $links;
+    }
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return $links;
+    }
+
+    $settings_link = sprintf( '<a href="%1$s">%2$s</a>',
+        menu_page_url( 'profile-builder-general-settings', false ),
+        esc_html( __( 'Settings', 'profile-builder' ) ) );
+
+    array_unshift( $links, $settings_link );
+
+    return $links;
+}
+
+/**
+ * add links on plugin page 
+ */
+add_filter( 'plugin_row_meta', 'wppb_plugin_row_meta', 10, 2 );
+function wppb_plugin_row_meta( $links, $file ) {
+    if ( WPPB_PLUGIN_BASENAME == $file ) {
+        $row_meta = array(
+            'docs'    => '<a href="' . esc_url( 'https://www.cozmoslabs.com/docs/profile-builder-2/' ) . '" target="_blank" aria-label="' . esc_attr__( 'View Profile Builder documentation', 'profile-builder' ) . '">' . esc_html__( 'Docs', 'profile-builder' ) . '</a>',
+        );
+
+        return array_merge( $links, $row_meta );
+    }
+
+    return (array) $links;
+}
+
+
+
 /* In plugin notifications */
 add_action( 'admin_init', 'wppb_add_plugin_notifications' );
 function wppb_add_plugin_notifications() {
@@ -223,4 +263,44 @@ function wppb_add_plugin_notifications() {
     $message .= '<a href="' . add_query_arg( array( 'wppb_dismiss_admin_notification' => $notification_id ) ) . '" type="button" class="notice-dismiss"><span class="screen-reader-text">' . __( 'Dismiss this notice.', 'profile-builder' ) . '</span></a>';
 
     $notifications->add_notification( $notification_id, $message, 'wppb-notice wppb-narrow notice notice-info', true, array( 'profile-builder-add-ons' ) );
+}
+
+
+/* hook to create pages for out forms when a user press the create pages/setup button */
+add_action( 'admin_init', 'wppb_create_form_pages' );
+function wppb_create_form_pages(){
+    if( isset( $_GET['page'] ) && $_GET['page'] == 'profile-builder-basic-info' && isset( $_GET['wppb_create_pages'] ) && $_GET['wppb_create_pages'] == 'true' ){
+
+        $wppb_pages_created = get_option( 'wppb_pages_created' );
+
+        if( empty( $wppb_pages_created ) || ( isset( $_GET['wppb_force_create_pages'] ) && $_GET['wppb_force_create_pages'] == 'true' ) ) {
+            $register_page = array(
+                'post_title' => 'Register',
+                'post_content' => '[wppb-register]',
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            );
+            $register_id = wp_insert_post($register_page);
+
+            $edit_page = array(
+                'post_title' => 'Edit Profile',
+                'post_content' => '[wppb-edit-profile]',
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            );
+            $edit_id = wp_insert_post($edit_page);
+
+            $login_page = array(
+                'post_title' => 'Log In',
+                'post_content' => '[wppb-login]',
+                'post_status' => 'publish',
+                'post_type' => 'page'
+            );
+            $login_id = wp_insert_post($login_page);
+
+            update_option('wppb_pages_created', 'true' );
+
+            wp_safe_redirect( admin_url('edit.php?s=%5Bwppb-&post_status=all&post_type=page&action=-1&m=0&paged=1&action2=-1') );
+        }
+    }
 }

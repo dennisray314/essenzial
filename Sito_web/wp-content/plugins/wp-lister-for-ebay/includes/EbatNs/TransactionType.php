@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -31,6 +31,8 @@ require_once 'PaymentsInformationType.php';
 require_once 'PickupDetailsType.php';
 require_once 'PickupMethodSelectedType.php';
 require_once 'BuyerPackageEnclosuresType.php';
+require_once 'GiftSummaryType.php';
+require_once 'DigitalDeliverySelectedType.php';
 
 /**
   * Contains information about a single order line item (transaction). An order
@@ -38,8 +40,7 @@ require_once 'BuyerPackageEnclosuresType.php';
   * items from a single listing to a single buyer. The eBay system creates an order
   * line item when a buyer has committed to make a purchase in an
   * auction or fixed-price listing. A fixed-priced listing (with multiple identical
-  * items or a similar item with variations) can spawn one or more order line items. Auction and single-item, fixed-price listings can only spawn
-  * one order line item.
+  * items or a similar item with variations) can spawn one or more order line items. Auction listings and single-quantity, fixed-price listings can only spawn one order line item.
   * 
  **/
 
@@ -251,6 +252,11 @@ class TransactionType extends EbatNs_ComplexType
 	protected $BuyerCheckoutMessage;
 
 	/**
+	* @var AmountType
+	**/
+	protected $TotalTransactionPrice;
+
+	/**
 	* @var TaxesType
 	**/
 	protected $Taxes;
@@ -274,6 +280,11 @@ class TransactionType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $OrderLineItemID;
+
+	/**
+	* @var string
+	**/
+	protected $eBayPaymentID;
 
 	/**
 	* @var PaymentHoldDetailType
@@ -364,6 +375,36 @@ class TransactionType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $ExtendedOrderID;
+
+	/**
+	* @var boolean
+	**/
+	protected $eBayPlusTransaction;
+
+	/**
+	* @var GiftSummaryType
+	**/
+	protected $GiftSummary;
+
+	/**
+	* @var DigitalDeliverySelectedType
+	**/
+	protected $DigitalDeliverySelected;
+
+	/**
+	* @var boolean
+	**/
+	protected $Gift;
+
+	/**
+	* @var boolean
+	**/
+	protected $GuaranteedShipping;
+
+	/**
+	* @var boolean
+	**/
+	protected $GuaranteedDelivery;
 
 
 	/**
@@ -704,6 +745,14 @@ class TransactionType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
+				'TotalTransactionPrice' =>
+				array(
+					'required' => false,
+					'type' => 'AmountType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
 				'Taxes' =>
 				array(
 					'required' => false,
@@ -737,6 +786,14 @@ class TransactionType extends EbatNs_ComplexType
 					'cardinality' => '0..1'
 				),
 				'OrderLineItemID' =>
+				array(
+					'required' => false,
+					'type' => 'string',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'eBayPaymentID' =>
 				array(
 					'required' => false,
 					'type' => 'string',
@@ -884,6 +941,54 @@ class TransactionType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'string',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'eBayPlusTransaction' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'GiftSummary' =>
+				array(
+					'required' => false,
+					'type' => 'GiftSummaryType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'DigitalDeliverySelected' =>
+				array(
+					'required' => false,
+					'type' => 'DigitalDeliverySelectedType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'Gift' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'GuaranteedShipping' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'GuaranteedDelivery' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -1577,6 +1682,22 @@ class TransactionType extends EbatNs_ComplexType
 	}
 
 	/**
+	 * @return AmountType
+	 **/
+	function getTotalTransactionPrice()
+	{
+		return $this->TotalTransactionPrice;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setTotalTransactionPrice($value)
+	{
+		$this->TotalTransactionPrice = $value;
+	}
+
+	/**
 	 * @return TaxesType
 	 **/
 	function getTaxes()
@@ -1654,6 +1775,22 @@ class TransactionType extends EbatNs_ComplexType
 	function setOrderLineItemID($value)
 	{
 		$this->OrderLineItemID = $value;
+	}
+
+	/**
+	 * @return string
+	 **/
+	function geteBayPaymentID()
+	{
+		return $this->eBayPaymentID;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function seteBayPaymentID($value)
+	{
+		$this->eBayPaymentID = $value;
 	}
 
 	/**
@@ -1942,6 +2079,102 @@ class TransactionType extends EbatNs_ComplexType
 	function setExtendedOrderID($value)
 	{
 		$this->ExtendedOrderID = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function geteBayPlusTransaction()
+	{
+		return $this->eBayPlusTransaction;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function seteBayPlusTransaction($value)
+	{
+		$this->eBayPlusTransaction = $value;
+	}
+
+	/**
+	 * @return GiftSummaryType
+	 **/
+	function getGiftSummary()
+	{
+		return $this->GiftSummary;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setGiftSummary($value)
+	{
+		$this->GiftSummary = $value;
+	}
+
+	/**
+	 * @return DigitalDeliverySelectedType
+	 **/
+	function getDigitalDeliverySelected()
+	{
+		return $this->DigitalDeliverySelected;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setDigitalDeliverySelected($value)
+	{
+		$this->DigitalDeliverySelected = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getGift()
+	{
+		return $this->Gift;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setGift($value)
+	{
+		$this->Gift = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getGuaranteedShipping()
+	{
+		return $this->GuaranteedShipping;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setGuaranteedShipping($value)
+	{
+		$this->GuaranteedShipping = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getGuaranteedDelivery()
+	{
+		return $this->GuaranteedDelivery;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setGuaranteedDelivery($value)
+	{
+		$this->GuaranteedDelivery = $value;
 	}
 
 }

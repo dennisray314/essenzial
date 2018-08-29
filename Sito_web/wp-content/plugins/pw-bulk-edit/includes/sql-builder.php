@@ -208,7 +208,7 @@ final class PWBE_SQL_Builder {
         }
 	}
 
-    private function build_common_sql( $suffix, $group_type, $fields, &$sql_fields, &$sql_joins ) {
+    public function build_common_sql( $suffix, $group_type, $fields, &$sql_fields, &$sql_joins ) {
 		global $wpdb;
 
 		$sql_where = "(";
@@ -318,7 +318,7 @@ final class PWBE_SQL_Builder {
 		return $sql_where;
 	}
 
-	private function string_search( $field_name, $filter_type, $value ) {
+	public function string_search( $field_name, $filter_type, $value ) {
 		global $wpdb;
 
 		switch( $filter_type ) {
@@ -348,7 +348,7 @@ final class PWBE_SQL_Builder {
 		}
 	}
 
-	private function numeric_search( $field_name, $filter_type, $value, $value2 ) {
+	public function numeric_search( $field_name, $filter_type, $value, $value2 ) {
 		global $wpdb;
 
 		//$field_sql = "$field_name IS NOT NULL AND $field_name != '' AND CAST($field_name AS DECIMAL(12, 2))";
@@ -377,7 +377,7 @@ final class PWBE_SQL_Builder {
 		}
 	}
 
-	private function taxonomy_search( $taxonomy, $filter_type, $values ) {
+	public function taxonomy_search( $taxonomy, $filter_type, $values ) {
 		global $wpdb;
 
 		$placeholders = implode( ', ', array_fill( 0, count( $values ), '%s' ) );
@@ -406,7 +406,7 @@ final class PWBE_SQL_Builder {
 		}
 	}
 
-    private function boolean_search( $field_name, $filter_type, $value ) {
+    public function boolean_search( $field_name, $filter_type, $value ) {
         global $wpdb;
 
         switch( $filter_type ) {
@@ -420,7 +420,7 @@ final class PWBE_SQL_Builder {
         }
     }
 
-	private function attributes_search( $field_name, $filter_type, $values ) {
+	public function attributes_search( $field_name, $filter_type, $values ) {
 		global $wpdb;
 
 		$slugs = implode( ', ', array_fill( 0, count( $values ), '%s' ) );
@@ -448,27 +448,30 @@ final class PWBE_SQL_Builder {
 			break;
 
 			case 'is all of':
-				array_push( $values, count($values) );
+
+                $wpdb_values = $values;
+                $wpdb_values[] = $field_name;
+                $wpdb_values[] = count( $values );
+
 				$simple_attribute = $wpdb->prepare("
 					post.post_type != 'product_variation' AND (
 						SELECT COUNT(*)
 						FROM {$wpdb->term_relationships} AS r
 						JOIN {$wpdb->term_taxonomy} AS tax ON (tax.term_taxonomy_id = r.term_taxonomy_id)
 						JOIN {$wpdb->terms} AS t ON (t.term_id = tax.term_id)
-						WHERE r.object_id = post.ID AND t.slug IN ($slugs)
+						WHERE r.object_id = post.ID AND t.slug IN ($slugs) AND tax.taxonomy = %s
 					) = %d
 				",
-				$values);
+				$wpdb_values );
 
 				$variable_attribute = $this->variation_attributes_search( $field_name, $filter_type, $values );
 
 				return "($simple_attribute OR $variable_attribute)";
 			break;
-
 		}
 	}
 
-	private function variation_attributes_search( $field_name, $filter_type, $values ) {
+	public function variation_attributes_search( $field_name, $filter_type, $values ) {
 		global $wpdb;
 
 		$slugs = implode( ', ', array_fill( 0, count( $values ), '%s' ) );
@@ -527,7 +530,7 @@ final class PWBE_SQL_Builder {
 		}
 	}
 
-	private function build_order_by( $post ) {
+	public function build_order_by( $post ) {
 		$order_by = 'post_title';
 		$direction = 'ASC';
 

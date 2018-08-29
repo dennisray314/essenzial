@@ -26,42 +26,42 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 <span id="pwbe-dialog-content-text" class="pwbe-dialog-content" data-function="pwbeBulkEditorTextHandler">
 	<fieldset id="pwbe-bulkedit-text-mode">
-		<input type="radio" value="replace" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-replace" /> <label for="pwbe-bulkedit-text-mode-replace">Search and replace</label><br />
-		<input type="radio" value="prepend" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-prepend" /> <label for="pwbe-bulkedit-text-mode-prepend">Add to the beginning</label><br />
-		<input type="radio" value="append" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-append" /> <label for="pwbe-bulkedit-text-mode-append">Add to the end</label><br />
-		<input type="radio" value="uppercase" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-uppercase" /> <label for="pwbe-bulkedit-text-mode-uppercase">ALL UPPERCASE</label><br />
-		<input type="radio" value="lowercase" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-lowercase" /> <label for="pwbe-bulkedit-text-mode-lowercase">all lowercase</label><br />
-		<input type="radio" value="propercase" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-propercase" /> <label for="pwbe-bulkedit-text-mode-propercase">Proper Case Words</label>
+		<input type="radio" value="replace" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-replace" /> <label for="pwbe-bulkedit-text-mode-replace"><?php _e( 'Search and replace', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="prepend" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-prepend" /> <label for="pwbe-bulkedit-text-mode-prepend"><?php _e( 'Add to the beginning', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="append" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-append" /> <label for="pwbe-bulkedit-text-mode-append"><?php _e( 'Add to the end', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="uppercase" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-uppercase" /> <label for="pwbe-bulkedit-text-mode-uppercase"><?php _e( 'ALL UPPERCASE', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="lowercase" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-lowercase" /> <label for="pwbe-bulkedit-text-mode-lowercase"><?php _e( 'all lowercase', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="propercase" name="pwbe-bulkedit-text-mode" id="pwbe-bulkedit-text-mode-propercase" /> <label for="pwbe-bulkedit-text-mode-propercase"><?php _e( 'Proper Case Words', 'pw-bulk-edit' ); ?></label>
 	</fieldset>
 	<div id="pwbe-bulkedit-details-container">
 		<div class="form-field">
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-replace">
-				<label for="pwbe-bulkedit-search-text">Search for this text anywhere in <span class="pwbe-bulkedit-field-name"></span>:</label><br />
+				<label for="pwbe-bulkedit-search-text"><?php printf( __( 'Search for this text anywhere in %s:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-search-text" placeholder="Leave blank to replace the entire value." /><br />
 
-				<label for="pwbe-bulkedit-replace-text">Replace it with this text:</label><br />
+				<label for="pwbe-bulkedit-replace-text"><?php _e( 'Replace it with this text:', 'pw-bulk-edit' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-replace-text" /><br />
-				<input type="checkbox" id="pwbe-bulkedit-replace-case-sensitive" /><label for="pwbe-bulkedit-replace-case-sensitive"> Case Sensitive</label>
+				<input type="checkbox" id="pwbe-bulkedit-replace-case-sensitive" /><label for="pwbe-bulkedit-replace-case-sensitive"> <?php _e( 'Case Sensitive', 'pw-bulk-edit' ); ?></label>
 			</div>
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-prepend">
-				<label for="pwbe-bulkedit-prepend-text">Prepend this text to the beginning of <span class="pwbe-bulkedit-field-name"></span>:</label><br />
+				<label for="pwbe-bulkedit-prepend-text"><?php printf( __( 'Prepend this text to the beginning of %s:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-prepend-text" />
 			</div>
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-append">
-				<label for="pwbe-bulkedit-append-text">Append this text to the end of <span class="pwbe-bulkedit-field-name"></span>:</label><br />
+				<label for="pwbe-bulkedit-append-text"><?php printf( __( 'Append this text to the end of %s:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-append-text" />
 			</div>
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-uppercase">
-				All words will be changed to uppercase.
-				<p><strong>Mary had a little LAMB &rarr; MARY HAD A LITTLE LAMB</strong></p>
+				<?php _e( 'All words will be changed to uppercase.', 'pw-bulk-edit' ); ?>
+				<p><strong><?php _e( 'Mary had a little LAMB &rarr; MARY HAD A LITTLE LAMB', 'pw-bulk-edit' ); ?></strong></p>
 			</div>
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-lowercase">
-				All words will be changed to lowercase.
-				<p><strong>Mary had a little LAMB &rarr; mary had a little lamb</strong></p>
+				<?php _e( 'All words will be changed to lowercase.', 'pw-bulk-edit' ); ?>
+				<p><strong><?php _e( 'Mary had a little LAMB &rarr; mary had a little lamb', 'pw-bulk-edit' ); ?></strong></p>
 			</div>
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-propercase">
-				The first letter of every word will be capitalized.
-				<p><strong>Mary had a little LAMB &rarr; Mary Had A Little Lamb</strong></p>
+				<?php _e( 'The first letter of every word will be capitalized.', 'pw-bulk-edit' ); ?>
+				<p><strong><?php _e( 'Mary had a little LAMB &rarr; Mary Had A Little Lamb', 'pw-bulk-edit' ); ?></strong></p>
 			</div>
 		</div>
 	</div>

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,8 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'VariationSpecificPictureSetType.php';
 
 /**
-  * Defines variation-specific pictures associated with one 
-  * VariationSpecificName (e.g., Color) whose values differ across variations.
+  * Defines variation-specific pictures associated with one
+  * <b>VariationSpecificName</b> (e.g., Color) whose values differ across variations.
   * 
  **/
 

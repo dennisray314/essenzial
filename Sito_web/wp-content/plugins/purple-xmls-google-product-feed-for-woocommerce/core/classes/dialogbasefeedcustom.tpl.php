@@ -214,7 +214,7 @@ $output .= '
 $this->loadFeedConfig();
 $output .='<span id="custom_feed_settingd"><a href="#cpf_custom_feed_config"><input class="button-primary" title="This will open feed config section below.You can provide suffix and prefix for the attribute to be included in feed." type="button" id="cpf_feed_config_link" value="Show Feed Config" onclick="toggleFeedSettings();"></a></span>
                             <span id="custom_feed_advance_section">
-						<a href="#cpf_advance_command_desc"><input class="button-primary" title="This will open advance command information." type="button" id="cpf_advance_section_link" value=" Show Advance Command Section" onclick="toggleAdvanceCommandSection(this);"></a>
+						<a href="#cpf_advance_command_desc"><input class="button-primary" title="This will open advance command information." type="button" id="cpf_advance_section_link" value=" Feed Customization Options" onclick="toggleAdvanceCommandSection(this);"></a>
 					</span>
                             <div class="postbox" id="cpf_feed_config_desc" style="display:none;">
                                 <ul style="list-style-type:disc;padding-left: 24px;">
@@ -290,7 +290,7 @@ $output .= '</tbody>
                         </ul>
                     </div>
                         <div>
-					    <label class="un_collapse_label" title="Click to open advance command field to customize your feed" ><input class="button-primary" type="button" id="toggleAdvancedSettingsButton" onclick="toggleAdvancedDialog()" value="Open Advanced Commands"/></label>
+					    <label class="un_collapse_label" title="Click to open advance command field to customize your feed" ><input class="button-primary" type="button" id="toggleAdvancedSettingsButton" onclick="toggleAdvancedDialog()" value="Open Customization Commands"/></label>
 					    <label class="un_collapse_label" title="This will erase your attribute mappings from the feed." id="erase_mappings" onclick="doEraseMappings('."'{$this->service_name}'".')"><input class="button-primary" type="button" value="Reset Attribute Mappings"  /></label>
 				    </div>
                     </div>    

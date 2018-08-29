@@ -44,9 +44,10 @@ class PCPCron
     public static function scheduleUpdate()
     {
         //Set the Cron job here. Params are (when, display, hook)
+        $current_delay = get_option('cp_feed_delay');
         $next_refresh = wp_next_scheduled('update_cartfeeds_hook');
         if (!$next_refresh)
-            wp_schedule_event(time(), 'refresh_interval', 'update_cartfeeds_hook');
+            wp_schedule_event(strtotime($current_delay .' seconds'), 'refresh_interval', 'update_cartfeeds_hook');
     }
 
 }

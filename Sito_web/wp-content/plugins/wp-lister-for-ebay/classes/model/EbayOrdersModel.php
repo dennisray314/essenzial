@@ -31,9 +31,6 @@ class EbayOrdersModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . 'ebay_orders';
 	}
@@ -231,6 +228,9 @@ class EbayOrdersModel extends WPL_Model {
 	function insertOrUpdate( $data, $Detail ) {
 		global $wpdb;
 
+		WPLE()->logger->info( 't#22838 - insertOrUpdate ' );
+		WPLE()->logger->info( print_r( $data, true ) );
+
 		// try to get existing order by order id
 		$order = $this->getOrderByOrderID( $data['order_id'] );
 
@@ -334,10 +334,11 @@ class EbayOrdersModel extends WPL_Model {
 
 	// check if woocommcer order exists and has not been moved to the trash
 	static function wooOrderExists( $post_id ) {
+
         $_order = wc_get_order( $post_id );
+
 		if ( $_order ) {
 
-			// WPLE()->logger->info( 'post_status for order ID '.$post_id.' is '.$_order->post_status );
 			if ( $_order->get_status() == 'trash' ) return false;
 
 			return wple_get_order_meta( $_order, 'id' );
@@ -354,29 +355,48 @@ class EbayOrdersModel extends WPL_Model {
 		$has_been_replenished = false;
 
 		// check if this listing exists in WP-Lister
-		$listing_id = $wpdb->get_var( $wpdb->prepare("SELECT id FROM {$wpdb->prefix}ebay_auctions WHERE ebay_id = %s", $ebay_id ) );
-		if ( ! $listing_id ) {
-			$history_message = "Skipped foreign item #{$ebay_id}";
-			$history_details = array( 'ebay_id' => $ebay_id );
-			$this->addHistory( $order_id, 'skipped_item', $history_message, $history_details );
-			return;
-		}
+        $listing_id = $wpdb->get_var( $wpdb->prepare("SELECT id FROM {$wpdb->prefix}ebay_auctions WHERE ebay_id = %s", $ebay_id ) );
+
+        if ( ! $listing_id && get_option( 'wplister_match_sales_by_sku', 0 ) == 1 ) {
+            // If no listing is found using the eBay Item ID, check if we need to match using the SKU
+            $listing_sku = $Transaction->Item->SKU;
+
+            // Consider variable products where the parent has no SKU
+            if ( empty( $listing_sku ) && is_object( @$Transaction->Variation ) ) {
+                $listing_sku = $Transaction->Variation->SKU;
+            }
+            $listingItem = WPLE_ListingQueryHelper::findItemBySku( $listing_sku, true );
+
+            if ( $listingItem ) {
+                $listing_id = $listingItem->id;
+
+                $history_message = "Matched SKU ({$Transaction->Item->SKU}) to Listing #$listing_id";
+                $history_details = array( 'ebay_id' => $ebay_id );
+                $this->addHistory( $order_id, 'match_sku', $history_message, $history_details );
+            }
+        }
+
+        if ( ! $listing_id ) {
+            $history_message = "Skipped foreign item #{$ebay_id}";
+            $history_details = array( 'ebay_id' => $ebay_id );
+            $this->addHistory( $order_id, 'skipped_item', $history_message, $history_details );
+            return;
+        }
 
 		// get current values from db
-		// $quantity_purchased = $data['quantity'];
-		$quantity_total = $wpdb->get_var( $wpdb->prepare("SELECT quantity      FROM {$wpdb->prefix}ebay_auctions WHERE ebay_id = %s", $ebay_id ) );
-		$quantity_sold  = $wpdb->get_var( $wpdb->prepare("SELECT quantity_sold FROM {$wpdb->prefix}ebay_auctions WHERE ebay_id = %s", $ebay_id ) );
+		$quantity_total = $wpdb->get_var( $wpdb->prepare("SELECT quantity      FROM {$wpdb->prefix}ebay_auctions WHERE id = %s", $listing_id ) );
+		$quantity_sold  = $wpdb->get_var( $wpdb->prepare("SELECT quantity_sold FROM {$wpdb->prefix}ebay_auctions WHERE id = %s", $listing_id ) );
 
 		// increase the listing's quantity_sold
 		$quantity_sold = $quantity_sold + $quantity_purchased;
 		$wpdb->update( $wpdb->prefix.'ebay_auctions', 
 			array( 'quantity_sold' => $quantity_sold ), 
-			array( 'ebay_id' => $ebay_id ) 
+			array( 'id' => $listing_id )
 		);
 
 		// add history record
-		$history_message = "Sold quantity increased by $quantity_purchased for listing #{$ebay_id} - sold $quantity_sold";
-		$history_details = array( 'ebay_id' => $ebay_id, 'quantity_sold' => $quantity_sold, 'quantity_total' => $quantity_total );
+		$history_message = "Sold quantity increased by $quantity_purchased for listing #{$listing_id} ({$ebay_id}) - sold $quantity_sold";
+		$history_details = array( 'listing_id' => $listing_id, 'ebay_id' => $ebay_id, 'quantity_sold' => $quantity_sold, 'quantity_total' => $quantity_total );
 		$this->addHistory( $order_id, 'reduce_stock', $history_message, $history_details );
 
 

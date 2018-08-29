@@ -44,6 +44,13 @@ class WPL_Setup extends WPL_Core {
 		$current_tab = isset( $_REQUEST['tab'] ) ? $_REQUEST['tab'] : false;
 
 		// setup wizard
+
+        // If there' already  a default account and the setup wizard is on step 1,
+        // chances are this is a migrated site so there's no need to run the setup wizard again
+        if ( get_option( 'wplister_default_account_id' ) && '1' == self::getOption('setup_next_step') ) {
+            self::updateOption( 'setup_next_step', 0 );
+        }
+
 		// if ( self::getOption('ebay_token') == '' ) {
 		if ( ( '1' == self::getOption('setup_next_step') ) && ( $current_tab != 'accounts') ) {
 		
@@ -129,6 +136,9 @@ class WPL_Setup extends WPL_Core {
 		// check if all db tables exist
 		self::checkDatabaseTables( $page );
 
+		// GDPR compliance
+		self::showProxyMessage();
+
 		// // fetch user details if not done yet
 		// if ( ( self::getOption('ebay_token') != '' ) && ( ! self::getOption('ebay_user') ) ) {
 		// 	$this->initEC();
@@ -151,6 +161,37 @@ class WPL_Setup extends WPL_Core {
 		// }
 				
 	}
+
+
+	// show message about routing requests through our ebay api proxy and have user accept it
+	public function showProxyMessage() {
+		global $pagenow;
+
+		// check if message has already been accepted
+		if ( '1' == self::getOption('disable_proxy_message') ) return;
+		if ( isset( $_REQUEST['wple_disable_proxy_message'] ) && $_REQUEST['wple_disable_proxy_message'] == 'yes' ) {
+			self::updateOption( 'disable_proxy_message', '1' );
+			return;
+		}
+
+		// only show message if setup has completed
+		// TODO: have user accept the message as part of the setup process, so the code below will run for existing users only
+		if ( '0' != self::getOption('setup_next_step') ) return;
+
+		$title = __('About communication between WP-Lister and eBay','wplister');
+		$msg1  = __('The requests to the eBay API are not transmitted directly to eBay, but via a proxy server operated by WP Lab. This intermediate transfer is necessary to ensure that the limits of the eBay API are not exceeded during a large number of accesses and to prevent a single user from impairing the functionality of the plugin for other plugin users.','wplister');
+		$msg2  = __('The caching of the request (which includes the IP address of the web server on which the plugin is installed and the domain under which it is operated) is only carried out for this specific purpose, the requests of the plugin are not stored permanently on the proxy server and are deleted after 72 hours.','wplister');
+
+		$link   = 'admin.php?page=' . $_GET['page'];
+		$link  .= '&tab=' . ( isset($_GET['tab']) ? $_GET['tab'] : '' );
+		$link  .= '&wple_disable_proxy_message=yes';
+		$button = sprintf( '<a href="%s" class="button-primary">%s</a>', $link, __('Yes, I have read and accept the above.','wplister') );
+
+		$msg    = "<p><b>$title</b></p><p>$msg1</p><p>$msg2</p>";
+		$msg   .= $button;
+		wple_show_message($msg,'info');
+
+	} // showProxyMessage()
 
 
 	// update permissions
@@ -666,7 +707,7 @@ class WPL_Setup extends WPL_Core {
 		if ( $orders_count   ) $what_exactly[] = $orders_count   . ' orders';
 		$what_exactly = join(' and ',$what_exactly);
 
-		$btn_url = 'admin.php?page=wplister-settings&tab=accounts&action=wple_assign_invalid_data_to_default_account';
+		$btn_url = wp_nonce_url( 'admin.php?page=wplister-settings&tab=accounts&action=wple_assign_invalid_data_to_default_account', 'wple_assign_invalid_data_to_default_account' );
 
 		// show message
 		$msg = sprintf('<b>Warning: There are %s using an account which does not exist anymore.</b>',$what_exactly) . '<br><br>';

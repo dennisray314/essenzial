@@ -744,7 +744,49 @@ class WPLE_ListingQueryHelper {
 		return $item;
 	}
 
+    static function findItemBySku( $sku, $load_parent = false ) {
+        global $wpdb;
+        $table = $wpdb->prefix . self::TABLENAME;
 
+        // First get the post ID
+        $post_id = $wpdb->get_var( $wpdb->prepare( "
+            SELECT post_id 
+            FROM {$wpdb->postmeta} 
+            WHERE meta_key = '_sku' 
+            AND meta_value = %s
+        ", $sku ) );
+
+        if ( $post_id ) {
+            $item = $wpdb->get_row( $wpdb->prepare("
+                SELECT *
+                FROM $table
+                WHERE post_id = %d
+            ", $post_id ) );
+
+            if ( !$item && $load_parent ) {
+                // SKU might be from a variation. Try loading the parent instead if it is
+                $parent_id = ProductWrapper::getVariationParent( $post_id );
+
+                if ( $parent_id ) {
+                    $item = $wpdb->get_row( $wpdb->prepare("
+                        SELECT *
+                        FROM $table
+                        WHERE post_id = %d
+                    ", $parent_id ) );
+                }
+            }
+
+            if ( !$item ) return false;
+
+            $item->profile_data = WPL_Model::decodeObject( $item->profile_data, true );
+            $item->details      = WPL_Model::decodeObject( $item->details );
+
+            return $item;
+        }
+
+        return false;
+
+    }
 
 
 	static function deleteItem( $id ) {
@@ -885,6 +927,15 @@ class WPLE_ListingQueryHelper {
 		");
 		$summary->locked = $locked;
 
+        // count unlocked items
+        $unlocked = $wpdb->get_var("
+			SELECT COUNT( id ) AS unlocked
+			FROM $table
+			WHERE locked <> '1'
+			  AND status <> 'archived'
+		");
+        $summary->unlocked = $unlocked;
+
 		// count relist candidates
 		$relist = $wpdb->get_var("
 			SELECT COUNT( id ) AS relist
@@ -936,7 +987,9 @@ class WPLE_ListingQueryHelper {
 			$where_sql = "WHERE relist_date IS NOT NULL ";
 		} elseif ( $listing_status == 'locked' ) {
 			$where_sql = "WHERE locked = '1' AND status <> 'archived' ";
-		} else {
+		} elseif ( $listing_status == 'unlocked' ) {
+            $where_sql = "WHERE locked <> '1' AND status <> 'archived' ";
+        } else {
 			$where_sql = "WHERE status = '".$listing_status."' ";
 		} 
 
@@ -1008,6 +1061,85 @@ class WPLE_ListingQueryHelper {
 		return $result;
 	} // getPageItems()
 
+    /**
+     * Return the number of products that are presently listed on eBay (online, changed)
+     * @return int
+     */
+    static function countProductsOnEbay() {
+        global $wpdb;
 
+        return $wpdb->get_var("
+            SELECT COUNT({$wpdb->posts}.ID) 
+            FROM {$wpdb->posts}
+            WHERE 1=1 
+            AND {$wpdb->posts}.post_type = 'product' 
+            AND ({$wpdb->posts}.post_status = 'publish' 
+                OR {$wpdb->posts}.post_status = 'future' 
+                OR {$wpdb->posts}.post_status = 'draft' 
+                OR {$wpdb->posts}.post_status = 'pending' 
+                OR {$wpdb->posts}.post_status = 'private'
+            )
+            AND ( 
+                {$wpdb->posts}.ID IN (
+                    SELECT {$wpdb->prefix}ebay_auctions.post_id
+                    FROM {$wpdb->prefix}ebay_auctions
+                    WHERE (
+                        {$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.post_id
+                        OR {$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.parent_id
+                    )
+                    AND {$wpdb->prefix}ebay_auctions.status IN ('published', 'changed')
+                )
+                OR
+                {$wpdb->posts}.ID IN (
+                    SELECT {$wpdb->prefix}ebay_auctions.post_id 
+                    FROM {$wpdb->prefix}ebay_auctions, {$wpdb->posts} 
+                    WHERE {$wpdb->prefix}posts.ID = {$wpdb->prefix}ebay_auctions.post_id AND {$wpdb->prefix}ebay_auctions.status = 'ended'
+                    AND {$wpdb->prefix}posts.ID IN (
+                        SELECT parent_id FROM {$wpdb->prefix}ebay_auctions WHERE {$wpdb->prefix}ebay_auctions.status IN ('published', 'changed')
+                    )
+    
+                )
+            )
+        ");
+    }
+
+    /**
+     * Return the number of products that are not yet listed on eBay
+     * @return int
+     */
+    static function countProductsNotOnEbay() {
+        global $wpdb;
+
+        return $wpdb->get_var("
+            SELECT COUNT({$wpdb->posts}.ID) 
+            FROM {$wpdb->posts}
+            WHERE 1=1 
+            AND {$wpdb->posts}.post_type = 'product' 
+            AND (
+                {$wpdb->posts}.post_status = 'publish' 
+                OR {$wpdb->posts}.post_status = 'future' 
+                OR {$wpdb->posts}.post_status = 'draft' 
+                OR {$wpdb->posts}.post_status = 'pending' 
+                OR {$wpdb->posts}.post_status = 'private'
+            ) 
+            AND {$wpdb->posts}.ID NOT IN (
+                SELECT {$wpdb->prefix}ebay_auctions.post_id
+                FROM {$wpdb->prefix}ebay_auctions
+                WHERE (
+                    {$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.post_id
+                    OR {$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.parent_id
+                )
+                AND {$wpdb->prefix}ebay_auctions.status != 'archived'
+            )
+            AND {$wpdb->posts}.ID NOT IN (
+                SELECT {$wpdb->prefix}ebay_auctions.parent_id
+                FROM {$wpdb->prefix}ebay_auctions
+                WHERE (
+                    {$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.post_id
+                )
+                AND {$wpdb->prefix}ebay_auctions.status != 'archived'
+            )
+        ");
+    }
 
 } // class WPLE_ListingQueryHelper

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'EndOfAuctionLogoTypeCodeType.php';
 
 /**
-  * Contains the seller's preferences for the email sent to the buyer after the creation of the order line item.
+  * Contains the seller's preferences for the email that can be sent to the winner of an auction listing.
   * 
  **/
 

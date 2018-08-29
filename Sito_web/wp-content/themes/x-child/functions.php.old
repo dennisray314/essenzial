@@ -5,10 +5,19 @@ ob_start();
 /**
  * INCLUDES
  */
+include( get_stylesheet_directory() . '/helper-functions.php' );
 include( get_stylesheet_directory() . '/codice-fiscale-class.php' );
 include( get_stylesheet_directory() . '/googletag-functions.php' );
 include( get_stylesheet_directory() . '/essenzial-admin-page-class.php' );
 //include( get_stylesheet_directory() . '/natale-functions-class.php' );
+
+
+function write_log($txt){
+	
+	$logfile = fopen( "essenzial-debug.log", "a");
+	$message = date('m.d.Y H:i:s') . ' - ' . $txt . PHP_EOL;
+	return fwrite($logfile,  $message );
+}
 
 
 add_filter( 'x_enqueue_parent_stylesheet', '__return_true' );
@@ -32,8 +41,7 @@ function payment_gateway_disable_contrassegno( $available_gateways ) {
     foreach($items as $item => $values) {
         $_product = $values['data'];
         $sku = $values['data']->get_sku();
-        $check = strstr($sku, 'orig');
-
+        $check = strstr(strtolower($sku), 'orig');
 
 
         if ( isset( $available_gateways['cod'] ) && ($check !== FALSE) ) {
@@ -47,131 +55,6 @@ function payment_gateway_disable_contrassegno( $available_gateways ) {
 add_filter( 'woocommerce_available_payment_gateways', 'payment_gateway_disable_contrassegno' );
 
 
-// add_action( 'woocommerce_before_calculate_totals', 'add_discount_evoluter' );
-
-// function add_discount_evoluter( $cart_object) {
-
-//   $user_meta=get_userdata(get_current_user_id());
-//   $user_roles=$user_meta->roles;
-//   $count = 0;
-//   $prices = array();
-
-
-
-
-//   foreach ( $cart_object->cart_contents as $key => $value ) {
-//     $_product = $value['data'];
-//     $terms = get_the_terms( $_product->id, 'product_cat' );
-//     $price = $_product->price;
-//     $var = $_product->get_variation_attributes();
-
-
-
-
-
-
-//                 if ((($var['attribute_pa_scegli-profumo']=='equivalente-50ml-3') || ($var['attribute_pa_scegli-profumo']=='equivalente-100ml')) && ($user_roles[0] !== 'evoluter')) {
-
-
-//                   $prices[$_product->sku] = $price;
-//                   $prod[] =  $_product->sku;
-//                   $count = $count + $value['quantity'];
-
-
-//                 }
-
-
-
-// }
-// $min = min($prices);
-// asort($prices);
-
-// $index_min =array_keys($prices, min($prices));
-
-// foreach ($prices as $key => $value) {
-//   $index_price[]=$key;
-// }
-
-
-//   foreach ( $cart_object->cart_contents as $key => $value ) {
-//     $_product = $value['data'];
-//     $var = $_product->get_variation_attributes();
-//     $qty = $value['quantity'];
-
-
-
-//                 if ((($var['attribute_pa_scegli-profumo']=='equivalente-50ml-3') || ($var['attribute_pa_scegli-profumo']=='equivalente-100ml')) && ($user_roles[0] !== 'evoluter')) {
-//                   if (($count>3) && ($count<6) && ($_product->sku == $index_price[0])) {
-//                     if ($qty>1) {
-//                       $prc = $value['data']->price;
-//                       $value['data']->price = (($prc/$qty)*($qty-1));
-
-//                     } else {
-//                       $value['data']->price = 0;
-//                     }
-
-
-
-//                   } else if (($count>5) && ($_product->sku == $index_price[0]) && ($qty<6)) {
-//                     $value['data']->price = 0;
-
-//                   }
-//                 }
-
-
-
-//   }
-
-
-
-//   foreach ( $cart_object->cart_contents as $key => $value ) {
-//     $_product = $value['data'];
-//     $var = $_product->get_variation_attributes();
-
-
-//                 if ((($var['attribute_pa_scegli-profumo']=='equivalente-50ml-3') || ($var['attribute_pa_scegli-profumo']=='equivalente-100ml')) && ($user_roles[0] !== 'evoluter')) {
-//                   if (($count>5) && ($_product->sku == $index_price[1])) {
-
-//                     if ($qty>1) {
-//                       $prc = $value['data']->price;
-//                       $value['data']->price = (($prc/$qty)*($qty-2));
-
-//                     } else {
-//                       $value['data']->price = 0;
-//                     }
-//                   } else if (($count>5) && ($_product->sku == $index_price[0]) && ($qty>5)) {
-//                     $prc = $value['data']->price;
-//                     $value['data']->price = (($prc/$qty)*($qty-2));
-//                   }
-//                 }
-
-
-
-//   }
-
-
-// }
-
-
-
-add_filter( 'woocommerce_is_sold_individually', 'baztro_wc_remove_all_quantity_fields', 10, 2 );
-
-function baztro_wc_remove_all_quantity_fields( $return, $product ) {
-
-    $terms = get_the_terms( $product->id, 'product_cat' );
-
-// foreach ($terms as $term) {
-
-//                 $_categoryid = $term->term_id;
-//                 if ($_categoryid == 73) {
-
-//                   return true;
-
-//                 }
-//         }
-
-}
-
 
 
 
@@ -182,16 +65,12 @@ function custom_override_checkout_fields( $fields ) {
 
     $fields['billing']['billing_address_1']['class'] = array('form-row-first address-field');
 
-
-
     script_togli_campi_evoluter();
 
     unset($fields['billing']['billing_company']);
     unset($fields['shipping']['shipping_company']);
     unset($fields['billing']['billing_address_2']);
     // Our hooked in function - $fields is passed via the filter!
-
-
 
 
     return $fields;
@@ -202,11 +81,9 @@ add_filter('woocommerce_checkout_fields','custom_override_checkout_fields');
 
 add_action('woocommerce_checkout_process', 'my_custom_checkout_field_process');
 
-
 add_action( 'woocommerce_checkout_update_order_meta', 'my_custom_checkout_field_update_order_meta' );
 
 function my_custom_checkout_field_update_order_meta( $order_id ) {
-
 
 
     $user_id = 'user_'.get_current_user_id();
@@ -479,7 +356,8 @@ function order_fields($checkout) {
         $cod_evo_selected = get_field('codice_evoluter', $id_evo);
         echo $cod_evo_selected;
 
-        $order = new WC_Order($post_id);
+        
+        
         if ($_GET['evoluter']) {
             ?>
 
@@ -580,54 +458,74 @@ function add_content_after_addtocart_button_func() {
 
 }
 
-// rimosso perchè veniva ricalcolato lo sconto due volte
-//add_action( 'woocommerce_before_calculate_totals', 'add_custom_price' );
+/*
+ // define the woocommerce_view_order callback
+ function action_woocommerce_view_order( $wccs_file_uploader_front_end ) {
+ 
+ };
+ 
+ // add the action
+ add_action( 'woocommerce_view_order', 'action_woocommerce_view_order', 1, 1 );
+ */
 
 
-
-
+/**
+ * WOOCOMMERCE 3 NUOVA IMPLEMENTAZIONE
+ */
+add_action( 'woocommerce_before_calculate_totals', 'add_custom_price');
 function add_custom_price( $cart_object) {
-    $count = 0;
-    $prices = array();
-
-if ( ! empty( $woocommerce->cart->applied_coupons ) ) {
-	$sconto = 100;
-}else{
-    foreach ( $cart_object->cart_contents as $key => $value ) {
-        $user_meta=get_userdata(get_current_user_id());
-        $id = $user_meta->id;
-        $id_user = 'user_'.$id;
-        $sconto = get_field('sconto', $id_user);
-        $sconto = 100 - $sconto;
-        if (($sconto==0) || (!$sconto)) {
-            $sconto = 100;
+    
+    if ( is_admin() && !defined( 'DOING_AJAX' ) )
+        return;
+        
+        foreach ( $cart_object->cart_contents as $key => $value ) {
+            
+            $_product = wc_get_product($value['product_id']);
+            
+            if (isset( $value['variation_id']) &&  $value['variation_id'] != 0) {
+                $product_variation = new WC_Product_Variation($value['variation_id']);
+                //$variation_price = $product_variation->price;
+                $variation_price = $product_variation->get_price();
+                
+                
+                //i prodotti originali non sono scontati:
+                //var_dump ($variation_price) ;
+                $price = isOriginalSKU( $product_variation->get_sku()) ? $variation_price : return_custom_price( $variation_price, $_product);
+            } else {
+                $price = $_product->get_price();
+            }
+            
+            $value['data']->set_price( $price );
+            
         }
-
-        $sku = $value['data']->get_sku();
-        $check = strstr($sku, 'orig');
-        if ($check) {
-            $sconto=100;
-        }
-        $sconto = $sconto / 100;
-
-
-
-        $price_2 = $value['data']->price;
-        $value['data']->price = $price_2 * $sconto;
-
-    }
- }
 }
 
-// define the woocommerce_view_order callback
-function action_woocommerce_view_order( $wccs_file_uploader_front_end ) {
+add_filter('woocommerce_available_variation','return_custom_available_variation', 10,3);
 
-};
+function return_custom_available_variation( $variation_get_max_purchase_quantity, $instance, $variation ){
+    global $product;
+    
+    
+    $sku = $variation_get_max_purchase_quantity['sku'];
+    
+    if ( !isOriginalSKU($sku) ){
+        $prezzo = return_custom_price( $variation_get_max_purchase_quantity["display_price"], $product );
+        $html_price = sprintf ( '<span class="price"><span class="woocommerce-Price-amount amount">%s<span class="woocommerce-Price-currencySymbol">€</span></span></span>',
+            number_format ( $prezzo, '2', ',' , '.') );
+        
+        $variation_get_max_purchase_quantity["display_price"] = $prezzo;
+        $variation_get_max_purchase_quantity["display_regular_price"]= $prezzo;
+        $variation_get_max_purchase_quantity["price_html"] = $html_price;
+    }
+    
+    
+    return $variation_get_max_purchase_quantity;
+}
 
-// add the action
-add_action( 'woocommerce_view_order', 'action_woocommerce_view_order', 1, 1 );
 
-add_filter('woocommerce_get_price', 'return_custom_price', 10,2);
+
+
+add_filter('woocommerce_product_get_price', 'return_custom_price', 10,2);
 
 function return_custom_price($price, $product) {
     global  $woocommerce;
@@ -635,31 +533,54 @@ function return_custom_price($price, $product) {
 
     //$post_id = $product->id;
 
-    $prezzo_evoluter = $product->get_attribute( 'prezzo_evoluter' );
-    if (!empty($prezzo_evoluter) && ( isCurrentUserEvoluter()|| isCurrentUserCapoArea())  ) {
-        return $prezzo_evoluter;
+    if ( !is_null( $product ) ){
+        $prezzo_evoluter = $product->get_attribute( 'prezzo_evoluter' );
+        
+        if (!empty($prezzo_evoluter) && ( isCurrentUserEvoluter()|| isCurrentUserCapoArea())  ) {
+            return $prezzo_evoluter;
+        }
     }
 
-    $user_meta=get_userdata(get_current_user_id());
+    if (isset($_GET['evoluter'])) {
+        $user_meta=get_userdata($_GET['evoluter']);
+        
+        
+    } else {
+        $user_meta=get_userdata(get_current_user_id());
+    }
 
-    $id = $user_meta->id;
+    $id = $user_meta->ID;
     $id_user = 'user_'.$id;
     $sconto = get_field('sconto', $id_user);
+    $totale_carrello = WC()->cart->cart_contents_total;
+    //print_r($totale_carrello);
+
+ wc_add_notice(
+                sprintf( 'Hai raggiunto €' ,
+                    wc_price( $totale_carrello ),
+                    'Da questo momento lo sconto ....' 
+                ), 'error'
+            );
 
     $sconto = 100 - $sconto;
     if (($sconto==0) || (!$sconto)) {
         $sconto = 100;
     }
 
-    $sku = $product->get_sku();
-    $check = strstr($sku, 'orig');
-    if ($check) {
-        $sconto=100;
+    if ( !is_null ($product) ){
+        
+        $sku = $product->get_sku();
+        
+        if ( isOriginalSKU($sku) ) {
+            $sconto = 100;
+            
+        }
     }
+    
     $sconto = $sconto / 100;
 
     // If the IP detection is enabled look for the correct price
-    $new_price=$price * $sconto;
+    $new_price = round ( $price * $sconto, 2 );
 
     return $new_price;
 }
@@ -667,19 +588,17 @@ function return_custom_price($price, $product) {
 // Modifica prezzi variabili
 add_filter( 'woocommerce_variable_price_html', 'wc_wc20_variation_price_format', 10, 2 );
 function wc_wc20_variation_price_format( $price, $product ) {
-    $user_meta=get_userdata(get_current_user_id());
-    $id = $user_meta->id;
-    $id_user = 'user_'.$id;
+    
+    $id = get_current_user_id();
+    $id_user = 'user_'. $id;
+
     $sconto = get_field('sconto', $id_user);
     $sconto = 100 - $sconto;
     if (($sconto==0) || (!$sconto)) {
         $sconto = 100;
     }
 
-
-
-    $check = strstr($sku, 'orig');
-    if ($check) {
+    if (isOriginalSKU($sku)) {
         $sconto=100;
     }
     $sconto = $sconto / 100;
@@ -690,28 +609,38 @@ function wc_wc20_variation_price_format( $price, $product ) {
     return $price;
 }
 
+
 function wc_ninja_change_flat_rates_cost( $rates, $package ) {
     $user_meta=get_userdata(get_current_user_id());
     $user_roles=$user_meta->roles;
     // Make sure flat rate is available
     if ( isset( $rates['flat_rate:7'] ) ) {
+    	
+    	//write_log('flat_rate:7 is set');
+    	
         // Current value of the shopping cart
         $cart_subtotal = WC()->cart->subtotal;
-
-        // Check if the subtotal is greater than $100
-        if ( ($cart_subtotal >= 30) && ($user_roles[0] !== 'evoluter' && $user_roles[0] !== 'capo_area')  ) {
+        //write_log(sprintf( 'subtotal %s',$cart_subtotal));
+        
+        if ( $cart_subtotal >= 30 && !in_array('evoluter', $user_roles) && !in_array('capo_area', $user_roles) ) {
+        	
+        	//write_log('entrato in if');
+        	//write_log(sprintf( 'user_role %s',$user_roles[0]) );
             // Set the cost to $0
             $rates['flat_rate:7']->cost = 0;
-        }elseif  ($cart_subtotal >= 200)  {
+        } 
+        elseif  ($cart_subtotal >= 200)  {
+        	
+        	//write_log('entrato in elseif');
             // Set the cost to $0^
             $rates['flat_rate:7']->cost = 0;
        }
 	 else {
+	 	//write_log('entrato in else');
             $rates['flat_rate:7']->cost = 6.90;
         }
 
-
-
+        //write_log(sprintf( 'rata: %s', $rates['flat_rate:7']->cost) );
     }
 
     return $rates;
@@ -725,11 +654,9 @@ function add_this_script_footer(){
     $user_roles=$user_meta->roles;
     if ($user_roles[0] == 'evoluter') {
         ?>
-
         <script>
             jQuery('a.promozioni').css('display','none');
         </script>
-
     <?php }
     global $woocommerce;
 
@@ -738,32 +665,7 @@ function add_this_script_footer(){
     }
 }
 
-//------------- HELPERS -----------------------------------------------//
 
-function checkRole($role){
-    $user_meta= get_userdata(get_current_user_id());
-    $user_roles= $user_meta->roles;
-    return $user_roles[0] == $role;
-};
-
-function isCurrentUserCapoarea(){
-    return checkRole('capo_area');
-}
-
-function isCurrentUserEvoluter(){
-    return checkRole('evoluter');
-}
-
-
-function calcolaPercentuale($cifra,$percentuale){
-    return $cifra * $percentuale / 100;
-}
-
-function togliIVA($cifra){
-    return $cifra / 1.22;
-}
-
-//--------------------------------------------------------------------//
 
 /**
  * @param $codiceCapoarea stringa che identifica il capoarea
@@ -909,7 +811,7 @@ function filter_woocommerce_my_account_my_orders_query( $args ) {
 
 // add the filter
 add_filter( 'woocommerce_my_account_my_orders_query', 'filter_woocommerce_my_account_my_orders_query', 10, 1 );
-add_filter('woocommerce_after_my_account',myAccountDashboardCapoArea,10,1);
+add_filter('woocommerce_after_my_account', 'myAccountDashboardCapoArea',10,1);
 
 
 
@@ -1070,7 +972,7 @@ function is_original_present() {
     foreach($items as $item => $values) {
         $_product = $values['data'];
         $sku = $values['data']->get_sku();
-        $check = strstr($sku, 'orig');
+        $check = strstr(strtolower($sku), 'orig');
         if(check){
           return true;
        }
@@ -1100,4 +1002,5 @@ add_filter('woocommerce_coupon_get_discount_amount', 'woocommerce_coupon_get_dis
 		}
 		return $discount;
 	}
+
 

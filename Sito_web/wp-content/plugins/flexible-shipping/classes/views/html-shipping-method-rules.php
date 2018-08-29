@@ -75,11 +75,11 @@
                     </th>
             		<th class="min">
             			<?php _e( 'Min', 'flexible-shipping' ); ?>
-            			<span class="woocommerce-help-tip" data-tip="<?php _e( 'Enter minimum value for the &quot;Based on&quot; parameter.', 'flexible-shipping' ); ?>"></span>
+            			<span class="woocommerce-help-tip" data-tip="<?php _e( 'Enter minimum value for the &quot;Based on&quot; parameter. Value based on the price will be calculated by WooCommerce tax settings &quot;Display prices during cart and checkout&quot;', 'flexible-shipping' ); ?>"></span>
             		</th>
             		<th class="max">
             			<?php _e( 'Max', 'flexible-shipping' ); ?>
-            			<span class="woocommerce-help-tip" data-tip="<?php _e( 'Enter maximum value for the &quot;Based on&quot; parameter.', 'flexible-shipping' ); ?>"></span>
+            			<span class="woocommerce-help-tip" data-tip="<?php _e( 'Enter maximum value for the &quot;Based on&quot; parameter. Value based on the price will be calculated by WooCommerce tax settings &quot;Display prices during cart and checkout&quot;', 'flexible-shipping' ); ?>"></span>
             		</th>
             		<th class="cost_per_order">
             			<?php _e( 'Cost per<br/>order', 'flexible-shipping' ); ?>

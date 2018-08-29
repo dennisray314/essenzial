@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,31 +8,10 @@ require_once 'AbstractRequestType.php';
 require_once 'InventoryStatusType.php';
 
 /**
-  * Enables a seller to change the price and quantity of a currently-
-  * active, fixed-price listing. Using ReviseInventoryStatus to modify
-  * data qualifies as revising the listing.
-  * <br><br>
-  * Inputs are the item IDs or SKUs of the listings being revised,
-  * and the price and quantity that are
-  * being changed for each revision. Only applicable to fixed-price listings.<br>
-  * <br><br>
-  * Changing the price or quantity of a currently-
-  * active, fixed-price listing does not reset the Best Match performance score.
-  * For Best Match information related to multi-variation listings, see the Best
-  * Match information at the following topic:
-  * <a href="http://pages.ebay.com/sell/variation/">Multi-quantity Fixed Price
-  * listings with variations</a>.<br>
-  * <br><br>
-  * As with all listing calls, the site you specify in the request URL
-  * (for SOAP) or the X-EBAY-API-SITEID HTTP header (for XML)
-  * should match the original listing's <b>Item.Site</b> value.
-  * In particular, this is a best practice when you submit new and
-  * revised listings.<br>
-  * <br><b>
-  * For Large Merchant Services users:</b> When you use ReviseInventoryStatus within a Merchant Data file,
-  * it must be enclosed within two BulkDataExchangeRequest tags.
-  * A namespace is returned in the BulkDataExchangeResponseType
-  * (top level) of the response. The BulkDataExchange tags are not shown in the call input/output descriptions.
+  * Enables a seller to change the price and/or quantity of one to four
+  * active, fixed-price listings. The fixed-price listing to modify is identified with the <b>ItemID</b> of the listing and/or the <b>SKU</b> value of the item (if a seller-defined SKU value exists for the listing). If the seller is modifying one or more variations within a multiple-variation listing, the <b>ItemID</b> and <b>SKU</b> fields in the <b>InventoryStatus</b> container become required, with the <b>ItemID</b> value identifying the listing, and the <b>SKU</b> value identifying the specific product variation within that multiple-variation listing. Each variation within a multiple-variation listing requires a seller-defined SKU value.
+  * <br/><br/>
+  * Whether updating the price and/or quantity of a single-variation listing or a specific variation within a multiple-variation listing, the limit of items or item variations that can be modified with one call is four.
   * 
  **/
 

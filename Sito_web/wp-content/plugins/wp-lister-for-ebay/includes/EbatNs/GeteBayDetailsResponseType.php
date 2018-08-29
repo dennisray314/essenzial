@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -32,12 +32,7 @@ require_once 'ShippingCategoryDetailsType.php';
 require_once 'ProductDetailsType.php';
 
 /**
-  * Details about a specified site in response to <b>GeteBayDetailsRequest</b>.
-  * If no <b>DetailName</b>
-  * field is identified in the request, all elements of <b>GeteBayDetailsResponse</b> are
-  * returned. Otherwise, eBay returns only the elements corresponding to the specified
-  * <b>DetailName</b> fields. <b>UpdateTime</b> gives the time of modification of the most recently
-  * modified <b>DetailName</b>.
+  * Details about a specified site in response to <b>GeteBayDetailsRequest</b>. If no <b>DetailName</b> field is identified in the request, all elements of <b>GeteBayDetailsResponse</b> are returned. Otherwise, eBay returns only the elements corresponding to the specified <b>DetailName</b> fields. <b>UpdateTime</b> gives the time of modification of the most recently modified <b>DetailName</b>.
   * 
  **/
 

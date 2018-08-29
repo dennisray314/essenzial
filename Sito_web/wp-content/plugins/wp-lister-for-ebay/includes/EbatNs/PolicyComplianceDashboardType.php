@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,7 @@ require_once 'PolicyComplianceStatusCodeType.php';
 require_once 'SellerDashboardAlertType.php';
 
 /**
-  * This type has been deprecated, as the <b>PolicyCompliance</b> container is no longer returned in <b>GetSellerDashboard</b>.
-  * 
+  * This type has been deprecated. 
   * 
  **/
 

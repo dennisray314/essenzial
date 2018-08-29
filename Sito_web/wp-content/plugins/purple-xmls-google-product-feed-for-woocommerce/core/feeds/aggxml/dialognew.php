@@ -29,6 +29,7 @@ class AggXmlDlg extends PBaseFeedDialog
             if ($providers->getFileFormatByType($thisFeed->type) == 'xml')
                 $this->feeds[] = $thisFeed;
         }
+        $this->doc_link = "https://www.exportfeed.com/documentation/instructions-for-trial-and-new-customers/";
     }
 
     public function loadFeedsJ()

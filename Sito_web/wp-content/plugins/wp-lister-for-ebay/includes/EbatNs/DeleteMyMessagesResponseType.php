@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,8 @@
 require_once 'AbstractResponseType.php';
 
 /**
-  * The response to DeleteMyMessagesRequestType. If the request was successful, 
-  * DeleteMyMessages returns nothing.
+  * The response to <b>DeleteMyMessages</b>. If the request is successful,
+  * <b>DeleteMyMessages</b> has an empty payload.
   * 
  **/
 

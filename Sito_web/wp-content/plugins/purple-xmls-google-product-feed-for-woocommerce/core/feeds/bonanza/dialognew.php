@@ -19,6 +19,7 @@ class BonanzaDlg extends PBaseFeedDialog
         // 	'brand', 'keywords', 'UPC', 'mpn'
         // 	);
         $this->blockCategoryList = false;
+        $this->doc_link = "https://www.exportfeed.com/documentation/bonanza/";
     }
 
 }

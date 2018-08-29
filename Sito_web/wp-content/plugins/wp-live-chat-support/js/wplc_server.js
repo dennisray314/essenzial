@@ -422,7 +422,7 @@ function wplc_rest_api(type, wplc_send_data, wplc_send_timeout, next) {
 	if(typeof wplc_restapi_enabled !== "undefined" && parseInt(wplc_restapi_enabled) === 1 && typeof wplc_restapi_endpoint !== "undefined"){
 		//REST API is ready to rumble
 		
-		let anti_cache = Date.now();
+		var anti_cache = Date.now();
 
 		wplc_send_url = wplc_restapi_endpoint + "/" + type + "?nocache="+anti_cache;
 
@@ -649,7 +649,7 @@ function wplc_add_date_and_time(the_message,originates) {
 						.replace( /h/g, time_hours_12 < 10 ? '0' + time_hours_12 : time_hours_12 )
 						.replace( /G/g, time_hours_24 )
 						.replace( /H/g, time_hours_24 < 10 ? '0' + time_hours_24 : time_hours_24 )
-						.replace( /i/g, time_minutes < 10 ? '0' + time_hours_24 : time_hours_24 )
+						.replace( /i/g, time_minutes < 10 ? '0' + time_minutes : time_minutes )
 						.replace( /a/g, time_am_pm.toLowerCase() )
 						.replace( /A/g, time_am_pm.toUpperCase() );
 
@@ -745,6 +745,9 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
 
 	        var message_edit_string = "";
 
+	        var audioPattern = new RegExp(/blob.wav/);
+	        var isAudioPattern = false;
+
 	        if (parseInt(the_message.originates) === 1) {
 	        	//From Admin
 
@@ -758,6 +761,12 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
 	            	message_aid = false;
 	            }
 	            message_class = "wplc-admin-message wplc-color-bg-4 wplc-color-2 wplc-color-border-4";
+
+	            // If it is audio message
+				isAudioPattern = audioPattern.test(the_message.msg);
+                if (isAudioPattern) {
+                    message_class += " wplc-user-message-audio";
+                }
 
 				if (aoru === 'u') {
 
@@ -820,6 +829,12 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
 	        } else {
 	        	/* most likely from the user */
 	            message_class = "wplc-user-message wplc-color-bg-1 wplc-color-2 wplc-color-border-1";
+
+                isAudioPattern = audioPattern.test(the_message.msg);
+                if (isAudioPattern) {
+                    message_class += " wplc-user-message-audio";
+                }
+
 	            if (aoru === 'u') {
 	            	message_edit_string = "<span class='bleeper-edit-message' style='display:none;'>Edit</span>";
 
@@ -878,6 +893,9 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
 			if (message_content !== ""){
 				 message_content = wplc_sanitize_attributes(message_content);
 				 
+				 // If it is audio message
+				 isAudioPattern = audioPattern.test(message_content);
+
 				 // Open the HTML of a message
 				 var concatenated_message = "<span class='" + message_class + "' mid='"+the_message.mid+"'>";
 
@@ -888,9 +906,15 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
 					}
 					
 					// Add a wrapper for the person name and the message, this wrapper is necessary to implement the UI of the admin chat	
+                     if (isAudioPattern) {
+                         concatenated_message += "<div class='wplc-msg-content wplc-msg-content-audio' mid='" + the_message.mid + "'>";
+                     } else {
 					concatenated_message += "<div class='wplc-msg-content' mid='"+the_message.mid+"'>";
-					
-	                if (typeof wplc_show_chat_detail.name !== "undefined" && wplc_show_chat_detail.name === "1") {
+                     }
+
+                     if (isAudioPattern) {
+                         concatenated_message += "<span class='wplc-msg-content-audio-icon'></span>";
+                     } else if (typeof wplc_show_chat_detail.name !== "undefined" && wplc_show_chat_detail.name === "1") {
 					  concatenated_message += message_from;
 	                }
 	            } else {
@@ -899,7 +923,9 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
 				}
 
 				var original_message = message_content;
-				if (typeof niftyFormatParser !== "undefined"){
+                if (isAudioPattern) {
+                    message_content = "<a href='" + message_content + "' target='_blank'>" + (typeof wplc_visitor_voice !== 'undefined' && typeof wplc_visitor_voice.play_sound !== 'undefined' ? wplc_visitor_voice.play_sound : 'Open Voice Note') + "</a>";
+                } else if (typeof niftyFormatParser !== "undefined"){
 	                message_content = niftyFormatParser(message_content);
 	            } 
 
@@ -907,6 +933,9 @@ function wplc_push_message_to_chatbox(the_message, aoru, next) {
  				if (gifExtensionPattern.test(message_content)) {
 					cleanedGif = getCleanedGif(message_content);
 					concatenated_message += "<span class='messageBody' data-message='"+ cleanedGif +"'><img src='"+ cleanedGif + "' class='gif-img'/></span>"+ message_edit_string;
+				} else if (isAudioPattern) {
+                    // If it is audio pattern
+                    concatenated_message += "<span class='messageBody'>"+message_content+"</span>";
 				} else {
 					// If it is a regular message
 					concatenated_message += "<span class='messageBody' data-message='" + original_message + "'>"+message_content+"</span>"+ message_edit_string;
@@ -960,6 +989,17 @@ jQuery(function(){
 		});
 
 		jQuery("body").on("click", "#wplc_na_msg_btn", function() {
+			var wplc_is_gdpr_enabled = jQuery(this).attr('data-wplc-gdpr-enabled');
+			if(typeof wplc_is_gdpr_enabled !== "undefined" && (wplc_is_gdpr_enabled === 'true' )){
+			  var wplc_gdpr_opt_in_checked = jQuery("#wplc_chat_gdpr_opt_in").is(':checked');
+			  if(typeof wplc_gdpr_opt_in_checked === "undefined" || wplc_gdpr_opt_in_checked === false){
+			    /* GDPR requirements not met */
+                jQuery("#wplc_chat_gdpr_opt_in").addClass('incomplete');
+			    return false;
+			  }
+              jQuery("#wplc_chat_gdpr_opt_in").removeClass('incomplete');
+			}
+			
             var wplc_name = jQuery("#wplc_name").val();
             var wplc_email = jQuery("#wplc_email").val();
             var wplc_msg = jQuery("#wplc_message").val();

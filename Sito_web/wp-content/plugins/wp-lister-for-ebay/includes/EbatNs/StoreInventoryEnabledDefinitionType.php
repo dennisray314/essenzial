@@ -1,13 +1,14 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
 
-/** 
-  * Defines the StoreInventoryEnabled feature. If the field is present, the corresponding feature applies to the category. The field is returned as an empty element (e.g., a boolean value is not returned).value different from site. 
+/**
+  * This type is no longer applicable, as Store Inventory is no longer a supported eBay listing type.
+  * 
  **/
 
 class StoreInventoryEnabledDefinitionType extends EbatNs_ComplexType

@@ -180,6 +180,7 @@ class PSavedFeed
         $this->own_overrides = $feed_details->own_overrides;
         $this->feed_overrides = $feed_details->feed_overrides;
         $this->miinto_country_code = $feed_details->miinto_country_code;
+        $this->feed_type = $feed_details->feed_type;
 
         //Load the categories
         $this->local_category = '';

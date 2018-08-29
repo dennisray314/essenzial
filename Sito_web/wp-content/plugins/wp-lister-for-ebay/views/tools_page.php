@@ -171,7 +171,7 @@
 
 						<!-- Force update check --> 
 						<form method="post" action="<?php echo $wpl_form_action; ?>">
-								<?php wp_nonce_field( 'e2e_tools_page' ); ?>
+								<?php wp_nonce_field( 'wplister_force_update_check' ); ?>
 								<input type="hidden" name="action" value="force_update_check" />
 								<input type="submit" value="<?php echo __('Force update check','wplister'); ?>" name="submit" class="button">
 								<p><?php echo __('Since WordPress only checks twice a day for plugin updates, it might be neccessary to force an immediate update check if you want to install an update which was released within the last hours.','wplister'); ?></p>
@@ -307,7 +307,7 @@
 						<!-- lock all listings --> 
 						<form method="post" action="<?php echo $wpl_form_action; ?>">
 								<?php wp_nonce_field( 'e2e_tools_page' ); ?>
-								<input type="hidden" name="action" value="lock_all_listings" />
+								<input type="hidden" name="action" value="wple_lock_all_listings" />
 								<input type="submit" value="<?php echo __('Lock all items','wplister'); ?>" name="submit" class="button">
 								<p><?php echo __('Lock all items.','wplister'); ?></p>
 						</form>
@@ -316,7 +316,7 @@
 						<!-- unlock all listings --> 
 						<form method="post" action="<?php echo $wpl_form_action; ?>">
 								<?php wp_nonce_field( 'e2e_tools_page' ); ?>
-								<input type="hidden" name="action" value="unlock_all_listings" />
+								<input type="hidden" name="action" value="wple_unlock_all_listings" />
 								<input type="submit" value="<?php echo __('Unlock all items','wplister'); ?>" name="submit" class="button">
 								<p><?php echo __('Unlock all items.','wplister'); ?></p>
 						</form>

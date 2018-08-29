@@ -50,6 +50,7 @@ class SearsDlg extends PBaseFeedDialog
             'Software Platform',
             'Watch Display Type'
         );
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
     }
 
     function getPassword()

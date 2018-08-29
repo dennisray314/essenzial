@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,8 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ValType.php';
 
 /**
-  * A salient aspect or feature of a Half.com item that is specified by the seller so that a buyers can find the item more easily.
-  * 
+  *   This type is only applicable for Half.com listings, and since the Half.com site was taken down, this type is no longer applicable.
+  *   
  **/
 
 class AttributeType extends EbatNs_ComplexType

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'PromotionalSaleStatusCodeType.php';
 
 /**
-  * Retrieves information about promotional sales set up by an eBay store owner
-  * (the authenticated caller).
+  * The base request type for the <b>GetPromotionalSaleDetails</b> call. This call retrieves information about promotional sales set up by an eBay store owner. The eBay store owner has the option to retrieve all promotional sales, a specific promotional sale, or promotional sales in a specific state.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -686,6 +686,21 @@ class SiteDefaultsType extends EbatNs_ComplexType
 	* @var boolean
 	**/
 	protected $PickupDropOffEnabled;
+
+	/**
+	* @var boolean
+	**/
+	protected $DigitalGoodDeliveryEnabled;
+
+	/**
+	* @var boolean
+	**/
+	protected $EpidSupported;
+
+	/**
+	* @var boolean
+	**/
+	protected $KTypeSupported;
 
 
 	/**
@@ -1739,6 +1754,30 @@ class SiteDefaultsType extends EbatNs_ComplexType
 					'cardinality' => '0..1'
 				),
 				'PickupDropOffEnabled' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'DigitalGoodDeliveryEnabled' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'EpidSupported' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'KTypeSupported' =>
 				array(
 					'required' => false,
 					'type' => 'boolean',
@@ -3898,6 +3937,54 @@ class SiteDefaultsType extends EbatNs_ComplexType
 	function setPickupDropOffEnabled($value)
 	{
 		$this->PickupDropOffEnabled = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getDigitalGoodDeliveryEnabled()
+	{
+		return $this->DigitalGoodDeliveryEnabled;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setDigitalGoodDeliveryEnabled($value)
+	{
+		$this->DigitalGoodDeliveryEnabled = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getEpidSupported()
+	{
+		return $this->EpidSupported;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setEpidSupported($value)
+	{
+		$this->EpidSupported = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getKTypeSupported()
+	{
+		return $this->KTypeSupported;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setKTypeSupported($value)
+	{
+		$this->KTypeSupported = $value;
 	}
 
 }

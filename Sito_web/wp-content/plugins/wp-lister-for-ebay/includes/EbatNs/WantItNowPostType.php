@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,9 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'SiteCodeType.php';
 
 /**
-  * Contains the data describing a single Want It Now post. Buyers create Want It Now
-  * posts to communicate to sellers specific requirements for items they would like to
-  * buy.
+  * This type is deprecated.
   * 
  **/
 

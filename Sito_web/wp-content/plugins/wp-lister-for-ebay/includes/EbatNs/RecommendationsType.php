@@ -1,14 +1,15 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
+require_once 'ProductIdentifiersType.php';
 require_once 'NameRecommendationType.php';
 
 /**
-  * Defines details about recommended names and values for custom Item Specifics.
+  * This type is used to provide details about recommended Item Specifics and Product Identifier types.
   * 
  **/
 
@@ -18,6 +19,11 @@ class RecommendationsType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $CategoryID;
+
+	/**
+	* @var ProductIdentifiersType
+	**/
+	protected $ProductIdentifiers;
 
 	/**
 	* @var NameRecommendationType
@@ -47,6 +53,14 @@ class RecommendationsType extends EbatNs_ComplexType
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
+				),
+				'ProductIdentifiers' =>
+				array(
+					'required' => false,
+					'type' => 'ProductIdentifiersType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => true,
+					'cardinality' => '0..*'
 				),
 				'NameRecommendation' =>
 				array(
@@ -84,6 +98,48 @@ class RecommendationsType extends EbatNs_ComplexType
 	function setCategoryID($value)
 	{
 		$this->CategoryID = $value;
+	}
+
+	/**
+	 * @return ProductIdentifiersType
+	 * @param integer $index 
+	 **/
+	function getProductIdentifiers($index = null)
+	{
+		if ($index !== null)
+		{
+			return $this->ProductIdentifiers[$index];
+		}
+		else
+		{
+			return $this->ProductIdentifiers;
+		}
+	}
+
+	/**
+	 * @return void
+	 * @param ProductIdentifiersType $value
+	 * @param integer $index 
+	 **/
+	function setProductIdentifiers($value, $index = null)
+	{
+		if ($index !== null)
+		{
+			$this->ProductIdentifiers[$index] = $value;
+		}
+		else
+		{
+			$this->ProductIdentifiers= $value;
+		}
+	}
+
+	/**
+	 * @return void
+	 * @param ProductIdentifiersType $value
+	 **/
+	function addProductIdentifiers($value)
+	{
+		$this->ProductIdentifiers[] = $value;
 	}
 
 	/**

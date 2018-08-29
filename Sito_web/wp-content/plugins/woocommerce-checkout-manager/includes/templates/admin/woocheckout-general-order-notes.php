@@ -59,7 +59,7 @@
 
 			<div class="option">
 				<label>
-					<input type="checkbox" name="wccs_settings[checkness][twenty_hour]" value="true"<?php checked( !empty( $options['checkness']['twenty_hour]'] ), true ); ?> />
+					<input type="checkbox" name="wccs_settings[checkness][twenty_hour]" value="true"<?php checked( !empty( $options['checkness']['twenty_hour'] ), true ); ?> />
 					<div class="info-of"><?php _e('Enable 24 hour time.', 'woocommerce-checkout-manager');  ?></div>
 				</label>
 			</div>

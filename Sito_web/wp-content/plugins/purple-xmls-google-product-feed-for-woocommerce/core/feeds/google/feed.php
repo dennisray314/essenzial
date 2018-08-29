@@ -85,8 +85,9 @@ class PGoogleFeed extends PXMLFeed
         $this->addAttributeMapping('', 'g:custom_label_3', true, false);
         $this->addAttributeMapping('', 'g:custom_label_4', true, false);
 
-        $this->google_exact_title = false;
+       
         $this->google_combo_title = false;
+        $this->google_exact_title = false;
 
         //automatic identifier_exists=false function.
         //set google_identifier to false to disable
@@ -113,6 +114,9 @@ class PGoogleFeed extends PXMLFeed
 
     function formatProduct($product)
     {
+        if(strlen($product->attributes['current_category'])<=5){
+            $product->attributes['current_category'] = $product->attributes['category'];
+        }
         global $pfcore;
         //********************************************************************
         //Prepare the Product Attributes

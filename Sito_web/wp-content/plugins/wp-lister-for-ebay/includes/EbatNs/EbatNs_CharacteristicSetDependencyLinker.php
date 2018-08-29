@@ -78,7 +78,12 @@ class EbatNs_CharacteristicSetDependencyLinker
 							// as PHP4 doesn't know this keyword. a function clone()
 							// has to be defined in global scope. PHP5 ignores the
 							// brackets and executes the internal "clone"
-							$childAttribObj = clone($attribList[$childId]);
+					
+					        // ***** BEGIN EBATNS PATCH *****
+							// $childAttribObj = clone($attribList[$childId]);
+							$childAttribObj = clone $attribList[$childId];
+					        // ***** END EBATNS PATCH ***** 
+
 						else
 							$childAttribObj = $attribList[$childId];
 						// empty the values of the child attribute, since we don't need all

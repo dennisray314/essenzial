@@ -1,20 +1,28 @@
 <?php global $pfcore; ?>
 <div class="attributes-mapping">
-	<div id="poststuff">
-		<div class="postbox" style="width: 98%;">
+    <div id="poststuff">
+        <div class="postbox" style="width: 98%;">
 
-			<!-- *************** 
-					Page Header 
-					****************** -->
+            <!-- ***************
+                    Page Header
+                    ****************** -->
 
-			<h3 class="hndle"><?php echo $this->service_name_long; ?></h3>
-			<div class="inside export-target">
+            <div class="service_name_long hndle">
+                <h2>Product Feed Export for <?php echo $this->service_name; ?></h2>
+                <?php if($this->MapMerchant($this->service_name, 'how')!='') {?>
+                    <a target="blank" title="Generate Merchant Feed"
+                       href="https://www.exportfeed.com/documentation/instructions-for-trial-and-new-customers/'"><?php echo $this->MapMerchant($this->service_name, 'how'); ?></a> <?php if ($this->doc_link && strlen($this->doc_link) > 0) { ?>|
+                        <a target=\'_blank\'
+                           href='<?php echo $this->doc_link; ?>'><?php echo $this->MapMerchant($this->service_name, 'prerequisites'); ?></a>
+                    <?php } }?>
+            </div>
+            <div class="inside export-target">
 
-				<!-- *************** 
-						LEFT SIDE 
-						****************** -->
+                <!-- ***************
+                        LEFT SIDE
+                        ****************** -->
 
-			<div class="feed-left">
+                <!--<div class="feed-left">
 
 				<table cellspacing="5">
 				<tr>
@@ -24,55 +32,106 @@
 					<th>Filename</th>
 					<th>#Products</th>
 				</tr>
-				<?php foreach ($this->feeds as $index => $thisFeed): ?>
+				<?php /*foreach ($this->feeds as $index => $thisFeed): */?>
 					<tr>
-						<td><?php echo $thisFeed->id; ?></td>
-						<td><input type="checkbox" class="feedSetting" name="feedChoice<?php echo $index; ?>" value="<?php echo $thisFeed->id; ?>" <?php echo $thisFeed->checkedString; ?> /></td>
-						<td><?php echo $thisFeed->type; ?></td>
-						<td><?php echo $thisFeed->filename; ?></td>
-						<td><?php echo $thisFeed->product_count; ?></td>
+						<td><?php /*echo $thisFeed->id; */?></td>
+						<td><input type="checkbox" class="feedSetting" name="feedChoice<?php /*echo $index; */?>" value="<?php /*echo $thisFeed->id; */?>" <?php /*echo $thisFeed->checkedString; */?> /></td>
+						<td><?php /*echo $thisFeed->type; */?></td>
+						<td><?php /*echo $thisFeed->filename; */?></td>
+						<td><?php /*echo $thisFeed->product_count; */?></td>
 					</tr>
-				<?php endforeach; ?>
+				<?php /*endforeach; */?>
 				</table>
 
-			</div>
+			</div>-->
 
-				<!-- *************** 
-						RIGHT SIDE 
-						****************** -->
+                <!-- ***************
+                        RIGHT SIDE
+                        ****************** -->
 
-				<div class="feed-right">
+                <style type="text/css" >
+                    .w3-table, .w3-table-all {
+                        border-collapse: collapse;
+                        border-spacing: 0;
+                        width: 50%;
+                        display: table;
+                    }
+                    th {
+                        text-align: left;
+                    }
+                </style>
+                <div class="create-feed-container">
+                <div class="feed-right">
+                    <table class="w3-table" cellspacing="5">
+                        <tr>
+                            <th>id</th>
+                            <th>Select</th>
+                            <th>Type</th>
+                            <th>Filename</th>
+                            <th>#Products</th>
+                        </tr>
+                        <?php foreach ($this->feeds as $index => $thisFeed): ?>
+                            <tr>
+                                <td><?php echo $thisFeed->id; ?></td>
+                                <td><input type="checkbox" class="feedSetting" name="feedChoice<?php echo $index; ?>" value="<?php echo $thisFeed->id; ?>" <?php echo $thisFeed->checkedString; ?> /></td>
+                                <td><?php echo $thisFeed->type; ?></td>
+                                <td><?php echo $thisFeed->filename; ?></td>
+                                <td><?php echo $thisFeed->product_count; ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
 
-					<!-- ROW 3: Filename -->
-					<div class="feed-right-row">
-						<span class="label">File name for feed : </span>
-						<span ><input type="text" name="feed_filename" id="feed_filename_default" class="text_big" value="<?php echo $this->initial_filename; ?>" /></span>
-					</div>
-					<div class="feed-right-row">
-						<label>* If you use an existing file name, the file will be overwritten.</label>
-					</div>
 
-					<!-- ROW 4: Get Feed Button -->
-					<div class="feed-right-row">
-						<input type="hidden" name="RequestCode" value="<?php echo $this->service_name; ?>" />
-						<input class="button-primary" type="button" onclick="doGetAlternateFeed('<?php echo $this->servName; ?>' , this)" value="Get Feed" style="width:45%;"/>
-						<br/><br/>
-						<div id="feed-message-display">&nbsp;</div>
-						<div id="cpf_feed_view"></div>
-						<div id="feed-error-display">&nbsp;</div>
-						<div id="feed-status-display">&nbsp;</div>
-					</div>
-				</div>
+                    <!-- ROW 3: Filename -->
+                    <div class="feed-right-row feed-section">
+                        <span class="label">File name for feed : </span>
+                        <span><input onclick="return ValidateFilename();" type="text" name="feed_filename"
+                                     id="feed_filename_default" class="text_big input-big cpf-createpage-input"
+                                     value="<?php echo $this->initial_filename; ?>"/></span>
+                        <span id="mfefn" class="label"></span>
+                    </div>
+                    <div class="feed-right-row">
+                        <label><span style="color: red">*</span> Use alpha-numeric values for the filename.<br>If
+                            you use an existing file name, the file will be overwritten.</label>
+                    </div>
 
-				<!-- *************** 
-						Termination DIV
-						****************** -->
+                    <!-- ROW 4: Get Feed Button -->
+                    <!-- ROW 4: Get Feed Button -->
+                    <div class="feed-right-row">
+                        <input class="button-primary" style="font-weight: bold;" type="button"
+                               onclick="doGetAlternateFeed('<?php echo $this->servName; ?>' , this)" value="Get Feed"/>
+                        <div class="message-display-div" id="feed-message-display"
+                             style="padding-top: 6px; color: red; margin:10px 0;">&nbsp;
+                        </div>
+                        <div class="message-display-div"
+                             style="display: none;padding-top: 6px; color:  red; margin:10px 0;"
+                             id="feed-error-message-display">&nbsp;
+                        </div>
+                        <div class="message-display-div"
+                             style="display: none;padding-top: 6px; color:  #289c2c; margin:10px 0;"
+                             id="feed-success-message-display">&nbsp;
+                        </div>
+                        <div class="message-display-div"
+                             style="display: none;padding-top: 6px; color:  #FF8C00; margin:10px 0;"
+                             id="warning-display-div">&nbsp;
+                        </div>
+                        <div class="message-display-div" id="cpf_feed_view"></div>
+                        <div class="message-display-div" id="feed-error-display">&nbsp;</div>
+                        <div class="message-display-div" id="feed_status__log"></div>
+                        <div class="message-display-div" id="feed-status-display">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
 
-				<div style="clear: both;">&nbsp;</div>
+                <!-- ***************
+                        Termination DIV
+                        ****************** -->
 
-				<!-- *************** 
-						FOOTER
-						****************** -->
+                <div style="clear: both;">&nbsp;</div>
 
-	</div>
-</div>
+                <!-- ***************
+                        FOOTER
+                        ****************** -->
+
+            </div>
+        </div>

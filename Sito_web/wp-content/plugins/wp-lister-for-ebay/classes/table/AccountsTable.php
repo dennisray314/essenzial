@@ -107,12 +107,12 @@ class WPLE_AccountsTable extends WP_List_Table {
         $actions = array(
             // 'view_ebay_account_details' => sprintf('<a href="?page=%s&action=%s&ebay_account=%s&width=600&height=470" class="thickbox">%s</a>',$_REQUEST['page'],'view_ebay_account_details',$item['id'],__('Details','wplister')),
             // 'view_ebay_account_details' => sprintf('<a href="?page=%s&action=%s&ebay_account=%s" target="_blank">%s</a>',$_REQUEST['page'],'view_ebay_account_details',$item['id'],__('Details','wplister')),
-            'edit_account'    => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'edit_account',$item['id'],__('Edit','wplister')),
-            'update_account'  => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'update_account',$item['id'],__('Update','wplister')),
-            'enable_account'  => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'enable_account',$item['id'],__('Enable','wplister')),
-            'disable_account' => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'disable_account',$item['id'],__('Disable','wplister')),
-            'make_default'    => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'make_default',$item['id'],__('Make default','wplister')),
-            'delete_account'  => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'delete_account',$item['id'],__('Delete','wplister')),
+            'wple_edit_account'    => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s">%s</a>',$_REQUEST['page'],'wple_edit_account',$item['id'],__('Edit','wplister')),
+            'wple_update_account'  => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wple_update_account',$item['id'], wp_create_nonce( 'wplister_update_account' ), __('Update','wplister')),
+            'wple_enable_account'  => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wple_enable_account',$item['id'], wp_create_nonce( 'wplister_enable_account' ), __('Enable','wplister')),
+            'wple_disable_account' => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wple_disable_account',$item['id'], wp_create_nonce( 'wplister_disable_account' ), __('Disable','wplister')),
+            'wple_make_default'    => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wple_make_default',$item['id'], wp_create_nonce( 'wplister_make_account_default' ), __('Make default','wplister')),
+            'wple_delete_account'  => sprintf('<a href="?page=%s&tab=accounts&action=%s&ebay_account=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wple_delete_account',$item['id'], wp_create_nonce( 'wplister_delete_account' ), __('Delete','wplister')),
             // 'edit'         => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$_REQUEST['page'],'edit',$item['id'],__('Edit','wplister')),
         );
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,9 +9,9 @@ require_once 'AutomatedLeaveFeedbackEventCodeType.php';
 require_once 'FeedbackCommentArrayType.php';
 
 /**
-  * Enables Selling Manager subscribers to store standard feedback comments that can
+  * Enables Selling Manager Pro subscribers to store standard feedback comments that can
   * be left for their buyers. Selling Manager Pro subscribers can also specify what
-  * events, if any, will trigger an automated feedback to buyers.
+  * events, if any, will trigger an automated feedback response to buyers.
   * 
  **/
 

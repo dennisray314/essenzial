@@ -66,11 +66,25 @@ if (strpos($setting, 'cp_advancedFeedSetting') !== false) {
         $postdata = substr($postdata, $i + 7);
 
     //Strip the provider name out of the setting
-    $target = substr($setting, strpos($setting, '-') + 1);
-
+    $target = substr($setting, strpos($setting, '-') + 1); 
+    
     //Save new advanced setting
-    if (strlen($feedid) == 0)
+    if (strlen($feedid) == 0){
         update_option($target . '-cart-product-settings', $postdata);
+        if(isset($_POST['id'])){
+            $id = $_POST['id'];
+            global $wpdb;
+            $feed_table = $wpdb->prefix . 'cp_feeds';
+            $sql = "
+                    UPDATE $feed_table 
+                    SET
+                        `own_overrides`=NULL,
+                        `feed_overrides`='$postdata'
+                    WHERE `id`=$id";
+            $wpdb->query($sql);
+        }
+    }
+    
     else {
         global $wpdb;
         $feed_table = $wpdb->prefix . 'cp_feeds';

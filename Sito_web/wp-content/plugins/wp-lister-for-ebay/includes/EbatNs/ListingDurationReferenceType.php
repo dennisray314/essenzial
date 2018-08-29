@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ListingTypeCodeType.php';
 
 /**
-  * Identifies the type of listing as an attribute on the ListingDuration node.
+  * Identifies the type of listing as an attribute on the <b>ListingDuration</b> node.
   * 
   * The type of listing a set of durations describes.
   * 

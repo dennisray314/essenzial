@@ -17,6 +17,7 @@ class eBaySellerDlg extends PBaseFeedDialog
 		parent::__construct();
 		$this->service_name = 'eBaySeller';
 		$this->service_name_long = 'eBay Seller';
+		$this->plugin_link = "https://wordpress.org/plugins/exportfeed-list-woocommerce-products-on-ebay-store/";
 		$this->options = array(
 			'Category',
 			'Title',
@@ -33,6 +34,7 @@ class eBaySellerDlg extends PBaseFeedDialog
 			'ReturnsAcceptedOption',
 			'ShippingType'
 			);
+		$this->doc_link = "https://www.exportfeed.com/documentation/ebay-seller-guide-2/";
 	}
 
 	// function convert_option($option) 

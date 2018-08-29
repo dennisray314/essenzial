@@ -41,25 +41,38 @@ do_action('get_feed_main_hook');
 function cpf_upload_links($provider){
 
     $upload_links              = array(
-            'google'                => 'http://www.exportfeed.com/documentation/google-merchant-shopping-product-upload/',
+            'google'                => 'https://www.exportfeed.com/documentation/upload-data-feeds-via-automatic-upload-to-google-merchant-center/',
             'amazonsc'              => 'http://www.exportfeed.com/documentation/amazon-feed-installation-feed-creation-manual/',
             'ebayseller'            => 'http://www.exportfeed.com/documentation/ebay-seller-guide-2/',
-            'facebookxml'           => 'http://www.exportfeed.com/documentation/facebook-dynamic-product-ads/',
-            'bing'                  => 'http://www.exportfeed.com/documentation/bing-product-ads-guide/',
+            'facebookxml'           => 'https://www.exportfeed.com/documentation/facebook-dynamic-product-ads/',
+            'bing'                  => 'https://www.exportfeed.com/documentation/bing-product-ads-guide/',
             'miinto'                => 'http://www.exportfeed.com/documentation/miinto-guide/',
+            'miintobrand'           => 'http://www.exportfeed.com/documentation/miinto-guide/',
             'pricerunner'           => 'http://www.exportfeed.com/documentation/price-runner-guide/',
             'bonanza'               => 'http://www.exportfeed.com/documentation/bonanza/',
             'become'                => 'http://www.exportfeed.com/documentation/become-integration-guide/',
-            'ebaycommercenetwork'   => 'http://www.exportfeed.com/documentation/ebay-commerce-network-integration-guide/',
+            'ebay'                  => 'http://www.exportfeed.com/documentation/ebay-commerce-network-integration-guide/',
             'houzz'                 => 'http://www.exportfeed.com/documentation/houzz-export-guide/',
             'newegg'                => 'http://www.exportfeed.com/documentation/newegg-integration-guide/',
             'nextag'                => 'http://www.exportfeed.com/documentation/nextag-integration-guide/',
             'pronto'                => 'http://www.exportfeed.com/documentation/pronto-integration-guide/',
             'rakuten'               => 'http://www.exportfeed.com/documentation/rakuten/',
+            'rakutennewsku'         => 'http://www.exportfeed.com/documentation/rakuten/',
+            'rakutenuK'             => 'http://www.exportfeed.com/documentation/rakuten/',
             'kelkoo'                => 'http://www.exportfeed.com/documentation/kelkoo-guide/',
             'shopping.com'          => 'http://www.exportfeed.com/documentation/shopping-com-integration-guide/',
             'pricegrabber'          => 'http://www.exportfeed.com/documentation/pricegrabber-com-integration-guide/',
-            'shopzilla'             => 'http://www.exportfeed.com/documentation/shopzilla-guide/'
+            'shopzilla'             => 'https://www.exportfeed.com/documentation/shopzilla-upload-guide/',
+            'ammoseek'              => 'https://www.exportfeed.com/documentation/ammoseek-integration-guide/',
+            'affiliatewindow'       => 'https://www.exportfeed.com/documentation/affiliate-windows-feed-guide/',
+            'affiliatewindowxml'    => 'https://www.exportfeed.com/documentation/affiliate-windows-feed-guide/',
+            'gpanalysis'            => 'https://www.exportfeed.com/documentation/gpanalysis-merchant-integration-guide/',
+            'avantlink'             => 'https://www.exportfeed.com/documentation/avantlink-integration-guide/',
+            'webgains'              => 'https://www.exportfeed.com/documentation/webgains-integration-guide/',
+            'shareasale'            => 'https://www.exportfeed.com/documentation/shareasale-integration-guide/',
+            'rakuten'               => 'https://www.exportfeed.com/documentation/rakuten/',
+            'hardwareinfo'          => 'https://www.exportfeed.com/documentation/merchant-integration-guide-hardware-info/',
+            'admarkt'               => 'https://www.exportfeed.com/documentation'
             );
     return isset($upload_links[$provider]) ? $upload_links[$provider] : ""; 
 }

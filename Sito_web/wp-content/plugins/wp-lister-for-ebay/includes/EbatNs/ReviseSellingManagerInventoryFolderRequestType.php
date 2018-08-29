@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,9 @@ require_once 'AbstractRequestType.php';
 require_once 'SellingManagerFolderDetailsType.php';
 
 /**
-  *   Renames a Selling Manager inventory folder.
+  *   This call is uses to rename and/or move a Selling Manager Inventory folder.
   * This call is subject to change without notice; the deprecation process is
-  * inapplicable to this call.
+  * inapplicable to this call. The user must have a Selling Manager Pro subscription to use this call.
   * 
  **/
 

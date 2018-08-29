@@ -31,7 +31,7 @@ class PAggXmlGoogleFeed extends PAggregateFeed
 
     }
 
-    function getFeedData($category, $remote_category, $file_name, $saved_feed = null)
+    function getFeedData($category, $remote_category, $file_name, $saved_feed = null,$miinto_country_code = NULL)
     {
 
         $this->logActivity('Initializing...');

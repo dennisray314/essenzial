@@ -115,7 +115,7 @@ jQuery(document).on("wplc_agent_joined", function(e) {
                 jQuery('<p/>', {
                     'class': '',
                     'style': 'text-align:center;',
-                    html: '<img class="img-thumbnail img-circle wplc_thumb32 wplc_agent_involved" style="max-width:inherit;" id="agent_grav_'+taid+'" title="'+tname+'" src="'+timageurl+'?s=40" /><br /><span class="wplc_agent_name wplc-color-2">'+tname+'</span>'+ta_tagline+ta_bio+ta_social_links
+                    html: '<img class="img-thumbnail img-circle wplc_thumb32 wplc_agent_involved" style="max-width:inherit;" id="agent_grav_'+taid+'" title="'+tname+'" src="'+timageurl+'?s=60" /><br /><span class="wplc_agent_name wplc-color-2">'+tname+'</span>'+ta_tagline+ta_bio+ta_social_links
                 }).appendTo('.wplc_agent_info');
                 
                 jQuery('<span/>', {
@@ -166,7 +166,7 @@ jQuery(document).on("wplc_agent_joined", function(e) {
                 jQuery("img.wplc_agent_involved").removeClass("wplc_thumb32").addClass("wplc_thumb16_stacked");
 
                 //Add the new agents image as well
-                var wplc_new_agent_grav = '<img class="img-thumbnail img-circle wplc_thumb16_stacked wplc_agent_involved" style="max-width:inherit;" id="agent_grav_'+taid+'" title="'+tname+'" src="'+timageurl+'?s=40" />';
+                var wplc_new_agent_grav = '<img class="img-thumbnail img-circle wplc_thumb16_stacked wplc_agent_involved" style="max-width:inherit;" id="agent_grav_'+taid+'" title="'+tname+'" src="'+timageurl+'?s=60" />';
                 jQuery(wplc_new_agent_grav).insertAfter("img.wplc_agent_involved:last");
 
                 //Update the height of the header
@@ -249,7 +249,7 @@ jQuery(document).on( "wplc_open_chat_2", function( e ) {
     wplc_chat_status = Cookies.get('wplc_chat_status');
     
 
-    if (Cookies.get('wplc_minimize') === 'yes') { } else {
+    if (Cookies.get('wplc_minimize') === 'yes' && !jQuery("#wp-live-chat-header").hasClass("active")) { } else {
 
         jQuery("#wp-live-chat-1").hide();
         jQuery("#wp-live-chat-2-inner").hide();

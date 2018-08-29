@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'NameValueListType.php';
 
 /**
   * A list of one or more valid names and corresponding values. Currently
-  * used for Item Specifics and Variations.
+  * used to identify Item Specifics and individual variations within a multiple-variation listing.
   * 
  **/
 

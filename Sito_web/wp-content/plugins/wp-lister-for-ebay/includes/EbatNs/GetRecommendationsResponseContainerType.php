@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -14,8 +14,7 @@ require_once 'RecommendationsType.php';
 require_once 'ProductListingDetailsType.php';
 
 /**
-  * Returns recommended changes or opportunities for improvement
-  * related to listing data that was passed in a GetItemRecommendations request.
+  * This type is deprecated.
   * 
  **/
 

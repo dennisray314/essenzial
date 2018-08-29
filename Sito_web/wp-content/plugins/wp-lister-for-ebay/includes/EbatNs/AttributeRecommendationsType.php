@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,8 @@
 require_once 'EbatNs_ComplexType.php';
 require_once 'AttributeSetArrayType.php';
 
-/** 
-  * This type was deprecated with Version 805 along with the <b>GetItemRecommendations</b> call.
+/**
+  * This type is deprecated.
   * 
  **/
 

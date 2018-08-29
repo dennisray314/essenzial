@@ -26,26 +26,26 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 <span id="pwbe-dialog-content-number" class="pwbe-dialog-content" data-function="pwbeBulkEditorNumberHandler">
 	<fieldset class="pwbe-bulkedit-editor-number-mode">
-		<input type="radio" value="fixed" name="pwbe-bulkedit-editor-number-mode" id="pwbe-bulkedit-editor-number-mode-fixed" /> <label for="pwbe-bulkedit-editor-number-mode-fixed">Set to fixed value</label><br />
-		<input type="radio" value="increase" name="pwbe-bulkedit-editor-number-mode" id="pwbe-bulkedit-editor-number-mode-increase" /> <label for="pwbe-bulkedit-editor-number-mode-increase">Increase</label><br />
-		<input type="radio" value="decrease" name="pwbe-bulkedit-editor-number-mode" id="pwbe-bulkedit-editor-number-mode-decrease" /> <label for="pwbe-bulkedit-editor-number-mode-decrease">Decrease</label>
+		<input type="radio" value="fixed" name="pwbe-bulkedit-editor-number-mode" id="pwbe-bulkedit-editor-number-mode-fixed" /> <label for="pwbe-bulkedit-editor-number-mode-fixed"><?php _e( 'Set to fixed value', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="increase" name="pwbe-bulkedit-editor-number-mode" id="pwbe-bulkedit-editor-number-mode-increase" /> <label for="pwbe-bulkedit-editor-number-mode-increase"><?php _e( 'Increase', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="decrease" name="pwbe-bulkedit-editor-number-mode" id="pwbe-bulkedit-editor-number-mode-decrease" /> <label for="pwbe-bulkedit-editor-number-mode-decrease"><?php _e( 'Decrease', 'pw-bulk-edit' ); ?></label>
 	</fieldset>
 	<div class="pwbe-bulkedit-editor-mode-container">
 		<div class="form-field">
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-fixed">
-				<label for="pwbe-bulkedit-fixed-value">Set <span class="pwbe-bulkedit-field-name"></span> to the following value:</label><br />
+				<label for="pwbe-bulkedit-fixed-value"><?php printf( __( 'Set %s to the following value:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-fixed-value" name="pwbe-bulkedit-fixed-value" />
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-increase">
-				<label for="pwbe-bulkedit-increase-value">Increase <span class="pwbe-bulkedit-field-name"></span> by the following value:</label><br />
+				<label for="pwbe-bulkedit-increase-value"><?php printf( __( 'Increase %s by the following value:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-increase-value" name="pwbe-bulkedit-increase-value" /><br />
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-decrease">
-				<label for="pwbe-bulkedit-decrease-value">Decrease <span class="pwbe-bulkedit-field-name"></span> by the following value:</label><br />
+				<label for="pwbe-bulkedit-decrease-value"><?php printf( __( 'Decrease %s by the following value:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="text" id="pwbe-bulkedit-decrease-value" name="pwbe-bulkedit-decrease-value" />
-				<p><input type="checkbox" class="pwbe-bulkedit-allow-negative" id="pwbe-bulkedit-decrease-allow-negative" checked><label for="pwbe-bulkedit-decrease-allow-negative">Allow values to be less than zero.</label></p>
+				<p><input type="checkbox" class="pwbe-bulkedit-allow-negative" id="pwbe-bulkedit-decrease-allow-negative" checked><label for="pwbe-bulkedit-decrease-allow-negative"><?php _e( 'Allow values to be less than zero.', 'pw-bulk-edit' ); ?></label></p>
 			</div>
 
 		</div>

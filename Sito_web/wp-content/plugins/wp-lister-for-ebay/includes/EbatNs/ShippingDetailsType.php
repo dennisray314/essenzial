@@ -1,20 +1,18 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
 require_once 'CalculatedShippingRateType.php';
-require_once 'AmountType.php';
-require_once 'InsuranceOptionCodeType.php';
 require_once 'SalesTaxType.php';
 require_once 'ShippingRateTypeCodeType.php';
 require_once 'ShippingServiceOptionsType.php';
 require_once 'InternationalShippingServiceOptionsType.php';
 require_once 'ShippingTypeCodeType.php';
 require_once 'TaxTableType.php';
-require_once 'InsuranceDetailsType.php';
+require_once 'AmountType.php';
 require_once 'FlatShippingDiscountType.php';
 require_once 'CalculatedShippingDiscountType.php';
 require_once 'PromotionalShippingDiscountDetailsType.php';
@@ -22,12 +20,12 @@ require_once 'ShipmentTrackingDetailsType.php';
 require_once 'RateTableDetailsType.php';
 
 /**
-  * Type defining the ShippingDetails container, which contains the shipping-related
-  * details for an item (pre-checkout) or order (post-checkout).
+  * Type defining the <b>ShippingDetails</b> container, which contains the shipping-related
+  * details for an order line item (pre-checkout) or order (post-checkout).
   * <br/><br/>
-  *             <span class="tablenote">
-  *             <strong>IMPORTANT:</strong> To avoid loss of shipping details when revising a listing, you must include all <strong>ShippingDetails</strong> fields that were originally provided. Do not omit any tag, even if its value does not change. Omitting a shipping field when revising an item will remove that detail from the listing.
-  *             </span>
+  * <span class="tablenote">
+  * <strong>IMPORTANT:</strong> To avoid loss of shipping details when revising a listing, you must include all <strong>ShippingDetails</strong> fields that were originally provided. Do not omit any tag, even if its value does not change. Omitting a shipping field when revising an item will remove that detail from the listing.
+  * </span>
   * 
  **/
 
@@ -57,16 +55,6 @@ class ShippingDetailsType extends EbatNs_ComplexType
 	* @var boolean
 	**/
 	protected $ChangePaymentInstructions;
-
-	/**
-	* @var AmountType
-	**/
-	protected $InsuranceFee;
-
-	/**
-	* @var InsuranceOptionCodeType
-	**/
-	protected $InsuranceOption;
 
 	/**
 	* @var boolean
@@ -142,16 +130,6 @@ class ShippingDetailsType extends EbatNs_ComplexType
 	* @var AmountType
 	**/
 	protected $DefaultShippingCost;
-
-	/**
-	* @var InsuranceDetailsType
-	**/
-	protected $InsuranceDetails;
-
-	/**
-	* @var InsuranceDetailsType
-	**/
-	protected $InternationalInsuranceDetails;
 
 	/**
 	* @var string
@@ -274,22 +252,6 @@ class ShippingDetailsType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'InsuranceFee' =>
-				array(
-					'required' => false,
-					'type' => 'AmountType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'InsuranceOption' =>
-				array(
-					'required' => false,
-					'type' => 'InsuranceOptionCodeType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
 				'InsuranceWanted' =>
 				array(
 					'required' => false,
@@ -406,22 +368,6 @@ class ShippingDetailsType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'AmountType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'InsuranceDetails' =>
-				array(
-					'required' => false,
-					'type' => 'InsuranceDetailsType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'InternationalInsuranceDetails' =>
-				array(
-					'required' => false,
-					'type' => 'InsuranceDetailsType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -622,38 +568,6 @@ class ShippingDetailsType extends EbatNs_ComplexType
 	function setChangePaymentInstructions($value)
 	{
 		$this->ChangePaymentInstructions = $value;
-	}
-
-	/**
-	 * @return AmountType
-	 **/
-	function getInsuranceFee()
-	{
-		return $this->InsuranceFee;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setInsuranceFee($value)
-	{
-		$this->InsuranceFee = $value;
-	}
-
-	/**
-	 * @return InsuranceOptionCodeType
-	 **/
-	function getInsuranceOption()
-	{
-		return $this->InsuranceOption;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setInsuranceOption($value)
-	{
-		$this->InsuranceOption = $value;
 	}
 
 	/**
@@ -946,38 +860,6 @@ class ShippingDetailsType extends EbatNs_ComplexType
 	function setDefaultShippingCost($value)
 	{
 		$this->DefaultShippingCost = $value;
-	}
-
-	/**
-	 * @return InsuranceDetailsType
-	 **/
-	function getInsuranceDetails()
-	{
-		return $this->InsuranceDetails;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setInsuranceDetails($value)
-	{
-		$this->InsuranceDetails = $value;
-	}
-
-	/**
-	 * @return InsuranceDetailsType
-	 **/
-	function getInternationalInsuranceDetails()
-	{
-		return $this->InternationalInsuranceDetails;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setInternationalInsuranceDetails($value)
-	{
-		$this->InternationalInsuranceDetails = $value;
 	}
 
 	/**

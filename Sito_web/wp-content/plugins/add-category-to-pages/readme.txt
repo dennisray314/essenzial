@@ -1,10 +1,10 @@
 === Add Category to Pages ===
 Contributors: a.ankit
-Donate link: http://spoontalk.com
+Donate link: https://spicewp.com
 Tags: page, category, category in page, tag in page, page archive, pages  
 Requires at least: 3.3
-Tested up to: 4.1
-Stable tag: 1.0
+Tested up to: 4.9.8
+Stable tag: 1.1
 
 Easily add a Post Categories to Wordpress Pages
 
@@ -21,7 +21,7 @@ Just activate the plugin and it will add category and tag support to Wordpress P
 * Lets you display List of Pages based on Categories
 * The plugin utilizes the archive.php and tag.php file included in your theme. 
 
-The plugin is based on this [Tutorial] (http://spoontalk.com/wordpress/add-categories-tags-pages-wordpress/) 
+The plugin is based on this [Tutorial] (https://spicewp.com/add-categories-tags-pages-wordpress/) 
 
 = What are the benefits ?  = 
 There are various benefits of adding category to Pages YOu can
@@ -39,6 +39,9 @@ In case you face any problem, contact us via the [Forums]().
 == Changelog ==
 
 
+= Version 1.1 =
+* Initial Plugin Release
+* Fixed the issue Break other plugins wp-query
 
 = Version 1.0 =
 * Initial Plugin Release

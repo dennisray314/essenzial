@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'StorePreferencesType.php';
 
 /**
-  * Contains the Store preferences retrieved for a user.
+  * Base response of the <b>GetStorePreferences</b> call.
   * 
  **/
 

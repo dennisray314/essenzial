@@ -15,6 +15,8 @@ class AmazonDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Amazon';
         $this->service_name_long = 'Amazon Product Ads Export';
+        // $this->doc_link = "https://www.exportfeed.com/documentation/amazon-seller-central-product-guide/";
+        $this->plugin_link = "https://wordpress.org/plugins/exportfeed-woocommerce-data-feed-for-amazon-marketplace/";
     }
 
     function convert_option($option)

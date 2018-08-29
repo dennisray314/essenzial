@@ -15,6 +15,16 @@ class AmazonSCDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Amazonsc';
         $this->service_name_long = 'Amazon Seller Central';
+        $this->plugin_message = "<p style='font-size:16px;''>Want to sell products on Amazon?
+            </p><p>Please use our Amazon Plugin to benefit from:</p><ol><li>Auto orders sync between WooCommerce &amp; Amazon Markeplaces</li>
+            <li>Auto inventorie sync between WooCommerce &amp; Amazon Marketplaces</li>
+            <li>Connect with different Amazon marketplaces &amp; upload products directly.</li>
+            <li>We'll setup &amp; create your first Amazon feed for you Free of Cost</li>
+            <li>Get help &amp; answers from our experienced support team</li>
+            <li> For more information <a target='_blank' href='https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-on-amazon-seller-central/'><b>Click here</b></a><br></li></ol><p>";
+        $this->doc_link = "https://www.exportfeed.com/documentation/amazon-seller-central-product-guide/";
+        $this->plugin_url = "https://wordpress.org/plugins/exportfeed-woocommerce-data-feed-for-amazon-marketplace/";
+        $this->landingpage = "https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-on-amazon-seller-central/";
     }
 
     function categoryList($initial_remote_category)

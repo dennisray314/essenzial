@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,9 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Indicates whether counter offers are allowed on best offers for this category.
-  * Returned only if this category overrides the site default.
-  * Added for Local Market users.
+  * Indicates whether counter offers to Best Offers are allowed for this category for Motors Local Market listings. Returned only if this category overrides the site default.
   * 
  **/
 

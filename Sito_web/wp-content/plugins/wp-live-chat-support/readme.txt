@@ -1,4 +1,4 @@
-=== WP Live Chat Support ===
+﻿=== WP Live Chat Support ===
 Contributors: WP-LiveChat, NickDuncan, CodeCabin_, dylanauty
 Donate link: http://www.wp-livechat.com
 Tags: live chat, live support, chat plugin, live help, wordpress live chat, chat, live chat plugin, live support plugin, live chat support plugin, chat plugin, support plugin, live help
@@ -208,6 +208,18 @@ If the live chat box still does not appear on your website, please go through th
 
 == Upgrade Notice ==
 
+= 8.0.12 =
+It is highly recommended that you upgrade to WP Live Chat Support version 8.0.12 for stability reasons.
+
+= 8.0.11 =
+It is highly recommended that you upgrade to WP Live Chat Support version 8.0.11 if using PHP 5.3 or below.
+
+= 8.0.09 =
+It is highly recommended that you upgrade to WP Live Chat Support version 8.0.09 for GDPR compliance.
+
+= 8.0.08 =
+It is highly recommended that you upgrade to WP Live Chat Support version 8.0.08 for security reasons.
+
 = 8.0.06 =
 It is highly recommended that you upgrade to WP Live Chat Support version 8.0.06 for security reasons.
 
@@ -225,6 +237,61 @@ We have patched the PHPMailer vulnerability. Please update to version 7.0.02.
 
 
 == Changelog ==
+
+= 8.0.14 - 2018-07-19 - Medium priority =
+* Removed 'let' from wplc_server.js file (Adds Safari compatibility)
+* Fixed issues with Google Analytics integration when using our servers
+* Fixed issues with chat box styling with classic theme and GDPR module enabled
+* Fixed issues with Contact From Ready integration styling with modern theme
+* Fixed issues with Slack integration extension
+* Bulgarian Translation Added (Thank you Emil Genchev!)
+* Fixed erroneous display of set_time_limit and safe_mode warnings
+* Fixed a big that lead to the deletion of sessions and not messages when a chat was marked for deletion
+* Improved security in the chat history code
+* Added better styling support for smaller width devices (<500px)
+* Updated Swedish translation files
+* Added Arabic translation files
+* Fixed the duplicate message history loading in the history area
+* Fixed core framework issues with Voice Note system
+* Fixed an issue where invalid query selectors would break the 'Open chat via' functionality
+* Fixed an issue with username encoding
+* Fixed issue with surveys showing after chat end
+* Fixed an issue with classic theme display when anchored to left/right positions
+* Added auto transcript mailing to frontend end chat button, and REST API
+* Added an 'incomplete' class when GDPR checkbox is not ticket, to draw attention to this input field
+* Tested Multi-Site compatibility
+* Updated all PO/MO files with updated sources
+* Added default GDPR translations for DE, FR, ES, and IT languages (Using Google Translate)
+
+= 8.0.13 - 2018-06-06 - Medium priority =
+* Fix chat delay not working for first visit and offline
+* Optimize images
+* Mootools compatibility
+* Fix new chat request email notifications when Pro is active
+
+= 8.0.12 - 2018-05-29 - High priority =
+* Fixed a bug which caused the chat box not to display on some sites
+* Fixed minor styling issues
+
+= 8.0.11 - 2018-05-28 - High priority =
+* Fixed a bug that caused a fatal error on PHP 5.3 and below
+
+= 8.0.10 - 2018-05-25 - Medium priority =
+* Resyncs files for GDPR modules to load correctly
+
+= 8.0.09 - 2018-05-25 - High priority =
+* Added GDPR Compliance
+* Added GDPR Options
+* Added GDPR Admin page
+
+= 8.0.08 - 2018-05-14 - High priority =
+* XSS vulnerability fixes thanks to Riccardo Ten cate
+* Fixed REST Storage Issue
+* Add pagination to History, Missed Chats and Offline Messages admin pages
+* Fix for Disable Emojis setting not displaying when Pro is active
+* Fix for timestamp not displaying correctly
+* Fix for WP Rocket comaptibility
+* Fix for chat box not popping up for returning visitors that had previously minimized
 
 = 8.0.07 - 2018-03-23 - Low priority =
 * Fixed a "direct user to page" bug

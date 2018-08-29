@@ -159,6 +159,7 @@
 				<div class="meta-box-sortables ui-sortable">
 					
 				<form method="post" id="settingsForm" action="<?php echo $wpl_form_action; ?>">
+                    <?php wp_nonce_field( 'wplister_save_settings' ); ?>
 					<input type="hidden" name="action" value="save_wplister_settings" >
 
 					<div class="postbox" id="UpdateOptionBox">
@@ -168,7 +169,7 @@
 
 							<label for="wpl-option-cron_auctions" class="text_label">
 								<?php echo __('Update interval','wplister') ?>
-                                <?php wplister_tooltip('Select how often WP-Lister should run background jobs like checking for new sales on eBay, fetching messages, updating ended items, processing items scheduled for auto relist, etc.<br><br>It is recommended to use an external cron job or set this interval to 5 - 15 minutes.<br><br>Setting the update interval to <i>manually</i> will disable all background tasks and should only be used for testing and debuging but never on a live production site.') ?>
+                                <?php wplister_tooltip('Select how often WP-Lister should run background jobs like checking for new sales on eBay, fetching messages, updating ended items, processing items scheduled for auto relist, etc.<br><br>It is recommended to use an external cron job or set this interval to 5 - 15 minutes.<br><br>Setting the update interval to <i>manually</i> will disable all background tasks and should only be used for testing and debugging but never on a live production site.') ?>
 							</label>
 							<select id="wpl-option-cron_auctions" name="wpl_e2e_option_cron_auctions" class=" required-entry select">
 								<option value="fifteen_min" <?php if ( $wpl_option_cron_auctions == 'fifteen_min' ): ?>selected="selected"<?php endif; ?>><?php echo __('15 min.','wplister') ?></option>

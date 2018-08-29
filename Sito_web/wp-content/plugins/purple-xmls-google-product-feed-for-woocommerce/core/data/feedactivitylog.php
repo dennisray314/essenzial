@@ -122,8 +122,10 @@ class PFeedActivityLog
             $feed_type = 0;
             $product_details = NULL;
         }
+
         $feed_table = $wpdb->prefix . 'cp_feeds';
         $sql = "INSERT INTO $feed_table(`category`, `remote_category`, `filename`, `url`, `type`, `product_count`,`feed_type`,`product_details` , `miinto_country_code`) VALUES ('$category','$remote_category','$file_name','$file_path','$providerName', '$productCount','$feed_type','$product_details' , '$miinto_country_code')";
+        
         if ($wpdb->query($sql)) {
             $sql_custom = "TRUNCATE {$wpdb->prefix}cpf_custom_products";
             $wpdb->query($sql_custom);

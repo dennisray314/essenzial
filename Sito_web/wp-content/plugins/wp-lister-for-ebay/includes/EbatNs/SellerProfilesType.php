@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,8 +10,7 @@ require_once 'SellerReturnProfileType.php';
 require_once 'SellerPaymentProfileType.php';
 
 /**
-  * Type defining the <b>SellerProfiles</b> container, which consists of references
-  * to a seller's payment, shipping, and/or return policy profiles.
+  * Type defining the <b>SellerProfiles</b> container, which consists of references to a seller's payment, shipping, and return policy profiles.
   * 
  **/
 

@@ -28,10 +28,20 @@ function wooccm_custom_checkout_process() {
 			// hide field
 
 			// show field without more
-			if( !empty($btn['single_px']) && empty($btn['more_content']) ) {
+			if(
+				!empty( $btn['single_px'] ) && 
+				empty( $btn['more_content'] )
+			) {
 				$show_field_array = explode('||',$show_field_single);
-				if( in_array($values['product_id'], $show_field_array) && ( count($woocommerce->cart->cart_contents) < 2) ) {
-					if( !empty( $btn['checkbox'] ) && !empty( $btn['label'] ) && ( $btn['type'] !== 'changename' ) ) {
+				if(
+					in_array( $values['product_id'], $show_field_array ) && 
+					( count( $woocommerce->cart->cart_contents ) < 2 )
+				) {
+					if(
+						!empty( $btn['checkbox'] ) && 
+						!empty( $btn['label'] ) && 
+						( $btn['type'] !== 'changename' )
+					) {
 						if( empty( $_POST[$btn['cow']] ) ) {
 							$message = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . wooccm_wpml_string( $btn['label'] ) . '</strong>' );
 							wc_add_notice( $message, 'error' );
@@ -51,10 +61,20 @@ function wooccm_custom_checkout_process() {
 					// without more
 
 					// show field without more
-					if( !empty($btn['single_px_cat']) && empty($btn['more_content']) ) {
+					if(
+						!empty( $btn['single_px_cat'] ) && 
+						empty( $btn['more_content'] )
+					) {
 						$show_field_array_cat = explode('||',$show_field_single_cat);
-						if( in_array( $term->slug, $show_field_array_cat ) && ( count( $woocommerce->cart->cart_contents ) < 2 ) ) {
-							if( !empty ($btn['checkbox']) && !empty( $btn['label'] ) && ( $btn['type'] !== 'changename' ) ) {
+						if(
+							in_array( $term->slug, $show_field_array_cat ) && 
+							( count( $woocommerce->cart->cart_contents ) < 2 )
+						) {
+							if(
+								!empty( $btn['checkbox'] ) && 
+								!empty( $btn['label'] ) && 
+								( $btn['type'] !== 'changename' )
+							) {
 								if( empty( $_POST[$btn['cow']] ) ) {
 									$message = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . wooccm_wpml_string( $btn['label'] ) . '</strong>' );
 									wc_add_notice( $message, 'error' );
@@ -75,10 +95,17 @@ function wooccm_custom_checkout_process() {
 		// hide field
 
 		// show field with more
-		if( !empty( $btn['single_px'] ) && !empty( $btn['more_content'] ) ) {
+		if(
+			!empty( $btn['single_px'] ) && 
+			!empty( $btn['more_content'] )
+		) {
 			$show_field_array = explode( '||', $show_field_single );
 			if( array_intersect( $productsarraycm, $show_field_array ) ) {
-				if( !empty( $btn['checkbox'] ) && !empty( $btn['label'] ) && ( $btn['type'] !== 'changename' ) ) {
+				if(
+					!empty( $btn['checkbox'] ) && 
+					!empty( $btn['label'] ) && 
+					( $btn['type'] !== 'changename' )
+				) {
 					if( empty( $_POST[$btn['cow']] ) ) {
 						$message = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . wooccm_wpml_string( $btn['label'] ) . '</strong>' );
 						wc_add_notice( $message, 'error' );
@@ -93,10 +120,17 @@ function wooccm_custom_checkout_process() {
 		// with more
 
 		// show field with more
-		if( !empty( $btn['single_px_cat'] ) && !empty( $btn['more_content'] ) ) {
+		if(
+			!empty( $btn['single_px_cat'] ) && 
+			!empty( $btn['more_content'] )
+		) {
 			$show_field_array_cat = explode( '||' , $show_field_single_cat );
 			if( array_intersect( $categoryarraycm, $show_field_array_cat ) ) {
-				if( !empty( $btn['checkbox'] ) && !empty( $btn['label'] ) && ( $btn['type'] !== 'changename' ) ) {
+				if(
+					!empty( $btn['checkbox'] ) && 
+					!empty( $btn['label'] ) && 
+					( $btn['type'] !== 'changename' )
+				) {
 					if( empty( $_POST[$btn['cow']] ) ) {
 						$message = sprintf( __( '%s is a required field.', 'woocommerce' ), '<strong>' . wooccm_wpml_string( $btn['label'] ) . '</strong>' );
 						wc_add_notice( $message, 'error' );

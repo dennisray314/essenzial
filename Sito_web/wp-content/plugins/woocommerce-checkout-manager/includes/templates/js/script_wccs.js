@@ -220,20 +220,21 @@ jQuery(document).ready( function() {
 	function update_order_numbers(div) {
 
 		count = parseInt(jQuery('.wccs-table').children('tbody').children('tr.wccs-row').length);
-
 		div.children('tbody').children('tr.wccs-row').each(function(i) {
+
 			jQuery(this).children('td.wccs-order').html(i+1);
-			for ( var x = 0; x < count; x++ ) {
+
+			for( var x = 0; x < count; x++ ) {
 				jQuery(this).children('td.more_toggler1,td.wccs-order-hidden').find('[name]').each(function(){
 					var name = jQuery(this).attr('name').replace('['+x+']','[' + i + ']');
 					jQuery(this).attr('name', name);
 				});
-	            
 				jQuery(this).children('td.wccs-order-hidden').find('[value]').each(function(){
 					var name = jQuery(this).attr('value').replace(jQuery(this).val(), i+1);
 					jQuery(this).attr('value', name);
-				});  
+				});
 			}
+
 		});
 
 	}

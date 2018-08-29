@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'AbstractResponseType.php';
 /**
   * The Timestamp field indicates the official eBay system time in GMT.
   * For information about converting between GMT and other time zones,
-  * see "Time Values" in the Data Types appendix in the eBay Features Guide.
+  * see "Time Values" in the Data Types appendix in the eBay Features guide.
   * 
  **/
 

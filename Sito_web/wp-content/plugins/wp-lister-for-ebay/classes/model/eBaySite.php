@@ -35,8 +35,6 @@ class WPLE_eBaySite extends WPL_Core {
 	}
 
 	function init()	{
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
 
 		$this->fieldnames = array(
 			// 'id',
@@ -77,7 +75,6 @@ class WPLE_eBaySite extends WPL_Core {
 		", $id 
 		), OBJECT);
 
-		// $item->allowed_sites = maybe_unserialize( $item->allowed_sites );
 		return $item;
 	}
 

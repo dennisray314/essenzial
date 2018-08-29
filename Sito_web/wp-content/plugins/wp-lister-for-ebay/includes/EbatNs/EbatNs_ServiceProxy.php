@@ -17,8 +17,8 @@
 // Initial, PHP5
 //
 // 
-// auto-generated 6/26/15 3:23 AM 
-// Ebay-Schema Version 927
+// auto-generated 14.02.18 14:28 
+// Ebay-Schema Version 1045
 //
 /**
  * Load files we depend on.
@@ -30,7 +30,7 @@ require_once 'EbatNs_Session.php';
 /**
  * The WSDL version the SDK is built against.
  */
-define('EBAY_WSDL_VERSION', '927');
+define('EBAY_WSDL_VERSION', '1045');
 
 /**
  * This class is the basic interface to the eBay-Webserice for the user.
@@ -45,7 +45,7 @@ class EbatNs_ServiceProxy extends EbatNs_Client
      * @param mixed $sessionOrConfig Could be either a path to a config-file or a EbatNs_Session-object
      * @param string $converter Name of the converter class used, defaults to 'EbatNs_DataConverterIso' for convertion from uft8 to iso-8859-1
      */
-    function __construct($sessionOrConfig, $converter = 'EbatNs_DataConverterIso')
+    function __construct($sessionOrConfig, $converter = 'EbatNs_DataConverterUtf8')
     {
         if ($sessionOrConfig instanceof EbatNs_Session)
         {
@@ -441,26 +441,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	}
 
 	/**
-	 * @return GetAttributesCSResponseType
-	 * @param GetAttributesCSRequestType
-	 **/
-	function GetAttributesCS($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetAttributesCS', $request);
-	}
-
-	/**
-	 * @return GetAttributesXSLResponseType
-	 * @param GetAttributesXSLRequestType
-	 **/
-	function GetAttributesXSL($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetAttributesXSL', $request);
-	}
-
-	/**
 	 * @return GetBestOffersResponseType
 	 * @param GetBestOffersRequestType
 	 **/
@@ -488,16 +468,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	{
 		$request->setVersion(EBAY_WSDL_VERSION);
 		return $this->call('GetCategories', $request);
-	}
-
-	/**
-	 * @return GetCategory2CSResponseType
-	 * @param GetCategory2CSRequestType
-	 **/
-	function GetCategory2CS($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetCategory2CS', $request);
 	}
 
 	/**
@@ -571,16 +541,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	}
 
 	/**
-	 * @return GetCrossPromotionsResponseType
-	 * @param GetCrossPromotionsRequestType
-	 **/
-	function GetCrossPromotions($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetCrossPromotions', $request);
-	}
-
-	/**
 	 * @return GetDescriptionTemplatesResponseType
 	 * @param GetDescriptionTemplatesRequestType
 	 **/
@@ -611,16 +571,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	}
 
 	/**
-	 * @return GetHighBiddersResponseType
-	 * @param GetHighBiddersRequestType
-	 **/
-	function GetHighBidders($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetHighBidders', $request);
-	}
-
-	/**
 	 * @return GetItemResponseType
 	 * @param GetItemRequestType
 	 **/
@@ -628,16 +578,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	{
 		$request->setVersion(EBAY_WSDL_VERSION);
 		return $this->call('GetItem', $request);
-	}
-
-	/**
-	 * @return GetItemRecommendationsResponseType
-	 * @param GetItemRecommendationsRequestType
-	 **/
-	function GetItemRecommendations($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetItemRecommendations', $request);
 	}
 
 	/**
@@ -771,96 +711,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	}
 
 	/**
-	 * @return GetPictureManagerDetailsResponseType
-	 * @param GetPictureManagerDetailsRequestType
-	 **/
-	function GetPictureManagerDetails($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetPictureManagerDetails', $request);
-	}
-
-	/**
-	 * @return GetPictureManagerOptionsResponseType
-	 * @param GetPictureManagerOptionsRequestType
-	 **/
-	function GetPictureManagerOptions($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetPictureManagerOptions', $request);
-	}
-
-	/**
-	 * @return GetProductFamilyMembersResponseType
-	 * @param GetProductFamilyMembersRequestType
-	 **/
-	function GetProductFamilyMembers($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetProductFamilyMembers', $request);
-	}
-
-	/**
-	 * @return GetProductFinderResponseType
-	 * @param GetProductFinderRequestType
-	 **/
-	function GetProductFinder($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetProductFinder', $request);
-	}
-
-	/**
-	 * @return GetProductFinderXSLResponseType
-	 * @param GetProductFinderXSLRequestType
-	 **/
-	function GetProductFinderXSL($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetProductFinderXSL', $request);
-	}
-
-	/**
-	 * @return GetProductSearchPageResponseType
-	 * @param GetProductSearchPageRequestType
-	 **/
-	function GetProductSearchPage($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetProductSearchPage', $request);
-	}
-
-	/**
-	 * @return GetProductSearchResultsResponseType
-	 * @param GetProductSearchResultsRequestType
-	 **/
-	function GetProductSearchResults($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetProductSearchResults', $request);
-	}
-
-	/**
-	 * @return GetProductSellingPagesResponseType
-	 * @param GetProductSellingPagesRequestType
-	 **/
-	function GetProductSellingPages($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetProductSellingPages', $request);
-	}
-
-	/**
-	 * @return GetPromotionRulesResponseType
-	 * @param GetPromotionRulesRequestType
-	 **/
-	function GetPromotionRules($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetPromotionRules', $request);
-	}
-
-	/**
 	 * @return GetPromotionalSaleDetailsResponseType
 	 * @param GetPromotionalSaleDetailsRequestType
 	 **/
@@ -898,16 +748,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	{
 		$request->setVersion(EBAY_WSDL_VERSION);
 		return $this->call('GetSellerList', $request);
-	}
-
-	/**
-	 * @return GetSellerPaymentsResponseType
-	 * @param GetSellerPaymentsRequestType
-	 **/
-	function GetSellerPayments($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetSellerPayments', $request);
 	}
 
 	/**
@@ -1171,26 +1011,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	}
 
 	/**
-	 * @return GetWantItNowPostResponseType
-	 * @param GetWantItNowPostRequestType
-	 **/
-	function GetWantItNowPost($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetWantItNowPost', $request);
-	}
-
-	/**
-	 * @return GetWantItNowSearchResultsResponseType
-	 * @param GetWantItNowSearchResultsRequestType
-	 **/
-	function GetWantItNowSearchResults($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('GetWantItNowSearchResults', $request);
-	}
-
-	/**
 	 * @return GeteBayDetailsResponseType
 	 * @param GeteBayDetailsRequestType
 	 **/
@@ -1208,16 +1028,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	{
 		$request->setVersion(EBAY_WSDL_VERSION);
 		return $this->call('GeteBayOfficialTime', $request);
-	}
-
-	/**
-	 * @return IssueRefundResponseType
-	 * @param IssueRefundRequestType
-	 **/
-	function IssueRefund($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('IssueRefund', $request);
 	}
 
 	/**
@@ -1298,16 +1108,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	{
 		$request->setVersion(EBAY_WSDL_VERSION);
 		return $this->call('RespondToFeedback', $request);
-	}
-
-	/**
-	 * @return RespondToWantItNowPostResponseType
-	 * @param RespondToWantItNowPostRequestType
-	 **/
-	function RespondToWantItNowPost($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('RespondToWantItNowPost', $request);
 	}
 
 	/**
@@ -1468,16 +1268,6 @@ class EbatNs_ServiceProxy extends EbatNs_Client
 	{
 		$request->setVersion(EBAY_WSDL_VERSION);
 		return $this->call('SetNotificationPreferences', $request);
-	}
-
-	/**
-	 * @return SetPictureManagerDetailsResponseType
-	 * @param SetPictureManagerDetailsRequestType
-	 **/
-	function SetPictureManagerDetails($request)
-	{
-		$request->setVersion(EBAY_WSDL_VERSION);
-		return $this->call('SetPictureManagerDetails', $request);
 	}
 
 	/**

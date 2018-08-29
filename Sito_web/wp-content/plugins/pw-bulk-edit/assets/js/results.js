@@ -514,13 +514,11 @@ function pwbeSaveFields() {
 	pwbeSaveField(0, changedFields);
 }
 
-var pwbeSaveBatchSize = 25;
-
 function pwbeSaveField(index, values) {
 	if (index < values.length) {
 		var fields = [];
 
-		for (var x = 0; x < pwbeSaveBatchSize && x < values.length; x++) {
+		for (var x = 0; x < parseInt(pwbe.saveBatchSize) && x < values.length; x++) {
 			var input = jQuery(values[index + x]).find('input:first');
 			var displayName = jQuery('#pwbe-header-results .pwbe-results-table-header-td').filter(function() { return jQuery(this).attr('data-field') == input.attr('data-field'); } ).find('.pwbe-header').text();
 			fields.push({
@@ -541,7 +539,7 @@ function pwbeSaveField(index, values) {
 		jQuery.post(ajaxurl, { 'action': 'pwbe_save_products', 'fields': fields }, function(response) {
 			if (response == 'success') {
 				// Save the next product.
-				pwbeSaveField(index + pwbeSaveBatchSize, values);
+				pwbeSaveField(index + parseInt(pwbe.saveBatchSize), values);
 			} else {
 				jQuery('#pwbe-results-error').html(response).removeClass('pwbe-hidden');
 				jQuery('.pwbe-processing-message').text('');

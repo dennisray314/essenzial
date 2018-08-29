@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,6 +12,8 @@ require_once 'EbatNs_ComplexType.php';
   * Assistant</b> feature. The <b>UnpaidItemAssistancePreferences</b> container is also returned in
   * <b>GetUserPreferences</b> (if the <b>ShowUnpaidItemAssistancePreference</b> flag is included and
   * set to true in the request).
+  * <br/><br/>
+  * See the <a href="http://pages.ebay.com/help/sell/unpaid-item-assistant.html">Using Unpaid Item Assistant</a> Help topic for more information about setting up and using the Unpaid Item Assistant feature.
   * 
  **/
 

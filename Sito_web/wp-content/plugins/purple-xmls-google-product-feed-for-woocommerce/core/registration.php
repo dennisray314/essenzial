@@ -188,18 +188,19 @@ class PLicense {
 			$inputdata[$v] = $matches[2][$k];
 			$this->results[$v] = $matches[2][$k];
 		}
-
+        
 		if ( isset($inputdata['md5hash']) && $inputdata['md5hash'] ) 
 		{
 			if ( $inputdata['md5hash'] != md5($licensing_secret_key . $check_token) ) 
 			{
-				$this->error_message = 'MD5 Checksum Verification Failed. ';
+				$this->error_message = 'It seems that the licensekey you have entered does not exists in our records. Please contact our <a target="_blank" href="https://www.exportfeed.com/contact">Support</a> for further assistance.';
+				$this->results['status'] = 'Inactive';
 				if ($this->debugmode) echo "MD5 Checksum Verification Failed. \r\n";
 				return;
 			}
 		}
         // $inputdata["status"]="Inactive";
-		if ( $inputdata["status"] == "Active" ) 
+		if (isset($inputdata["status"]) && $inputdata["status"] == "Active" )
 		{
 			if($inputdata["productid"]==88){
 				$this->error_message .= $this->strErrorMsgMain;
@@ -215,7 +216,7 @@ class PLicense {
 			$data_encoded = wordwrap($data_encoded, 80, "\n", true);
 			$inputdata["localkey"] = $data_encoded; 
 		} 
-		elseif($inputdata["status"] == "Expired")
+		elseif(isset($inputdata["status"]) && $inputdata["status"] == "Expired")
 		{
 			$this->error_message .= $this->strErrorMsgExpired;
 			if ($this->debugmode) echo "Expired. \r\n";

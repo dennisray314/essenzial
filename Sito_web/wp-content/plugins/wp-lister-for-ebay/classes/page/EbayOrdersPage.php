@@ -29,10 +29,11 @@ class EbayOrdersPage extends WPL_Page {
 	}
 
 	public function handleActionsOnInit() {
-        WPLE()->logger->debug("handleActionsOnInit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// these actions have to wait until 'init'
 		if ( $this->requestAction() == 'view_ebay_order_details' ) {
+		    check_admin_referer( 'wplister_view_order_details' );
 			$this->showOrderDetails( $_REQUEST['ebay_order'] );
 			exit();
 		}
@@ -61,7 +62,8 @@ class EbayOrdersPage extends WPL_Page {
 		$this->check_wplister_setup();
 
 		// handle update ALL from eBay action
-		if ( $this->requestAction() == 'update_orders' ) {
+		if ( $this->requestAction() == 'wple_update_orders' ) {
+		    check_admin_referer( 'wplister_update_orders' );
 
 			// regard update options
 			$days = is_numeric( $_REQUEST['wpl_number_of_days'] ) ? $_REQUEST['wpl_number_of_days'] : false;
@@ -98,8 +100,9 @@ class EbayOrdersPage extends WPL_Page {
 		}
 
 		// handle update from eBay action
-		if ( $this->requestAction() == 'update' ) {
+		if ( $this->requestAction() == 'wple_bulk_update_orders' ) {
 			if ( isset( $_REQUEST['ebay_order'] ) ) {
+                check_admin_referer( 'bulk-orders' );
 
 				// use account_id of first item (todo: group items by account)
 				$om         = new EbayOrdersModel();
@@ -124,8 +127,10 @@ class EbayOrdersPage extends WPL_Page {
 		}
 
 		// handle wpl_delete_order action
-		if ( $this->requestAction() == 'wpl_delete_order' ) {
+		if ( $this->requestAction() == 'wple_bulk_delete_orders' ) {
 			if ( isset( $_REQUEST['ebay_order'] ) ) {
+			    check_admin_referer( 'bulk-orders' );
+
 				$tm = new EbayOrdersModel();
 				$ebay_orders = is_array( $_REQUEST['ebay_order'] ) ? $_REQUEST['ebay_order'] : array( $_REQUEST['ebay_order'] );
 				foreach ( $ebay_orders as $id ) {
@@ -244,7 +249,7 @@ class EbayOrdersPage extends WPL_Page {
 					$actions = '';
 					// if ( $order['status'] != 'reverted' && $order['CompleteStatus'] != 'Completed' ) {
 						$button_label = 'Remove';
-						$url = 'admin.php?page=wplister-orders&action=wpl_delete_order&ebay_order='.$order['id'];
+						$url = 'admin.php?page=wplister-orders&action=wpl_delete_order&ebay_order='.$order['id'].'&_wpnonce='. wp_create_nonce( 'wplister_delete_order' );
 						$actions = '<a href="'.$url.'" class="button button-small">'.$button_label.'</a>';
 					// }
 

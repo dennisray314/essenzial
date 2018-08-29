@@ -3,9 +3,9 @@ Contributors: pimwick
 Donate link: https://paypal.me/pimwick
 Tags: woocommerce, products, utilities, tools, bulk, batch, mass, edit, bulk edit, multiple, sale price, sale, price, pimwick
 Requires at least: 4.5
+Tested up to: 4.9
 Requires PHP: 5.6
-Tested up to: 5.0
-Stable tag: 2.45
+Stable tag: 2.49
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,6 +80,18 @@ You're in control of your WooCommerce product catalog with the power of PW WooCo
 6. PW WooCommerce Bulk Edit is so easy to use!
 
 == Changelog ==
+
+= 2.49 =
+* Added translation support using Loco Translate, Poedit, etc.
+
+= 2.48 =
+* Added new config option PWBE_SAVE_BATCH_SIZE to help prevent HTTP 504 Timeout errors with slow servers.
+
+= 2.47 =
+* Updated plugin to be able to handle malformed prices when doing bulk operations.
+
+= 2.46 =
+* Variations titles now show the formatted name.
 
 = 2.45 =
 * Fixed possible issue sorting on variation attribute.
@@ -316,6 +328,18 @@ You're in control of your WooCommerce product catalog with the power of PW WooCo
 * Initial version
 
 == Upgrade Notice ==
+
+= 2.49 =
+* Added translation support using Loco Translate, Poedit, etc.
+
+= 2.48 =
+* Added new config option PWBE_SAVE_BATCH_SIZE to help prevent HTTP 504 Timeout errors with slow servers.
+
+= 2.47 =
+* Updated plugin to be able to handle malformed prices when doing bulk operations.
+
+= 2.46 =
+* Variations titles now show the formatted name.
 
 = 2.45 =
 * Fixed possible issue sorting on variation attribute.

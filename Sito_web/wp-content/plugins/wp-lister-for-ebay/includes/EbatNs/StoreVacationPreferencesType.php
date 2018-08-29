@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Specifies a set of Store vacation preferences.
+  * This type is used by the <b>VacationPreferences</b> container that is set in a <b>SetStorePreferences</b> call and returned in a <b>GetStorePreferences</b> call.
   * 
  **/
 

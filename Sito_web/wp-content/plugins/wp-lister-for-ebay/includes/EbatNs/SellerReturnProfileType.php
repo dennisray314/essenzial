@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,15 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>SellerReturnProfile</b> container, which is used in an 
-  * Add/Revise/Relist Trading API call to reference a Business Policies return policy profile.
-  * Business Policies return policy profiles contain detailed information on 
-  * the seller's return policy, including the refund option, how many days the buyer has
-  * to return the item for a refund, warranty information, and restocking fee (if any).
-  * <br/><br/>
-  * Business Policies return policy profiles are also returned in 
-  * <b>GetItem</b>, <b>GetMyeBaySelling</b>, and other 
-  * Trading calls that retrieve Item data.
+  * Type defining the <b>SellerReturnProfile</b> container, which is used in an Add/Revise/Relist/Verify Trading API call to reference a Business Policies return policy profile. Business Policies return policy profiles contain detailed information on the seller's return policy, including the refund option, how many days the buyer has to return the item for a refund, warranty information, and restocking fee (if any).
   * 
  **/
 

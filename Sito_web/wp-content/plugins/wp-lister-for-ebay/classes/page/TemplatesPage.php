@@ -29,14 +29,16 @@ class TemplatesPage extends WPL_Page {
 	}
 
 	public function handleSubmit() {
-        WPLE()->logger->debug("handleSubmit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// handle download template
 		if ( $this->requestAction() == 'download_listing_template' ) {
+		    check_admin_referer( 'wple_templates_page' );
 			$this->downloadTemplate();
 		}
 		// handle delete action
 		if ( $this->requestAction() == 'delete_listing_template' ) {
+		    check_admin_referer( 'wple_templates_page' );
 			$this->deleteTemplate();
 		}
 
@@ -47,7 +49,9 @@ class TemplatesPage extends WPL_Page {
 	public function onWpAdminInit() {
 
 		// handle save template
-		if ( $this->requestAction() == 'save_template' ) {
+		if ( $this->requestAction() == 'wple_save_template' ) {
+		    check_admin_referer( 'wplister_save_template' );
+
 			$this->saveTemplate();
 			if ( @$_POST['return_to'] == 'listings' ) {
 				$return_url = get_admin_url().'admin.php?page=wplister';
@@ -57,7 +61,8 @@ class TemplatesPage extends WPL_Page {
 			}
 		}
 		// handle preview action
-		if ( $this->requestAction() == 'preview_template' ) {
+		if ( $this->requestAction() == 'wple_preview_template' ) {
+            check_admin_referer( 'wple_templates_page' );
 
 			// handle parameters to select custom listing item
 			$listing_id = isset( $_REQUEST['listing_id'] ) ? $_REQUEST['listing_id'] : false;
@@ -123,6 +128,8 @@ class TemplatesPage extends WPL_Page {
 
 		// handle upload template
 		if ( $this->requestAction() == 'wpl_upload_template' ) {
+            if ( ! current_user_can( 'manage_ebay_options' ) || ! check_admin_referer( 'wpl_upload_template' ) ) return false;
+
 			$this->uploadTemplate();
 		}
 
@@ -257,6 +264,7 @@ class TemplatesPage extends WPL_Page {
 
 
 	private function saveTemplate() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// set templates root folder
 		$upload_dir = wp_upload_dir();
@@ -428,6 +436,7 @@ class TemplatesPage extends WPL_Page {
 
 
 	public function previewTemplate( $template_id, $listing_id = false ) {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 	
 		// init model
 		$ibm = new ItemBuilderModel();
@@ -440,8 +449,7 @@ class TemplatesPage extends WPL_Page {
 
 
 	private function uploadTemplate() {
-
-		if ( ! current_user_can( 'manage_ebay_options' ) || ! check_admin_referer( 'wpl_upload_template' ) ) return false;
+		if ( ! current_user_can('manage_ebay_options') ) return;
 
 		// set templates root folder
 		$upload_dir = wp_upload_dir();
@@ -580,6 +588,7 @@ class TemplatesPage extends WPL_Page {
 	}
 
 	function ajax_wpl_get_tpl_css() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		$tpl = $_REQUEST['tpl'];
 		$templatesModel = new TemplatesModel( $tpl );
@@ -595,6 +604,7 @@ class TemplatesPage extends WPL_Page {
 
 
 	function ajax_wpl_get_copy_template_form() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// get template
 		$template_id 			= urldecode( @$_REQUEST['template_id'] );
@@ -614,6 +624,7 @@ class TemplatesPage extends WPL_Page {
 	
 
 	function ajax_wpl_duplicate_template() {
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// get template
 		$template_id 			= urldecode( $this->getValueFromPost( 'template_id' ) );
@@ -682,7 +693,7 @@ class TemplatesPage extends WPL_Page {
 		$template_version 			= $item[ 'template_version' ];
 
 		// add template header
-		$header_css = "/* \n";
+		$header_css = "\n/* \n";
 		$header_css .= "Template: $template_name\n";
 		$header_css .= "Description: $template_description\n";
 		$header_css .= "Version: $template_version\n";

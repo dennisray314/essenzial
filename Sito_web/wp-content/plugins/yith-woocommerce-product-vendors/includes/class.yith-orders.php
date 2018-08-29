@@ -360,6 +360,12 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
 
 					if ( $item_id ) {
 						$metakeys = array_keys( $item['item_meta'] );
+						$default_meta_to_exclude = apply_filters( 'yith_wcmv_order_item_meta_no_sync', array(
+								'_child__commission_id',
+								'_commission_included_tax',
+								'_commission_included_coupon'
+							)
+						);
 						foreach ( $metakeys as $key ) {
 							/**
 							 * Use maybe_unserialize() because wc_add_order_item_meta()
@@ -381,7 +387,9 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
 								$item_meta_value = maybe_unserialize( $item[ $search_key ] );
 							}
 
-							wc_add_order_item_meta( $item_id, $key, $item_meta_value );
+							if ( ! in_array( $key, $default_meta_to_exclude ) ) {
+								wc_add_order_item_meta( $item_id, $key, $item_meta_value );
+							}
 
 							if ( ! YITH_Vendors()->is_wc_2_7_or_greather && '_product_id' == $key ) {
 								foreach ( $parent_line_items as $line_item_id => $line_item_value ) {
@@ -396,7 +404,7 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
 
 									if ( $product_id == $parent_product_id ) {
 										// add line item to retrieve simply the parent line_item_id
-										wc_add_order_item_meta( $item_id, '_parent_line_item_id', $line_item_id );
+										wc_update_order_item_meta( $item_id, '_parent_line_item_id', $line_item_id );
 										break;
 									}
 								}
@@ -408,39 +416,53 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
 					$discount += ( $item['line_subtotal'] - $item['line_total'] );
 				}
 
-				$checkout_fields = WC()->checkout()->checkout_fields;
-
-				foreach ( $checkout_fields as $section => $order_meta_keys ) {
-					if ( 'account' != $section ) {
-						foreach ( $order_meta_keys as $order_meta_key => $order_meta_values ) {
-							$meta_key           = 'shipping' == $section || 'billing' == $section ? '_' . $order_meta_key : $order_meta_key;
-							$meta_value_to_save = isset( $posted[ $order_meta_key ] ) ? $posted[ $order_meta_key ] : yit_get_prop( $parent_order, $order_meta_key );
-							yit_save_prop( $suborder, $meta_key, $meta_value_to_save );
-						}
-					}
-				}
-
 				//Shipping: Store shipping for all packages
 				$shipping_cost = 0;
-				$wc_checkout   = WC()->checkout();
 
-				foreach ( WC()->shipping->get_packages() as $package_key => $package ) {
-					if ( ! empty( $package['yith-vendor'] ) && $package['yith-vendor'] instanceof YITH_Vendor && $package['yith-vendor']->id == $vendor_id ) {
-						if ( isset( $package['rates'][ $wc_checkout->shipping_methods[ $package_key ] ] ) ) {
+				$wc_checkout     = WC()->checkout();
+				$checkout_fields = ! is_admin() && ! is_ajax() ? $wc_checkout->checkout_fields : array();
 
-							$shipping_item_id = $this->add_shipping( $suborder, $package['rates'][ $wc_checkout->shipping_methods[ $package_key ] ] );
+				if ( empty( $checkout_fields ) ) {
+					$types = array(
+						'billing',
+						'shipping'
+					);
 
-							$shipping_cost += $package['rates'][ $wc_checkout->shipping_methods[ $package_key ] ]->cost;
+					foreach( $types as $type ){
+						$fields = $parent_order->get_address( $type );
+						$suborder->set_address( $fields, $type );
+					}
+				}
 
-							if ( ! $shipping_item_id ) {
-								throw new Exception( sprintf( __( 'Error %d: Unable to create order. Please try again.', 'yith-woocommerce-product-vendors' ), 527 ) );
+				if( ! empty( $wc_checkout ) ){
+					foreach ( $checkout_fields as $section => $order_meta_keys ) {
+						if ( 'account' != $section ) {
+							foreach ( $order_meta_keys as $order_meta_key => $order_meta_values ) {
+								$meta_key           = 'shipping' == $section || 'billing' == $section ? '_' . $order_meta_key : $order_meta_key;
+								$meta_value_to_save = isset( $posted[ $order_meta_key ] ) ? $posted[ $order_meta_key ] : yit_get_prop( $parent_order, $order_meta_key );
+								yit_save_prop( $suborder, $meta_key, $meta_value_to_save );
 							}
+						}
+					}
 
-							// Allows plugins to add order item meta to shipping
-							do_action( 'yith_wcmv_add_shipping_order_item', $suborder_id, $shipping_item_id, $package_key );
+					foreach ( WC()->shipping->get_packages() as $package_key => $package ) {
+						if ( ! empty( $package['yith-vendor'] ) && $package['yith-vendor'] instanceof YITH_Vendor && $package['yith-vendor']->id == $vendor_id ) {
+							if ( isset( $package['rates'][ $wc_checkout->shipping_methods[ $package_key ] ] ) ) {
+
+								$shipping_item_id = $this->add_shipping( $suborder, $package['rates'][ $wc_checkout->shipping_methods[ $package_key ] ] );
+
+								$shipping_cost += $package['rates'][ $wc_checkout->shipping_methods[ $package_key ] ]->cost;
+
+								if ( ! $shipping_item_id ) {
+									throw new Exception( sprintf( __( 'Error %d: Unable to create order. Please try again.', 'yith-woocommerce-product-vendors' ), 527 ) );
+								}
+							}
 						}
 					}
 				}
+
+				// Allows plugins to add order item meta to shipping
+				do_action( 'yith_wcmv_add_shipping_order_item', $suborder_id, $this );
 
 				//Coupons
 				$order_coupons = $parent_order->get_used_coupons();
@@ -542,7 +564,7 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
 					do_action( 'yith_wcmv_new_order_email', $suborder_id );
 				}
 
-				do_action( 'yith_wcmv_suborder_created', $suborder, $suborder_id );
+				do_action( 'yith_wcmv_suborder_created', $suborder_id );
 			}
 
 			return $suborder_id;
@@ -1912,11 +1934,10 @@ if ( ! class_exists( 'YITH_Orders' ) ) {
 				//@since 2.0.2
 				$order_id = wp_get_post_parent_id( absint( $post->ID ) );
 				$order = wc_get_order( $order_id );
-				$metabox_parent_order_description = sprintf( '%s: <em>#%s</em>', _x( 'Parent order id', 'Admin: Single order page. Parent order details box', 'yith-woocommerce-product-vendors' ), $order->get_order_number() );
-				add_meta_box( 'woocommerce-parent-order', $metabox_parent_order_description, array(
-					$this,
-					'output'
-				), 'shop_order', 'side', 'high', array( 'metabox' => 'vendor' ) );
+				if( $order instanceof WC_Order ){
+					$metabox_parent_order_description = sprintf( '%s: <em>#%s</em>', _x( 'Parent order id', 'Admin: Single order page. Parent order details box', 'yith-woocommerce-product-vendors' ), $order->get_order_number() );
+					add_meta_box( 'woocommerce-parent-order', $metabox_parent_order_description, array( $this, 'output' ), 'shop_order', 'side', 'high', array( 'metabox' => 'vendor' ) );
+				}
 			}
 		}
 

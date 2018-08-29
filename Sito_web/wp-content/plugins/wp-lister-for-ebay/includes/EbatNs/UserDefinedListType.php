@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,8 +10,8 @@ require_once 'MyeBayFavoriteSearchListType.php';
 require_once 'MyeBayFavoriteSellerListType.php';
 
 /**
-  * Contains the items, searches and sellers that the user has saved to this 
-  * list using the "Add to list" feature.  The name of the list is given by the 
+  * Contains the items, searches and sellers that the user has saved to this
+  * list using the "Add to list" feature.  The name of the list is given by the
   * "Name" element.
   * 
  **/

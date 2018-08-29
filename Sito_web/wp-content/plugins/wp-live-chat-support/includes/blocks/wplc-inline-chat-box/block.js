@@ -26,7 +26,7 @@
 				props.setAttributes( { content: newContent } );
 			}
 
-			$(document).on('change', '.wplc_select_theme', function(){
+			jQuery(document).on('change', '.wplc_select_theme', function(){
 				var id = $(this).val();
 				onChangeContent( id );
 			});

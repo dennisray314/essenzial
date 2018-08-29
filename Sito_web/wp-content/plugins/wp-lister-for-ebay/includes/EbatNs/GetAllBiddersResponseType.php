@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,10 +11,7 @@ require_once 'AmountType.php';
 require_once 'ListingStatusCodeType.php';
 
 /**
-  * Includes the list of bidders for the requested item as part of the general item listing data. Some bidder information is anonymous
-  * to protect bidders from fraud. If the seller makes this API call, the actual ids of all bidders on the seller's item are returned.
-  * If a bidder makes this API call, the bidder's actual id will be returned. Information for all competing bidders or outside watchers
-  * are returned as anonymized userIDs.
+  * Includes detailed bidding data for the auction listing that was specified in the request. Unless the listing is private, the actual eBay user IDs of all bidders are returned if the listing's seller makes this API call. If a bidder makes this API call, only that bidder's eBay user ID is returned, and the rest of the bidder's user IDs are anonymized.
   * 
  **/
 

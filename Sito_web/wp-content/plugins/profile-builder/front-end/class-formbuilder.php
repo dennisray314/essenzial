@@ -129,7 +129,7 @@ class Profile_Builder_Form_Creator{
 
     function wppb_form_logic() {
         if( $this->args['form_type'] == 'register' ){
-            $registration = apply_filters ( 'wppb_register_setting_override', get_option( 'users_can_register' ) );
+            $registration = apply_filters ( 'wppb_register_setting_override', true );//used to be get_option( 'users_can_register' )
 
             if ( !is_user_logged_in() ){
                 if ( !$registration )
@@ -423,7 +423,7 @@ class Profile_Builder_Form_Creator{
 					$button_name = __( 'Update', 'profile-builder' );
 				?>
                 <?php do_action( 'wppb_form_before_submit_button', $this->args ); ?>
-				<input name="<?php echo $this->args['form_type']; ?>" type="submit" id="<?php echo $this->args['form_type']; ?>" class="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_submit_class', "submit button" );?>" value="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_button_name', $button_name ); ?>" <?php echo apply_filters( 'wppb_form_submit_button_extra_attributes', '', $this->args['form_type'] );?>/>
+				<input name="<?php echo $this->args['form_type']; ?>" type="submit" id="<?php echo $this->args['form_type']; ?>" class="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_submit_class', "submit button" );?>" value="<?php echo apply_filters( 'wppb_'. $this->args['form_type'] .'_button_name', $button_name, $this->args['form_name'] ); ?>" <?php echo apply_filters( 'wppb_form_submit_button_extra_attributes', '', $this->args['form_type'] );?>/>
                 <?php do_action( 'wppb_form_after_submit_button', $this->args ); ?>
 				<input name="action" type="hidden" id="action" value="<?php echo $this->args['form_type']; ?>" />
 				<input name="form_name" type="hidden" id="form_name" value="<?php echo $this->args['form_name']; ?>" />

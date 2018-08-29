@@ -34,9 +34,15 @@ class ProductWrapper {
 		// $sale_price = get_post_meta( $post_id, '_sale_price', true );
 		$sale_price = $_product->get_sale_price();
 		if ( floatval($sale_price) > 0 ) {
-			$sale_price_dates_from = get_post_meta( $post_id, '_sale_price_dates_from', true );	// check if sale has started already
-			if ( ! $sale_price_dates_from ) return $sale_price;									// return sale price if no schedule set
-			if ( $sale_price_dates_from < current_time( 'timestamp' ) ) return $sale_price;		// return sale price if schedule has started
+		    if ( is_callable( array( $_product, 'is_on_sale' ) ) ) {
+		        if ( $_product->is_on_sale() ) {
+                    return $sale_price;
+                }
+            } else {
+                $sale_price_dates_from = get_post_meta( $post_id, '_sale_price_dates_from', true );	// check if sale has started already
+                if ( ! $sale_price_dates_from ) return $sale_price;									// return sale price if no schedule set
+                if ( $sale_price_dates_from < current_time( 'timestamp' ) ) return $sale_price;		// return sale price if schedule has started
+            }
 		}
 
 		// return get_post_meta( $post_id, '_price', true);
@@ -71,12 +77,12 @@ class ProductWrapper {
 	        $product = wc_get_product( $post_id );
         }
 
-        if ( ! $product ) {
+        if ( ! $product || ! $product->exists() ) {
 	        return 0;
         }
 
         $stock = is_callable( array( $product, 'get_stock_quantity' ) ) ? $product->get_stock_quantity() : $product->get_total_stock();
-		return $stock;
+		return apply_filters( 'wplister_get_stock', $stock, $post_id );
 	}	
 	
 	// set product stock (deprecated)
@@ -103,6 +109,11 @@ class ProductWrapper {
 	static function getEbayWeight( $post_id ) {
 		$weight_value = self::getWeight( $post_id );
 		$weight_unit  = get_option( 'woocommerce_weight_unit' );
+
+        // No need to continue if weight is empty #20696
+        if ( empty( $weight_value ) ) {
+            return array( 0, 0 );
+        }
 
 		// convert value to major and minor if unit is gram or ounces
 		if ( 'g' == $weight_unit ) {
@@ -256,7 +267,7 @@ class ProductWrapper {
 					foreach ($terms as $term) {
 						$values[] = $term->name;
 					}
-					$attributes[ $attribute_name ] = join( '|', $values );
+                    $attributes[ $attribute_name ] = join( '|', apply_filters( 'wple_product_attribute_values', $values, $attribute_name, $attributes ) );
 				}
 	
 			} else {
@@ -364,8 +375,15 @@ class ProductWrapper {
 		return $attributes;
 	} // sortVariationAttributes()
 
-	// get all product variations
-	static function getVariations( $post_id, $short_result = false ) {
+    /**
+     * Get all product variations
+     * @param int  $post_id
+     * @param bool $short_result
+     * @param null $account_id Provide a WPLE account ID to translate variation attributes where applicable
+     *
+     * @return array
+     */
+	static function getVariations( $post_id, $short_result = false, $account_id = null ) {
 		global $product; // make $product globally available for some badly coded themes...		
 		WPLE()->logger->startTimer('getVariations');
 
@@ -425,6 +443,14 @@ class ProductWrapper {
 			$label = self::getAttributeLabel($name); 
 			if ($label == '') $label = $name;
 			$label = html_entity_decode( $label, ENT_QUOTES, 'UTF-8' ); // US Shoe Size (Men&#039;s) => US Shoe Size (Men's)
+
+            // attempt to translate
+            if ( function_exists( 'qtranxf_use' ) && $account_id ) {
+                $lang = WPLE_eBayAccount::getAccountLocale( $account_id );
+
+                $label = qtranxf_use( $lang, $label );
+                $name = qtranxf_use( $lang, $name );
+            }
 			
 			$id   = "attribute_".sanitize_title($name);
 			$attribute_labels[ $id ] = $label;

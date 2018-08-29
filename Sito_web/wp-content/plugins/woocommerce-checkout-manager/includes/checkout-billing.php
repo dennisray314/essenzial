@@ -1,5 +1,5 @@
 <?php
-function wooccm_checkout_billing_fields( $fields ) {
+function wooccm_checkout_billing_fields( $fields = array() ) {
 
 	$options = get_option( 'wccs_settings3' );
 	$buttons = ( isset( $options['billing_buttons'] ) ? $options['billing_buttons'] : false );
@@ -35,9 +35,9 @@ function wooccm_checkout_billing_fields( $fields ) {
 				$fields[$key]['placeholder'] = ( isset( $btn['placeholder'] ) ? $btn['placeholder'] : '' );
 			}
 
-			// @mod - Why are we not setting the position here like we do for shipping?
-
-			$fields[$key]['class'] = array( $btn['position'].' '. ( isset( $btn['conditional_tie'] ) ? $btn['conditional_tie'] : '' ) .' '. ( isset( $btn['extra_class'] ) ? $btn['extra_class'] : '' ) );		
+			// Default to Position wide
+			$btn['position'] = ( isset( $btn['position'] ) ? $btn['position'] : 'form-row-wide' );
+			$fields[$key]['class'] = array( $btn['position'] . ' ' . ( isset( $btn['conditional_tie'] ) ? $btn['conditional_tie'] : '' ) .' '. ( isset( $btn['extra_class'] ) ? $btn['extra_class'] : '' ) );
 			$fields[$key]['label'] =  wooccm_wpml_string( $btn['label'] );
 			$fields[$key]['clear'] = ( isset( $btn['clear_row'] ) ? $btn['clear_row'] : '' );
 			$fields[$key]['default'] = ( isset( $btn['force_title2'] ) ? $btn['force_title2'] : '' );
@@ -59,9 +59,8 @@ function wooccm_checkout_billing_fields( $fields ) {
 			}
 
 			// Bolt on address-field for address-based fields
-			if( in_array( $btn['cow'], $billing ) ) {
+			if( in_array( $btn['cow'], $billing ) )
 				$fields[$key]['class'][] = 'address-field';
-			}
 
 			// Override for State fields
 			if( $fields[$key]['type'] == 'wooccmstate' ) {

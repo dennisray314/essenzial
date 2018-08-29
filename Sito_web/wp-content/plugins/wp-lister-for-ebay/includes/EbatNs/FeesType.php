@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'FeeType.php';
 
 /**
-  * Identifies a set of one or more fees that a member pays to eBay (or
-  * an eBay company). Instances of this type can hold one or more fees.
+  * Type used to express all fees associated with listing an item. These are the fees that the seller will pay to eBay.
   * 
  **/
 

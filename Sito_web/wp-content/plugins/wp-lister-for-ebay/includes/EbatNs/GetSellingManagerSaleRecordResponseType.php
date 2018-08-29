@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'SellingManagerSoldOrderType.php';
 
 /**
-  * Response to a GetSellingManagerSaleRecord call.
+  * The base response to a <b>GetSellingManagerSaleRecord</b> call.
   * 
  **/
 

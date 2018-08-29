@@ -51,7 +51,10 @@ class EbatNs_NotificationClient
 			{
 				if ( is_object( $callback['object'] ) )
 				{
-					return call_user_method( $callback['method'], $callback['object'], $typeName, $value );
+			        // ***** BEGIN EBATNS PATCH *****
+					// return call_user_method( $callback['method'], $callback['object'], $typeName, $value );
+					return call_user_func(array($callback['object'], $callback['method']), $typeName, $value );
+			        // ***** END EBATNS PATCH ***** 
 				} 
 				else
 				{

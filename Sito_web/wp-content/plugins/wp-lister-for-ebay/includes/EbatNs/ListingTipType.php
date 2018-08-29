@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'ListingTipMessageType.php';
 require_once 'ListingTipFieldType.php';
 
 /**
-  * A tip on improving a listing's details. Tips are returned from the Listing Analyzer engine.
+  * This type is deprecated.
   * 
  **/
 

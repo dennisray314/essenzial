@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,9 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ExtendedPictureDetailsType.php';
 
 /**
-  *  Type defining the <b>VariationSpecificPictureSet</b> container, which is 
-  *  used to specify the URL(s) where the picture(s) of the variation specific will be 
-  *  hosted. If the <b>Variations.Pictures</b> container is used, at least one 
+  *  Type defining the <b>VariationSpecificPictureSet</b> container, which is
+  *  used to specify the URL(s) where the picture(s) of the variation specific will be
+  *  hosted. If the <b>Variations.Pictures</b> container is used, at least one
   *  <b>VariationSpecificPictureSet</b> container is required.
   * 
  **/

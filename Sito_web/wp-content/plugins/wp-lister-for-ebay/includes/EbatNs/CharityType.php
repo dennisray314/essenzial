@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'CharityStatusCodeType.php';
 
 /**
-  * Identifies a Giving Works listing and benefiting nonprofit charity organization.
+  * This type is used to provide details about a nonprofit organization registered with the PayPal Giving Fund.
   * 
  **/
 

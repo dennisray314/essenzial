@@ -31,13 +31,13 @@ final class PWBE_Filters {
 		global $wpdb;
 
 		$filter_types = array(
-			'categories'			=> array( 'name' => 'Category', 'type' => 'categories' ),
-			'post_content'			=> array( 'name' => 'Description', 'type' => 'string' ),
-			'post_title'			=> array( 'name' => 'Product Name', 'type' => 'string' ),
-			'regular_price'			=> array( 'name' => 'Regular Price', 'type' => 'currency' ),
-			'sale_price'			=> array( 'name' => 'Sale Price', 'type' => 'currency' ),
-			'sku'					=> array( 'name' => 'SKU', 'type' => 'string' ),
-			'tags'					=> array( 'name' => 'Tag', 'type' => 'tags' )
+			'categories'				=> array( 'name' => __( 'Category', 'woocommerce' ), 'type' => 'categories' ),
+			'post_content'				=> array( 'name' => __( 'Description', 'woocommerce' ), 'type' => 'string' ),
+			'post_title'				=> array( 'name' => __( 'Product name', 'woocommerce' ), 'type' => 'string' ),
+			'regular_price'				=> array( 'name' => __( 'Regular price', 'woocommerce' ), 'type' => 'currency' ),
+			'sale_price'				=> array( 'name' => __( 'Sale price', 'woocommerce' ), 'type' => 'currency' ),
+			'sku'						=> array( 'name' => __( 'SKU', 'woocommerce' ), 'type' => 'string' ),
+			'tags'						=> array( 'name' => __( 'Tag', 'woocommerce' ), 'type' => 'tags' ),
 		);
 
 		// Add any Attributes

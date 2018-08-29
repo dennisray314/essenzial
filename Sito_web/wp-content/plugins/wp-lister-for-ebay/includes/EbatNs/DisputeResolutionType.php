@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -13,6 +13,10 @@ require_once 'DisputeResolutionReasonCodeType.php';
   * can have a resolution even if the seller does not receive payment.
   * The resolution can have various results, including a Final Value Fee credit to
   * the seller or a strike to the buyer.
+  * <br/><br/>
+  * <span class="tablenote"><strong>Note:</strong>
+  * These are not eBay money back guarantee disputes.
+  * </span>
   * 
  **/
 

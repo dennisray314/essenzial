@@ -37,9 +37,9 @@ function wooccm_checkout_shipping_fields( $fields = array() ) {
 
 			// Default to Position wide
 			$btn['position'] = ( isset( $btn['position'] ) ? $btn['position'] : 'form-row-wide' );
-			$fields[$key]['class'] = array( $btn['position'].' '. ( isset( $btn['conditional_tie'] ) ? $btn['conditional_tie'] : '' ) .' '. ( isset( $btn['extra_class'] ) ? $btn['extra_class'] : '' ) );
+			$fields[$key]['class'] = array( $btn['position'] . ' ' . ( isset( $btn['conditional_tie'] ) ? $btn['conditional_tie'] : '' ) .' '. ( isset( $btn['extra_class'] ) ? $btn['extra_class'] : '' ) );
 			$fields[$key]['label'] =  wooccm_wpml_string( $btn['label'] );
-			$fields[$key]['clear']  = ( isset( $btn['clear_row'] ) ? $btn['clear_row'] : '' );
+			$fields[$key]['clear'] = ( isset( $btn['clear_row'] ) ? $btn['clear_row'] : '' );
 			$fields[$key]['default'] = ( isset( $btn['force_title2'] ) ? $btn['force_title2'] : '' );
 			$fields[$key]['options'] = ( isset( $btn['option_array'] ) ? $btn['option_array'] : '' );
 			$fields[$key]['user_role'] = ( isset( $btn['user_role'] ) ? $btn['user_role'] : '' );
@@ -59,9 +59,8 @@ function wooccm_checkout_shipping_fields( $fields = array() ) {
 			}
 
 			// Bolt on address-field for address-based fields
-			if( in_array( $btn['cow'], $shipping ) ) {
+			if( in_array( $btn['cow'], $shipping ) )
 				$fields[$key]['class'][] = 'address-field';
-			}
 
 			// Remove disabled fields
 			if( !empty( $btn['disabled'] ) ) {

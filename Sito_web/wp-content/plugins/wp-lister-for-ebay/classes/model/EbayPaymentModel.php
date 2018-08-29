@@ -24,9 +24,6 @@ class EbayPaymentModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-	
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . self::table;
 	}

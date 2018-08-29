@@ -19,7 +19,12 @@ class WEPOF_Product_Options_Frontend extends WEPOF_Product_Options_Utils {
 		add_filter('woocommerce_add_to_cart_validation', array($this, 'woo_add_to_cart_validation'), 99, 6 );
 		add_filter('woocommerce_add_cart_item_data', array($this, 'woo_add_cart_item_data'), 10, 3 );
 		add_filter('woocommerce_get_item_data', array($this, 'woo_get_item_data'), 10, 2 );
-		add_action('woocommerce_new_order_item', array($this, 'woo_new_order_item'), 10, 3);
+
+		if(self::woo_version_check()){
+			add_action('woocommerce_new_order_item', array($this, 'woo_new_order_item'), 10, 3);
+		}else{
+			add_action('woocommerce_add_order_item_meta', array($this, 'woo_add_order_item_meta'), 1, 3);
+		}
 		
 		add_filter('woocommerce_order_item_get_formatted_meta_data', array($this, 'woo_order_item_get_formatted_meta_data'), 10, 2);
 	}
@@ -35,7 +40,9 @@ class WEPOF_Product_Options_Frontend extends WEPOF_Product_Options_Utils {
 	**** PREPARE CUSTOM SECTIONS & OPTIONS - START ****
 	***************************************************/
 	public function woo_loop_add_to_cart_link($link, $product){
-		if($this->has_extra_options($product) && $product->is_in_stock()){
+		$modify = apply_filters('thwepof_modify_loop_add_to_cart_link', true);
+
+		if($modify && $this->has_extra_options($product) && $product->is_in_stock()){
 			$link_text = apply_filters('thwepof_loop_add_to_cart_link_text', 'Select options');
 			
 			$link = sprintf( '<a rel="nofollow" href="%s" data-quantity="%s" data-product_id="%s" data-product_sku="%s" class="%s">%s</a>',
@@ -251,7 +258,18 @@ class WEPOF_Product_Options_Frontend extends WEPOF_Product_Options_Utils {
 		$legacy_values = is_object($item) && isset($item->legacy_values) ? $item->legacy_values : false;
 		if($legacy_values){
 			$extra_options = isset($legacy_values['thwepof_options']) ? $legacy_values['thwepof_options'] : false;
-			if($extra_options){			
+			if($extra_options){
+				foreach($extra_options as $name => $data){
+					wc_add_order_item_meta( $item_id, $name, trim(stripslashes($data['value'])) );
+				}
+			}
+		}
+	}
+
+	public function woo_add_order_item_meta($item_id, $values, $cart_item_key) {
+		if(is_array($values)){
+			$extra_options = isset($values['thwepof_options']) ? $values['thwepof_options'] : false;
+			if($extra_options){
 				foreach($extra_options as $name => $data){
 					wc_add_order_item_meta( $item_id, $name, trim(stripslashes($data['value'])) );
 				}
@@ -282,7 +300,7 @@ class WEPOF_Product_Options_Frontend extends WEPOF_Product_Options_Utils {
 		return $formatted_meta;
 	}
 	
-	public function woo_order_item_get_formatted_meta_data( $formatted_meta, $item){
+	public function woo_order_item_get_formatted_meta_data( $formatted_meta, $order_item){
 		if(!empty($formatted_meta)){
 			$options_extra = $this->get_product_custom_fields_full();
 			if($options_extra){
@@ -291,8 +309,8 @@ class WEPOF_Product_Options_Frontend extends WEPOF_Product_Options_Utils {
 						$formatted_meta[$key] = (object) array(
 							'key'           => $meta->key,
 							'value'         => $meta->value,
-							'display_key'   => apply_filters( 'woocommerce_order_item_display_meta_key', $options_extra[$meta->key]->get_property('title') ),
-							'display_value' => wpautop( make_clickable( apply_filters( 'woocommerce_order_item_display_meta_value', $meta->value ) ) ),
+							'display_key'   => apply_filters( 'woocommerce_order_item_display_meta_key', $options_extra[$meta->key]->get_property('title'), $meta, $order_item ),
+							'display_value' => wpautop( make_clickable( apply_filters( 'woocommerce_order_item_display_meta_value', $meta->value, $meta, $order_item ) ) ),
 						);
 					}
 				}

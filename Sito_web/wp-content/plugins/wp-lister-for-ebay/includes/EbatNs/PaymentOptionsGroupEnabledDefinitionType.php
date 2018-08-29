@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,9 +7,10 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * The PaymentOptionsGroupEnabled field is returned in the GetCategoryFeature response if the Payment Options Group feature
-  * applies to the category. The field is returned as an empty element. The Payment Options Group feature is only applicable to 
-  * DE and AT listings.
+  * Defines the payment options group feature. If a field of this type is present, the corresponding feature applies to the site. The field is returned as an integer. The below are the integer values returned and its meanings.
+  * 0 - Ebay Payment Process Enabled
+  * 1 - Non Standard Payments Enabled
+  * 2 - Ebay Payment Process Excluded
   * 
  **/
 

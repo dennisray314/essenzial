@@ -112,11 +112,12 @@
 
 								<div id="major-publishing-actions">
 									<div id="publishing-action">
-										<input type="hidden" name="action" value="save_profile" />
+										<input type="hidden" name="action" value="save_listing_profile" />
 										<input type="hidden" name="wpl_e2e_profile_id" value="<?php echo $wpl_item['profile_id']; ?>" />
 										<input type="hidden" name="return_to" value="<?php echo @$_GET['return_to']; ?>" />
 										<input type="hidden" name="listing_status" value="<?php echo @$_GET['listing_status']; ?>" />
 										<input type="hidden" name="s" value="<?php echo @$_GET['s']; ?>" />
+                                        <?php wp_nonce_field( 'wplister_save_profile' ); ?>
 										<input type="submit" value="<?php echo __('Save profile','wplister'); ?>" id="publish" class="button-primary" name="save">
 									</div>
 									<div class="clear"></div>
@@ -217,7 +218,7 @@
 							<?php $custom_quantity_enabled = ( @$item_details['quantity'] || @$item_details['max_quantity'] ) ? 1 : 0; ?>
 							<label for="wpl-custom_quantity_enabled" class="text_label">
 								<?php echo __('Quantity','wplister'); ?>
-                                <?php wplister_tooltip('By default WP-Lister uses the current stock level quantity from WooCommerce and keep it in sync with eBay automatically.<br>If you wish to use a custom quantity, you can do so - but please keep in mind that syncing inventory and sales might not work as expected!') ?>
+                                <?php wplister_tooltip('By default WP-Lister uses the current stock level quantity from WooCommerce and keeps it in sync with eBay automatically.<br><br>If you wish to use a custom quantity, you can do so - but please keep in mind that syncing inventory and sales might not work as expected!') ?>
 							</label>
 							<select id="wpl-custom_quantity_enabled" name="wpl_e2e_custom_quantity_enabled" class="select">
 								<option value=""  <?php if ( $custom_quantity_enabled != '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('auto sync','wplister'); ?></option>
@@ -230,14 +231,14 @@
 								<label for="wpl-text-max-max_quantity" class="text_label">
 									<?php #echo __('Maximum quantity','wplister'); ?>
 									<?php echo __('Max. quantity','wplister'); ?>
-	                                <?php wplister_tooltip('If you wish to limit your available stock on eBay, you can set a maximum quantity here.<br>Use this where you want to create demand or when you have listing limitation. This option will not limit fixed quantities.') ?>
+	                                <?php wplister_tooltip('If you wish to limit your available stock on eBay, you can set a maximum quantity here.<br><br>Use this where you want to create demand or when you have listing limitation. This option will not limit fixed quantities.') ?>
 								</label>
 								<input type="number" name="wpl_e2e_max_quantity" id="wpl-text-max_quantity" value="<?php echo @$item_details['max_quantity']; ?>" class="text_input" placeholder="0" step="any" min="0" />
 								<br class="clear" />
 								
 								<label for="wpl-text-quantity" class="text_label">
 									<?php echo __('Fixed quantity','wplister'); ?>
-	                                <?php wplister_tooltip('If you do not use stock management in WooCommerce, you can set a fixed quantity here.<br>Use this with care - WP-Lister Pro can\'t sync the inventory properly if you enter a fixed quantity.') ?>
+	                                <?php wplister_tooltip('If you do not use stock management in WooCommerce at all, you can set a fixed quantity for your products here.<br><br>Use this with care - WP-Lister Pro can\'t sync the inventory properly when a fixed quantity is set.') ?>
 								</label>
 								<input type="number" name="wpl_e2e_quantity" id="wpl-text-quantity" value="<?php echo $item_details['quantity']; ?>" class="text_input" placeholder="0" step="any" min="0" />
 								<br class="clear" />
@@ -401,13 +402,24 @@
 							<select id="wpl-text-variation_image_attribute" name="wpl_e2e_variation_image_attribute" class=" required-entry select">
 								<option value="" <?php if ( @$item_details['variation_image_attribute'] == '' ): ?>selected="selected"<?php endif; ?>><?php echo __('Default','wplister'); ?></option>
 								<?php if ( isset( $wpl_available_attributes ) && is_array( $wpl_available_attributes ) ): ?>
-									<?php echo "<pre>";print_r($wpl_available_attributes);echo"</pre>";#die(); ?>
-									<?php foreach ($wpl_available_attributes as $attribute) : ?>
-										<option value="<?php echo $attribute->name ?>" 
-											<?php if ( @$item_details['variation_image_attribute'] == $attribute->name ) : ?>
+									<?php
+                                    foreach ($wpl_available_attributes as $attribute) :
+                                        $name = $attribute->name;
+                                        $label = $attribute->label;
+
+                                        // qTranslate support - translate title and description
+                                        if ( function_exists( 'qtranxf_use' ) ) {
+                                            $lang = WPLE_eBayAccount::getAccountLocale( $account_id );
+
+                                            $name = qtranxf_use( $lang, $name );
+                                            $label = qtranxf_use( $lang, $label );
+                                        }
+                                    ?>
+										<option value="<?php echo $name ?>"
+											<?php if ( @$item_details['variation_image_attribute'] == $name ) : ?>
 												selected="selected"
 											<?php endif; ?>
-											><?php echo $attribute->label ?></option>
+											><?php echo $label ?></option>
 									<?php endforeach; ?>
 								<?php endif; ?>
 							</select>
@@ -491,10 +503,11 @@
 							<label for="wpl-text-private_listing" class="text_label">
 								<?php echo __('Private listing','wplister'); ?>
                                 <?php wplister_tooltip('This option can be used to obscure item title, item ID, and item price from post-order Feedback comments left by buyers.<br><br>
-                                						Typically, it is not advisable that sellers use the Private Listing feature, but using this feature may be appropriate for sellers listing in Adults Only categories, or for high-priced and/or celebrity items.') ?>
+                                						Typically, it is not advisable that sellers use the Private Listing feature, but using this feature may be appropriate for sellers listing in Adults Only categories, or for high-priced and/or celebrity items.<br><br>
+                                						Unfortunately, eBay has deprecated this feature in the latest version 1045 of their API, so it can not be used anymore. If you need this feature, please contact eBay and ask them to give developers an alternative way to mark a listing as private in a future version of their API.') ?>
 							</label>
 							<select id="wpl-text-private_listing" name="wpl_e2e_private_listing" class=" required-entry select">
-								<option value="1" <?php if ( @$item_details['private_listing'] == '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('Yes','wplister'); ?></option>
+								<option value="1" <?php if ( @$item_details['private_listing'] == '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('Yes','wplister'); ?> (disabled!)</option>
 								<option value="0" <?php if ( @$item_details['private_listing'] != '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('No','wplister'); ?></option>
 							</select>
 							<br class="clear" />
@@ -582,6 +595,16 @@
 							<select id="wpl-text-b2b_only" name="wpl_e2e_b2b_only" class=" required-entry select">
 								<option value="0" <?php if ( @$item_details['b2b_only'] == '0' ): ?>selected="selected"<?php endif; ?>><?php echo __('No','wplister'); ?></option>
 								<option value="1" <?php if ( @$item_details['b2b_only'] == '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('Yes','wplister'); ?></option>
+							</select>
+							<br class="clear" />
+
+							<label for="wpl-text-ebayplus_enabled" class="text_label">
+								<?php echo __('eBay Plus','wplister'); ?>
+                                <?php wplister_tooltip('This enables your products to be offered via the eBay Plus program.<br><br>eBay Plus is a premium account option for buyers, which provides benefits such as fast free domestic shipping and free returns on selected items. Top-Rated eBay sellers must opt in to eBay Plus to be able to offer the program on qualifying listings. Sellers must commit to next-day delivery of those items.<br><br><b>Note:</b> Currently, eBay Plus is available only to buyers in Germany (DE), but this program is scheduled to come to the Austria and Australia marketplaces in the near future.') ?>
+							</label>
+							<select id="wpl-text-ebayplus_enabled" name="wpl_e2e_ebayplus_enabled" class=" required-entry select">
+								<option value="0" <?php if ( @$item_details['ebayplus_enabled'] == '0' ): ?>selected="selected"<?php endif; ?>><?php echo __('No','wplister'); ?></option>
+								<option value="1" <?php if ( @$item_details['ebayplus_enabled'] == '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('Yes','wplister'); ?></option>
 							</select>
 							<br class="clear" />
 

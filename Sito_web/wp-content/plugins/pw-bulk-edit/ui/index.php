@@ -26,17 +26,6 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 <div class="wrap" id="pwbe-main">
     <div class="pwbe-title-container">
-        <span class="pwbe-pull-right">
-            Spread the word!
-            <div id="share-panel" class="">
-                <i data-site="facebook" class="fa fa-facebook-square fa-fw fa-2x pwbe-link pwbe-social-link" title="Share on Facebook"></i>
-                <i data-site="twitter" class="fa fa-twitter-square fa-fw fa-2x pwbe-link pwbe-social-link" title="Share on Twitter"></i>
-                <i data-site="google-plus" class="fa fa-google-plus-square fa-fw fa-2x pwbe-link pwbe-social-link" title="Share on Google+"></i>
-                <i data-site="reddit" class="fa fa-reddit-square fa-fw fa-2x pwbe-link pwbe-social-link" title="Share on Reddit"></i>
-                <i data-site="tumblr" class="fa fa-tumblr-square fa-fw fa-2x pwbe-link pwbe-social-link" title="Share on Tumblr"></i>
-                <i data-site="pinterest" class="fa fa-pinterest-square fa-fw fa-2x pwbe-link pwbe-social-link" title="Share on Pinterest"></i>
-            </div>
-        </span>
         <span class="pwbe-title">PW WooCommerce Bulk Edit </span>
         <span class="pwbe-version">v<?php echo $version; ?></span>
 

@@ -18,9 +18,6 @@ class ListingsModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . 'ebay_auctions';
 	}
@@ -699,7 +696,7 @@ class ListingsModel extends WPL_Model {
 			// echo "<pre>";print_r($variations);echo"</pre>";die();	
 
             // check variations cache
-            $result = self::matchCachedVariations( $listing_item, $filter_unchanged = true );
+            $result = self::matchCachedVariations( $listing_item, apply_filters( 'wple_filter_unchanged_variations', true, $post_id, $listing_item ) );
             if ( $result && $result->success ) 
                 $variations = $result->variations;
 
@@ -1378,7 +1375,7 @@ class ListingsModel extends WPL_Model {
 		$data['quantity'] 			= $Detail->Quantity;
 		// $data['quantity'] 		= $Detail->Quantity - $Detail->SellingStatus->QuantitySold; // this is how it should work in the future...
 		$data['ViewItemURL'] 		= $Detail->ListingDetails->ViewItemURL;
-		$data['GalleryURL'] 		= $Detail->PictureDetails->GalleryURL;
+		$data['GalleryURL'] 		= $Detail->PictureDetails->PictureURL[0];
 
 		// check if this item has variations
 		if ( count( @$Detail->Variations->Variation ) > 0 ) {
@@ -1576,8 +1573,8 @@ class ListingsModel extends WPL_Model {
 	    $product_variations = ProductWrapper::getVariations( $post_id );
         $variations = maybe_unserialize( @$item['variations'] );
 
-        WPLE()->logger->debug( 'Found product variations: '. count( $product_variations ) );
-        WPLE()->logger->debug( 'Found listing variations: '. count( $variations ) );
+        if ( is_array( $product_variations ) ) WPLE()->logger->debug( 'Found product variations: '. count( $product_variations ) );
+        if ( is_array( $variations ) ) WPLE()->logger->debug( 'Found listing variations: '. count( $variations ) );
 
         if ( empty( $product_variations ) || empty( $variations ) ) {
             WPLE()->logger->info( 'Empty variations. Skipping.' );
@@ -1604,7 +1601,9 @@ class ListingsModel extends WPL_Model {
     } // setListingVariationsQuantity()
 
 	public function markItemAsModified( $post_id ) {
-		global $wpdb;	
+		global $wpdb;
+
+		WPLE()->logger->info( 'markItemAsModified #'. $post_id );
 
 		// get single listing for post_id
 		$listing_id = WPLE_ListingQueryHelper::getListingIDFromPostID( $post_id );
@@ -1974,8 +1973,16 @@ class ListingsModel extends WPL_Model {
          *
          *  # Do not update cache if the update is coming from WPLA (#13006 #13858 #13775)
          *  # Do not update listing variations when updating from the Edit Product screen (#15470)
+         *  # Do not update when updating from the REST API #21943
+         *  # Do not update when the wplister_set_listing_variations_quantity filter is FALSE
          */
-        if ( did_action( 'wpla_inventory_status_changed' ) === 0 && did_action( 'woocommerce_process_product_meta' ) === 0 ) {
+        if (
+            did_action( 'wpla_inventory_status_changed' ) === 0 &&
+            did_action( 'woocommerce_process_product_meta' ) === 0 &&
+            did_action( 'woocommerce_rest_insert_product_object' ) === 0 &&
+            did_action( 'woocommerce_rest_insert_product_variation_object' ) === 0 &&
+            apply_filters( 'wplister_set_listing_variations_quantity', true )
+        ) {
             self::setListingVariationsQuantity( $post_id, $item );
         }
 		

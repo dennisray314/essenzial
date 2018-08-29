@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,12 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>BrandMPN</b> container which is used to identify a product (through unique product brand and Manufacturer Part Number combination), and match that product to a product in the eBay Product Catalog.
+  * Type defining the <b>BrandMPN</b> container which is used to identify a product (through unique product brand and Manufacturer Part Number combination).
+  * <br>
+  * <br>
+  * <span class="tablenote"><b>Note:</b>
+  * If a Brand/MPN pair is required for the category/brand, these values must still be input through the <b>BrandMPN</b> container, but a catalog product match is only possible with an ePID or one of the GTINs.
+  * </span>
   * 
  **/
 

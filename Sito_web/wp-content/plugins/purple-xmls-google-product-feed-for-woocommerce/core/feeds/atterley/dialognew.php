@@ -15,6 +15,7 @@ class AtterleyDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Atterley';
         $this->service_name_long = 'Atterley Products XML Export';
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
     }
 
     function convert_option($option)

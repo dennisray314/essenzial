@@ -15,6 +15,7 @@ class PricefallsDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Pricefalls';
         $this->service_name_long = 'Pricefalls Products TXT Export';
+        $this->doc_link = "https://www.exportfeed.com/documentation/pricefalls-com-integration-guide/";
     }
 
     function convert_option($option)

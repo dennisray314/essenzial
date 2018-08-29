@@ -120,7 +120,7 @@ function wplc_survey_hook_control_settings_page_more_tabs() {
 <?php
 
     global $wplc_version;
-    wp_register_script('wplc-lead-form-script', plugins_url('/js/wplc_lead_forms.js', __DIR__),array('jquery'),$wplc_version);
+    wp_register_script('wplc-lead-form-script', plugins_url('../js/wplc_lead_forms.js', __FILE__),array('jquery'),$wplc_version);
     wp_enqueue_script('wplc-lead-form-script');
 }
 
@@ -192,7 +192,7 @@ function wplc_filter_control_live_chat_box_pre_layer1($content) {
     if( isset( $settings['wplc_enable_surveys'] ) && intval($settings['wplc_enable_surveys']) == 1 && !isset($_COOKIE['ns_participated'])){
 
         if( isset( $settings['survey_display']) && $settings['survey_display'] == '1' ) {
-            $content .= "<img src='".plugins_url('/images/loader2.gif', __DIR__)."' style='display:block; margin-left:auto; margin-right:auto;' / >";
+            $content .= "<img src='".plugins_url('../images/loader2.gif', __FILE__)."' style='display:block; margin-left:auto; margin-right:auto;' / >";
             return $content;
         }
     }
@@ -284,10 +284,10 @@ function wplc_nimble_load_scripts() {
         wp_localize_script( 'nimble-squirrel-user-script', 'ns_clear_div', $clear_div );
         
 
-        wp_register_style('wplc-survey-style', plugins_url('/css/wplc-survey-style.css', __DIR__));
+        wp_register_style('wplc-survey-style', plugins_url('../css/wplc-survey-style.css', __FILE__));
         wp_enqueue_style('wplc-survey-style');
         if( isset( $settings['survey_display']) && $settings['survey_display'] == '1' ) {
-            wp_register_style('wplc-survey-before-style', plugins_url('/css/wplc-survey-style-before.css', __DIR__));
+            wp_register_style('wplc-survey-before-style', plugins_url('../css/wplc-survey-style-before.css', __FILE__));
             wp_enqueue_style('wplc-survey-before-style');
         }
     }
@@ -326,7 +326,7 @@ function wplc_hook_survey_push_js_to_front() {
      
         global $wplc_version;
         $wplc_settings = get_option('WPLC_SETTINGS');
-        wp_register_script('wplc-survey-script', plugins_url('/js/wplc_surveys.js', __DIR__),array('jquery'),$wplc_version);
+        wp_register_script('wplc-survey-script', plugins_url('../js/wplc_surveys.js', __FILE__),array('jquery'),$wplc_version);
         wp_enqueue_script('wplc-survey-script');
         wp_localize_script( 'wplc-survey-script', 'wplc_end_chat_string', $wplc_settings['wplc_pro_sst1e_survey'] );
         wp_localize_script( 'wplc-survey-script', 'wplc_button_string', $wplc_settings['wplc_pro_sst1_survey'] );
@@ -362,7 +362,7 @@ function wplc_admin_survey_layout() {
     } 
     else {
 
-    $link1 = sprintf( __( 'Register on <a href="%s" target="_BLANK" title="NimbleSquirrel">NimbleSquirrel</a> (It\'s free.)', 'wplivechat' ),
+    $link1 = sprintf( __( 'Register on <a href="%s" target="_BLANK" title="NimbleSquirrel">NimbleSquirrel</a> (It\'s free)', 'wplivechat' ),
         'http://app.nimblesquirrel.com/join.php?email='.get_option("admin_email")."&site=".site_url().'&utm_source=wplc&utm_medium=click&utm_campaign=plugin_register'
     );
     $link2 = sprintf( __( '<a href="%s" target="_BLANK" title="Create a survey">Create a survey</a>.', 'wplivechat' ),

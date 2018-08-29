@@ -15,6 +15,7 @@ class GoogleDlg extends PBaseFeedDialog {
 		parent::__construct();
 		$this->service_name = 'Google';
 		$this->service_name_long = 'Google Products XML Export';
+		$this->doc_link = "https://www.exportfeed.com/documentation/google-merchant-shopping-product-upload/";
 	}
 
 	function convert_option($option) {

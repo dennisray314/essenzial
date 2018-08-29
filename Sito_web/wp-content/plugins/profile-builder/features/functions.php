@@ -254,6 +254,10 @@ function wppb_print_cpt_script( $hook ){
     
 	if ( $hook == 'profile-builder_page_manage-fields' ){
 		wp_enqueue_script( 'wppb-manage-fields-live-change', WPPB_PLUGIN_URL . 'assets/js/jquery-manage-fields-live-change.js', array(), PROFILE_BUILDER_VERSION, true );
+		wp_localize_script( 'wppb-manage-fields-live-change', 'wppb_fields_strings', array( 'gdpr_title' => __( 'GDPR Checkbox', 'profile-builder' ), 'gdpr_description' => __( 'I allow the website to collect and store the data I submit through this form.', 'profile-builder' ) ) );
+
+		wp_enqueue_script( 'wppb-select2', WPPB_PLUGIN_URL . 'assets/js/select2/select2.min.js', array(), PROFILE_BUILDER_VERSION, true );
+        wp_enqueue_style( 'wppb-select2-style', WPPB_PLUGIN_URL . 'assets/css/select2/select2.min.css', false, PROFILE_BUILDER_VERSION );
 	}
 
 	if (( $hook == 'profile-builder_page_manage-fields' ) ||
@@ -532,6 +536,18 @@ function wppb_check_missing_http( $redirectLink ) {
 	return preg_match( '#^(?:[a-z\d]+(?:-+[a-z\d]+)*\.)+[a-z]+(?::\d+)?(?:/|$)#i', $redirectLink );
 }
 
+//function that adds missing http to a link
+function wppb_add_missing_http( $link ){
+	$http = '';
+	if ( wppb_check_missing_http( $link ) ) { //if missing http(s)		
+		$http = 'http';
+		if ((isset($_SERVER["HTTPS"])) && ($_SERVER["HTTPS"] == "on"))
+			$http .= "s";
+		$http .= "://";
+	}
+
+	return $http . $link;
+}
 
 
 //function to output the password strength checker on frontend forms
@@ -757,19 +773,6 @@ add_filter('wck_metabox_content_header_wppb_ul_page_settings', 'wppb_change_meta
 add_filter('wck_metabox_content_header_wppb_rf_page_settings', 'wppb_change_metabox_content_header', 1);
 add_filter('wck_metabox_content_header_wppb_epf_page_settings', 'wppb_change_metabox_content_header', 1);
 
-
-/* Add a notice if people are not able to register via Profile Builder; Membership -> "Anyone can register" checkbox is not checked under WordPress admin UI -> Settings -> General tab */
-if ( (get_option('users_can_register') == false) && (!class_exists('PMS_Add_General_Notices')) ) {
-    if( is_multisite() ) {
-        new WPPB_Add_General_Notices('wppb_anyone_can_register',
-            sprintf(__('To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sNetwork Settings%2$s, and under Registration Settings make sure to check “User accounts may be registered”. %3$sDismiss%4$s', 'profile-builder'), "<a href='" . network_admin_url('settings.php') . "'>", "</a>", "<a href='" . esc_url( add_query_arg('wppb_anyone_can_register_dismiss_notification', '0') ) . "'>", "</a>"),
-            'update-nag');
-    }else{
-        new WPPB_Add_General_Notices('wppb_anyone_can_register',
-            sprintf(__('To allow users to register for your website via Profile Builder, you first must enable user registration. Go to %1$sSettings -> General%2$s tab, and under Membership make sure to check “Anyone can register”. %3$sDismiss%4$s', 'profile-builder'), "<a href='" . admin_url('options-general.php') . "'>", "</a>", "<a href='" . esc_url( add_query_arg('wppb_anyone_can_register_dismiss_notification', '0') ) . "'>", "</a>"),
-            'update-nag');
-    }
-}
 
 /*Filter default WordPress notices ("Post published. Post updated."), add post type name for User Listing, Registration Forms and Edit Profile Forms*/
 function wppb_change_default_post_updated_messages($messages){

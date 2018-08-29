@@ -28,15 +28,18 @@ class LogPage extends WPL_Page {
 	}
 
 	public function handleSubmit() {
-        WPLE()->logger->debug("handleSubmit()");
+		if ( ! current_user_can('manage_ebay_options') ) return;
 
-		if ( $this->requestAction() == 'display_log_entry' ) {
+		if ( $this->requestAction() == 'wple_display_log_entry' ) {
+		    // check_admin_referer( 'wplister_display_log_entry' ); // no nonce required to show log record
 			$this->displayLogEntry( $_REQUEST['log_id'] );
 			exit();
 		}
 
 		// handle delete action
-		if ( $this->requestAction() == 'delete' ) {
+		if ( $this->requestAction() == 'wple_bulk_delete_logs' ) {
+		    check_admin_referer( 'bulk-logs' );
+
 			$log_ids = @$_REQUEST['log'];
 			if ( is_array($log_ids)) {
 				foreach ($log_ids as $id) {
@@ -47,10 +50,14 @@ class LogPage extends WPL_Page {
 		}
 
 		if ( $this->requestAction() == 'wpl_clear_ebay_log' ) {
+		    check_admin_referer( 'wplister_clear_ebay_log' );
+
 			$this->clearLog();
 			$this->showMessage( __('Database log has been cleared.','wplister') );
 		}
 		if ( $this->requestAction() == 'wpl_optimize_ebay_log' ) {
+		    check_admin_referer( 'wplister_optimize_ebay_log' );
+
 			$count = $this->optimizeLog();
 			$this->showMessage( $count . ' ' . __('expired records have been removed and the database table has been optimized.','wplister') );
 		}

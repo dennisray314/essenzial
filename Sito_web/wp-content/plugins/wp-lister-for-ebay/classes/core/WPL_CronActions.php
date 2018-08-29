@@ -14,14 +14,22 @@ class WPL_CronActions extends WPL_Core {
 		parent::__construct();
 		
 		// add cron handler
-		add_action('wplister_update_auctions', 			array( &$this, 'cron_update_auctions' ) );
-		add_action('wple_daily_schedule', 	   			array( &$this, 'cron_daily_schedule' ) );
+		add_action('wplister_update_auctions', 						array( &$this, 'cron_update_auctions' ) );
+		add_action('wple_daily_schedule', 	   						array( &$this, 'cron_daily_schedule' ) );
 
 		// add internal action hooks
-		add_action('wple_clean_log_table', 				array( &$this, 'action_clean_log_table' ) );
-		add_action('wple_clean_tables', 				array( &$this, 'action_clean_tables' ) );
-		add_action('wple_clean_listing_archive', 		array( &$this, 'action_clean_listing_archive' ) );
+		add_action('wple_clean_log_table', 							array( &$this, 'action_clean_log_table' ) );
+		add_action('wple_clean_tables', 							array( &$this, 'action_clean_tables' ) );
+		add_action('wple_clean_listing_archive', 					array( &$this, 'action_clean_listing_archive' ) );
 
+		// add custom cron schedules
+		add_filter( 'cron_schedules', 								array( &$this, 'cron_add_custom_schedules' ) );
+ 
+ 		// handle external cron calls
+		add_action('wp_ajax_wplister_run_scheduled_tasks', 			array( &$this, 'cron_update_auctions' ) ); // wplister_run_scheduled_tasks
+		add_action('wp_ajax_nopriv_wplister_run_scheduled_tasks', 	array( &$this, 'cron_update_auctions' ) );
+		add_action('wp_ajax_wple_run_scheduled_tasks', 				array( &$this, 'cron_update_auctions' ) ); // wple_run_scheduled_tasks
+		add_action('wp_ajax_nopriv_wple_run_scheduled_tasks', 		array( &$this, 'cron_update_auctions' ) );
 
 	}
 
@@ -83,15 +91,7 @@ class WPL_CronActions extends WPL_Core {
 
 			// fallback to pre 1.5.2 behaviour
 			$this->initEC();
-			$this->EC->updateEbayOrders(); // force new mode in 1.5.2
-			
-			// decide if the old transactions update or the new orders update mode is to be used
-			// $mode = get_option( 'wplister_ebay_update_mode', 'order' );
-			// if ( $mode == 'order' ) {
-			// 	$this->EC->updateEbayOrders(); // new
-			// } else {
-			// 	$this->EC->loadTransactions(); // old
-			// }
+			$this->EC->updateEbayOrders();
 
 			// update ended items and process relist schedule
 			$this->EC->updateListings(); 
@@ -222,6 +222,25 @@ class WPL_CronActions extends WPL_Core {
 		}
 	}
 
+	public function cron_add_custom_schedules( $schedules ) {
+		$schedules['five_min'] = array(
+			'interval' => 60 * 5,
+			'display' => 'Once every five minutes'
+		);
+		$schedules['ten_min'] = array(
+			'interval' => 60 * 10,
+			'display' => 'Once every ten minutes'
+		);
+		$schedules['fifteen_min'] = array(
+			'interval' => 60 * 15,
+			'display' => 'Once every fifteen minutes'
+		);
+		$schedules['thirty_min'] = array(
+			'interval' => 60 * 30,
+			'display' => 'Once every thirty minutes'
+		);
+		return $schedules;
+	}
 
 
 } // class WPL_CronActions

@@ -1541,10 +1541,12 @@ class IWP_MMB_Backup_Core {
 		// Argh. In fact, this has limited effect, as apparently (at least on another install seen), the saving of the updated transient via jobdata_set() also took no effect. Still, it does not hurt.
 		if ($resumption_no >= 1 && 'finished' == $this->jobdata_get('jobstatus')) {
 			$this->log('Terminate: This backup job is already finished (1).');
+			delete_option('IWP_backup_status');
 			die;
 		} elseif ('backup' == $job_type && !empty($this->backup_is_already_complete)) {
 			$this->jobdata_set('jobstatus', 'finished');
 			$this->log('Terminate: This backup job is already finished (2).');
+			delete_option('IWP_backup_status');
 			die;
 		}
 

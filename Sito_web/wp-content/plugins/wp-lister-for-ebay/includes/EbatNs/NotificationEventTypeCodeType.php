@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -99,9 +99,19 @@ class NotificationEventTypeCodeType extends EbatNs_FacetType
 	const CodeType_ReturnRefundOverdue = 'ReturnRefundOverdue';
 	const CodeType_ReturnClosed = 'ReturnClosed';
 	const CodeType_ReturnEscalated = 'ReturnEscalated';
+	const CodeType_BuyerCancelRequested = 'BuyerCancelRequested';
 	const CodeType_UnmatchedPaymentReceived = 'UnmatchedPaymentReceived';
 	const CodeType_RefundSuccess = 'RefundSuccess';
 	const CodeType_RefundFailure = 'RefundFailure';
+	const CodeType_OrderInquiryOpened = 'OrderInquiryOpened';
+	const CodeType_OrderInquiryReminderForEscalation = 'OrderInquiryReminderForEscalation';
+	const CodeType_OrderInquiryProvideShipmentInformation = 'OrderInquiryProvideShipmentInformation';
+	const CodeType_OrderInquiryClosed = 'OrderInquiryClosed';
+	const CodeType_OrderInquiryEscalatedToCase = 'OrderInquiryEscalatedToCase';
+	const CodeType_ItemReadyForPickup = 'ItemReadyForPickup';
+	const CodeType_ItemOutOfStock = 'ItemOutOfStock';
+	const CodeType_BuyerNoShow = 'BuyerNoShow';
+	const CodeType_WebnextMobilePhotoSync = 'WebnextMobilePhotoSync';
 	const CodeType_PaymentReminder = 'PaymentReminder';
 	const CodeType_EBNOrderPickedUp = 'EBNOrderPickedUp';
 	const CodeType_EBNOrderCanceled = 'EBNOrderCanceled';

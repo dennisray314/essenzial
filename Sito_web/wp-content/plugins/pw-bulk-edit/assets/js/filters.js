@@ -1,8 +1,3 @@
-var pwbeStringTypes = ["contains", "does not contain", "is", "is not", "begins with", "ends with"];
-var pwbeBooleanTypes = ["is checked", "is not checked"];
-var pwbeNumericTypes = ["is", "is not", "is greater than", "is less than", "is in the range"];
-var pwbeSelectTypes = ["is any of", "is none of", "is all of"];
-
 jQuery(function() {
 
 	if (!jQuery('.pwbe-intro').is(':visible')) {
@@ -390,31 +385,36 @@ function pwbePrepareTypeDropdown(row) {
 	dropdown.empty();
 
 	var types;
+	var translatedTypes;
 	switch (nameType) {
 		case 'boolean':
-			types = pwbeBooleanTypes;
+			types = pwbeFilters.booleanTypes;
+			translatedTypes = pwbeFilters.i18n.booleanTypes;
 		break;
 
 		case 'numeric':
 		case 'currency':
-			types = pwbeNumericTypes;
+			types = pwbeFilters.numericTypes;
+			translatedTypes = pwbeFilters.i18n.numericTypes;
 		break;
 
 		case 'attributes':
 		case 'categories':
 		case 'tags':
-			types = pwbeSelectTypes;
+			types = pwbeFilters.multiSelectTypes;
+			translatedTypes = pwbeFilters.i18n.multiSelectTypes;
 		break;
 
 		default:
-			types = pwbeStringTypes;
+			types = pwbeFilters.stringTypes;
+			translatedTypes = pwbeFilters.i18n.stringTypes;
 		break;
 	}
 
 	for (var i = 0; i < types.length; i++) {
 		var selected = '';
 
-		dropdown.append('<option value="' + types[i] + '">' + types[i] + '</option>');
+		dropdown.append('<option value="' + types[i] + '">' + translatedTypes[i] + '</option>');
 	}
 }
 

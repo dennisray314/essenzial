@@ -1,10 +1,10 @@
 ﻿=== User registration & user profile - Profile Builder ===
-Contributors: cozmoslabs, reflectionmedia, sareiodata, adispiac, madalin.ungureanu, iova.mihai, barinagabriel
+Contributors: cozmoslabs, reflectionmedia, sareiodata, adispiac, madalin.ungureanu, iova.mihai, barinagabriel, vadasan
 Donate link: http://www.cozmoslabs.com/wordpress-profile-builder/
 Tags: user registration, user profile, user registration form, user fields, extra user fields, edit profile, user custom fields, front-end login, front-end edit profile, front-end user registration, email confirmation, login form, content restriction, restrict content
 Requires at least: 3.1
-Tested up to: 4.9.5
-Stable tag: 2.8.0
+Tested up to: 4.9.7
+Stable tag: 2.8.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -121,8 +121,9 @@ Please visit the [documentation page](https://www.cozmoslabs.com/docs/profile-bu
 For more details visit our [website](http://www.cozmoslabs.com/wordpress-profile-builder/)
 
 = Profile Builder in your Language =
-We're focusing on translating Profile Builder in as many languages as we can. So far, the translations for 10 languages are almost complete, but we still need help on a lot of other languages, so please join us at [translate.cozmoslabs.com.](http://translate.cozmoslabs.com/projects/profile-builder)
-You will be able to download all the [available language packs](http://translate.cozmoslabs.com/projects/profile-builder) as well as help us translate Profile Builder in your language.
+We're focusing on translating Profile Builder in as many languages as we can. So far, the translations for 10 languages are almost complete, but we still need help on a lot of other languages, so please join us at [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/profile-builder)
+You will be able to download all the [available language packs](https://translate.wordpress.org/projects/wp-plugins/profile-builder) as well as help us translate Profile Builder in your language.
+For more information please visit [cozmoslabs.com](https://www.cozmoslabs.com/docs/profile-builder-2/translate-profile-builder/)
 
 NOTE:
 This plugin adds/removes user fields in the front-end. Both default and extra profile fields will be visible in the back-end as well.
@@ -165,6 +166,44 @@ This plugin adds/removes user fields in the front-end. Both default and extra pr
 12. Role Editor
 
 == Changelog ==
+= 2.8.7 =
+* Secupress plugin compatiblity when activating "Move the login and admin pages"
+* Fixed issue with content restriction and url redirect if url was missing 'http'
+* Select2 now offers a labels tag in the Userlisting
+* Small css change
+* Reimplemented the deactivation feedback poll
+
+= 2.8.6 =
+* Implemented a tabbed settings interface
+* Content restriction activated setting is now in the Content Restriction tab
+* Fixed a fatal error that occurred on some instances on the Settings page
+* Fixed typo in query for existing pages in setup process
+
+= 2.8.5 =
+* Added a small setup process for creating forms
+* GDPR field now saves the value on Edit Profile
+* We no longer consider the 'users_can_register' option in our forms
+* Fixed product description paragraphs in Woocommerce
+* Fixed issue with login form on some pages that weren't logging you in the backend as well
+
+= 2.8.4 =
+* Refactored the login form. This should fix a lot of issues with wordpress.com and other incompatibilities with plugins
+* Fixed issue with content restriction and Woocommerce products adding extra html
+
+= 2.8.3 =
+* Usability improvements and some name changes
+* Refactored manage fields dropdown to be more user friendly
+* Added the GDPR field on the Edit Profile as well
+
+= 2.8.2 = 
+* Added GDPR checkbox default field
+* Fixed some warnings with Onfleek theme
+
+= 2.8.1 =
+* Added a feedback modal on plugin deactivate for profile builder
+* Added 'form_name' parameter to the submit button value hook.
+* Fixed small typos.
+
 = 2.8.0 =
 * Improved reCaptcha security on login forms
 * Fixed issue with 'User to edit' field and multiple edit forms on the same page

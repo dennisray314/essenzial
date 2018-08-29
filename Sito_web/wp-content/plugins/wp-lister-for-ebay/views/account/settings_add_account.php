@@ -14,6 +14,7 @@
 					<input type="hidden" name="action"  value="wplister_add_account" >
 					<input type="hidden" name="site_id" id="frm_site_id" value="" >
 					<input type="hidden" name="sandbox" id="frm_sandbox" value="" >
+                    <?php wp_nonce_field( 'wplister_add_account' ); ?>
 
 					<div class="postbox" id="AddAccountBox">
 						<h3 class="hndle"><span><?php echo __('Add eBay Account','wplister') ?></span></h3>

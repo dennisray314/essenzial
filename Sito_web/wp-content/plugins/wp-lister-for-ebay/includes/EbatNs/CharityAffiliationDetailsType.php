@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'CharityAffiliationDetailType.php';
 
 /**
-  * Lists the nonprofit charity organization affiliations for a specified user.
+  * This type is used to hold an array of one or more eBay for Charity organizations that are affiliated with the seller's account.
   * 
  **/
 

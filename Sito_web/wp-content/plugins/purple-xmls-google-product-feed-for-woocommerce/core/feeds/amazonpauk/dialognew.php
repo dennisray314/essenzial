@@ -15,6 +15,7 @@ class AmazonPAUKDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'AmazonPAUK';
         $this->service_name_long = 'Amazon Product Ads UK Export';
+        // $this->doc_link = "https://www.exportfeed.com/documentation/amazon-seller-central-product-guide/";
     }
 
     function convert_option($option)

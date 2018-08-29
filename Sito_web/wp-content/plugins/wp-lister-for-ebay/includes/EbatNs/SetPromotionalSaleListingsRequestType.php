@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'ModifyActionCodeType.php';
 require_once 'ItemIDArrayType.php';
 
 /**
-  * Enables the seller to change the item listings that are affected by a promotional sale. 
+  * Enables the seller to change the item listings that are affected by a promotional sale. To use this call, the seller must be a registered eBay Store owner.
   * 
  **/
 

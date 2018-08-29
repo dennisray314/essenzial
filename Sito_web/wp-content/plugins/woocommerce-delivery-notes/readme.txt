@@ -4,9 +4,9 @@ Contributors: ashokrane, bhavik.kiri, tychesoftwares, rashmim
 Donate link: https://www.paypal.me/TycheSoftwares
 Tags: delivery note, packing slip, pdf invoice, delivery, shipping, print order, woocommerce, woothemes, shop
 Requires at least: 4.0
-Tested up to: 4.9.5
+Tested up to: 4.9.7
 Author URI: https://www.tychesoftwares.com/
-Stable tag: 4.4.2
+Stable tag: 4.4.3
 License: GPLv3 or later
 License URI: http://www.opensource.org/licenses/gpl-license.php
 
@@ -329,6 +329,10 @@ Please [contribute your translation](https://github.com/TycheSoftwares/woocommer
 == Changelog ==
 
 = Minimum Requirements: WooCommerce 2.2 =
+
+= 4.4.3 (23.07.2018) =
+
+* Usage Tracking has been added in the plugin. It provides an option to allow  tracking of the non-sensitive data of our plugin from the website. You can read more about it [here](https://www.tychesoftwares.com/docs/docs/woocommerce-print-invoice-delivery-note/usage-tracking/).
 
 = 4.4.2 (22.02.2018) =
 

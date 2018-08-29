@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -16,7 +16,7 @@ require_once 'PurchaseReminderEmailPreferencesType.php';
 require_once 'DispatchCutoffTimePreferencesType.php';
 
 /**
-  * Sets the authenticated user's preferences.
+  * This call allows an eBay user to set/modify numerous seller account preferences.
   * 
  **/
 

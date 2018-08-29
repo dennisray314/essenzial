@@ -15,6 +15,7 @@ class TrademeDlg extends PBaseFeedDialog {
 		parent::__construct();
 		$this->service_name = 'Trademe';
 		$this->service_name_long = 'Trademe';
+		// $this->doc_link = "https://www.exportfeed.com/documentation/";
 	}
 
 	function convert_option($option) {

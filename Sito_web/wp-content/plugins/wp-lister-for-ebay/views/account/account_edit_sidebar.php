@@ -41,7 +41,8 @@
 
 								<div id="major-publishing-actions">
 									<div id="publishing-action">
-										<input type="hidden" name="action" value="save_account" />
+										<input type="hidden" name="action" value="wple_save_account" />
+                                        <?php wp_nonce_field( 'wplister_save_account' ); ?>
 										<input type="hidden" name="wplister_account_id" value="<?php echo $wpl_account->id; ?>" />
 										<input type="hidden" name="return_to" value="<?php echo @$_GET['return_to']; ?>" />
 										<input type="submit" value="<?php echo __('Update','wplister'); ?>" id="publish" class="button-primary" name="save">
@@ -102,7 +103,7 @@
 								<?php echo __('After linking WP-Lister with your eBay account, click here to fetch your token','wplister') ?>
 							</p>
 							<p>
-								<a id="btn_fetch_token" href="<?php echo $wpl_form_action; ?>&amp;action=wplister_fetch_ebay_token&amp;account_id=<?php echo $wpl_account->id ?>" class="button-secondary"><?php echo __('Fetch eBay Token','wplister') ?></a>
+								<a id="btn_fetch_token" href="<?php echo $wpl_form_action; ?>&amp;action=wplister_fetch_ebay_token&amp;account_id=<?php echo $wpl_account->id ?>&_wpnonce=<?php echo wp_create_nonce( 'wplister_fetch_ebay_token' ); ?>" class="button-secondary"><?php echo __('Fetch eBay Token','wplister') ?></a>
 								<!-- <input type="submit" value="<?php echo __('Fetch eBay Token','wplister') ?>" name="submit" class="button"> -->
 							</p>
 

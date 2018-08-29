@@ -23,7 +23,10 @@ require_once 'EbatNs_ServiceProxy.php';
 class EbatNs_AuthenticationHelper
 {
 	protected $_cs;
-	function EbatNs_AuthenticationHelper($cs)
+    // ***** BEGIN EBATNS PATCH *****
+	// function EbatNs_AuthenticationHelper($cs)
+	function __construct($cs)
+    // ***** END EBATNS PATCH ***** 
 	{
 		$this->_cs = $cs;
 	}

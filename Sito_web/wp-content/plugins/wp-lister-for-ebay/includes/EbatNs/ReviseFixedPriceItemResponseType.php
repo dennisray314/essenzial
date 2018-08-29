@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -13,9 +13,7 @@ require_once 'ProductSuggestionsType.php';
 require_once 'ListingRecommendationsType.php';
 
 /**
-  * Returns the Item ID, SKU (if any), listing recommendations (if applicable), the
-  * estimated fees for the revised listing (except the Final Value Fee, which isn't calculated
-  * until the item has sold), the start and end times of the listing, and other details.
+  * The base response type for the <b>ReviseFixedPriceItem</b> call. The response includes the Item ID for the revised item, the SKU value for the item (if any), listing recommendations (if applicable), the estimated fees for the revised item (except the Final Value Fee, which isn't calculated until the item has sold), the start and end times of the listing, and other details.
   * 
  **/
 

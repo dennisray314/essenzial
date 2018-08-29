@@ -27,13 +27,13 @@ jQuery(document).ready( function($){
 });
 
 function wplc_gutenberg_open_chat_box(button, icon) {
-	$(button).css('background-image', 'url(' + icon + ')');
-	$(button).css('transform', 'rotate(90deg)');
-	$(button).closest('.wplc_gutenberg_preview').find('.wplc_gutenberg_chat_box').show();
+	jQuery(button).css('background-image', 'url(' + icon + ')');
+	jQuery(button).css('transform', 'rotate(90deg)');
+	jQuery(button).closest('.wplc_gutenberg_preview').find('.wplc_gutenberg_chat_box').show();
 }
 
 function wplc_gutenberg_close_chat_box(button, icon) {
-	$(button).css('background-image', 'url(' + icon + ')');
-	$(button).css('transform', 'rotate(0deg)');
-	$(button).closest('.wplc_gutenberg_preview').find('.wplc_gutenberg_chat_box').hide();
+	jQuery(button).css('background-image', 'url(' + icon + ')');
+	jQuery(button).css('transform', 'rotate(0deg)');
+	jQuery(button).closest('.wplc_gutenberg_preview').find('.wplc_gutenberg_chat_box').hide();
 }

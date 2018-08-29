@@ -8,9 +8,6 @@ class JobsModel extends WPL_Model {
 	public function __construct( $job = null ) {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . 'ebay_jobs';
 

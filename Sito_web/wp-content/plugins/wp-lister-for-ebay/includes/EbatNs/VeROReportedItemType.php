@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,9 +9,9 @@ require_once 'ItemIDType.php';
 require_once 'VeROItemStatusCodeType.php';
 
 /**
-  * Type defining the <b>ReportedItem</b> container which is returned in the 
-  * <b>GetVeROReportStatus</b> response. The <b>ReportedItem</b> 
-  * container consists of the <b>ItemID</b> of the item that has infringed 
+  * Type defining the <b>ReportedItem</b> container which is returned in the
+  * <b>GetVeROReportStatus</b> response. The <b>ReportedItem</b>
+  * container consists of the <b>ItemID</b> of the item that has infringed
   * upon the seller's copyright, trademark, or intellectual property rights, as well as the
   * submission status of the VeRO Report.
   * 

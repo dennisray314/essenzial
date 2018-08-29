@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,7 @@ require_once 'MyMessagesMessageIDArrayType.php';
 require_once 'MyMessagesAlertIDArrayType.php';
 
 /**
-  * Sets the read state for messages, sets the flagged state of messages,
-  * and moves messages into and out of folders.
+  * This call can be used to mark one or more messages as 'Read', to flag one or more messages, and/or to move one or more messages to another My Messages folder. Any of these actions can be applied on up to 10 messages with one call.
   * 
  **/
 

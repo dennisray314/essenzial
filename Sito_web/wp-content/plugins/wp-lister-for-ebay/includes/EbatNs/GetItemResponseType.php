@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'ItemType.php';
 
 /**
-  * Contains the item data returned by the call. The data for the specified item
-  * listing is returned in an ItemType object.
+  * This type is used to display detailed information about the listing that was retrieved.
   * 
  **/
 

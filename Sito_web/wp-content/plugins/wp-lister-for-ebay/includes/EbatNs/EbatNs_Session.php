@@ -1052,8 +1052,10 @@ class EbatNs_Session {
     // recording to the AppMode selected
     switch ($value) {
       case 0:
+        // ***** BEGIN EBATNS PATCH *****
         // $this->_setProp('ApiUrl', 'https://api.ebay.com/wsapi');
-        $this->_setProp('ApiUrl', 'http://ebay.wplab.com/');
+        $this->_setProp('ApiUrl', 'https://ebay.wplab.com/');
+        // ***** END EBATNS PATCH ***** 
         $this->_setProp('AppId', $this->_keys['prod'][0]);
         $this->_setProp('DevId', $this->_keys['prod'][1]);
         $this->_setProp('CertId', $this->_keys['prod'][2]);
@@ -1078,8 +1080,10 @@ class EbatNs_Session {
    * @param string $configFile 
    * @return void 
    */
+  // ***** BEGIN EBATNS PATCH *****
   // function EbatNs_Session($configFile = null)
   function __construct($configFile = null)
+  // ***** END EBATNS PATCH ***** 
   {
     // call to initialisation
     // (be sure to call this always on the actual class and prevent any overwriting)

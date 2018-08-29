@@ -250,3 +250,37 @@ if( ! function_exists( 'yith_wcmv_get_meta_field' ) ){
         return $meta;
     }
 }
+
+if( ! function_exists( 'yith_wcmv_get_font_awesome_icons' ) ){
+	/**
+	 * Get the correct classes for font awesome icons with Font Awesome 5 or greather
+	 *
+	 * @author Andrea Grillo <andrea.grillo@yithemes.com>
+	 * @return  array font awesome classes
+	 */
+	function yith_wcmv_get_font_awesome_icons(){
+		return apply_filters( 'yith_wcmv_header_icons_class', array(
+				'rating'        => 'fas fa-star',
+				'sales'         => 'fas fa-credit-card',
+				'vat'           => 'fas fa-file-alt',
+				'legal_notes'   => 'fas fa-gavel',
+				'website'       => 'fas fa-link',
+				'location'      => 'fas fa-location-arrow',
+				'telephone'     => 'fas fa-phone',
+				'store_email'   => 'fas fa-envelope',
+			)
+		);
+	}
+}
+
+if( ! function_exists( '__yith_wcmv_return_yes' ) ){
+	/**
+	 * Return 'yes' string to change default value for panel options
+	 *
+	 * @author Andrea Grillo <andrea.grillo@yithemes.com>
+	 * @return  string 'yes' value
+	 */
+	function __yith_wcmv_return_yes(){
+		return 'yes';
+	}
+}

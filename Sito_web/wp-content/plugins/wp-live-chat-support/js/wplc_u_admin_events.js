@@ -579,24 +579,24 @@ jQuery(document).on("bleeper_dom_ready", function(e) {
             
             if(typeof wplc_agent_data[e.agentid] !== "undefined" && typeof wplc_agent_data[e.agentid].md5 !== "undefined" && typeof wplc_agent_data[e.agentid].name !== "undefined"){
                 
-                var num_age = $(".agent_involved_"+e.chatid).length;
+                var num_age = jQuery(".agent_involved_"+e.chatid).length;
                 if (num_age > 2) { 
                   var marg_right = num_age * -1.5; 
-                  $(".agent_involved_"+e.chatid).addClass('morethan2');
+                  jQuery(".agent_involved_"+e.chatid).addClass('morethan2');
                 } 
                 else { 
                   var marg_right = 2; 
-                  $(".agent_involved_"+e.chatid).removeClass('morethan2');
+                  jQuery(".agent_involved_"+e.chatid).removeClass('morethan2');
                 }
                 if (marg_right < -12) { marg_right = 12; }
 
                 agent_involved = wplc_agent_data[e.agentid];
                 agent_involved_email = agent_involved.md5;
                 agent_involved_name = agent_involved.name;
-                $(".agent_involved_"+e.chatid).css('margin-right',marg_right+'px');
+                jQuery(".agent_involved_"+e.chatid).css('margin-right',marg_right+'px');
 
-                if ( ! $( '#agent_grav_'+e.chatid+'_'+e.agentid ).length ) {
-                    $('<img/>', {
+                if ( ! jQuery( '#agent_grav_'+e.chatid+'_'+e.agentid ).length ) {
+                    jQuery('<img/>', {
                       'style': 'max-width:inherit; margin-right:'+marg_right+'px',
                       'id' : 'agent_grav_'+e.chatid+'_'+e.agentid,
                       'title' : agent_involved_name,
@@ -618,24 +618,24 @@ jQuery(document).on("bleeper_dom_ready", function(e) {
             
             if(typeof wplc_agent_data[e.agentid] !== "undefined" && typeof wplc_agent_data[e.agentid].md5 !== "undefined" && typeof wplc_agent_data[e.agentid].name !== "undefined"){
                 
-                var num_age = $(".agent_involved_"+e.chatid).length;
+                var num_age = jQuery(".agent_involved_"+e.chatid).length;
                 if (num_age > 2) { 
-                  var marg_right = num_age * -1.5; 
-                  $(".agent_involved_"+e.chatid).addClass('morethan2');
+                  var marg_right = num_age * -1.5;
+					jQuery(".agent_involved_"+e.chatid).addClass('morethan2');
                 } 
                 else { 
-                  var marg_right = 2; 
-                  $(".agent_involved_"+e.chatid).removeClass('morethan2');
+                  var marg_right = 2;
+					jQuery(".agent_involved_"+e.chatid).removeClass('morethan2');
                 }
                 if (marg_right < -12) { marg_right = 12; }
 
                 agent_involved = wplc_agent_data[e.agentid];
                 agent_involved_email = agent_involved.md5;
                 agent_involved_name = agent_involved.name;
-                $(".agent_involved_"+e.chatid).css('margin-right',marg_right+'px');
+				jQuery(".agent_involved_"+e.chatid).css('margin-right',marg_right+'px');
 
-                if ( ! $( '#agent_grav_visitor_'+e.chatid+'_'+e.agentid ).length ) {
-                    $('<img/>', {
+                if ( ! jQuery( '#agent_grav_visitor_'+e.chatid+'_'+e.agentid ).length ) {
+					jQuery('<img/>', {
                       'style': 'max-width:inherit; margin-right:'+marg_right+'px',
                       'id' : 'agent_grav_visitor_'+e.chatid+'_'+e.agentid,
                       'title' : agent_involved_name,
@@ -770,10 +770,10 @@ jQuery(document).on("bleeper_dom_ready", function(e) {
             });
           }
         }
-        $("#"+e.ndata.chatid).removeClass('active');
-        $("#"+e.ndata.chatid).addClass('inactive');
-        $(".bleeper_close_item_"+e.ndata.chatid).show();
-        $("#vis"+e.ndata.chatid).remove();
+        jQuery("#"+e.ndata.chatid).removeClass('active');
+        jQuery("#"+e.ndata.chatid).addClass('inactive');
+        jQuery(".bleeper_close_item_"+e.ndata.chatid).show();
+        jQuery("#vis"+e.ndata.chatid).remove();
       }
 
     });
@@ -838,10 +838,10 @@ jQuery(document).on("bleeper_dom_ready", function(e) {
 
 
 
-            $(".online_agent_"+t_ag_id+" .online_offline").removeClass('offline');
-            $(".online_agent_"+t_ag_id+" .online_offline").addClass('online');
-            $(".online_agent_"+t_ag_id+"").attr('socket',t_ag_sock);
-            $(".online_agent_"+t_ag_id+"").attr('id',t_ag_cid);
+			jQuery(".online_agent_"+t_ag_id+" .online_offline").removeClass('offline');
+			jQuery(".online_agent_"+t_ag_id+" .online_offline").addClass('online');
+			jQuery(".online_agent_"+t_ag_id+"").attr('socket',t_ag_sock);
+			jQuery(".online_agent_"+t_ag_id+"").attr('id',t_ag_cid);
 
             /**
              * Add each agent as an 'involved agent' to the chat ID

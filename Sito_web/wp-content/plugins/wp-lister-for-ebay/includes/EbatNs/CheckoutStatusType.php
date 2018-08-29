@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,8 +12,8 @@ require_once 'eBayPaymentMismatchDetailsType.php';
 require_once 'BuyerPaymentInstrumentCodeType.php';
 
 /**
-  * Type defining the <b>CheckoutStatus</b> container that is returned in 
-  * <b>GetOrders</b> and <b>GetOrderTransactions</b> to indicate 
+  * Type defining the <b>CheckoutStatus</b> container that is returned in
+  * <b>GetOrders</b> and <b>GetOrderTransactions</b> to indicate
   * the current checkout status of the order.
   * 
  **/

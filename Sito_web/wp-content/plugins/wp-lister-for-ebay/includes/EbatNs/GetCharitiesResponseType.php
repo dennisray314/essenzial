@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'CharityInfoType.php';
 
 /**
-  * Contains information about charity nonprofit organizations that meet the
-  * criteria specified in the request.
+  * This is the base response type for the <b>GetCharities</b> call. This call is used to search for eBay for Charity nonprofit organizations. A <b>Charity</b> container is returned for each nonprofit organization that matches the criteria in the call request.
   * 
  **/
 

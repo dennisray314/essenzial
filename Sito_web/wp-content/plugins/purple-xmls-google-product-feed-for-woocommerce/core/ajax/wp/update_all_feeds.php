@@ -13,6 +13,23 @@ if (!is_admin()) {
     die('Permission Denied!');
 }
 $feed_id = isset($_POST['feed_id']) ? $_POST['feed_id'] : '';
-update_all_cart_feeds(false, $feed_id);
+if(isset($_POST['deleteaction'])&&$_POST['deleteaction']=='true'){
+	global $wpdb;
+	$table = $wpdb->prefix.'cp_feeds';
+   
+   foreach ($feed_id as $key => $value) {
+   	 $trans = $wpdb->query("DELETE FROM {$table} WHERE id = $value " );
+   	 if(!$trans){
+   	 	echo "There was problem in deleting product with id ".$value; exit;
+   	 }
+   }
+   $response = array('msg'=>"Selected feed deleted successfully",'result'=>"success");
+   echo json_encode($response); exit;
 
-echo 'Update successful';
+}
+else{
+	update_all_cart_feeds(false, $feed_id);
+
+	echo 'Update successful';
+
+}

@@ -16,6 +16,7 @@ class RakutenUKDlg extends PBaseFeedDialog
         $this->service_name = 'RakutenUK';
         $this->service_name_long = 'Rakuten UK CSV Feed';
         $this->blockCategoryList = false;
+        $this->doc_link = "https://www.exportfeed.com/documentation/rakuten/";
     }
 
 }

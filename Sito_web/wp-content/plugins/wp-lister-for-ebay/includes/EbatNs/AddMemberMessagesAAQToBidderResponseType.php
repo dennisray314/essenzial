@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'AddMemberMessagesAAQToBidderResponseContainerType.php';
 
 /**
-  * Type defining the <b>AddMemberMessagesAAQToBidderResponseContainer</b> container, which consists 
-  * of the <b>Ack</b> field (indicating the result of the send message operation) and the <b>CorrelationID</b> 
-  * field (used to track multiple send message operations performed in one call).
+  * Type defining the <b>AddMemberMessagesAAQToBidderResponseContainer</b> container, which consists of the <b>Ack</b> field (indicating the result of the send message operation) and the <b>CorrelationID</b> field (used to track multiple send message operations performed in one call).
   * 
  **/
 

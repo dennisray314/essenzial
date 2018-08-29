@@ -17,6 +17,7 @@ class AffiliateWindowXMLDlg extends PBaseFeedDialog
         $this->service_name_long = 'Affiliate Window XML Feed';
         $this->blockCategoryList = false;
         $this->options = array();
+        $this->doc_link = "https://www.exportfeed.com/documentation/affiliate-windows-feed-guide/";
     }
 
 }

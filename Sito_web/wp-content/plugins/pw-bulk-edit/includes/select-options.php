@@ -88,34 +88,56 @@ final class PWBE_Select_Options {
 
         $select_options['_tax_status'] = array();
         $select_options['_tax_class'] = array();
-        if ( wc_tax_enabled() ) {
+
+        if ( function_exists( 'wc_tax_enabled' ) ) {
+            $tax_enabled = wc_tax_enabled();
+        } else {
+            $tax_enabled = apply_filters( 'wc_tax_enabled', get_option( 'woocommerce_calc_taxes' ) === 'yes' );
+        }
+
+        if ( $tax_enabled ) {
 
             $select_options['_tax_status']['taxable']['name'] = __( 'Taxable', 'woocommerce' );
             $select_options['_tax_status']['taxable']['visibility'] = 'both';
             $select_options['_tax_status']['shipping']['name'] = __( 'Shipping only', 'woocommerce' );
             $select_options['_tax_status']['shipping']['visibility'] = 'both';
-            $select_options['_tax_status']['none']['name'] = __( 'None', 'Tax status', 'woocommerce' );
+            $select_options['_tax_status']['none']['name'] = __( 'None', 'woocommerce' );
             $select_options['_tax_status']['none']['visibility'] = 'both';
 
 
-            $select_options['_tax_class'][PW_Bulk_Edit::NULL]['name'] = __( 'Same as parent', 'woocommerce' );
-            $select_options['_tax_class'][PW_Bulk_Edit::NULL]['visibility'] = 'variation';
+            $select_options['_tax_class']['parent']['name'] = __( 'Same as parent', 'woocommerce' );
+            $select_options['_tax_class']['parent']['visibility'] = 'variation';
             $select_options['_tax_class']['']['name'] = __( 'Standard', 'woocommerce' );
             $select_options['_tax_class']['']['visibility'] = 'both';
 
-            $tax_classes = WC_Tax::get_tax_classes();
+            $tax_classes = array();
+            if ( method_exists( 'WC_Tax', 'get_tax_classes' ) ) {
+                $tax_classes = WC_Tax::get_tax_classes();
+            } else {
+                $tax_classes = array_filter( array_map( 'trim', explode( "\n", get_option('woocommerce_tax_classes' ) ) ) );
+            }
+
             if ( ! empty( $tax_classes ) ) {
                 foreach ( $tax_classes as $class ) {
-                    $select_options['_tax_class'][ sanitize_title( $class )]['name'] = esc_attr( $class );
+                    $select_options['_tax_class'][ sanitize_title( $class )]['name'] = esc_html( $class );
                     $select_options['_tax_class'][ sanitize_title( $class )]['visibility'] = 'both';
                 }
             }
         }
 
-        $select_options['_stock_status']['instock']['name'] = __( 'In stock', 'woocommerce' );
-        $select_options['_stock_status']['instock']['visibility'] = 'both';
-        $select_options['_stock_status']['outofstock']['name'] = __( 'Out of stock', 'woocommerce' );
-        $select_options['_stock_status']['outofstock']['visibility'] = 'both';
+        if ( PW_Bulk_Edit::wc_min_version( '3.0' ) ) {
+            $stock_status_options = wc_get_product_stock_status_options();
+            foreach ( $stock_status_options as $key => $value ) {
+                $select_options['_stock_status'][ $key ]['name'] = $value;
+                $select_options['_stock_status'][ $key ]['visibility'] = 'both';
+            }
+
+        } else {
+            $select_options['_stock_status']['instock']['name'] = __( 'In stock', 'woocommerce' );
+            $select_options['_stock_status']['instock']['visibility'] = 'both';
+            $select_options['_stock_status']['outofstock']['name'] = __( 'Out of stock', 'woocommerce' );
+            $select_options['_stock_status']['outofstock']['visibility'] = 'both';
+        }
 
         $select_options['_backorders']['no']['name'] = __( 'Do not allow', 'woocommerce' );
         $select_options['_backorders']['no']['visibility'] = 'both';
@@ -136,13 +158,13 @@ final class PWBE_Select_Options {
         }
 
         foreach ( $visibility_options as $key => $visibility ) {
-            $select_options['_visibility'][$key]['name'] = $visibility;
+            $select_options['_visibility'][$key]['name'] = esc_html( $visibility );
             $select_options['_visibility'][$key]['visibility'] = 'parent';
         }
 
         foreach ( $wp_post_statuses as $key => $post_status ) {
             if ( '1' == $post_status->show_in_admin_status_list ) {
-                $select_options['post_status'][$key]['name'] = $post_status->label;
+                $select_options['post_status'][$key]['name'] = esc_html( $post_status->label );
                 $select_options['post_status'][$key]['visibility'] = 'both';
             }
         }
@@ -155,8 +177,10 @@ final class PWBE_Select_Options {
     }
 
     private static function sort_select_options( &$select_options ) {
+        $ignore_options = apply_filters( 'pwbe_skip_sorting_options', array( 'product_type', '_visibility', '_stock_status', 'stock_statuses' ) );
+
         foreach ( $select_options as $f => &$values ) {
-            if ( $f != '_visibility' ) {
+            if ( !in_array( $f, $ignore_options ) ) {
                 uasort( $values, 'PWBE_Select_Options::name_compare');
                 uksort( $values, 'PWBE_Select_Options::blanks_first' );
             }
@@ -173,7 +197,7 @@ final class PWBE_Select_Options {
         } else if ( $a === '') {
             return -1;
         } else {
-            return 1;
+            return 0;
         }
     }
 }

@@ -129,7 +129,7 @@ table.flexible_shipping_method_rules tfoot th {
     min-width: 180px;
     right: 0;
     position: absolute;
-    top: 155px;
+    top: 135px;
 }
 
 @media screen and (max-width: 1199px) {
@@ -210,4 +210,43 @@ table.flexible_shipping_method_rules tfoot th {
 /** select */
 .wp-admin select {
     height: 100%;
+}
+
+/** flexible printing integration */
+.button.flexible-printing-button-print {
+    height: auto !important;
+    white-space: normal !important;;
+    word-wrap: break-word !important;;
+}
+
+/* Info Page */
+.inspire-settings {
+	display: table;
+	width: 100%;
+}
+
+.inspire-settings .inspire-main-content,
+.inspire-settings .inspire-sidebar {
+	display: table-cell;
+	height: 500px;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+
+.inspire-settings .inspire-main-content {
+	min-width: 800px;
+}
+
+.inspire-settings .inspire-sidebar {
+	padding-left: 30px;
+	width: 250px;
+}
+
+.flexible-shipping-info ol {
+	margin-top: 0;
+}
+
+#wpbody-content .flexible-shipping-info .metabox-holder {
+	padding-top: 0;
 }

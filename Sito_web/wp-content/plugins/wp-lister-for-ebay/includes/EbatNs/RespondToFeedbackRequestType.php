@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,8 +10,8 @@ require_once 'UserIDType.php';
 require_once 'FeedbackResponseCodeType.php';
 
 /**
-  * Enables a seller to reply to feedback that has been left for a user, or to post a
-  * follow-up comment to a feedback comment the user has left for someone else.
+  * Enables a seller to reply to Feedback that has been left for a user, or to post a
+  * follow-up comment to a Feedback comment the user has left for someone else.
   * 
  **/
 

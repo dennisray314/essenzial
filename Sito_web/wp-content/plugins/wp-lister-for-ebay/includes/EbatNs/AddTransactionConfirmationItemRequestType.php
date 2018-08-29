@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,10 +12,7 @@ require_once 'SecondChanceOfferDurationCodeType.php';
 require_once 'ItemIDType.php';
 
 /**
-  * Ends the eBay Motors listing specified by ItemID and creates a new Transaction
-  * Confirmation Request (TCR) for the item, thus enabling the TCR recipient to
-  * purchase the item. You can also use this call to see if a new TCR can be created
-  * for the specified item.
+  * Base request of the <b>AddTransactionConfirmationItem</b> call, which is used to end an eBay Motors listing and creates a new Transaction Confirmation Request (TCR) for the motor vehichle, thus enabling the TCR recipient to purchase the item. You can also use this call to see if a new TCR can be created for the specified item.
   * 
  **/
 

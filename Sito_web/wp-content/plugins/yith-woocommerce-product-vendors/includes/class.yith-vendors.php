@@ -153,7 +153,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		public $is_wc_2_6;
 
         /**
-         * Check if WooCommerce run version 2.7 or greather
+         * Check if WooCommerce run version 2.7 or greater
          *
          * @var string
          * @since 1.9.8
@@ -161,7 +161,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
         public $is_wc_2_7_or_greather;
 
 		/**
-		 * Check if WooCommerce run version 3.2 or greather
+		 * Check if WooCommerce run version 3.2 or greater
 		 *
 		 * @var string
 		 * @since 1.9.8
@@ -169,12 +169,20 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		public $is_wc_3_2_or_greather;
 
 		/**
-		 * Check if WooCommerce run version 3.3 or greather
+		 * Check if WooCommerce run version 3.3 or greater
 		 *
 		 * @var string
 		 * @since 1.9.8
 		 */
 		public $is_wc_3_3_or_greather;
+
+		/**
+		 * Check if WordPress run version 4.9.6 or greater
+		 *
+		 * @var string
+		 * @since 1.9.8
+		 */
+		public $is_wp_4_9_6_or_greater;
 
 		/**
 		 * Main Orders Instance
@@ -210,6 +218,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 					),
 					'admin' => array(
 						'includes/class.yith-vendors-admin.php',
+						'includes/class.yith-vendors-privacy.php',
 					)
 				)
 			);
@@ -218,6 +227,8 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 
 			$this->require = $require;
 
+			global $wp_version;
+			$this->is_wp_4_9_6_or_greater   = version_compare( $wp_version, '4.9.6', '>=' );
 			$this->is_wc_lower_2_6          = version_compare( $wc_version, '2.6', '<' );
 			$this->is_wc_2_7_or_greather    = version_compare( $wc_version, '2.7', '>=' );
 			$this->is_wc_3_2_or_greather    = version_compare( $wc_version, '3.2', '>=' );
@@ -275,8 +286,10 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 * @access protected
 		 */
 		public function init() {
-			if ( is_admin() && ! is_ajax() ) {
-				$this->admin = new YITH_Vendors_Admin();
+			if ( is_admin() ) {
+				if( ! is_ajax() ){
+					$this->admin   = new YITH_Vendors_Admin();
+				}
 			}
 
 			if ( ! is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
@@ -354,7 +367,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 					'show_in_nav_menus'	=> true,
 					'labels'            => $this->get_vendors_taxonomy_label(),
 					'rewrite'           => array( 'slug' => ! empty( $slug ) ? $slug : 'vendor' ),
-					"meta_box_cb"       => array( YITH_Vendors()->admin, 'single_taxonomy_meta_box' )
+					"meta_box_cb"       => array( YITH_Vendors()->admin, 'single_taxonomy_meta_box' ),
 				)
 			);
 			$taxonomies_object_type = apply_filters( 'yith_wcmv_register_taxonomy_object_type', array( 'product' ) );
@@ -362,7 +375,6 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 			foreach( $taxonomies_object_type as $taxonomy_object_type ){
 				register_taxonomy_for_object_type( $this->_taxonomy_name, $taxonomy_object_type );
 			}
-
 
 			if( ! get_option( 'yith_wcmv_setup' ) ){
 				self::setup( 'add_role' );
@@ -401,6 +413,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 					'add_or_remove_items'        => __( 'Add or remove vendors', 'yith-woocommerce-product-vendors' ),
 					'choose_from_most_used'      => __( 'Choose from most used vendors', 'yith-woocommerce-product-vendors' ),
 					'not_found'                  => __( 'No vendors found', 'yith-woocommerce-product-vendors' ),
+					'back_to_items'              => sprintf( '%s %s', '&larr;', __( 'Back to Vendors', 'yith-woocommerce-product-vendors' ) ),
 				)
 			);
 
@@ -479,7 +492,7 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
 		 * @fire yith_vendor_base_commission filter
 		 */
 		public function get_base_commission() {
-			return apply_filters( 'yith_vendor_base_commission', floatval( get_option( 'yith_vendor_base_commission' ) ) / 100 );
+			return apply_filters( 'yith_vendor_base_commission', floatval( get_option( 'yith_vendor_base_commission', '50' ) ) / 100 );
 		}
 
 		/**
@@ -856,6 +869,10 @@ if ( ! class_exists( 'YITH_Vendors' ) ) {
         public function get_image_size( $image_type ){
              return 'yith_vendors_' . $image_type;
         }
+
+		public function get_social_fields() {
+			return array();
+		}
 	}
 }
 

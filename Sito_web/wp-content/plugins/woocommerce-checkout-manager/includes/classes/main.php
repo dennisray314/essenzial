@@ -83,8 +83,14 @@ if( wooccm_validator_changename() ) {
 
 <dl class="customer_details">
 <?php 
-		if( $order->billing_email ) echo '<dt>'.__( 'Email:', 'woocommerce-checkout-manager' ).'</dt><dd>'.$order->billing_email.'</dd>';
-		if( $order->billing_phone ) echo '<dt>'.__( 'Telephone:', 'woocommerce-checkout-manager' ).'</dt><dd>'.$order->billing_phone.'</dd>';
+		if( $order->billing_email ) {
+			echo '<dt>' . __( 'E-mail:', 'woocommerce-checkout-manager' ) . '</dt>';
+			echo '<dd>' . $order->billing_email . '</dd>';
+		}
+		if( $order->billing_phone ) {
+			echo '<dt>' . __( 'Telephone:', 'woocommerce-checkout-manager' ) . '</dt>';
+			echo '<dd>' . $order->billing_phone . '</dd>';
+		}
 ?>
 </dl>
 

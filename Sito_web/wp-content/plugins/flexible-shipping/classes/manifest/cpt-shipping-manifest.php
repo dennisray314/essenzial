@@ -6,7 +6,7 @@ class WPDesk_Flexible_Shipping_Shipping_Manifest_CPT {
 
     private $plugin = null;
 
-    public function __construct( WPDesk_Flexible_Shipping_Free_Plugin $plugin ) {
+    public function __construct( WPDesk_Flexible_Shipping_Plugin $plugin ) {
         $this->plugin = $plugin;
         $this->hooks();
     }

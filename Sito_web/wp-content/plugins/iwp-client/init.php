@@ -4,7 +4,7 @@ Plugin Name: InfiniteWP - Client
 Plugin URI: http://infinitewp.com/
 Description: This is the client plugin of InfiniteWP that communicates with the InfiniteWP Admin panel.
 Author: Revmakx
-Version: 1.8.1
+Version: 1.8.3
 Author URI: http://www.revmakx.com
 */
 /************************************************************
@@ -28,7 +28,7 @@ if(basename($_SERVER['SCRIPT_FILENAME']) == "init.php"):
     exit;
 endif;
 if(!defined('IWP_MMB_CLIENT_VERSION'))
-	define('IWP_MMB_CLIENT_VERSION', '1.8.1');
+	define('IWP_MMB_CLIENT_VERSION', '1.8.3');
 
 
 
@@ -685,9 +685,9 @@ if( !function_exists ( 'iwp_mmb_new_scheduled_backup' )) {
 			$params['restrict_files_to_override']= explode(',', $params['args']['exclude']);
 		}
 		// return true;
-		if (defined('IWP_PHOENIX_BACKUP_CRON_START') && IWP_PHOENIX_BACKUP_CRON_START) {
+		//if (defined('IWP_PHOENIX_BACKUP_CRON_START') && IWP_PHOENIX_BACKUP_CRON_START) {
 			$params['cron_start'] = 1;
-		}
+		//}
 		$params['use_nonce'] = $backupId;
 		$params['label'] = $params['task_name'];
 		$params['backup_name'] = $params['args']['backup_name'];
@@ -803,9 +803,9 @@ if( !function_exists ( 'iwp_mmb_new_run_task_now' )) {
 			$params['restrict_files_to_override']= explode(',', $params['args']['exclude']);
 		}
 		// return true;
-		if (defined('IWP_PHOENIX_BACKUP_CRON_START') && IWP_PHOENIX_BACKUP_CRON_START) {
+		//if (defined('IWP_PHOENIX_BACKUP_CRON_START') && IWP_PHOENIX_BACKUP_CRON_START) {
 			$params['cron_start'] = 1;
-		}
+		//}
 		$params['use_nonce'] = $backupId;
 		$params['label'] = $params['task_name'];
 		$params['backup_name'] = $params['args']['backup_name'];

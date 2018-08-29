@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,7 @@
 require_once 'AbstractResponseType.php';
 
 /**
-  * VerifyAddSecondChanceItem request to emulate creation of a new Second Chance Offer for an item to one of
-  * that item's bidders.
+  * Base response of the <b>VerifyAddSecondChanceItem</b> call.
   * 
  **/
 

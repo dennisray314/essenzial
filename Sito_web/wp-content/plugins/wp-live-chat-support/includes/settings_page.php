@@ -216,14 +216,14 @@ if (get_option("WPLC_HIDE_CHAT") == true) {
                       <input type="checkbox" value="1" name="wplc_enabled_on_mobile" <?php if(isset($wplc_settings['wplc_enabled_on_mobile'])  && $wplc_settings['wplc_enabled_on_mobile'] == 1 ) { echo "checked"; } ?> />                      
                   </td>
               </tr>
-              <tr>
+              <!--<tr>
                   <td width='350' valign='top'>
                       <?php _e("Record a visitor's IP Address","wplivechat"); ?>: <i class="fa fa-question-circle wplc_light_grey wplc_settings_tooltip" title="<?php _e("Disable this to enable anonymity for your visitors", "wplivechat") ?>"></i>                  
                   </td>
                   <td valign='top'>
                       <input type="checkbox" value="1" name="wplc_record_ip_address" <?php if(isset($wplc_settings['wplc_record_ip_address'])  && $wplc_settings['wplc_record_ip_address'] == 1 ) { echo "checked"; } ?> />                      
                   </td>
-              </tr>
+              </tr>-->
 
               <?php if( isset( $wplc_settings['wplc_use_node_server'] ) && intval( $wplc_settings['wplc_use_node_server'] ) == 1 ){ ?>
               <tr>
@@ -259,7 +259,8 @@ if (get_option("WPLC_HIDE_CHAT") == true) {
                   <td valign='top'>
                       <input type="checkbox" value="1" name="wplc_enable_all_admin_pages" <?php if(isset($wplc_settings['wplc_enable_all_admin_pages']) && $wplc_settings['wplc_enable_all_admin_pages'] == 1 ) { echo "checked"; } ?> />
                   </td>
-              </tr>              
+              </tr>    
+          
               <?php if (!function_exists("wplc_pro_activate")) { ?>
 
               <tr>
@@ -511,7 +512,7 @@ if (get_option("WPLC_HIDE_CHAT") == true) {
                   </td>
               </tr> 
 				<?php
-				if(defined('WPLC_LIVE_CHAT_SUPPORT_PRO_LOADED'))
+				if(defined('WPLC_PRO_PLUGIN'))
 				{
 					?>
 					<tr>

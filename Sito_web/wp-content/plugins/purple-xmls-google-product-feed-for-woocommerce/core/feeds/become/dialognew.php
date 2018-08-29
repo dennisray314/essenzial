@@ -17,6 +17,7 @@ class BecomeDlg extends PBaseFeedDialog
         $this->service_name_long = 'Become Europe CSV Export';
         $this->blockCategoryList = false;
         $this->options = array();
+        $this->doc_link = "https://www.exportfeed.com/documentation/become-integration-guide/";
     }
 
 }

@@ -86,7 +86,7 @@
 	
 	<div id="message" class="updated below-h2"  style="padding-left: 15px; padding-top: 5px; display:block !important;">
     <form id="profiles-filter" method="get" action="<?php echo $wpl_form_action; ?>" >
-        <input type="hidden" name="action" value="apply_listing_profile" />
+        <input type="hidden" name="action" value="wple_apply_listing_profile" />
         <input type="hidden" name="page" value="<?php echo esc_attr( $_REQUEST['page'] ) ?>" />
 		
 		<p>
@@ -116,7 +116,7 @@
 
 			<br style="clear:both;">
 
-			<a href="<?php echo $wpl_form_action; ?>&action=cancel_profile_selection" class="button" style="float:right"><?php echo __('Cancel profile selection','wplister') ?></a>
+			<a href="<?php echo $wpl_form_action; ?>&action=wple_cancel_profile_selection&_wpnonce=<?php echo wp_create_nonce( 'wplister_cancel_profile_selection' ); ?>" class="button" style="float:right"><?php echo __('Cancel profile selection','wplister') ?></a>
 			
 			<input type="submit" value="<?php echo __('Apply Profile','wplister') ?>" name="submit" class="button-primary" style="margin-right:10px;">
 

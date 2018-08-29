@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,7 @@
 require_once 'AbstractResponseType.php';
 
 /**
-  * Confirms the identity of the user by returning the UserID and the EIASToken belonging to
-  * the user.
+  * Confirms the identity of the user by returning the <b>UserID</b> and the <b>EIASToken</b> belonging to the user.
   * 
  **/
 

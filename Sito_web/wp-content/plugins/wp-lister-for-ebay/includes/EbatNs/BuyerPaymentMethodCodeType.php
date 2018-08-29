@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -45,6 +45,7 @@ class BuyerPaymentMethodCodeType extends EbatNs_FacetType
 	const CodeType_CreditCard = 'CreditCard';
 	const CodeType_PayUponInvoice = 'PayUponInvoice';
 	const CodeType_QIWI = 'QIWI';
+	const CodeType_PayPalCredit = 'PayPalCredit';
 
 	/**
 	 * @return 

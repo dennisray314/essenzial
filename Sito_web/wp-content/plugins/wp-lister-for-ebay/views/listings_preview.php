@@ -126,7 +126,7 @@
 				<td class="images" style="width:310px;" valign="top">
 
 					<div class="main_image_wrapper">					
-						<span class="helper"></span><img id="main_image_tag" src="<?php echo @$wpl_item->PictureDetails->GalleryURL ?>" title=""/> <!-- this has to be a single line -->
+						<span class="helper"></span><img id="main_image_tag" src="<?php echo @$wpl_item->PictureDetails->PictureURL[0] ?>" title=""/> <!-- this has to be a single line -->
 					</div>
 
 					<center class="zoomlink">
@@ -544,7 +544,7 @@ function updateImageSize(image) {
 	var img = document.getElementById('main_image_tag');
 	img.title = "Image size: " + image.width + "x" + image.height;
 }
-var imgSrc = "<?php echo @$wpl_item->PictureDetails->GalleryURL ?>";
+var imgSrc = "<?php echo @$wpl_item->PictureDetails->PictureURL[0] ?>";
 if ( imgSrc != '' ) loadImageSize( imgSrc, updateImageSize);
 
 </script>

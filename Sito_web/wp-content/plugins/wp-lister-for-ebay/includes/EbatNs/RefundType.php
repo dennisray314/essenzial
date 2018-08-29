@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,7 +12,9 @@ require_once 'RefundFailureReasonType.php';
 require_once 'RefundFundingSourceArrayType.php';
 
 /**
-  * Contains information about a single Half.com refund. 
+  * <span class="tablenote"><b>Note: </b> This type is only used for Half.com order refunds, and since the Half.com site has been shut down, this type will also be deprecated.
+  * </span>
+  * Contains information about a single Half.com refund.
   * 
  **/
 

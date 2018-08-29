@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,8 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'TransactionType.php';
 
 /**
-  * Type defining the <b>TransactionArray</b> container, which contains an 
-  * array of <b>Transaction</b> containers. Each <b>Transaction</b> 
+  * Type defining the <b>TransactionArray</b> container, which contains an
+  * array of <b>Transaction</b> containers. Each <b>Transaction</b>
   * container consists of detailed information on one order line item.
   * 
  **/

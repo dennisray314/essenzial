@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,10 +10,10 @@ require_once 'SellingManagerFolderDetailsType.php';
 require_once 'SellingManagerProductSpecificsType.php';
 
 /**
-  * Revises a Selling Manager product.
+  * Revises a Selling Manager Product.
   * <br><br>
   * This call is subject to change without notice; the
-  * deprecation process is inapplicable to this call.
+  * deprecation process is inapplicable to this call. The user must have a Selling Manager Pro subscription to use this call.
   * 
  **/
 

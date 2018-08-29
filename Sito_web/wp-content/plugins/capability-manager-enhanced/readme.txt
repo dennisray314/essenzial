@@ -3,8 +3,8 @@ Contributors: txanny, kevinB
 Donate Link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=JWZVFUDLLYQBA
 Tags: roles, capabilities, manager, editor, rights, role, capability, types, taxonomies, network, multisite, default
 Requires at least: 3.1
-Tested up to: 4.9.5
-Stable tag: 1.5.8
+Tested up to: 4.9.7
+Stable tag: 1.5.9
 
 A simple way to manage WordPress roles and capabilities.
 
@@ -108,6 +108,9 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 You should have received a copy of the GNU General Public License along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 == Changelog ==
+
+= 1.5.9 =
+  * Fixed : Potential vulnerability in wp-admin (but exposure was only to users with role editing capability)
 
 = 1.5.8 =
   * Fixed : PHP warning for deprecated function WP_Roles::reinit

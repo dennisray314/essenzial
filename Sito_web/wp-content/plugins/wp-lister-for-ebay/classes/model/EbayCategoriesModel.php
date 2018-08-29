@@ -26,9 +26,6 @@ class EbayCategoriesModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . self::table;
 	}
@@ -78,11 +75,6 @@ class EbayCategoriesModel extends WPL_Model {
 			'displayName' => 'update payment options',
 			'site_id'     => $site_id,
 		);
-		// $tasks[] = array( 
-		// 	'task'        => 'loadStoreCategories', 
-		// 	'displayName' => 'update custom store categories',
-		// 	'account_id'  => $account_id,
-		// );
 
 
 		// include eBay Motors for US site - automatically
@@ -228,7 +220,7 @@ class EbayCategoriesModel extends WPL_Model {
 		$data['level'] 			= $level;
 		$data['parent_cat_id'] 	= $parent_cat_id;
 		$data['account_id']     = $this->account_id;
-		$data['site_id']        = WPLE()->accounts[ $account_id ]->site_id;
+		$data['site_id']        = WPLE()->accounts[ $this->account_id ]->site_id;
 
 		// move "Other" category to the end of the list
 		if ( $data['order'] == 0 ) $data['order'] = 999;
@@ -324,8 +316,8 @@ class EbayCategoriesModel extends WPL_Model {
 		$req = new GetCategorySpecificsRequestType();
 		$req->setCategoryID( $category_id );
 		$req->setDetailLevel( 'ReturnAll' );
-		$req->setMaxNames( 15 ); 			// eBay default is 10 - maximum is 30
-		$req->setMaxValuesPerName( 1000 ); 	// eBay default is 25 - no maximum
+		$req->setMaxNames( apply_filters( 'wple_category_specifics_max_names', 15 ) ); 			// eBay default is 10 - maximum is 30
+		$req->setMaxValuesPerName( apply_filters( 'wple_category_specifics_max_name_value', 1000 ) ); 	// eBay default is 25 - no maximum
 		
 		$res = $this->_cs->GetCategorySpecifics($req);
 		WPLE()->logger->info('fetchCategorySpecifics() for category ID '.$category_id);
@@ -396,7 +388,7 @@ class EbayCategoriesModel extends WPL_Model {
 		if ( ! $category    ) return false;
 
 		// if timestamp is recent, return item specifics
-		if ( strtotime( $category['last_updated']  ) > strtotime('-1 month') ) {
+		if ( get_option( 'wplister_disable_item_specifics_cache', 0 ) == 0 && strtotime( $category['last_updated']  ) > strtotime('-1 month') ) {
 			// WPLE()->logger->info('found recent item specifics from '.$category['last_updated'] );
 			return maybe_unserialize( $category['specifics'] );
 		}

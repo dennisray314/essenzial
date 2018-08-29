@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,11 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>PaymentProfileCategoryGroup</b>, <b>
-  * ReturnPolicyProfileCategoryGroup</b>, and <b>ShippingProfileCategoryGroup</b>
-  * fields, which are all returned in the <b>GetCategoryFeature</b> response if these
-  * Business Policies profile types apply to the category. Each of these fields is returned as an
-  * empty element.
+  * Type defining the <b>PaymentProfileCategoryGroup</b>, <b> ReturnPolicyProfileCategoryGroup</b>, and <b>ShippingProfileCategoryGroup</b> fields, which are all returned in the <b>GetCategoryFeature</b> response if these Business Policies profile types apply to the category. Each of these fields is returned as an empty element.
   * 
  **/
 

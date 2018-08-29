@@ -46,6 +46,7 @@
         </a> 
 
         <input type="hidden" name="action" value="wple_upload_listing_profile" />
+        <?php wp_nonce_field( 'wple_upload_listing_profile' ); ?>
         <input type="file" id="wple_file_upload_profile" name="wple_file_upload_profile" onchange="this.form.submit();" style="display:none" />
     </form>
 	<br style="clear:both;"/>

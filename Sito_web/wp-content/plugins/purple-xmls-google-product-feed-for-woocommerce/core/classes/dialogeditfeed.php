@@ -26,6 +26,7 @@ class PEditFeedDialog {
             //Instantiate the dialog
             $provider = $feed->provider . 'Dlg';
             $provider_dialog = new $provider();
+           
             echo $provider_dialog->mainDialog($feed , $feed_type);
     }
 

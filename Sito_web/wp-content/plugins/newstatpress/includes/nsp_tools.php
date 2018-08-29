@@ -293,6 +293,7 @@ function nsp_IP2nationInstall() {
 function nsp_IP2nationRemove() {
 
   global $wpdb;
+  global $nsp_option_vars;
 
   $sql = "DROP TABLE IF EXISTS ip2nation;";
   $wpdb->query($sql);

@@ -4,6 +4,15 @@
  */
 
 
+/**
+ * get instance of WP-Lister object
+ * @return WPL_WPLister
+ */
+function WPLE() {
+    return WPL_WPLister::get_instance();
+}
+
+
 // custom tooltips
 function wplister_tooltip( $desc ) {
 	if ( defined('WPLISTER_RESELLER_VERSION') ) $desc = apply_filters( 'wplister_tooltip_text', $desc );
@@ -49,6 +58,11 @@ function wple_get_product_meta( $product_id, $key ) {
 
     $product = ProductWrapper::getProduct( $product_id );
 
+    // Check for a valid product object
+    if ( ! $product || ! $product->exists() ) {
+        return false;
+    }
+
     if ( $key == 'product_type' && is_callable( array( $product, 'get_type' ) ) ) {
         return call_user_func( array( $product, 'get_type' ) );
     }
@@ -79,10 +93,29 @@ function wple_get_order_meta( $order_id, $key ) {
     }
 }
 
-/**
- * get instance of WP-Lister object
- * @return WPL_WPLister
- */
-function WPLE() {
-	return WPL_WPLister::get_instance();
+
+//
+// Template API functions
+// 
+
+function wplister_register_custom_fields( $type, $id, $default, $label, $config = array() ) {
+    global $wpl_tpl_fields;
+    if ( ! $wpl_tpl_fields ) $wpl_tpl_fields = array();
+
+    if ( ! $type || ! $id ) return;
+
+    // create field
+    $field = new stdClass();
+    $field->id      = $id;
+    $field->type    = $type;
+    $field->label   = $label;
+    $field->default = $default;
+    $field->value   = $default;
+    $field->slug    = isset($config['slug']) ? $config['slug'] : $id;
+    $field->options = isset($config['options']) ? $config['options'] : array();
+
+    // add to template fields
+    $wpl_tpl_fields[$id] = $field;
+
 }
+

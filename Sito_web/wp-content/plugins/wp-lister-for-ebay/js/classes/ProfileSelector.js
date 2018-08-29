@@ -169,7 +169,7 @@ jQuery( document ).ready( function () {
         var select_mode = false;
 
         // if ( 'list_on_ebay' == selected_action ) {
-        if ( 'prepare_auction' == selected_action ) {
+        if ( 'wple_prepare_auction' == selected_action ) {
             select_mode = 'products';
         }
         if ( 'wple_change_profile' == selected_action ) {

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -12,7 +12,7 @@ require_once 'SellingManagerSoldOrderType.php';
 /**
   * Request type containing the input fields for the <b>ReviseSellingManagerSaleRecord</b>
   * call. The standard Trading API deprecation process is not applicable to this
-  * call.
+  * call. The user must have a Selling Manager Pro subscription to use this call.
   * 
  **/
 

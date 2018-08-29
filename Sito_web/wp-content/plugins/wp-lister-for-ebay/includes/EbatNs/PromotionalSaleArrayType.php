@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,9 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'PromotionalSaleType.php';
 
 /**
-  * An array of promotional sales.
+  * This type is used by the <strong>PromotionalSaleDetails</strong> container returned in the <strong>GetPromotionalSaleDetails</strong> call. The <strong>PromotionalSaleDetails</strong> container consists of one or promotional sales that match the input criteria.
+  * <br/><br/>
+  * Promotional Sales are only available to eBay sellers who are eBay Store subscribers.
   * 
  **/
 

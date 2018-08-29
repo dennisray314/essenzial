@@ -16,6 +16,7 @@ class SlickgunsDlg extends PBaseFeedDialog
         $this->service_name = 'Slickguns';
         $this->service_name_long = 'Slickguns XML Export';
         $this->blockCategoryList = true;
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
     }
 
     function convert_option($option)

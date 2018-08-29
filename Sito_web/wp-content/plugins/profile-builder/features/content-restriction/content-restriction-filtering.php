@@ -277,6 +277,8 @@ if( function_exists( 'wc_get_page_id' ) ) {
     function wppb_woo_product_restriction_end(){
         $product_content = ob_get_contents();
         ob_end_clean();
+        remove_filter('the_content', 'wpautop');
         echo apply_filters( 'the_content', $product_content );
+        add_filter('the_content', 'wpautop');
     }
 }

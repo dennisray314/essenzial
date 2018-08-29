@@ -96,6 +96,15 @@ class WpLister_Product_MetaBox {
             /* Fix WP-Smushit CSS conflict with the jqueryFileTree plugin */
             #ebay_categories_tree_container .jqueryFileTree li { display: block; }
             #ebay_categories_tree_container .jqueryFileTree li A { display: inline; }
+
+			/* adjust chosen field height on edit product page */
+			#wplister-ebay-shipping .chosen-container-multi .chosen-choices li.search-field input[type=text] {
+				height: 23px;
+			}
+			#wplister-ebay-shipping .chosen-container-multi .chosen-choices  {
+				border: 1px solid #ccc;
+			}
+
         </style>
         <?php
 		do_action('wple_before_basic_ebay_options');
@@ -356,6 +365,8 @@ class WpLister_Product_MetaBox {
             	margin-left: 33%;
             }
             #wplister-ebay-advanced .wpl_ebay_hide_from_unlisted_field .description,
+            #wplister-ebay-advanced .wpl_ebay_global_shipping_field .description,
+            #wplister-ebay-advanced .wpl_ebay_ebayplus_enabled_field .description,
             #wplister-ebay-advanced .wpl_ebay_bestoffer_enabled_field .description { 
             	margin-left: 0.3em;
 				height: 1.4em;
@@ -395,16 +406,24 @@ class WpLister_Product_MetaBox {
 		) );
 
 		woocommerce_wp_checkbox( array( 
-			'id'    		=> 'wpl_ebay_global_shipping', 
-			'label' 		=> __('Global Shipping', 'wplister'),
-			'value' 		=> get_post_meta( $post->ID, '_ebay_global_shipping', true )
-		) );
-
-		woocommerce_wp_checkbox( array( 
 			'id'    		=> 'wpl_ebay_hide_from_unlisted', 
 			'label' 		=> __('Hide from eBay', 'wplister'),
 			'description' 	=> __('Hide this product from the list of products currently not listed on eBay.','wplister'),
 			'value' 		=> get_post_meta( $post->ID, '_ebay_hide_from_unlisted', true )
+		) );
+
+		woocommerce_wp_checkbox( array( 
+			'id'    		=> 'wpl_ebay_global_shipping', 
+			'label' 		=> __('Global Shipping', 'wplister'),
+			'description' 	=> __('Enable eBay\'s Global Shipping Program for this product.','wplister'),
+			'value' 		=> get_post_meta( $post->ID, '_ebay_global_shipping', true )
+		) );
+
+		woocommerce_wp_checkbox( array( 
+			'id'    		=> 'wpl_ebay_ebayplus_enabled', 
+			'label' 		=> __('eBay Plus', 'wplister'),
+			'description' 	=> __('Enable this product to be offered via the eBay Plus program.','wplister'),
+			'value' 		=> get_post_meta( $post->ID, '_ebay_ebayplus_enabled', true )
 		) );
 
 		woocommerce_wp_checkbox( array( 
@@ -556,7 +575,7 @@ class WpLister_Product_MetaBox {
             	padding:0;
             }
 
-            #wplister-ebay-categories h2 {
+            #wplister-ebay-categories .ebay_item_specifics_wrapper h4 {
             	padding-top: 0.5em;
             	padding-bottom: 0.5em;
             	margin-top: 1em;
@@ -951,8 +970,6 @@ class WpLister_Product_MetaBox {
 			$has_compat_table = false;
 		}
 
-		// echo '<h2>'.  __('Item Compatibility List','wplister') . '</h2>';
-
 		?>
 			<div class="ebay_item_compatibility_table_wrapper" style="<?php echo $has_compat_table ? '' : 'display:none' ?>">
 
@@ -1264,7 +1281,7 @@ class WpLister_Product_MetaBox {
 
 
 		echo '<div class="ebay_item_specifics_wrapper">';
-		echo '<h2>'.  __('Item Specifics','wplister') . '</h2>';
+		echo '<h4>'.  __('Item Specifics','wplister') . '</h4>';
 		include( WPLISTER_PATH . '/views/profile/edit_item_specifics.php' );
 
 		// let the user know which category the available item specifics are based on
@@ -1351,7 +1368,7 @@ class WpLister_Product_MetaBox {
             	/*display: block;*/
             	/*margin-left: 33%;*/
             }
-            #wplister-ebay-shipping .ebay_shipping_options_wrapper h2 {
+            #wplister-ebay-shipping .ebay_shipping_options_wrapper h4 {
             	padding-top: 0.5em;
             	padding-bottom: 0.5em;
             	margin-top: 1em;
@@ -1434,7 +1451,6 @@ class WpLister_Product_MetaBox {
 		$item_details['ExcludeShipToLocations']   			 = get_post_meta( $post->ID, '_ebay_shipping_ExcludeShipToLocations', true );
 		if ( ! $item_details['shipping_service_type'] ) $item_details['shipping_service_type'] = 'disabled';
 
-		// echo '<h2>'.  __('Shipping Options','wplister') . '</h2>';
 		?>
 			<!-- service type selector -->
 			<label for="wpl-text-loc_shipping_service_type" class="text_label"><?php echo __('Custom shipping options','wplister'); ?></label>
@@ -1453,10 +1469,10 @@ class WpLister_Product_MetaBox {
 		
 		echo '<div class="ebay_shipping_options_wrapper">';
 		if ( isset($account) ) echo '<small>The options below are based on the selected account <b>'.$account->title.'</b> ('.$account->site_code.').</small>';
-		echo '<h2>'.  __('Domestic shipping','wplister') . '</h2>';
+		echo '<h4>'.  __('Domestic shipping','wplister') . '</h4>';
 		include( WPLISTER_PATH . '/views/profile/edit_shipping_loc.php' );
 
-		echo '<h2>'.  __('International shipping','wplister') . '</h2>';
+		echo '<h4>'.  __('International shipping','wplister') . '</h4>';
 		include( WPLISTER_PATH . '/views/profile/edit_shipping_int.php' );
 		echo '</div>';
 
@@ -1543,6 +1559,7 @@ class WpLister_Product_MetaBox {
 		$wpl_ebay_title                 = esc_attr( @$_POST['wpl_ebay_title'] );
 		$wpl_ebay_subtitle              = esc_attr( @$_POST['wpl_ebay_subtitle'] );
 		$wpl_ebay_global_shipping       = esc_attr( @$_POST['wpl_ebay_global_shipping'] );
+		$wpl_ebay_ebayplus_enabled      = esc_attr( @$_POST['wpl_ebay_ebayplus_enabled'] );
 		$wpl_ebay_payment_instructions  = esc_attr( @$_POST['wpl_ebay_payment_instructions'] );
 		$wpl_ebay_condition_description = esc_attr( @$_POST['wpl_ebay_condition_description'] );
 		$wpl_ebay_condition_id 			= esc_attr( @$_POST['wpl_ebay_condition_id'] );
@@ -1586,6 +1603,7 @@ class WpLister_Product_MetaBox {
 		update_post_meta( $post_id, '_ebay_title', $wpl_ebay_title );
 		update_post_meta( $post_id, '_ebay_subtitle', $wpl_ebay_subtitle );
 		update_post_meta( $post_id, '_ebay_global_shipping', $wpl_ebay_global_shipping );
+		update_post_meta( $post_id, '_ebay_ebayplus_enabled', $wpl_ebay_ebayplus_enabled );
 		update_post_meta( $post_id, '_ebay_payment_instructions', $wpl_ebay_payment_instructions );
 		update_post_meta( $post_id, '_ebay_condition_id', $wpl_ebay_condition_id );
 		update_post_meta( $post_id, '_ebay_condition_description', $wpl_ebay_condition_description );
@@ -1808,12 +1826,12 @@ class WpLister_Product_MetaBox {
                     <input type="text" name="variable_ebay_start_price[<?php echo $loop; ?>]" class="wc_input_price" value="<?php echo $_ebay_start_price ?>" />
                 </p>
                 <p class="form-row form-row-last">
-                    <label>
+                    <label style="display: block;">
                         <?php _e('eBay Visibility', 'wplister'); ?>
                         <a class="tips" data-tip="Tick the checkbox below to omit this particular variation when this product is listed on eBay." href="#">[?]</a>
                     </label> 
-                	<label>
-                		<input type="checkbox" class="checkbox" name="variable_ebay_is_disabled[<?php echo $loop; ?>]" style="margin-top:5px;"
+                	<label style="line-height: 2.6em;">
+                		<input type="checkbox" class="checkbox" name="variable_ebay_is_disabled[<?php echo $loop; ?>]" style="margin-top: 9px !important; margin-right: 9px !important;"
                 			<?php if ( $_ebay_is_disabled ) echo 'checked="checked"' ?> >
                 		<?php _e('Hide on eBay', 'wplister'); ?>
                 	</label>

@@ -51,10 +51,10 @@ if ( isset( $views[ $selected_view ] ) ) {
 		if ( PWBE_DB::num_rows( $products ) > 0 ) {
 			?>
 			<p class="pwbe-results-buttons">
-				<button id="pwbe-product-save-button" class="button button-primary" title="Save Products" disabled="disabled"><i class='fa fa-floppy-o fa-fw' aria-hidden='true'></i> Save Changes</button>
-				<button id="pwbe-product-undo-button" class="button button-secondary pwbe-product-undo-button" title="Undo" disabled="disabled"><i class='fa fa-undo fa-fw' aria-hidden='true'></i></button>
-				<button id="pwbe-product-redo-button" class="button button-secondary" title="Redo" disabled="disabled"><i class='fa fa-repeat fa-fw' aria-hidden='true'></i></button>
-				<button id="pwbe-product-discard-button" class="button pwbe-button-red" title="Discard All Changes" disabled="disabled"><i class='fa fa-refresh fa-fw' aria-hidden='true'></i></button>
+				<button id="pwbe-product-save-button" class="button button-primary" title="<?php _e( 'Save Products', 'pw-bulk-edit' ); ?>" disabled="disabled"><i class='fa fa-floppy-o fa-fw' aria-hidden='true'></i> <?php _e( 'Save Changes', 'pw-bulk-edit' ); ?></button>
+				<button id="pwbe-product-undo-button" class="button button-secondary pwbe-product-undo-button" title="<?php _e( 'Undo', 'pw-bulk-edit' ); ?>" disabled="disabled"><i class='fa fa-undo fa-fw' aria-hidden='true'></i></button>
+				<button id="pwbe-product-redo-button" class="button button-secondary" title="<?php _e( 'Redo', 'pw-bulk-edit' ); ?>" disabled="disabled"><i class='fa fa-repeat fa-fw' aria-hidden='true'></i></button>
+				<button id="pwbe-product-discard-button" class="button pwbe-button-red" title="<?php _e( 'Discard All Changes', 'pw-bulk-edit' ); ?>" disabled="disabled"><i class='fa fa-refresh fa-fw' aria-hidden='true'></i></button>
 				<span id="pwbe-records-found"></span>
 				<span id="pwbe-view-container">
 					<strong>View </strong>
@@ -65,9 +65,9 @@ if ( isset( $views[ $selected_view ] ) ) {
 								$view_name = $view;
 
 								if ( $view == 'pwbeview_all' ) {
-									$view_name = 'All Columns';
+									$view_name = __( 'All Columns', 'pw-bulk-edit' );
 								} else if ( $view == 'pwbeview_default' ) {
-									$view_name = 'Standard Columns';
+									$view_name = __( 'Standard Columns', 'pw-bulk-edit' );
 								}
 
 								echo "<option value=\"$view\" " . selected( $selected_view, $key, false ) . ">$view_name</option>\n";
@@ -75,8 +75,8 @@ if ( isset( $views[ $selected_view ] ) ) {
 
 						?>
 					</select>
-					<span id="pwbe-view-edit" class="pwbe-link pwbe-filter-toolbar-button <?php if ( empty( $selected_view ) || PW_Bulk_Edit::starts_with( 'pwbeview_', $selected_view ) ) { echo 'pwbe-hidden'; } ?>" title="Edit View"><i class="fa fa-pencil-square-o fa-fw"></i></span>
-					<span id="pwbe-view-delete" class="pwbe-link pwbe-filter-toolbar-button <?php if ( empty( $selected_view ) || PW_Bulk_Edit::starts_with( 'pwbeview_', $selected_view ) ) { echo 'pwbe-hidden'; } ?>" title="Delete View"><i class="fa fa-trash-o fa-fw"></i></span>
+					<span id="pwbe-view-edit" class="pwbe-link pwbe-filter-toolbar-button <?php if ( empty( $selected_view ) || PW_Bulk_Edit::starts_with( 'pwbeview_', $selected_view ) ) { echo 'pwbe-hidden'; } ?>" title="<?php _e( 'Edit View', 'pw-bulk-edit' ); ?>"><i class="fa fa-pencil-square-o fa-fw"></i></span>
+					<span id="pwbe-view-delete" class="pwbe-link pwbe-filter-toolbar-button <?php if ( empty( $selected_view ) || PW_Bulk_Edit::starts_with( 'pwbeview_', $selected_view ) ) { echo 'pwbe-hidden'; } ?>" title="<?php _e( 'Delete View', 'pw-bulk-edit' ); ?>"><i class="fa fa-trash-o fa-fw"></i></span>
 				</span>
 			</p>
 			<form id="pwbe-results-form">
@@ -173,7 +173,7 @@ if ( isset( $views[ $selected_view ] ) ) {
 										<?php
 											if ( $product->product_type != 'variation' ) {
 												?>
-												<a class="pwbe-view-in-woo-link" target="_blank" title="View Product in WooCommerce" href="<?php echo get_edit_post_link( $product->post_id, 'edit' ); ?>"><i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a>
+												<a class="pwbe-view-in-woo-link" target="_blank" title="<?php _e( 'View Product in WooCommerce', 'pw-bulk-edit' ); ?>" href="<?php echo get_edit_post_link( $product->post_id, 'edit' ); ?>"><i class="fa fa-external-link fa-fw" aria-hidden="true"></i></a>
 												<?php
 											}
 										?>
@@ -201,9 +201,13 @@ if ( isset( $views[ $selected_view ] ) ) {
 						<script>
 							<?php
 								if ( true === $result_limit_exceeded ) {
-									echo "jQuery('#pwbe-records-found').html('Maximum " . number_format( PWBE_MAX_RESULTS ) . " records found [<a href=\"#\" onClick=\"alert(\\'If you would like to increase this limit, set PWBE_MAX_RESULTS in pw-bulk-edit.php\\\\n\\\\nNOTE: this limit is in place due to browser limitations. Increasing this value may cause unexpected behavior!\\\\n\\\\nInstead, we suggest adding additional filters to lower the number of products found.\\'); return false;\">?</a>] ');";
-								} else {
-									echo "jQuery('#pwbe-records-found').html('" . number_format( $i ) . " records found.');";
+                                    ?>
+                                    jQuery('#pwbe-records-found').html('<?php printf( __( 'Maximum %s records found', 'pw-bulk-edit' ), number_format( PWBE_MAX_RESULTS ) ); ?> [<a href="#" onClick="alert(\'<?php _e( 'If you would like to increase this limit, set PWBE_MAX_RESULTS in pw-bulk-edit.php. NOTE: this limit is in place due to browser limitations. Increasing this value may cause unexpected behavior! Instead, we suggest adding additional filters to lower the number of products found.', 'pw-bulk-edit' ); ?>\'); return false;">?</a>] ');
+                                    <?php
+                                } else {
+                                    ?>
+                                    jQuery('#pwbe-records-found').html('<?php printf( __( '%s records found', 'pw-bulk-edit' ), number_format( $i ) ); ?>');
+                                    <?php
 								}
 							?>
 						</script>
@@ -345,6 +349,11 @@ function pwbe_field( $product, $column, $hidden ) {
 				}
 			}
 		break;
+	}
+
+	if ( $product->product_type == 'variation' && $field == 'post_title' ) {
+		$variation = wc_get_product( $product->post_id );
+		$display_value = $variation->get_formatted_name();
 	}
 
 	$html = "

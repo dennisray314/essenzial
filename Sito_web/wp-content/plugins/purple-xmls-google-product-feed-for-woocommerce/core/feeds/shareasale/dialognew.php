@@ -19,6 +19,7 @@ class ShareASaleDlg extends PBaseFeedDialog
             "Commission", "SubCategory", "SearchTerms", "Custom 1", "Custom 2", "Custom 3", "Custom 4", "Custom 5",
             "Manufacturer", "PartNumber", "MerchantSubcategory", "ISBN", "UPC"
         );
+        $this->doc_link = "https://www.exportfeed.com/documentation/shareasale-integration-guide/";
     }
 
 }

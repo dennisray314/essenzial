@@ -149,8 +149,17 @@ class IWP_MMB_Backup_Multicall extends IWP_MMB_Core
 			$status = $responseParams['status'];
 			if(empty($action))
 			{
-				manual_debug('', 'triggerError');
-				return $this->statusLog($datas['backupParentHID'], array('stage' => 'trigger_check', 'status' => 'error', 'statusMsg' => 'Calling Next Function failed - Error while fetching table data', 'statusCode' => 'calling_next_function_failed_error_while_fetching_table_data'));
+				$iwp_multical_db_dump_flag = get_option('iwp_multical_db_dump_flag');
+				if ($iwp_multical_db_dump_flag) {
+					delete_option('iwp_multical_db_dump_flag');
+					$db_result = $this->backupDBPHP($datas['backupParentHID']);
+					return $db_result;
+				}
+				if (empty($datas['params']['success']['nextFunc'])) {
+					manual_debug('', 'triggerError');
+					return $this->statusLog($datas['backupParentHID'], array('stage' => 'trigger_check', 'status' => 'error', 'statusMsg' => 'Calling Next Function failed - Error while fetching table data', 'statusCode' => 'calling_next_function_failed_error_while_fetching_table_data'));
+				}
+				$action = $datas['params']['success']['nextFunc'];
 			}
 
 			unset($responseParams);
@@ -410,6 +419,7 @@ class IWP_MMB_Backup_Multicall extends IWP_MMB_Core
         $command = $brace . $paths['mysqldump'] . $brace . ' --force --host="' . DB_HOST . '" --user="' . DB_USER . '" --password="' . DB_PASSWORD . '" --add-drop-table --skip-lock-tables --extended-insert=FALSE "' . DB_NAME . '" "'.$wp_tables.'" > ' . $brace . $file . $brace;
 		iwp_mmb_print_flush('DB DUMP CMD: Start');
         ob_start();
+        update_option('iwp_multical_db_dump_flag', 1);
         $result = $this->iwp_mmb_exec($command);
         ob_get_clean();
 		iwp_mmb_print_flush('DB DUMP CMD: End');
@@ -651,7 +661,11 @@ class IWP_MMB_Backup_Multicall extends IWP_MMB_Core
 			if ($db_result) {
 				$db_result = $this->backup_db_dump_multi($historyID);
 			}
+			if ($db_result === true) {
+				delete_option('iwp_multical_db_dump_flag');
+			}
 			if ($db_result == false) {
+				delete_option('iwp_multical_db_dump_flag');
 				$db_result = $this->backupDBPHP($historyID);
 			}	
 			

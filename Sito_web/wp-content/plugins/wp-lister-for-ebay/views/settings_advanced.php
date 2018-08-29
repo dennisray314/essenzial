@@ -46,6 +46,7 @@
 
 								<div id="major-publishing-actions">
 									<div id="publishing-action">
+                                        <?php wp_nonce_field( 'wplister_save_advanced_settings' ); ?>
 										<input type="hidden" name="action" value="save_wplister_advanced_settings" >
 										<input type="submit" value="<?php echo __('Save Settings','wplister'); ?>" id="save_settings" class="button-primary" name="save">
 									</div>
@@ -174,15 +175,6 @@
 								<a href="<?php echo __('http://pages.ebay.com/help/policies/listing-links.html','wplister'); ?>" target="_blank"><?php echo __('here','wplister'); ?></a>
 							</p>
 
-							<label for="wpl-default_image_size" class="text_label">
-								<?php echo __('Default image size','wplister'); ?>
-                                <?php wplister_tooltip('Select the image size WP-Lister should use on eBay. It is recommended to set this to "full".') ?>
-							</label>
-							<select id="wpl-default_image_size" name="wpl_e2e_default_image_size" class="required-entry select">
-								<option value="full"    <?php if ( $wpl_default_image_size == 'full'   ): ?>selected="selected"<?php endif; ?>><?php echo __('full','wplister'); ?></option>
-								<option value="large"   <?php if ( $wpl_default_image_size == 'large'  ): ?>selected="selected"<?php endif; ?>><?php echo __('large','wplister'); ?></option>
-							</select>
-
 							<label for="wpl-template_ssl_mode" class="text_label">
 								<?php echo __('HTTPS conversion','wplister'); ?>
                                 <?php wplister_tooltip('Enable this to make sure all image links in your listing template use HTTPS.<br>If your site supports SSL, it is recommended to set this option to "Use HTTPS".') ?>
@@ -209,7 +201,23 @@
 							<p class="desc" style="display: block;">
 								<?php echo __('If you find unwanted images in your listings try disabling this option.','wplister'); ?>
 							</p>
+							<?php else : ?>
+							<p class="desc" style="display: block;">
+								<?php echo __('It is recommended to keep the default setting.','wplister'); ?><br>
+							</p>
 							<?php endif; ?>
+
+							<label for="wpl-default_image_size" class="text_label">
+								<?php echo __('Default image size','wplister'); ?>
+                                <?php wplister_tooltip('Select the image size WP-Lister should use on eBay. It is recommended to set this to "full size".') ?>
+							</label>
+							<select id="wpl-default_image_size" name="wpl_e2e_default_image_size" class="required-entry select">
+								<option value="full"    <?php if ( $wpl_default_image_size == 'full'   ): ?>selected="selected"<?php endif; ?>><?php echo __('full size','wplister'); ?> (<?php _e('default','wplister'); ?>)</option>
+								<option value="large"   <?php if ( $wpl_default_image_size == 'large'  ): ?>selected="selected"<?php endif; ?>><?php echo __('large size','wplister'); ?></option>
+							</select>
+							<p class="desc" style="display: block;">
+								<?php echo __('It is recommended to keep the default setting.','wplister'); ?><br>
+							</p>
 
 							<label for="wpl-gallery_items_limit" class="text_label">
 								<?php echo __('Gallery Widget limit','wplister'); ?>
@@ -219,7 +227,7 @@
 								<option value="3" <?php if ( $wpl_gallery_items_limit == '3' ): ?>selected="selected"<?php endif; ?>>3 <?php echo __('items','wplister'); ?></option>
 								<option value="6" <?php if ( $wpl_gallery_items_limit == '6' ): ?>selected="selected"<?php endif; ?>>6 <?php echo __('items','wplister'); ?></option>
 								<option value="9" <?php if ( $wpl_gallery_items_limit == '9' ): ?>selected="selected"<?php endif; ?>>9 <?php echo __('items','wplister'); ?></option>
-								<option value="12" <?php if ( $wpl_gallery_items_limit == '12' ): ?>selected="selected"<?php endif; ?>>12 <?php echo __('items','wplister'); ?></option>
+								<option value="12" <?php if ( $wpl_gallery_items_limit == '12' ): ?>selected="selected"<?php endif; ?>>12 <?php echo __('items','wplister'); ?> (<?php _e('default','wplister'); ?>)</option>
 								<option value="15" <?php if ( $wpl_gallery_items_limit == '15' ): ?>selected="selected"<?php endif; ?>>15 <?php echo __('items','wplister'); ?></option>
 								<option value="24" <?php if ( $wpl_gallery_items_limit == '24' ): ?>selected="selected"<?php endif; ?>>24 <?php echo __('items','wplister'); ?></option>
 							</select>
@@ -278,6 +286,9 @@
 								<option value="1" <?php if ( $wpl_enable_custom_product_prices == '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('Yes','wplister'); ?> (<?php _e('default','wplister'); ?>)</option>
 								<option value="2" <?php if ( $wpl_enable_custom_product_prices == '2' ): ?>selected="selected"<?php endif; ?>><?php echo __('Hide for variations','wplister'); ?></option>
 							</select>
+							<p class="desc" style="display: block;">
+								<?php echo __('Show or hide the custom eBay price field.','wplister'); ?><br>
+							</p>
 
 							<label for="wpl-enable_mpn_and_isbn_fields" class="text_label">
 								<?php echo __('Enable MPN and ISBN fields','wplister') ?>
@@ -288,6 +299,9 @@
 								<option value="1" <?php if ( $wpl_enable_mpn_and_isbn_fields == '1' ): ?>selected="selected"<?php endif; ?>><?php echo __('Yes','wplister'); ?></option>
 								<option value="2" <?php if ( $wpl_enable_mpn_and_isbn_fields == '2' ): ?>selected="selected"<?php endif; ?>><?php echo __('Hide for variations','wplister'); ?> (<?php _e('default','wplister'); ?>)</option>
 							</select>
+							<p class="desc" style="display: block;">
+								<?php echo __('Show or hide the MPN and ISBN fields.','wplister'); ?><br>
+							</p>
 
 							<label for="wpl-enable_categories_page" class="text_label">
 								<?php echo __('Categories in main menu','wplister') ?>
@@ -302,13 +316,16 @@
 							</p>
 
                             <label for="wpl-store_categories_sorting" class="text_label">
-                                <?php echo __('Store Categories Sorting','wplister') ?>
+                                <?php echo __('Store Categories Order','wplister') ?>
                                 <?php wplister_tooltip('Choose whether to display the store categories using the manual order from eBay, or sort them alphabetically.') ?>
                             </label>
                             <select id="wpl-store_categories_sorting" name="wpl_e2e_store_categories_sorting" class="required-entry select">
-                                <option value="default" <?php selected( $wpl_store_categories_sorting, 'default' ); ?>><?php echo __('Manual Sorting','wplister'); ?> (<?php _e('default','wplister'); ?>)</option>
-                                <option value="alphabetical" <?php selected( $wpl_store_categories_sorting, 'alphabetical' ); ?>><?php echo __('Alphabetical','wplister'); ?></option>
+                                <option value="default" <?php selected( $wpl_store_categories_sorting, 'default' ); ?>><?php echo __('Manual sort order','wplister'); ?> (<?php _e('default','wplister'); ?>)</option>
+                                <option value="alphabetical" <?php selected( $wpl_store_categories_sorting, 'alphabetical' ); ?>><?php echo __('Sort alphabetically','wplister'); ?></option>
                             </select>
+							<p class="desc" style="display: block;">
+								<?php echo __('Select whether you want your store categories to be sorted alphabetically.','wplister'); ?><br>
+							</p>
 
 							<label for="wpl-enable_accounts_page" class="text_label">
 								<?php echo __('Accounts in main menu','wplister') ?>
@@ -344,6 +361,18 @@
 							</select>
 							<p class="desc" style="display: block;">
 								<?php echo __('If you do not plan to use the synchronize sales feature, you can safely list one product multiple times.','wplister'); ?>
+							</p>
+
+                            <label for="wpl-option-display_product_counts" class="text_label">
+                                <?php _e( 'Show eBay product totals', 'wplister' ); ?>
+                                <?php wplister_tooltip('This will display the total number of products <i>On eBay</i> and <i>Not on eBay</i> on the Products admin page in WooCommerce.<br><br>Please note: Enabling this option requires some complex database queries which might slow down loading the Products admin page.<br><br>If the Products page is taking too long to load, you should disable this option or move to a more powerful hosting/server.'); ?>
+                            </label>
+                            <select id="wpl-option-display_product_counts" name="wpl_e2e_display_product_counts" class="required-entry select">
+                                <option value="0" <?php selected( $wpl_display_product_counts, 0 ); ?>><?php _e('No', 'wplister'); ?> (default)</option>
+                                <option value="1" <?php selected( $wpl_display_product_counts, 1 ); ?>><?php _e('Yes', 'wplister'); ?></option>
+                            </select>
+							<p class="desc" style="display: block;">
+								<?php echo __('Enable this to display the total number of products on eBay / not on eBay in WooCommerce.','wplister'); ?>
 							</p>
 
 						</div>

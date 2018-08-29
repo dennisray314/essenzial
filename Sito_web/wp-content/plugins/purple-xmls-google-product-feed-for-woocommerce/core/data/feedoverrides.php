@@ -439,6 +439,9 @@ class PFeedOverride extends PBaseFeedOverride
         if ($this_option == '$ignore_duplicates') {
             $parent->ignoreDuplicates = true;
         }
+        if ($this_option == '$google_exact_title') {
+            $parent->google_exact_title = true;
+        }
         if ($this_option == '$max_description_length') {
             $parent->addErrorMessage(11001, 'Use of deprecated command: $max_description_length', true);
         }

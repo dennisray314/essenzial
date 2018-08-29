@@ -114,6 +114,10 @@ function get_feed_main()
     if ($x->success)
         $output->url = PFeedFolder::uploadURL() . $x->providerName . '/' . $file_name . '.' . $x->fileformat;
     $output->errors = $x->getErrorMessages();
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'cpf_custom_products';
+    $sql = "TRUNCATE TABLE $table_name";
+    $wpdb->query($sql);
 
     doOutput($output);
 }

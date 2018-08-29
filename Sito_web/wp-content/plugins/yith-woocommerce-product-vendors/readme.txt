@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: woocommerce multi vendor store, woocommerce marketplace, product vendors, vendors, vendor, multi store, multi vendor, multi seller, woocommerce product vendors, woocommerce multi vendor, commission rate, seller, shops, vendor shop, vendor system, woo vendors, wc vendors, e-commerce, multivendor, multivendors, wc multivendor, WooCommerce vedors, WooCommerce, Vendor, Multivendor, marketplace, seller, product vendor, product vendors, store, WooCommerce multivendor, Woo vendors, wc vendors, multistore, dc vendors, dc vendor, dc multi vendor, dc multi vendors, dc product vendor, dc product vendors, woocommerce marketplace, yit, yith, yithemes
 Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 2.5.0
+Tested up to: 4.9.6
+Stable tag: 2.5.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html/
 
@@ -195,6 +195,32 @@ If none of the previous listed actions helps you solve the problem, then, submit
 YITH WooCommerce Multi Vendor will add a new tab called "Multi Vendor" in "YIT Plugins" menu item. There, you will find all Yithemes plugins with quick access to plugin setting page.
 
 == Changelog ==
+
+= 2.5.9 - Jul 06, 2018 =
+
+* Fix: call undefined function get_plugin_data()
+
+= 2.5.8 - May 25, 2018 =
+
+* New: Privacy Policy Content Support
+
+= 2.5.7 - May 18, 2018 =
+
+* New: Support to WordPress 4.9.6RC2
+* New: Support to WooCommerce 3.4.0RC1
+* New: GDPR Support
+* New: plugin fw version 3.0.15
+* Fix: Suborder haven't shipping and billing address with latest plugin version
+* Fix: Fatal error: Call to a member function get_order_number() on boolean with YITH WooCommerce Request a Quote plugin
+* Fix: Call undefined method get_social_fields
+* Fix: Add currency arg in commission get_amount() method
+* Fix: FREE Shipping doesn't works fine with product included taxes display option enabled
+* Fix: Remove Import and Export button for vendors
+* Fix: Blank Shipping tab in add/edit product page
+* Fix: Missing argument 2 $child_refund_id in orders class
+* Fix: Fatal error on order status updating
+* Fix: Blank character on YITH_Orders class
+* Fix: No vendor owner information after remove the termmeta from database
 
 = 2.5.0 - Mar 14, 2018 =
 

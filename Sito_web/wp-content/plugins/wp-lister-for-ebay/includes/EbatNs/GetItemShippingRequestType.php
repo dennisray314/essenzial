@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,9 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'CountryCodeType.php';
 
 /**
-  * Returns shipping cost estimates for an item for every calculated shipping service
-  * that the seller has offered with the listing. This is analogous to the Shipping
-  * Calculator seen in both the buyer and seller web pages.
+  * This is the base request type of the <b>GetItemShipping</b> call. This call takes an <b>ItemID</b> value for an item that has yet to be shipped, and then returns estimated shipping costs for every shipping service that the seller has offered with the listing. This call will also return <b>PickUpInStoreDetails.EligibleForPickupDropOff</b> and <b>PickUpInStoreDetails.EligibleForPickupInStore</b> flags if the item is available for buyer pick-up through the In-Store Pickup or Click and Collect features.
   * 
  **/
 

@@ -11,13 +11,38 @@ require_once 'core/classes/dialogfeedsettings.php';
 require_once 'core/data/savedfeed.php';
 
 ?>
+
+     <script type="text/javascript">
+            jQuery(document).ready(function(){
+             jQuery('.widefat').DataTable({
+                 "order": [[ 7, "desc" ]],
+                 "columnDefs": [ {
+                     "targets": 0,
+                     "orderable": false
+                 } ]
+             });
+             // jQuery('.tablenav,.top').css({'display':'block'});
+             /*jQuery('.dataTables_wrapper').css({'background':'white'});
+             jQuery('.dataTables_length').css({'padding-top': '10px','margin-left':'10px'});*/
+            });
+     </script>
+
+<style type="text/css">
+    .widefat td {
+    text-align: left;
+    font-weight: 300;
+    font-size: 14px;
+}
+</style>
     <div class="wrap">
         <!-- <?php $iconurl = plugins_url('/', __FILE__) . '/images/cp_feed32.png'; ?>
+
     <div id="icon-purple_feed" class="icon32" style="background: transparent url( <?php echo($iconurl); ?> ) no-repeat">
         <br />
 
     </div>
     -->
+        <div style="display: none;" id="ajax-loader-cat-import"><span id="gif-message-span"></span></div>
 
         <h2>
             <?php
@@ -61,7 +86,7 @@ require_once 'core/data/savedfeed.php';
 
 
         if ($message) {
-            echo '<div id="setting-error-settings_updated" class="updated settings-error">
+            echo '<div id="setting-error-settings_updated" class="notice notice-error">
                <p>' . $message . '</p></div>';
         }
         //"New Feed" button
@@ -78,7 +103,7 @@ require_once 'core/data/savedfeed.php';
         </script>';
         if ($_GET['page'] != 'eBay_settings_tabs') {
             echo PFeedSettingsDialogs::refreshTimeOutDialog();
-            echo PFeedSettingsDialogs::filterProductDialog();
+            // echo PFeedSettingsDialogs::filterProductDialog();
         }
         // The table of existing feeds
         feeds_main_table();
@@ -179,17 +204,26 @@ function feeds_main_table()
         $image['up_arrow'] = '<img src="' . CPF_URL . 'images/down.png" alt="up" style=" height:12px; position:relative; top:2px; " />';
         ?>
         <!--	<div class="table_wrapper">	-->
-        <input class="button-primary" type="submit" value="Update Now" onclick="doUpdateAllFeeds(this)">
+        <!-- <input class="button-primary" type="submit" value="Update Now" onclick="doUpdateAllFeeds(this)">
+
         <div class="update-message">&nbsp;</div>
+        <div class = "update-feed">&nbsp;</div> -->
+        <!-- <div class="form-search managefeed">
+            <div class="searchrow">
+                <div class="col-skukey forminp" style="position:relative;">
+                    <input type="search" id="cpf_feed_filter" name="cpf_feed_filter" placeholder="Search feed name" style="width:100%; height: 30px;">
+                </div>
+            </div>
+        </div> -->
         <table class="widefat" style="margin-top:12px;" id="cpf_manage_table_originals">
             <thead>
             <tr>
                 <?php $url = get_admin_url() . 'admin.php?page=cart-product-feed-manage-page&amp;order_by='; ?>
-                <th scope="col" style="min-width: 40px;padding-left: 2px;"><input type="checkbox"
+                <th scope="col"><input type="checkbox"
                                                                                   id="cpf_select_all_feed"
                                                                                   onclick="cpf_check_all_feeds(this);"/>
                 </th>
-                <th scope="col" style="min-width: 40px;">
+                <th scope="col" width="5%">
                     <a href="<?php echo $url . "id" ?>">
                         <?php
                         _e('ID', 'cart-product-strings');
@@ -202,10 +236,10 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="min-width: 120px;">
+                <th scope="col">
                     <a href="<?php echo $url . "name" ?>">
                         <?php
-                        _e('Name', 'cart-product-strings');
+                        _e('Feed name', 'cart-product-strings');
                         if ($order == 'name') {
                             if ($reverse)
                                 echo $image['up_arrow'];
@@ -215,10 +249,10 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col">
+                <th scope="col" width="10%">
                     <a href="<?php echo $url . "category" ?>">
                         <?php
-                        _e('Local category', 'cart-product-strings');
+                        _e('Woocommerce category', 'cart-product-strings');
                         if ($order == 'category') {
                             if ($reverse)
                                 echo $image['up_arrow'];
@@ -228,7 +262,7 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="min-width: 100px;">
+                <th scope="col">
                     <a href="<?php echo $url . "google_category" ?>">
                         <?php
                         _e('Export category', 'cart-product-strings');
@@ -241,10 +275,10 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="min-width: 50px;">
+                <th scope="col">
                     <a href="<?php echo $url . "type" ?>">
                         <?php
-                        _e('Type', 'cart-product-strings');
+                        _e('Merchant', 'cart-product-strings');
                         if ($order == 'type') {
                             if ($reverse)
                                 echo $image['up_arrow'];
@@ -254,7 +288,7 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="width: 120px;">
+                <th scope="col">
                     <a href="<?php echo $url . "url" ?>">
                         <?php
                         _e('URL', 'cart-product-strings');
@@ -267,11 +301,11 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="width: 80px;"><?php _e('Last Updated', 'cart-product-strings'); ?></th>
+                <th scope="col" width="12%"><?php _e('Last Updated', 'cart-product-strings'); ?></th>
                 <!-- <th scope="col" width="50px"><?php //_e( 'View', 'cart-product-strings' ); ?></th> -->
                 <!-- <th scope="col" width="50px"><?php _e('Options', 'cart-product-strings'); ?></th> -->
                 <!-- <th scope="col" width="50px"><?php //_e( 'Delete', 'cart-product-strings' ); ?></th> -->
-                <th scope="col"><?php _e('Products', 'cart-product-strings'); ?></th>
+                <th scope="col"><?php _e('No. of Products', 'cart-product-strings'); ?></th>
             </tr>
             </thead>
             <tbody>
@@ -318,12 +352,18 @@ function feeds_main_table()
                     <td>
                         <small><?php echo esc_attr(stripslashes($this_feed_ex->local_category)) ?></small>
                     </td>
-                    <td><?php $count_str = strlen(str_replace(".and.", " & ", str_replace(".in.", " > ", esc_attr(stripslashes($this_feed['remote_category'])))));
+                    <td>
+                        <?php
                         $concat = "";
-                        if ($count_str > 200) {
+                        if($this_feed['feed_type']==1){
+                            $exploded = explode('::',$this_feed['remote_category']);
+                            $this_feed['remote_category'] = $exploded[0];
+                        }
+                        $count_str = strlen(str_replace(".and.", " & ", str_replace(".in.", " > ", esc_attr(stripslashes($this_feed['remote_category'])))));
+                        if ($count_str > 100) {
                             $concat = "...";
                         }
-                        echo substr(str_replace(".and.", " & ", str_replace(".in.", " > ", esc_attr(stripslashes($this_feed['remote_category'])))), 0, 200) . $concat; ?>
+                        echo substr(str_replace(".and.", " & ", str_replace(".in.", " > ", esc_attr(stripslashes($this_feed['remote_category'])))), 0, 100) . $concat; ?>
                     </td>
                     <td><?php echo $providerList->getPrettyNameByType($this_feed['type']) ?></td>
                     <td><?php echo $this_feed['url'] ?></td>
@@ -333,7 +373,10 @@ function feeds_main_table()
                         $feed_file = PFeedFolder::uploadFolder() . $this_feed['type'] . '/' . $this_feed['filename'] . $ext;
                         if (file_exists($feed_file)) {
                             echo date("d-m-Y H:i:s", filemtime($feed_file));
-                        } else echo 'DNE';
+                        } else {
+                            print_r($feed_file);exit;
+                            echo 'DNE';
+                        }
                         ?></td>
 
                     <!--  <td><a href="<?php echo $this_feed['url'] ?>" target="_blank" class="purple_xmlsedit"><?php _e('View', 'cart-product-strings'); ?></a></td>
@@ -373,11 +416,9 @@ function feeds_main_table()
                 $url = get_admin_url() . 'admin.php?page=cart-product-manage-page&amp;order_by=';
                 $order = '';
                 ?>
-                <th scope="col" style="min-width: 40px;padding-left: 2px;"><input type="checkbox"
-                                                                                  id="cpf_select_all_feed_1"
-                                                                                  onclick="cpf_check_all_feeds_1(this);"/>
+                <th scope="col"><input type="checkbox" id="cpf_select_all_feed_1" onclick="cpf_check_all_feeds_1(this);"/>
                 </th>
-                <th scope="col" style="min-width: 40px;">
+                <th scope="col" width="5%">
                     <a href="<?php echo $url . "id" ?>">
                         <?php
                         _e('ID', 'cart-product-strings');
@@ -390,10 +431,10 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="min-width: 120px;">
+                <th scope="col">
                     <a href="<?php echo $url . "name" ?>">
                         <?php
-                        _e('Name', 'cart-product-strings');
+                        _e('Feed name', 'cart-product-strings');
                         if ($order == 'name') {
                             if ($reverse)
                                 echo $image['up_arrow'];
@@ -406,7 +447,7 @@ function feeds_main_table()
                 <th scope="col">
                     <a href="<?php echo $url . "category" ?>">
                         <?php
-                        _e('Local Category', 'cart-product-strings');
+                        _e('Woocommerce Category', 'cart-product-strings');
                         if ($order == 'category') {
                             if ($reverse)
                                 echo $image['up_arrow'];
@@ -416,7 +457,7 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="min-width: 100px;">
+                <th scope="col">
                     <a href="<?php echo $url . "google_category" ?>">
                         <?php
                         _e('Export category', 'cart-product-strings');
@@ -429,7 +470,7 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="min-width: 50px;">
+                <th scope="col">
                     <a href="<?php echo $url . "type" ?>">
                         <?php
                         _e('Type', 'cart-product-strings');
@@ -442,7 +483,7 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="width: 120px;">
+                <th scope="col">
                     <a href="<?php echo $url . "url" ?>">
                         <?php
                         _e('URL', 'cart-product-strings');
@@ -455,7 +496,7 @@ function feeds_main_table()
                         ?>
                     </a>
                 </th>
-                <th scope="col" style="width: 80px;"><?php _e('Last Updated', 'cart-product-strings'); ?></th>
+                <th scope="col"><?php _e('Last Updated', 'cart-product-strings'); ?></th>
                 <!--  <th scope="col"><?php //_e( 'View', 'cart-product-strings' ); ?></th> -->
                 <!-- <th scope="col"><?php _e('Options', 'cart-product-strings'); ?></th> -->
                 <!-- <th scope="col"><?php //_e( 'Delete', 'cart-product-strings' ); ?></th> -->
@@ -464,9 +505,12 @@ function feeds_main_table()
             </tfoot>
 
         </table>
-
+        <div class="update-field">
         <input class="button-primary" type="submit" value="Update Now" onclick="doUpdateAllFeeds(this)">
+        <input class="button-primary" type="submit" value="Delete Selected" onclick="deletecpfFeedSelected(this)">
         <div class="update-message">&nbsp;</div>
+        <div class = "update-feed">&nbsp;</div>
+        </div>
         <!--	</div> -->
         <?php
     } else {

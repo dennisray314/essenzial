@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -16,7 +16,7 @@ require_once 'AddressType.php';
 require_once 'ExternalTransactionType.php';
 
 /**
-  * Enables a seller can use this call to update the payment details, the shipping details,
+  * Enables a seller to update the payment details, the shipping details,
   * and the status of an order.
   * 
  **/

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ErrorType.php';
 
 /**
-  * Includes the acknowledgement of date and time the auction was
-  * ended due to the call to EndItem.
+  * This type includes the acknowledgement of the date and time when an eBay listing was ended due to the call to <b>EndItems</b>.
   * 
  **/
 

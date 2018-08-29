@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,7 +11,7 @@ require_once 'DeviceTypeCodeType.php';
 require_once 'DeliveryURLDetailType.php';
 
 /**
-  * Specifies preferences about how notifications are delivered to an application.
+  * Type used by the <b>ApplicationDeliveryPreferences</b> container to control/indicate where and how Platform Notifications and/or Client Alerts are delivered to a user application, server, and/or email address.
   * 
  **/
 

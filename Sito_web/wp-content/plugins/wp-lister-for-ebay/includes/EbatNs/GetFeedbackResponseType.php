@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,14 +10,9 @@ require_once 'FeedbackSummaryType.php';
 require_once 'PaginationResultType.php';
 
 /**
-  * The GetFeedback response contains the feedback summary if a 
-  * TransactionID or ItemID is specified, and contains the specified user's total
-  * feedback score and feedback summary data if a UserID is specified. If no
-  * value is supplied, the feedback score and feedback summary for the requesting
-  * user will be returned. 
+  * The <b>GetFeedback</b> response contains the feedback summary if a <b>TransactionID</b> or <b>ItemID</b> is specified, and contains the specified user's total feedback score and feedback summary data if a <b>UserID</b> is specified. If no value is supplied, the feedback score and feedback summary for the requesting user will be returned.
   * <br>
-  * If a detail level value of ReturnAll is specified, an array of all feedback 
-  * records will be returned.
+  * If a detail level value of <b>ReturnAll</b> is specified, an array of all feedback records will be returned.
   * 
  **/
 

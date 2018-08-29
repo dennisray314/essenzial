@@ -25,9 +25,16 @@ class WPL_WooBackendIntegration {
         // handle duplicate product action to copy over ebay metadata for WC 3.0
         add_action( 'woocommerce_product_duplicate', array( $this, 'woocommerce_duplicate_product_meta' ), 10, 2 );
 
-        // WC REST API
+        // WC REST API v1
         add_action( 'woocommerce_rest_insert_product', array( $this, 'wple_on_woocommerce_api_product_save' ), 10, 2 );
         add_action( 'woocommerce_rest_insert_product_variation', array( $this, 'wple_on_woocommerce_api_product_save' ), 10, 2 );
+
+        // WC REST API v2
+        add_action( 'woocommerce_rest_insert_product_object', array( $this, 'wple_on_woocommerce_api_product_save' ), 10, 2 );
+        add_action( 'woocommerce_rest_insert_product_variation_object', array( $this, 'wple_on_woocommerce_api_product_save' ), 10, 2 );
+
+        // Fired on WC_Product::save() and adds support for the built-in WC Products importer in WP
+        add_action( 'woocommerce_update_product', array( $this, 'handle_product_update' ) );
 
 		// show messages when listing was updated from edit product page
 		add_action( 'post_updated_messages', array( &$this, 'wplister_product_updated_messages' ), 20, 1 );
@@ -69,6 +76,7 @@ class WPL_WooBackendIntegration {
 			// add_filter( 'woocommerce_email_enabled_new_order', array( $this, 'check_order_email_enabled' ), 10, 2 );  // disabled as this would *always* prevent admin new order emails for eBay orders
 			add_filter( 'woocommerce_email_enabled_customer_completed_order', array( $this, 'check_order_email_enabled' ), 10, 2 );
 			add_filter( 'woocommerce_email_enabled_customer_processing_order', array( $this, 'check_order_email_enabled' ), 10, 2 );		
+			add_filter( 'woocommerce_email_enabled_customer_refunded_order', array( $this, 'check_order_email_enabled' ), 10, 2 );
 		}
 
 		// disable order emails in WC3.0
@@ -339,7 +347,7 @@ class WPL_WooBackendIntegration {
 
 			// TODO: check if product is in stock and not currently published on eBay!
 			// if ( ! get_post_meta( $post->ID, '_ebay_item_id', true ) )
-			$actions['prepare_auction'] = "<a title='" . esc_attr( __('Prepare this product to be listed on eBay.','wplister') ) . "' href='" . wp_nonce_url( admin_url( 'admin.php?page=wplister' . '&amp;action=wpl_prepare_single_listing&amp;product_id=' . $post->ID ), 'prepare_listing_' . $post->ID ) . "'>" . __( 'List on eBay', 'wplister' ) . "</a>";
+			$actions['wple_prepare_auction'] = "<a title='" . esc_attr( __('Prepare this product to be listed on eBay.','wplister') ) . "' href='" . wp_nonce_url( admin_url( 'admin.php?page=wplister' . '&amp;action=wpl_prepare_single_listing&amp;product_id=' . $post->ID ), 'prepare_listing_' . $post->ID ) . "'>" . __( 'List on eBay', 'wplister' ) . "</a>";
 
 		}
 
@@ -419,8 +427,14 @@ class WPL_WooBackendIntegration {
 		$tooltip = 'This order was placed on eBay.';
 		if ( $account ) $tooltip .= '<br>('.$account->title.')';
 
+		// indicate eBay Plus orders with special logo
+		$ebay_img_file = 'ebay-42x16.png';
+		if ( strpos( $order['details'], 'ContainseBayPlusTransaction' ) ) {
+			$ebay_img_file = 'ebayplus-42x36.png';
+		}
+
 		echo '<div>';		
-		echo '<img src="'.WPLISTER_URL.'img/ebay-42x16.png" style="width:32px;vertical-align:bottom;padding:0;" class="tips" data-tip="'.$tooltip.'" />';		
+		echo '<img src="'.WPLISTER_URL.'img/'.$ebay_img_file.'" style="width:32px;vertical-align:bottom;padding:0;" class="tips" data-tip="'.$tooltip.'" />';		
 
 
 		// show shipping status - if _ebay_marked_as_shipped is set to yes
@@ -702,15 +716,46 @@ class WPL_WooBackendIntegration {
 
     // hook into save_post to mark listing as changed when a product is updated via the REST API
     function wple_on_woocommerce_api_product_save( $post, $request ) {
-        if ( is_int( wp_is_post_revision( $post->ID ) ) ) return;
-        if ( is_int( wp_is_post_autosave( $post->ID ) ) ) return;
+        WPLE()->logger->info( 'wple_on_woocommerce_api_product_save triggered!' );
+
+        if ( isset( $post->ID ) ) {
+            $post_id = $post->ID;
+        } else {
+            $post_id = $post->get_parent_id();
+            WPLE()->logger->info( 'parent: '. $post_id );
+            if ( ! $post_id ) {
+                $post_id = $post->get_id();
+            }
+        }
+        WPLE()->logger->info( 'post_id: '. $post_id );
+
+        if ( is_int( wp_is_post_revision( $post_id ) ) ) return;
+        if ( is_int( wp_is_post_autosave( $post_id ) ) ) return;
         if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ) return;
         // if ( !isset($_POST['woocommerce_quick_edit_nonce']) || (isset($_POST['woocommerce_quick_edit_nonce']) && !wp_verify_nonce( $_POST['woocommerce_quick_edit_nonce'], 'woocommerce_quick_edit_nonce' ))) return $post_id;
-        if ( !current_user_can( 'edit_post', $post->ID )) return;
+        if ( !current_user_can( 'edit_post', $post_id )) return;
 
-        $lm = new ListingsModel();
-        $lm->markItemAsModified( $post->ID );
+        //$lm = new ListingsModel();
+        //$lm->markItemAsModified( $post_id );
 
+        // Triggering wplister_product_has_changed automatically revises locked listings
+        do_action( 'wplister_product_has_changed', $post_id );
+
+    }
+
+    /**
+     * Hooks into woocommerce_update_product to mark the passed ID as changed.
+     * Only run during WC product import process.
+     *
+     * @param int $product_id
+     */
+    function handle_product_update( $product_id ) {
+        if ( is_int( wp_is_post_revision( $product_id ) ) ) return;
+        if ( is_int( wp_is_post_autosave( $product_id ) ) ) return;
+
+        if ( isset( $_REQUEST['action'] ) && $_REQUEST['action'] == 'woocommerce_do_ajax_product_import' ) {
+            do_action( 'wplister_product_has_changed', $product_id );
+        }
     }
 
 	/*
@@ -752,7 +797,9 @@ class WPL_WooBackendIntegration {
 	*/
 
 	// filter the products in admin based on ebay status
+	// deprecated - switched to using subqueries in wplister_woocommerce_admin_product_query_where()
 	// add_filter( 'parse_query', 'wplister_woocommerce_admin_product_filter_query' );
+	/*
 	function wplister_woocommerce_admin_product_filter_query( $query ) {
 		global $typenow, $wp_query, $wpdb;
 
@@ -848,7 +895,8 @@ class WPL_WooBackendIntegration {
 
 		}
 
-	}
+	} // wplister_woocommerce_admin_product_filter_query()
+	*/
 
 	/**
 	 * Register the WHERE clause when listing 'On eBay' and 'Not on eBay' products
@@ -880,6 +928,7 @@ class WPL_WooBackendIntegration {
                                         AND {$wpdb->prefix}posts.ID IN (
                                             SELECT parent_id FROM {$wpdb->prefix}ebay_auctions WHERE {$wpdb->prefix}ebay_auctions.status IN ('published', 'changed')
                                         )
+
 								    )
                                 )";
 				} elseif ( $_GET['is_on_ebay'] == 'no' ) {
@@ -889,6 +938,14 @@ class WPL_WooBackendIntegration {
 									WHERE (
 										{$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.post_id
 										OR {$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.parent_id
+									)
+									AND {$wpdb->prefix}ebay_auctions.status != 'archived'
+								)
+								AND {$wpdb->posts}.ID NOT IN (
+					                SELECT {$wpdb->prefix}ebay_auctions.parent_id
+					                FROM {$wpdb->prefix}ebay_auctions
+									WHERE (
+										{$wpdb->posts}.ID = {$wpdb->prefix}ebay_auctions.post_id
 									)
 									AND {$wpdb->prefix}ebay_auctions.status != 'archived'
 								)";
@@ -924,18 +981,19 @@ class WPL_WooBackendIntegration {
 
 				$query->query_vars['post__not_in'] = array_merge( $query->query_vars['post__not_in'], $post_ids_hidden_from_ebay );
 
-                // only show products in stock - out of stock products are not interesting when filtering for "not on eBay"
-                // if the meta_key query var is used (in sorting products), use the meta_query array to filter out out-of-stock listings #18205
-				if ( empty( $query->query_vars['meta_key'] ) ) {
-                    $query->query_vars['meta_value'] 	= 'instock';
-                    $query->query_vars['meta_key'] 		= '_stock_status';
-                } else {
-				    $query->query_vars['meta_query']['instock_clause'] = array(
-                        'key' => '_stock_status',
-                        'value' => 'instock',
-                        'compare' => '='
-                    );
-                }
+				// // only show products in stock - out of stock products are not interesting when filtering for "not on eBay"
+				// // if the meta_key query var is used (in sorting products), use the meta_query array to filter out out-of-stock listings #18205
+				// // disabled - should never have been enabled for "on ebay" but isn't very useful anymore and disabling will improve performance #23228
+				// if ( empty( $query->query_vars['meta_key'] ) ) {
+				//     $query->query_vars['meta_value'] 	= 'instock';
+				//     $query->query_vars['meta_key'] 		= '_stock_status';
+				// } else {
+				//     $query->query_vars['meta_query']['instock_clause'] = array(
+				//         'key' => '_stock_status',
+				//         'value' => 'instock',
+				//         'compare' => '='
+				//     );
+				// }
 
 			}
 		}
@@ -1048,18 +1106,27 @@ class WPL_WooBackendIntegration {
 
 		if ( ! current_user_can('edit_others_pages') ) return $views;
 
+        // Count items on/not on eBay
+        $on_ebay_count      = '';
+        $not_on_ebay_count  = '';
+
+        if ( get_option( 'wplister_display_product_counts', 1 ) ) {
+            $on_ebay_count     = '('. number_format( WPLE_ListingQueryHelper::countProductsOnEbay() ) .')';
+            $not_on_ebay_count = '('. number_format( WPLE_ListingQueryHelper::countProductsNotOnEbay() ) .')';
+        }
+
 		// On eBay
 		// $class = ( isset( $wp_query->query['is_on_ebay'] ) && $wp_query->query['is_on_ebay'] == 'no' ) ? 'current' : '';
 		$class = ( isset( $_REQUEST['is_on_ebay'] ) && $_REQUEST['is_on_ebay'] == 'yes' ) ? 'current' : '';
 		$query_string = esc_url_raw( remove_query_arg( array( 'is_on_ebay' ) ) );
 		$query_string = add_query_arg( 'is_on_ebay', urlencode('yes'), $query_string );
-		$views['listed'] = '<a href="'. $query_string . '" class="' . $class . '">' . __('On eBay', 'wplister') . '</a>';
+		$views['listed'] = sprintf( '<a href="%s" class="%s">%s %s</a>', $query_string, $class, __('On eBay', 'wplister'), $on_ebay_count );
 
 		// Not on eBay
 		$class = ( isset( $_REQUEST['is_on_ebay'] ) && $_REQUEST['is_on_ebay'] == 'no' ) ? 'current' : '';
 		$query_string = esc_url_raw( remove_query_arg( array( 'is_on_ebay' ) ) );
 		$query_string = add_query_arg( 'is_on_ebay', urlencode('no'), $query_string );
-		$views['unlisted'] = '<a href="'. $query_string . '" class="' . $class . '">' . __('Not on eBay', 'wplister') . '</a>';
+		$views['unlisted'] = sprintf( '<a href="%s" class="%s">%s %s</a>', $query_string, $class, __('Not on eBay', 'wplister'), $not_on_ebay_count );
 
 		// debug query
 		// $views['unlisted'] .= "<br>".$wp_query->request."<br>";
@@ -1186,11 +1253,11 @@ class WPL_WooBackendIntegration {
 					<?php echo __('View on eBay', 'wplister') ?>
 				</a>
 			<?php elseif ( $item->status == 'prepared' ) : ?>
-				<a href="admin.php?page=wplister&amp;action=verify&amp;auction=<?php echo $item->id ?>" style="float:right;">
+				<a href="<?php echo wp_nonce_url( 'admin.php?page=wplister&amp;action=wple_verify&amp;auction='. $item->id, 'bulk-auctions' ); ?>" style="float:right;">
 					<?php echo __('Verify', 'wplister') ?>
 				</a>
 			<?php elseif ( $item->status == 'verified' ) : ?>
-				<a href="admin.php?page=wplister&amp;action=publish2e&amp;auction=<?php echo $item->id ?>" style="float:right;">
+				<a href="<?php echo wp_nonce_url( 'admin.php?page=wplister&amp;action=wple_publish2e&amp;auction='. $item->id, 'wplister_publish2e' ); ?>" style="float:right;">
 					<?php echo __('Publish', 'wplister') ?>
 				</a>
 			<?php endif; ?>
@@ -1240,11 +1307,11 @@ class WPL_WooBackendIntegration {
 					<?php echo __('View on eBay', 'wplister') ?>
 				</a>
 			<?php elseif ( $item->status == 'prepared' ) : ?>
-				<a href="admin.php?page=wplister&amp;action=verify&amp;auction=<?php echo $item->id ?>" style="float:right;">
+				<a href="<?php echo wp_nonce_url( 'admin.php?page=wplister&amp;action=wple_verify&amp;auction='. $item->id, 'bulk-auctions' ); ?>" style="float:right;">
 					<?php echo __('Verify', 'wplister') ?>
 				</a>
 			<?php elseif ( $item->status == 'verified' ) : ?>
-				<a href="admin.php?page=wplister&amp;action=publish2e&amp;auction=<?php echo $item->id ?>" style="float:right;">
+				<a href="<?php echo wp_nonce_url( 'admin.php?page=wplister&amp;action=wple_publish2e&amp;auction='. $item->id, 'wplister_publish2e' ); ?>" style="float:right;">
 					<?php echo __('Publish', 'wplister') ?>
 				</a>
 			<?php endif; ?>
@@ -1628,23 +1695,19 @@ class WPL_WooBackendIntegration {
 	public function render_quick_edit_values( $column ) {
 		global $post, $the_product;
 
-		$product_id = wple_get_product_meta( $the_product, 'id' );
-
-		if ( empty( $the_product ) || $product_id != $post->ID ) {
-			$the_product = wc_get_product( $post );
-		}
-
 		if ( $column == 'name' ) {
-			$listing = WPLE_ListingQueryHelper::getListingIDFromPostID( $product_id );
 
-			if ( ! $listing ) {
-				$listing = 0;
+			$product_id = wple_get_product_meta( $the_product, 'id' );
+			$listing_id = WPLE_ListingQueryHelper::getListingIDFromPostID( $product_id );
+
+			if ( ! $listing_id ) {
+				$listing_id = 0;
 			}
 
 			echo '
 					<div class="hidden" id="wplister_inline_' . $post->ID . '">
 						<div class="ebay_start_price">' . wple_get_product_meta( $product_id, 'ebay_start_price' ) . '</div>
-						<div class="ebay_listing_id">' . $listing . '</div>
+						<div class="ebay_listing_id">' . $listing_id . '</div>
 					</div>
 				';
 		}

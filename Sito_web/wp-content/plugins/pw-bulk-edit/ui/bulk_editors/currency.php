@@ -26,46 +26,46 @@ if ( !defined( 'ABSPATH' ) ) {
 ?>
 <span id="pwbe-dialog-content-currency" class="pwbe-dialog-content" data-function="pwbeBulkEditorCurrencyHandler">
 	<fieldset id="pwbe-bulkedit-currency-mode">
-		<input type="radio" value="fixed" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-fixed" /> <label for="pwbe-bulkedit-currency-mode-fixed">Set to specific amount</label><br />
-		<input type="radio" value="fixed-increase" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-fixed-increase" /> <label for="pwbe-bulkedit-currency-mode-fixed-increase">Increase by specific amount</label><br />
-		<input type="radio" value="fixed-decrease" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-fixed-decrease" /> <label for="pwbe-bulkedit-currency-mode-fixed-decrease">Decrease by specific amount</label><br />
-		<input type="radio" value="percentage-increase" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-percentage-increase" /> <label for="pwbe-bulkedit-currency-mode-percentage-increase">Increase by percentage</label><br />
-		<input type="radio" value="percentage-decrease" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-percentage-decrease" /> <label for="pwbe-bulkedit-currency-mode-percentage-decrease">Decrease by percentage</label><br />
-		<input type="radio" value="clear" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-clear" /> <label for="pwbe-bulkedit-currency-mode-clear">Clear value (set to n/a)</label><br />
+		<input type="radio" value="fixed" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-fixed" /> <label for="pwbe-bulkedit-currency-mode-fixed"><?php _e( 'Set to specific amount', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="fixed-increase" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-fixed-increase" /> <label for="pwbe-bulkedit-currency-mode-fixed-increase"><?php _e( 'Increase by specific amount', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="fixed-decrease" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-fixed-decrease" /> <label for="pwbe-bulkedit-currency-mode-fixed-decrease"><?php _e( 'Decrease by specific amount', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="percentage-increase" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-percentage-increase" /> <label for="pwbe-bulkedit-currency-mode-percentage-increase"><?php _e( 'Increase by percentage', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="percentage-decrease" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-percentage-decrease" /> <label for="pwbe-bulkedit-currency-mode-percentage-decrease"><?php _e( 'Decrease by percentage', 'pw-bulk-edit' ); ?></label><br />
+		<input type="radio" value="clear" name="pwbe-bulkedit-currency-mode" id="pwbe-bulkedit-currency-mode-clear" /> <label for="pwbe-bulkedit-currency-mode-clear"><?php _e( 'Clear value (set to n/a)', 'pw-bulk-edit' ); ?></label><br />
 	</fieldset>
 	<div id="pwbe-bulkedit-details-container">
 		<div>
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-fixed">
-				<label for="pwbe-bulkedit-fixed-amount">Set <span class="pwbe-bulkedit-field-name"></span> to the following amount:</label><br />
+				<label for="pwbe-bulkedit-fixed-amount"><?php printf( __( 'Set %s to the following amount:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<?php echo get_woocommerce_currency_symbol(); ?><input type="text" id="pwbe-bulkedit-fixed-amount" name="pwbe-bulkedit-fixed-amount" />
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-fixed-increase">
-				<label for="pwbe-bulkedit-fixed-increase-amount">Increase <span class="pwbe-bulkedit-field-name"></span> by the following amount:</label><br />
+				<label for="pwbe-bulkedit-fixed-increase-amount"><?php printf( __( 'Increase %s by the following amount:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<?php echo get_woocommerce_currency_symbol(); ?><input type="text" id="pwbe-bulkedit-fixed-increase-amount" name="pwbe-bulkedit-fixed-increase-amount" /><br />
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-fixed-decrease">
-				<label for="pwbe-bulkedit-fixed-decrease-amount">Decrease <span class="pwbe-bulkedit-field-name"></span> by the following amount:</label><br />
+				<label for="pwbe-bulkedit-fixed-decrease-amount"><?php printf( __( 'Decrease %s by the following amount:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<?php echo get_woocommerce_currency_symbol(); ?><input type="text" id="pwbe-bulkedit-fixed-decrease-amount" name="pwbe-bulkedit-fixed-decrease-amount" />
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-percentage-increase">
-				<label for="pwbe-bulkedit-percentage-increase-amount">Increase <span class="pwbe-bulkedit-field-name"></span> by the following percentage:</label><br />
+				<label for="pwbe-bulkedit-percentage-increase-amount"><?php printf( __( 'Increase %s by the following percentage:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="number" step="0.01" id="pwbe-bulkedit-percentage-increase-amount" name="pwbe-bulkedit-percentage-increase-amount" />%
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-percentage-decrease">
-				<label for="pwbe-bulkedit-percentage-decrease-amount">Decrease <span class="pwbe-bulkedit-field-name"></span> by the following percentage:</label><br />
+				<label for="pwbe-bulkedit-percentage-decrease-amount"><?php printf( __( 'Decrease %s by the following percentage:', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label><br />
 				<input type="number" step="0.01" id="pwbe-bulkedit-percentage-decrease-amount" name="pwbe-bulkedit-percentage-decrease-amount" />%
 			</div>
 
 			<div class="pwbe-bulkedit-details pwbe-bulkedit-details-clear">
-				<label for="pwbe-bulkedit-clear">Clear the value of <span class="pwbe-bulkedit-field-name"></span> and set it to empty (n/a).</label>
+				<label for="pwbe-bulkedit-clear"><?php printf( __( 'Clear the value of %s and set it to empty (n/a).', 'pw-bulk-edit' ), '<span class="pwbe-bulkedit-field-name"></span>' ); ?></label>
 			</div>
 
 			<p class="pwbe-bulkedit-editor-allow-negative-container">
-				<input type="checkbox" class="pwbe-bulkedit-allow-negative" id="pwbe-bulkedit-allow-negative"><label for="pwbe-bulkedit-allow-negative">Allow amounts to be less than zero.</label>
+				<input type="checkbox" class="pwbe-bulkedit-allow-negative" id="pwbe-bulkedit-allow-negative"><label for="pwbe-bulkedit-allow-negative"><?php _e( 'Allow amounts to be less than zero.', 'pw-bulk-edit' ); ?></label>
 			</p>
 
 		</div>
@@ -149,7 +149,7 @@ if ( !defined( 'ABSPATH' ) ) {
 				var newValue = 0.0;
 
 				if (oldValue) {
-					oldValue = parseFloat(String(oldValue).replace(thousandSeparator, '').replace(decimalSeparator, '.'));
+					oldValue = parseFloat(String(oldValue).replace('$','').replace(thousandSeparator, '').replace(decimalSeparator, '.'));
 					newValue = oldValue;
 				}
 

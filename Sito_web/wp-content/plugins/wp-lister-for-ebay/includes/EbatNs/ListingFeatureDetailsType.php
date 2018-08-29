@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -15,7 +15,7 @@ require_once 'FeaturedPlusCodeType.php';
 require_once 'ProPackCodeType.php';
 
 /**
-  * Details about feature availability for the site.
+  * This type is used by the <b>ListingFeatureDetails</b> container in the <b>GeteBayDetails</b> response. This container indicates the listing features that are enabled or disabled for an eBay site.
   * 
  **/
 

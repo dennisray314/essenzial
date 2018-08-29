@@ -28,19 +28,19 @@ if ( get_option( 'pwbe_help_dismiss_intro' ) != 'true' ) {
 	<div class="pwbe-intro">
 		<p class="pwbe-intro-p">
 			<i class="fa fa-rocket fa-3x fa-pull-left fa-fw" style="color: red;" aria-hidden="true"></i>
-			PW WooCommerce Bulk Edit is a tremendously powerful way to update your WooCommerce product catalog. Finally, no more tedious clicking through countless pages making the same change to all products!
+			<?php _e( 'PW WooCommerce Bulk Edit is a tremendously powerful way to update your WooCommerce product catalog. Finally, no more tedious clicking through countless pages making the same change to all products!', 'pw-bulk-edit' ); ?>
 		</p>
 		<p class="pwbe-intro-p">
 			<i class="fa fa-lightbulb-o fa-3x fa-pull-left fa-fw" style="color: #D9D255;" aria-hidden="true"></i>
-			Built with ease of use in mind, PW WooCommerce Bulk Edit is incredibly intuitive. Changes are visible and only applied when you are ready. PW WooCommerce Bulk Edit Pro lets you save your filters to make future updates a snap.
+			<?php _e( 'Built with ease of use in mind, PW WooCommerce Bulk Edit is incredibly intuitive. Changes are visible and only applied when you are ready. PW WooCommerce Bulk Edit Pro lets you save your filters to make future updates a snap.', 'pw-bulk-edit' ); ?>
 		</p>
 		<p class="pwbe-intro-p">
 			<i class="fa fa-coffee fa-3x fa-pull-left fa-fw" style="color: green;" aria-hidden="true"></i>
-			Relax! You're in control of your WooCommerce product catalog with the power of PW WooCommerce Bulk Edit.
+			<?php _e( 'Relax! You are in control of your WooCommerce product catalog with the power of PW WooCommerce Bulk Edit.', 'pw-bulk-edit' ); ?>
 		</p>
-		<button class="button button-primary pwbe-begin-button">Let's Begin!</button>
+		<button class="button button-primary pwbe-begin-button"><?php _e( 'Let\'s Begin!', 'pw-bulk-edit' ); ?></button>
 		<span class="pwbe-pull-right">
-			<input type="checkbox" id="pwbe-dismiss-intro" /><label for="pwbe-dismiss-intro">Don't show this message again</label>
+			<input type="checkbox" id="pwbe-dismiss-intro" /><label for="pwbe-dismiss-intro"><?php _e( 'Don\'t show this message again', 'pw-bulk-edit' ); ?></label>
 		</span>
 	</div>
 	<?php

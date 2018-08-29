@@ -44,6 +44,7 @@
 
 .admin_chat_box_inner {
     height: 90% !important;
+    overflow-y: auto;
 }
 
 .admin_visitor_advanced_info .part1 {

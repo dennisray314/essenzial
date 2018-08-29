@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,9 +7,9 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Type defining the <b>VariationDetails</b> container that is returned in 
-  * <b>GeteBayDetails</b> if <b>VariationDetails</b> is included 
-  * in the request as a <b>DetailName</b> filter, or if <b>GeteBayDetails</b> 
+  * Type defining the <b>VariationDetails</b> container that is returned in
+  * <b>GeteBayDetails</b> if <b>VariationDetails</b> is included
+  * in the request as a <b>DetailName</b> filter, or if <b>GeteBayDetails</b>
   * is called with no <b>DetailName</b> filters.
   * 
  **/

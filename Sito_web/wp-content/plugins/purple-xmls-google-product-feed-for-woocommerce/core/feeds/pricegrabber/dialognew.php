@@ -40,6 +40,7 @@ class PriceGrabberDlg extends PBaseFeedDialog {
        'Shipping Cost',
        'Weight'
 	  );
+    $this->doc_link = "https://www.exportfeed.com/documentation/pricegrabber-com-integration-guide/";
   }
 
 }

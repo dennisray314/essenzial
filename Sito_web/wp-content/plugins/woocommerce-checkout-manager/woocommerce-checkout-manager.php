@@ -3,7 +3,7 @@
 Plugin Name: WooCommerce Checkout Manager
 Plugin URI: https://wordpress.org/plugins/woocommerce-checkout-manager/
 Description: Manages WooCommerce Checkout, the advanced way.
-Version: 4.2.1
+Version: 4.2.3
 Author: Visser Labs
 Author URI: http://www.visser.com.au
 Contributors: visser, Emark
@@ -13,7 +13,7 @@ Text Domain: woocommerce-checkout-manager
 Domain Path: /languages/
 
 WC requires at least: 2.3
-WC tested up to: 3.3
+WC tested up to: 3.4
 */
 
 /*

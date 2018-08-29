@@ -16,6 +16,7 @@ class kelkooDlg extends PBaseFeedDialog
         $this->service_name = 'kelkoo';
         $this->service_name_long = 'Kelkoo Product XML Export';
         $this->options = array();
+        $this->doc_link = "https://www.exportfeed.com/documentation/kelkoo-guide/";
     }
 
     function categoryList($initial_remote_category)
@@ -24,8 +25,8 @@ class kelkooDlg extends PBaseFeedDialog
             return '';
         else
             return '
-			  <label class="label" for="categoryDisplayText" >Category : </label>
-			  <span><input type="text" name="categoryDisplayText" class="text_big" id="categoryDisplayText"  onkeyup="doFetchCategory_timed(\'' . $this->service_name . '\',  this.value);" value="' . $initial_remote_category . '" autocomplete="off" placeholder="Start typing category name" /></span>
+			  <span class="label" for="categoryDisplayText" >Category : </span>
+			  <span><input type="text" name="categoryDisplayText" class="text_big cpf-createpage-input" onclick="atrributedisplay(\'kelkoo\')" id="categoryDisplayText"  onkeyup="doFetchCategory_timed(\'' . $this->service_name . '\',  this.value);" value="' . $initial_remote_category . '" autocomplete="off" placeholder="Start typing category name" /></span>
 			  <div id="categoryList" class="categoryList"></div>
 			  <input type="hidden" id="remote_category" name="remote_category" value="' . $initial_remote_category . '">';
     }

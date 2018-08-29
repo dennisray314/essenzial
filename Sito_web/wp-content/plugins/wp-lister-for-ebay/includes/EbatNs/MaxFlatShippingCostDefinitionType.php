@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Max Flat Shipping Cost
+  * Type used by the <b>MaxFlatShippingCost</b> field that is returned under the <b>FeatureDefinitions</b> container. The <b>MaxFlatShippingCost</b> field is returned as empty and indicates that a maximum flat-rate shipping cost threshold is enforced for some categories on the corresponding eBay site. This field will not be returned if one or more <b>FeatureID</b> fields are included in the call request and <b>MaxFlatShippingCost</b> is not one of the values passed into those <b>FeatureID</b> fields.
   * 
  **/
 

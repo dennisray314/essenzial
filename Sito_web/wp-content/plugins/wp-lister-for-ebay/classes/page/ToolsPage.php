@@ -16,8 +16,7 @@ class ToolsPage extends WPL_Page {
 		// custom (raw) screen options for tools page
 		add_screen_options_panel('wplister_tools_options', '', array( &$this, 'renderSettingsOptions'), $this->main_admin_menu_slug.'_page_wplister-tools' );
 
-		// load styles and scripts for this page only
-		// add_action( 'admin_print_styles', array( &$this, 'onWpPrintStyles' ) );
+		// load scripts for this page only
 		add_action( 'admin_enqueue_scripts', array( &$this, 'onWpEnqueueScripts' ) );		
 		add_thickbox();
 	}
@@ -30,22 +29,17 @@ class ToolsPage extends WPL_Page {
 	}
 
 	public function handleSubmit() {
-        WPLE()->logger->debug("handleSubmit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// force wp update check
-		if ( $this->requestAction() == 'force_update_check') {				
+		if ( $this->requestAction() == 'force_update_check') {
+		    check_admin_referer( 'wplister_force_update_check' );
 
             // global $wpdb;
             // $wpdb->query("update wp_options set option_value='' where option_name='_site_transient_update_plugins'");
             // set_site_transient('update_plugins', null);
             delete_site_transient('update_plugins');
 
-			// $this->showMessage( 
-			// 	'<big>'. __('Check for updates was initiated.','wplister') . '</big><br><br>'
-			// 	. __('You can visit your WordPress Updates now.','wplister') . '<br><br>'
-			// 	. __('Since the updater runs in the background, it might take a little while before new updates appear.','wplister') . '<br><br>'
-			// 	. '<a href="update-core.php" class="button-primary">'.__('view updates','wplister') . '</a>'
-			// );
 		}
 
 	}
@@ -60,7 +54,8 @@ class ToolsPage extends WPL_Page {
 	
 
 	public function handleActions() {
-        global $wpdb;
+		global $wpdb;
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// check action
 		if ( isset($_REQUEST['action']) ) {
@@ -68,7 +63,6 @@ class ToolsPage extends WPL_Page {
 			// check_ebay_connection
 			if ( $_REQUEST['action'] == 'check_ebay_connection') {				
 				$msg = $this->checkEbayConnection();
-				// $this->showMessage( $msg );
 				return;
 			}
 
@@ -77,7 +71,6 @@ class ToolsPage extends WPL_Page {
 				global $wpdb;
 
 				$post_title = 'this string is 256 characters long - which is 1 too many........................................................................................................................................................................................................';
-				// $post_title = 'TEST';
 
 				$data = array();
 				$data['auction_title'] = $post_title;
@@ -220,12 +213,12 @@ class ToolsPage extends WPL_Page {
 				}
 
 				// lock_all_listings
-				if ( $_REQUEST['action'] == 'lock_all_listings') {				
+				if ( $_REQUEST['action'] == 'wple_lock_all_listings') {
 					$count = WPLE_ListingQueryHelper::lockAll( 1 );
 		    		$this->showMessage( $count .' '. 'items were locked.' );
 				}
 				// unlock_all_listings
-				if ( $_REQUEST['action'] == 'unlock_all_listings') {				
+				if ( $_REQUEST['action'] == 'wple_unlock_all_listings') {
 					$count = WPLE_ListingQueryHelper::lockAll( 0 );
 		    		$this->showMessage( $count .' '. 'items were unlocked.' );
 				}
@@ -513,16 +506,6 @@ class ToolsPage extends WPL_Page {
 
 
 	
-	public function onWpPrintStyles() {
-
-		// testing:
-		// jQuery UI theme - for progressbar
-		// wp_register_style('jQueryUITheme', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/cupertino/jquery-ui.css');
-		// wp_register_style('jQueryUITheme', plugins_url( 'css/smoothness/jquery-ui-1.8.22.custom.css' , WPLISTER_PATH.'/wp-lister-ebay.php' ) );
-		// wp_enqueue_style('jQueryUITheme'); 
-
-	}
-
 	public function onWpEnqueueScripts() {
 
 		// testing:
@@ -1172,6 +1155,17 @@ class ToolsPage extends WPL_Page {
 
 
 	public function runEbayChecks() {
+
+        // first check with cURL - proxy
+		$url = 'https://ebay.wplab.com/';
+        $response = $this->sendCurlRequest( $url );
+		if ( $response['httpcode'] == 200 ) {
+			$this->results->successEbayProxy_curl = true;
+			$this->addLogMessage( 'Connection to ebay.wplab.com established via cURL' );
+		} else {
+			$this->results->successEbayProxy_curl = false;
+            $this->addLogMessage( 'Failed to contact ebay.wplab.com via cURL.', false, 'Error: '. $response['error_string'] );
+		}
 
         // first check with cURL
 		$url = 'https://api.ebay.com/wsapi';

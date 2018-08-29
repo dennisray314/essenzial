@@ -1,12 +1,14 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
 
-/**A means of limiting unpaying or low feedback bidders.
+/**
+  * A means of limiting unpaying or low feedback bidders.
+  * 
  **/
 
 class MaximumItemRequirementsDetailsType extends EbatNs_ComplexType

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'StorePreferencesType.php';
 
 /**
-  * Sets the preferences for a user's eBay Store.
+  * Sets the preferences for a user's eBay Store. Sellers must have an eBay Store subscription in order to use this call.
   * 
  **/
 

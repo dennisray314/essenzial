@@ -16,6 +16,16 @@ class EtsyDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Etsy';
         $this->service_name_long = 'Etsy Shop';
+        $this->plugin_link ="https://wordpress.org/plugins/exportfeed-for-woocommerce-product-to-etsy/";
+        $this->plugin_message = "<p style='font-size:16px;''>Want to sell products on Etsy?
+            </p><p>Please use our Etsy Plugin to benefit from:</p>
+            <ol><li>Upload bulk products to Etsy Merchant</li>
+            <li>List products with their product variations</li>
+            <li>Send multiple product images as per Etsy's limit</li>
+            <li>We'll create your 1st Etsy product feed for Free</li>
+            <li> For more information <a target='_blank' href='https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-to-etsy/'><b>Click here</b></a><br></li></ol>
+            <p>";
+        $this->landinpageurl = "https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-to-etsy/";
     }
 
     function categoryList($initial_remote_category)

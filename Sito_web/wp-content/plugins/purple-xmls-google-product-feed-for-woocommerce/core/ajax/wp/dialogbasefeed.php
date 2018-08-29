@@ -757,7 +757,7 @@ class PBaseFeedDialog
                     jQuery("#feed-advanced").slideUp();
                     // jQuery("#bUpdateSetting").slideUp();
                     jQuery(event).attr('title', 'This will open feed advance command section where you can customize your feed using advanced command.');
-                    jQuery(event).val('Show advance Command section');
+                    jQuery(event).val('Feed Customization Options');
                 }
             }
 
@@ -984,8 +984,7 @@ class PBaseFeedDialog
 									
 									</tbody>
 							</table>
-								<p class="submit"><span class="spinner"></span> <input class="button-primary" title="This will search product list from above information you give and generate the result on search result section below." type="button" value="Search Product" id="submit_data" name="submit_data" onclick="submitForm('."'{$this->service_name}'".',0);" style="float:right"/></p>
-								<span class="cpf_search_info" style="float: right ;display: none;">Searching Product<span class="dot" style="font-weight: bold;padding-right: 25px;" > ....</span></span>
+								<p class="submit"><input class="button-primary" title="This will search product list from above information you give and generate the result on search result section below." type="button" value="Search Product" id="submit_data" name="submit_data" onclick="submitForm('."'{$this->service_name}'".',0);" style="float:right"/></p>
 								<br/><br/>
 						</form>
 					<div class="clear"></div> ';

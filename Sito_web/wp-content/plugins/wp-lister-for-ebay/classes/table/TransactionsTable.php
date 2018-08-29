@@ -115,13 +115,13 @@ class TransactionsTable extends WP_List_Table {
         //Build row actions
         $actions = array(
             'view_trx_details' => sprintf('<a href="?page=%s&action=%s&transaction=%s&width=600&height=470" class="thickbox">%s</a>',$_REQUEST['page'],'view_trx_details',$item['id'],__('Details','wplister')),
-            // 'print_invoice' => sprintf('<a href="?page=%s&action=%s&transaction=%s" target="_blank">%s</a>',$_REQUEST['page'],'print_invoice',$item['id'],__('Invoice','wplister')),
+            'print_invoice' => sprintf('<a href="?page=%s&action=%s&transaction=%s" target="_blank">%s</a>',$_REQUEST['page'],'wple_print_invoice',$item['id'],__('Invoice','wplister')),
             // 'create_order' => sprintf('<a href="?page=%s&action=%s&transaction=%s">%s</a>',$_REQUEST['page'],'create_order',$item['id'],__('Create Order','wplister')),
             // 'edit'      => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$_REQUEST['page'],'edit',$item['id'],__('Edit','wplister')),
         );
 
         if ( $item['wp_order_id'] == 0 ) {
-            $actions['create_order'] = sprintf('<a href="?page=%s&action=%s&transaction=%s">%s</a>',$_REQUEST['page'],'create_order',$item['id'],__('Create Order','wplister'));
+            $actions['wple_create_order'] = sprintf('<a href="?page=%s&action=%s&transaction=%s&_wpnonce=%s">%s</a>',$_REQUEST['page'],'wple_create_order',$item['id'], wp_create_nonce( 'wplister_create_order' ), __('Create Order','wplister'));
         } else {
             $actions['edit_order'] = sprintf('<a href="post.php?action=%s&post=%s">%s</a>','edit',$item['wp_order_id'],__('View Order','wplister'));
 
@@ -130,7 +130,7 @@ class TransactionsTable extends WP_List_Table {
         }
 
         // free version can't create orders
-        if ( WPLISTER_LIGHT ) unset( $actions['create_order'] );
+        if ( WPLISTER_LIGHT ) unset( $actions['wple_create_order'] );
 
         // item title
         $title = $item['item_title'];
@@ -295,8 +295,8 @@ class TransactionsTable extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'update' 	=> __('Update transaction from eBay','wplister'),
-            'delete'    => __('Delete','wplister')
+            'wple_update_transactions' 	=> __('Update transaction from eBay','wplister'),
+            'wple_delete_transactions'  => __('Delete','wplister')
         );
 
         // delete transactions is only for developers

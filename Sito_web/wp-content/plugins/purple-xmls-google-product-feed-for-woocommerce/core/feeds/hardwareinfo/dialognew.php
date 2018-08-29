@@ -17,6 +17,7 @@ class HardwareInfoDlg extends PBaseFeedDialog {
 		$this->service_name_long = 'Hardware.Info CSV Export';
 		$this->blockCategoryList = true;
 		$this->options = array();
+		$this->doc_link = "https://www.exportfeed.com/documentation/merchant-integration-guide-hardware-info/";
 	}
 
 }

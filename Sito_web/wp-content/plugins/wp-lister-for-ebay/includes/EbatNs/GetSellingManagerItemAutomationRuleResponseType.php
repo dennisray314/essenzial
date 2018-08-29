@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,7 +11,7 @@ require_once 'SellingManagerAutoSecondChanceOfferType.php';
 require_once 'FeesType.php';
 
 /**
-  * Contains the set of automation rules associated with the specified item.
+  * Contains the set of automation rules associated with the specified listing.
   * 
  **/
 

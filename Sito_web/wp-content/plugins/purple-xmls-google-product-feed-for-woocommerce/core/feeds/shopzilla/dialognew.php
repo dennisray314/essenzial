@@ -20,6 +20,7 @@ class ShopzillaDlg extends PBaseFeedDialog
             'Bid',
             'Promotional Code',
         );
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
     }
 
 }

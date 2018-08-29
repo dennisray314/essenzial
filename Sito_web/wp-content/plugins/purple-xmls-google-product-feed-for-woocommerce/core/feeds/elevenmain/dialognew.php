@@ -16,6 +16,7 @@ class ElevenMainDlg extends PBaseFeedDialog {
 		$this->service_name_long = '11 Main CSV Feed'; //shown on front end
 		$this->blockCategoryList = true;
 		$this->options = array(	);
+		// $this->doc_link = "https://www.exportfeed.com/documentation/";
 	}
 
 }

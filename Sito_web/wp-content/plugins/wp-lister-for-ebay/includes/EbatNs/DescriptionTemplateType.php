@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'DescriptionTemplateCodeType.php';
 
 /**
-  * The information for one Theme or one Layout.
+  * Type that provides detailed information on a Listing Designer Theme or Layout.
   * 
  **/
 

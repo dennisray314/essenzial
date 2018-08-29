@@ -63,7 +63,10 @@ class EbatNs_MapExpression
 	 * @param mixed $expression 
 	 * @return 
 	 */
-	function EbatNs_MapExpression(&$mapper, $expression)
+    // ***** BEGIN EBATNS PATCH *****
+	// function EbatNs_MapExpression(&$mapper, $expression)
+	function __construct($mapper, $expression)
+    // ***** END EBATNS PATCH ***** 
 	{
 		$this->_mapper = &$mapper;
 		$this->_expression = $expression;
@@ -162,7 +165,10 @@ class EbatNs_MapExpression
 						$t->
 						{
 							$memberName} 
-						[$accessIndex] = &new $typename;
+				        // ***** BEGIN EBATNS PATCH *****
+						// [$accessIndex] = &new $typename;
+						[$accessIndex] = new $typename;
+				        // ***** END EBATNS PATCH ***** 
 						$target = &$t->
 						{
 							$memberName} 
@@ -176,7 +182,10 @@ class EbatNs_MapExpression
 					{
 						$t->
 						{
-							$memberName} = &new $typename;
+					        // ***** BEGIN EBATNS PATCH *****
+							// $memberName} = &new $typename;
+							$memberName} = new $typename;
+					        // ***** END EBATNS PATCH ***** 
 						$target = &$t->
 						{
 							$memberName} ;
@@ -231,7 +240,10 @@ class EbatNs_MapExpression
 			{
 				$typename = substr($creationType, 1);
 				$this->_mapper->includeType($typename);
-				$t = &new $typename;
+		        // ***** BEGIN EBATNS PATCH *****
+				// $t = &new $typename;
+				$t = new $typename;
+		        // ***** END EBATNS PATCH ***** 
 			} 
 
 			return $t;
@@ -297,7 +309,10 @@ class EbatNs_MapTarget
 	 * @param mixed $target 
 	 * @return 
 	 */
-	function EbatNs_MapTarget(&$mapper, $target)
+    // ***** BEGIN EBATNS PATCH *****
+	// function EbatNs_MapTarget(&$mapper, $target)
+	function __construct($mapper, $target)
+    // ***** END EBATNS PATCH ***** 
 	{
 		$this->_mapper = &$mapper;
 		$this->parse($target);

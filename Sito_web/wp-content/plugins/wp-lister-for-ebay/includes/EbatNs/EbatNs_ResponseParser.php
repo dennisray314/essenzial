@@ -184,6 +184,11 @@ class EbatNs_ResponseParser
             // log XML parsing errors to WP-Lister logfile
             WPLE()->logger->error($errMsg);
             WPLE()->logger->error($messageText);
+
+            // Display this error to the admin
+            if ( !is_ajax() && is_admin() && 0 === strpos( $messageText, 'You have exceeded' ) ) {
+                WPLE()->messages->add_message( $messageText, 'error' );
+            }
             // ***** END EBATNS PATCH *****
             
             // create a error-object

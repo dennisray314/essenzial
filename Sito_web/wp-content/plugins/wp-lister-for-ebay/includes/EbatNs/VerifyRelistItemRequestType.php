@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'ItemType.php';
 
 /**
-  * This call is used to verify that the data you plan to pass into a <b>RelistItem</b> call will produce the results that you are expecting, including a successful call with no errors.
+  * Enable the seller to verify that the data they plan to pass into a <b>RelistItem</b> call will produce the results that you are expecting, including a successful call with no errors.
   * 
  **/
 

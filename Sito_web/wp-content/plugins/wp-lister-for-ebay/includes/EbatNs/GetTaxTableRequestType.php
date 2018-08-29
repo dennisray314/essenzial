@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,9 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Retrieves the tax table for a user on a given site or retrieves the valid
-  * jurisdictions (if any) for a given site.
+  * The base request type of the <b>GetTaxTable</b> call, which retrieves information on the seller's Sales Tax Table. This information includes all of the site's tax jurisdictions, a boolean field to indicate if sales tax is applied to shipping and handling charges, and the sales tax rate for each jurisdiction (if a sales tax rate is set for that jurisdiction).
+  * <br/><br/>
+  * Sales tax tables are only supported on the eBay US, Candada, and India sites.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'SKUType.php';
 
 /**
-  * Acknowledgement that includes SKU, as well as the date and time the auction was
-  * ended due to the call to EndFixedPriceItem.
+  * Acknowledgement that includes SKU, as well as the date and time that the listing ended due to the call to EndFixedPriceItem.
   * 
  **/
 

@@ -109,7 +109,8 @@
 
 								<div id="major-publishing-actions">
 									<div id="publishing-action">
-										<input type="hidden" name="action" value="save_listing" />
+                                        <?php wp_nonce_field( 'wplister_save_listing' ); ?>
+										<input type="hidden" name="action" value="wple_save_listing" />
 										<input type="hidden" name="wpl_e2e_listing_id" value="<?php echo $wpl_item['id']; ?>" />
 										<input type="hidden" name="wpl_e2e_status" value="<?php echo $wpl_item['status']; ?>" > 
 										<input type="submit" value="<?php echo __('Update','wplister'); ?>" id="publish" class="button-primary" name="save">

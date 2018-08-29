@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'ContextSearchAssetType.php';
 
 /**
-  * Response to a GetContextualKeywords request.
+  * Response to a <b>GetContextualKeywords</b> request.
   * 
  **/
 

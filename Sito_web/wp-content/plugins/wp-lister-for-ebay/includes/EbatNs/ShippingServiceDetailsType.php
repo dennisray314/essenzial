@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -13,8 +13,8 @@ require_once 'AnnouncementMessageType.php';
 require_once 'ShippingServicePackageDetailsType.php';
 
 /**
-  * Details about a specific shipping service.
-  * 
+  *         Type used by the ShippingServiceDetails containers that are returned in the GeteBayDetails response. Each ShippingServiceDetails container consists of detailed information about each shipping service option available for the specified country. These details include the shipping service enumeration value to use when specifying shipping service options in an Add/Revise/Relist call, the shipping carrier, the shipping category (e.g. expedited, economy, etc.), the shipping packages that can be used, and the shipping delivery window.
+  *       
  **/
 
 class ShippingServiceDetailsType extends EbatNs_ComplexType

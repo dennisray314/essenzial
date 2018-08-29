@@ -8,9 +8,6 @@
 
 class ItemBuilderModel extends WPL_Model {
 
-	// var $_session;
-	// var $_cs;
-	
 	var $variationAttributes = array();
 	var $variationSplitAttributes = array();
 	var $tmpVariationSpecificsSet = array();
@@ -22,17 +19,15 @@ class ItemBuilderModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		// provide listings model
 		$this->lm = new ListingsModel();
 	}
 
 
-
 	function buildItem( $id, $session, $reviseItem = false, $preview = false )
 	{
+        // allow 3rd-party plugins to run code prior to building item listings
+        do_action( 'wplister_before_build_item', $id );
 
 		// fetch record from db
 		$listing         = ListingsModel::getItem( $id );
@@ -52,8 +47,8 @@ class ItemBuilderModel extends WPL_Model {
 		// create Item
 		$item = new ItemType();
 
-		// set quantity
-		// $item->Quantity = $listing['quantity'];
+
+		// set quantity...
 
 		// get current quantity from WooCommerce
 		$woocom_stock   = ProductWrapper::getStock( $post_id );
@@ -293,7 +288,11 @@ class ItemBuilderModel extends WPL_Model {
 			$item->Storefront->StoreCategoryID = $profile_details['store_category_1_id'];
 		} else {
 			// get store categories map
-			$categories_map_store = get_option( 'wplister_categories_map_store' );
+			//$categories_map_store = get_option( 'wplister_categories_map_store' );
+            // load the store categories map from the WPLE account details #19744
+            if ( $profile_details['account_id'] ) {
+                $categories_map_store = maybe_unserialize( WPLE()->accounts[ $profile_details['account_id'] ]->categories_map_store );
+            }
 
 			// fetch products local category terms
 			$terms = wp_get_post_terms( $post_id, ProductWrapper::getTaxonomy() );
@@ -371,21 +370,25 @@ class ItemBuilderModel extends WPL_Model {
 
 		// check for custom product level condition options
 		if ( get_post_meta( $post_id, '_ebay_condition_id', true ) )
-			$profile_details['condition_id']			= get_post_meta( $post_id, '_ebay_condition_id', true );
+			$profile_details['condition_id']						= get_post_meta( $post_id, '_ebay_condition_id', true );
 		if ( get_post_meta( $post_id, '_ebay_condition_description', true ) )
-			$profile_details['condition_description']	= get_post_meta( $post_id, '_ebay_condition_description', true );
+			$profile_details['condition_description']				= get_post_meta( $post_id, '_ebay_condition_description', true );
 
 		// check for custom product level bestoffer options
 		if ( get_post_meta( $post_id, '_ebay_bestoffer_enabled', true ) )
-			$profile_details['bestoffer_enabled']			= get_post_meta( $post_id, '_ebay_bestoffer_enabled', true );
+			$profile_details['bestoffer_enabled']					= get_post_meta( $post_id, '_ebay_bestoffer_enabled', true );
 		if ( get_post_meta( $post_id, '_ebay_bo_autoaccept_price', true ) )
-			$profile_details['bo_autoaccept_price']			= get_post_meta( $post_id, '_ebay_bo_autoaccept_price', true );
+			$profile_details['bo_autoaccept_price']					= get_post_meta( $post_id, '_ebay_bo_autoaccept_price', true );
 		if ( get_post_meta( $post_id, '_ebay_bo_minimum_price', true ) )
-			$profile_details['bo_minimum_price']			= get_post_meta( $post_id, '_ebay_bo_minimum_price', true );
+			$profile_details['bo_minimum_price']					= get_post_meta( $post_id, '_ebay_bo_minimum_price', true );
 
 		// check for custom product level autopay options
 		if ( get_post_meta( $post_id, '_ebay_autopay', true ) )
-			$profile_details['autopay']						= get_post_meta( $post_id, '_ebay_autopay', true );
+			$profile_details['autopay']								= get_post_meta( $post_id, '_ebay_autopay', true );
+
+		// check for custom product level ebayplus options
+		if ( get_post_meta( $post_id, '_ebay_ebayplus_enabled', true ) )
+			$profile_details['ebayplus_enabled']					= get_post_meta( $post_id, '_ebay_ebayplus_enabled', true ) == 'yes' ? 1 : 0;
 
 		// check for custom product level seller profiles
 		// if ( get_post_meta( $post_id, '_ebay_seller_shipping_profile_id', true ) )
@@ -424,9 +427,9 @@ class ItemBuilderModel extends WPL_Model {
 
 			// check for custom product level ship to locations
 			if ( get_post_meta( $post_id, '_ebay_shipping_ShipToLocations', true ) )
-				$profile_details['ShipToLocations']						= get_post_meta( $post_id, '_ebay_shipping_ShipToLocations', true );
+				$profile_details['ShipToLocations']					= get_post_meta( $post_id, '_ebay_shipping_ShipToLocations', true );
 			if ( get_post_meta( $post_id, '_ebay_shipping_ExcludeShipToLocations', true ) )
-				$profile_details['ExcludeShipToLocations']				= get_post_meta( $post_id, '_ebay_shipping_ExcludeShipToLocations', true );
+				$profile_details['ExcludeShipToLocations']			= get_post_meta( $post_id, '_ebay_shipping_ExcludeShipToLocations', true );
 
 		}
 
@@ -604,7 +607,7 @@ class ItemBuilderModel extends WPL_Model {
 
 		// handle product image
 		$item->PictureDetails = new PictureDetailsType();
-		$item->PictureDetails->setGalleryURL( $this->encodeUrl( $main_image ) );
+		// $item->PictureDetails->setGalleryURL( $this->encodeUrl( $main_image ) );
 		$item->PictureDetails->addPictureURL( $this->encodeUrl( $main_image ) );
 		
 		// handle gallery type
@@ -697,7 +700,7 @@ class ItemBuilderModel extends WPL_Model {
 			}
 
 			$has_details = true;
-		} elseif ( $listing->listing_duration == 'GTC' && !$product_brand && !$product_mpn ) {
+		} elseif ( $listing['listing_duration'] == 'GTC' && !$product_brand && !$product_mpn ) {
 		    // For GTC listings, brand and MPN cannot be both empty! #17790
             $ProductListingDetails->BrandMPN = new BrandMPNType();
             $ProductListingDetails->BrandMPN->setBrand( 'Unbranded' );
@@ -710,7 +713,7 @@ class ItemBuilderModel extends WPL_Model {
 		$include_prefilled_info = isset( $profile_details['include_prefilled_info'] ) ? (bool)$profile_details['include_prefilled_info'] : true;
 
 		// Set IncludePrefilledItemInformation to pass it on to eBay even if $include_prefilled_info is false #16018
-		$ProductListingDetails->setIncludePrefilledItemInformation( $include_prefilled_info ? 1 : 0 );
+		// $ProductListingDetails->setIncludePrefilledItemInformation( $include_prefilled_info ? 1 : 0 ); // does not exist in API version 1045
 
 		if ( $include_prefilled_info ) {
 			$ProductListingDetails->setUseFirstProduct( true );
@@ -769,6 +772,8 @@ class ItemBuilderModel extends WPL_Model {
 			}
 			
 			// limit to 55 chars to avoid error
+            // decode HTML characters so they are sent to eBay in its normal form #23656
+            $subtitle = html_entity_decode( $subtitle, ENT_QUOTES, 'UTF-8' );
 			$subtitle = mb_substr( $subtitle, 0, 55 );
 
 			$item->setSubTitle( $subtitle );			
@@ -829,16 +834,26 @@ class ItemBuilderModel extends WPL_Model {
 			$item->VATDetails->RestrictedToBusiness = true;
 		}
 
+		// handle eBay Plus option
+		if ( @$profile_details['ebayplus_enabled'] == 1 ) {
+			$item->eBayPlus = true;
+		} else {
+		    // dont set it at all
+			//$item->eBayPlus = false;
+		}
+
 		// use Sales Tax Table if enabled
         $item->setUseTaxTable( 0 );
         if ( $profile_details['tax_mode'] == 'ebay_table' ) {
 			$item->setUseTaxTable( 1 );
 		}
 
-		// private listing
-		if ( @$profile_details['private_listing'] == 1 ) {
-			$item->setPrivateListing( true );
-		}
+		// private listing - disabled as of version 2.0.34
+		// "The PrivateListing field has been deprecated and removed from the WSDL with Version 1045. This field should no longer be used."
+		// https://developer.ebay.com/devzone/xml/docs/reference/ebay/AddFixedPriceItem.html
+		// if ( @$profile_details['private_listing'] == 1 ) {
+		// 	$item->setPrivateListing( true );
+		// }
 
 		// bold title
 		if ( @$profile_details['bold_title'] == 1 ) {
@@ -1060,18 +1075,23 @@ class ItemBuilderModel extends WPL_Model {
 		if ( $isCalcLoc || $isCalcInt ) {
 			$calculatedShippingRate = new CalculatedShippingRateType();
 			$calculatedShippingRate->setOriginatingPostalCode( $profile_details['postcode'] );
-			
-			// set ShippingPackage if calculated shipping is used
-			if ( $isCalcInt ) $calculatedShippingRate->setShippingPackage( $profile_details['shipping_package'] );
-			if ( $isCalcLoc ) $calculatedShippingRate->setShippingPackage( $profile_details['shipping_package'] );
 
-			if ( $isCalcLoc ) {
-				$calculatedShippingRate->setPackagingHandlingCosts( self::dbSafeFloatval( @$profile_details['PackagingHandlingCosts'] ) );	
-			} 
-			if ( $isCalcInt ) {
-				// $calculatedShippingRate->setPackagingHandlingCosts( self::dbSafeFloatval( @$profile_details['PackagingHandlingCosts'] ) );	
-				$calculatedShippingRate->setInternationalPackagingHandlingCosts( self::dbSafeFloatval( @$profile_details['InternationalPackagingHandlingCosts'] ) );
-			}
+            if ( $isCalcLoc ) {
+                $calculatedShippingRate->setPackagingHandlingCosts( self::dbSafeFloatval( @$profile_details['PackagingHandlingCosts'] ) );
+            }
+            if ( $isCalcInt ) {
+                // $calculatedShippingRate->setPackagingHandlingCosts( self::dbSafeFloatval( @$profile_details['PackagingHandlingCosts'] ) );
+                $calculatedShippingRate->setInternationalPackagingHandlingCosts( self::dbSafeFloatval( @$profile_details['InternationalPackagingHandlingCosts'] ) );
+            }
+
+            /**
+             * Commented out because in the latest EbatNS, shipping packages are to be defined in ShipPackageDetailsType
+
+			// set ShippingPackage if calculated shipping is used
+			//if ( $isCalcInt ) $calculatedShippingRate->setShippingPackage( $profile_details['shipping_package'] );
+			//if ( $isCalcLoc ) $calculatedShippingRate->setShippingPackage( $profile_details['shipping_package'] );
+
+
 
 			list( $weight_major, $weight_minor ) = ProductWrapper::getEbayWeight( $actual_post_id );
 			$calculatedShippingRate->setWeightMajor( self::dbSafeFloatval( $weight_major) );
@@ -1081,11 +1101,7 @@ class ItemBuilderModel extends WPL_Model {
 			if ( trim( @$dimensions['width']  ) != '' ) $calculatedShippingRate->setPackageWidth( $dimensions['width'] );
 			if ( trim( @$dimensions['length'] ) != '' ) $calculatedShippingRate->setPackageLength( $dimensions['length'] );
 			if ( trim( @$dimensions['height'] ) != '' ) $calculatedShippingRate->setPackageDepth( $dimensions['height'] );
-
-			// debug
-			// $weight = ProductWrapper::getWeight( $actual_post_id ) ;
-			// WPLE()->logger->info('weight: '.print_r($weight,1));
-			// WPLE()->logger->info('dimensions: '.print_r($dimensions,1));
+             */
 
             $calculatedShippingRate = apply_filters( 'wplister_item_shipping_rate', $calculatedShippingRate, $actual_post_id, $dimensions, $item, $profile_details );
 
@@ -1355,7 +1371,7 @@ class ItemBuilderModel extends WPL_Model {
 
         // get excluded attributes and merge with processed attributes
         $excluded_attributes  = $this->getExcludedAttributes();
-		$processed_attributes = array_merge( $processed_attributes, $excluded_attributes ); 
+		$processed_attributes = apply_filters( 'wplister_item_specifics_processed_attributes', array_merge( $processed_attributes, $excluded_attributes ), $item, $listing );
 		$convert_attributes_mode = get_option( 'wplister_convert_attributes_mode', 'all' );
 
     	// add ItemSpecifics from product attributes - if enabled
@@ -1515,7 +1531,7 @@ class ItemBuilderModel extends WPL_Model {
 
         // get product variations
         // $listing = ListingsModel::getItem( $id );
-        $variations = ProductWrapper::getVariations( $listing['post_id'] );
+        $variations = ProductWrapper::getVariations( $listing['post_id'], false, $listing['account_id'] );
 
         // Account locale for i18n
         $locale = WPLE_eBayAccount::getAccountLocale( $listing['account_id'] );
@@ -1747,7 +1763,21 @@ class ItemBuilderModel extends WPL_Model {
 
             $NameValueList = new NameValueListType();
             $NameValueList->setName ( $name );
+
+            // Skip duplicate values in VariationSpecificsSet #23713
+            WPLE()->logger->info( 'Setting VariationSpecificsSet for '. $name );
+            WPLE()->logger->info( 'values: '. print_r( $values, true ) );
+
+            $added_values = array();
             foreach ($values as $value) {
+                $lowered = strtolower( $value );
+                if ( in_array( $lowered, $added_values ) ) {
+                    WPLE()->logger->info( $lowered .' has already been added. Skipping.' );
+                    continue;
+                }
+                WPLE()->logger->info( 'Adding '. $lowered );
+                $added_values[] = $lowered;
+
                 $NameValueList->addValue( $value );
             }
             $VariationSpecificsSet->addNameValueList( $NameValueList );
@@ -1807,7 +1837,7 @@ class ItemBuilderModel extends WPL_Model {
 
 
                 if ( ! $image_url ) continue;
-                if ( $image_url == $item->PictureDetails->GalleryURL ) {
+                if ( $image_url == $item->PictureDetails->PictureURL[0] ) {
                     if ( ! ProductWrapper::getImageURL( $var['post_id'] ) ) continue; // avoid duplicate main image, if no variation image is set
                 }
                 WPLE()->logger->info( "using variation image: ".$image_url );
@@ -1895,12 +1925,13 @@ class ItemBuilderModel extends WPL_Model {
             $weight_minor = $first_variation['weight_minor'];
             $dimensions   = $first_variation['dimensions'];
 
-            $item->ShippingDetails->CalculatedShippingRate->setWeightMajor( self::dbSafeFloatval( $weight_major ) );
-            $item->ShippingDetails->CalculatedShippingRate->setWeightMinor( self::dbSafeFloatval( $weight_minor ) );
+            // Commented out because shipping package properties should be defined in ShipPackageDetailsType
+            //$item->ShippingDetails->CalculatedShippingRate->setWeightMajor( self::dbSafeFloatval( $weight_major ) );
+            //$item->ShippingDetails->CalculatedShippingRate->setWeightMinor( self::dbSafeFloatval( $weight_minor ) );
 
-            if ( trim( @$dimensions['width']  ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageWidth( $dimensions['width'] );
-            if ( trim( @$dimensions['length'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageLength( $dimensions['length'] );
-            if ( trim( @$dimensions['height'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageDepth( $dimensions['height'] );
+            //if ( trim( @$dimensions['width']  ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageWidth( $dimensions['width'] );
+            //if ( trim( @$dimensions['length'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageLength( $dimensions['length'] );
+            //if ( trim( @$dimensions['height'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageDepth( $dimensions['height'] );
 
             // update ShippingPackageDetails with weight and dimensions of first variations
             $shippingPackageDetails = new ShipPackageDetailsType();
@@ -2075,12 +2106,12 @@ class ItemBuilderModel extends WPL_Model {
 			$weight_minor = $default_variation['weight_minor'];
 			$dimensions   = $default_variation['dimensions'];
 
-			$item->ShippingDetails->CalculatedShippingRate->setWeightMajor( self::dbSafeFloatval( $weight_major ) );
-			$item->ShippingDetails->CalculatedShippingRate->setWeightMinor( self::dbSafeFloatval( $weight_minor ) );
+			//$item->ShippingDetails->CalculatedShippingRate->setWeightMajor( self::dbSafeFloatval( $weight_major ) );
+			//$item->ShippingDetails->CalculatedShippingRate->setWeightMinor( self::dbSafeFloatval( $weight_minor ) );
 
-			if ( trim( @$dimensions['width']  ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageWidth( $dimensions['width'] );
-			if ( trim( @$dimensions['length'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageLength( $dimensions['length'] );
-			if ( trim( @$dimensions['height'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageDepth( $dimensions['height'] );
+			//if ( trim( @$dimensions['width']  ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageWidth( $dimensions['width'] );
+			//if ( trim( @$dimensions['length'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageLength( $dimensions['length'] );
+			//if ( trim( @$dimensions['height'] ) != '' ) $item->ShippingDetails->CalculatedShippingRate->setPackageDepth( $dimensions['height'] );
 
 			// debug
 			WPLE()->logger->info('default variations weight: '.print_r($weight,1));
@@ -2503,7 +2534,7 @@ class ItemBuilderModel extends WPL_Model {
 		}
 
 		// check for main image
-		if ( trim( @$item->PictureDetails->GalleryURL ) == '' ) {
+		if ( trim( @$item->PictureDetails->PictureURL[0] ) == '' ) {
 			$longMessage = __('You need to add at least one image to your product.','wplister');
 			$success = false;
 		}

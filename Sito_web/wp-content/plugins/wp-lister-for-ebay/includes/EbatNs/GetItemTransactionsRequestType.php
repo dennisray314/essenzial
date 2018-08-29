@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,13 +10,7 @@ require_once 'PaginationType.php';
 require_once 'TransactionPlatformCodeType.php';
 
 /**
-  * Retrieves order line item information for a specified <b>ItemID</b>. &
-  * nbsp;<b>Also for Half.com</b>. The call returns zero, one, or
-  * multiple order line items, depending on the number of items sold from the listing.
-  * <br><br>
-  * You can retrieve order line item data for a specific time range or
-  * number of days. If you don't specify a range or number of days, order line item
-  * data will be returned for the past 30 days.
+  * Retrieves order line item information for a specified <b>ItemID</b>. The call returns zero, one, or multiple order line items, depending on the number of items sold from the listing. <br><br> You can retrieve order line item data for a specific time range or number of days. If you don't specify a range or number of days, order line item data will be returned for the past 30 days. This call cannot retrieve sales older than 90 days old.
   * 
  **/
 

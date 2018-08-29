@@ -29,9 +29,6 @@ class EbayMessagesModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . 'ebay_messages';
 	}
@@ -44,7 +41,6 @@ class EbayMessagesModel extends WPL_Model {
 
 		// set request handler
 		$this->_cs->setHandler( 'MyMessagesMessageType', array( & $this, 'handleMyMessagesMessageType' ) );
-		// $this->_cs->setHandler( 'PaginationResultType', array( & $this, 'handlePaginationResultType' ) );
 
 		// build request
 		$req = new GetMyMessagesRequestType();
@@ -179,9 +175,6 @@ class EbayMessagesModel extends WPL_Model {
 	}
 
 	function handleMyMessagesMessageType( $type, $Detail ) {
-		//global $wpdb;
-		//#type $Detail MyMessagesMessageType
-		// WPLE()->logger->info( 'handleMyMessagesMessageType()'.print_r( $Detail, 1 ) );
 
 		// map MyMessagesMessageType to DB columns
 		$data = $this->mapItemDetailToDB( $Detail );
@@ -535,12 +528,8 @@ class EbayMessagesModel extends WPL_Model {
 			");			
 		}
 
-		// foreach( $items as &$profile ) {
-		// 	$profile['details'] = self::decodeObject( $profile['details'] );
-		// }
-
 		return $items;
 	}
 
 
-}
+} // class EbayMessagesModel

@@ -192,26 +192,6 @@ class XML_Parser extends PEAR
     var $_validEncodings = array('ISO-8859-1', 'UTF-8', 'US-ASCII');
 
     // }}}
-    // {{{ php4 constructor
-
-    /**
-     * Creates an XML parser.
-     *
-     * This is needed for PHP4 compatibility, it will
-     * call the constructor, when a new instance is created.
-     *
-     * @param string $srcenc source charset encoding, use NULL (default) to use
-     *                       whatever the document specifies
-     * @param string $mode   how this parser object should work, "event" for
-     *                       startelement/endelement-type events, "func"
-     *                       to have it call functions named after elements
-     * @param string $tgtenc a valid target encoding
-     */
-    function XML_Parser($srcenc = null, $mode = 'event', $tgtenc = null)
-    {
-        XML_Parser::__construct($srcenc, $mode, $tgtenc);
-    }
-    // }}}
     // {{{ php5 constructor
 
     /**

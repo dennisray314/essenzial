@@ -28,12 +28,12 @@ if ( !defined( 'ABSPATH' ) ) {
 	<?php require( 'activation.php' ); ?>
 	<div class="pwbe-filter-container">
 		<span class="pwbe-filter-toolbar-right">
-			<a href="<?php echo $help_url; ?>" target="_blank" id="pwbe-help" class="pwbe-link pwbe-help-link"><i class="fa fa-fw fa-life-ring pwbe-link"></i> Help</a>
+			<a href="<?php echo $help_url; ?>" target="_blank" id="pwbe-help" class="pwbe-link pwbe-help-link"><i class="fa fa-fw fa-life-ring pwbe-link"></i> <?php _e( 'Help', 'pw-bulk-edit' ); ?></a>
 		</span>
 		<div class="pwbe-filter-form">
 			<div class="pwbe-pull-right">
-				<span id="pwbe-hide-filters-button" class="pwbe-link pwbe-hidden" title="Hide Filters"><i class="fa fa-eye-slash fa-fw" aria-hidden="true"></i> Hide Filters</span>
-				<span id="pwbe-show-filters-button" class="pwbe-link pwbe-hidden" title="Show Filters"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> Show Filters</span>
+				<span id="pwbe-hide-filters-button" class="pwbe-link pwbe-hidden" title="<?php _e( 'Hide Filters', 'pw-bulk-edit' ); ?>"><i class="fa fa-eye-slash fa-fw" aria-hidden="true"></i> <?php _e( 'Hide Filters', 'pw-bulk-edit' ); ?></span>
+				<span id="pwbe-show-filters-button" class="pwbe-link pwbe-hidden" title="<?php _e( 'Show Filters', 'pw-bulk-edit' ); ?>"><i class="fa fa-eye fa-fw" aria-hidden="true"></i> <?php _e( 'Show Filters', 'pw-bulk-edit' ); ?></span>
 			</div>
 			<form id="pwbe-filters-form">
 				<input type="hidden" id="pwbe-order-by" name="order_by" value="post_title" />
@@ -41,19 +41,19 @@ if ( !defined( 'ABSPATH' ) ) {
 
 				<div class="pwbe-filter-header">
 					<span id="pwbe-header-multiple-filters" class="pwbe-pull-left">
-						Find products that match
+						<?php _e( 'Find products that match', 'pw-bulk-edit' ); ?>
 						<select id="pwbe-filter-group" name="main_group_type">
-							<option value="pwbe_and">all</option>
-							<option value="pwbe_or">any</option>
+							<option value="pwbe_and"><?php _e( 'all', 'pw-bulk-edit' ); ?></option>
+							<option value="pwbe_or"><?php _e( 'any', 'pw-bulk-edit' ); ?></option>
 						</select>
-						of the following rules:
+						<?php _e( 'of the following rules:', 'pw-bulk-edit' ); ?>
 					</span>
 				</div>
 				<div class="pwbe-filter-row-container">
 					<hr class="pwbe-filter-container-break"/>
 				</div>
 
-				<button type="submit" id="pwbe-search-button" class="button"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+				<button type="submit" id="pwbe-search-button" class="button"><i class="fa fa-search" aria-hidden="true"></i> <?php _e( 'Search', 'pw-bulk-edit' ); ?></button>
 				<?php
 					echo apply_filters( 'pwbe_html_after_search_button', '' );
 				?>
@@ -67,21 +67,21 @@ if ( !defined( 'ABSPATH' ) ) {
 	<input type="hidden" name="row[]" value="group">
 
 	<select name="filter_name" class="pwbe-filter-field pwbe-filter-name">
-  		<option value="pwbe_and">all</option>
-		<option value="pwbe_or">any</option>
-	</select> of the following are true
+  		<option value="pwbe_and"><?php _e( 'all', 'pw-bulk-edit' ); ?></option>
+		<option value="pwbe_or"><?php _e( 'any', 'pw-bulk-edit' ); ?></option>
+	</select> <?php _e( 'of the following are true', 'pw-bulk-edit' ); ?>
 
 	<input type="hidden" name="filter_type" class="pwbe-filter-type" value="" />
 
 	<span class="pwbe-pull-right">
-		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-remove" title="Remove"><i class="fa fa-minus-square-o"></i></span>
-		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-add" title="Add a filter"><i class="fa fa-plus-square-o"></i></span>
+		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-remove" title="<?php _e( 'Remove', 'pw-bulk-edit' ); ?>"><i class="fa fa-minus-square-o"></i></span>
+		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-add" title="<?php _e( 'Add a filter', 'pw-bulk-edit' ); ?>"><i class="fa fa-plus-square-o"></i></span>
 	</span>
 
 	<br />
-	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add" title="Add a filter"><i class="fa fa-plus-square-o"></i> Add a filter</span>
-	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add-group" title="Add a group of filters"><i class="fa fa-plus-square-o"></i> Add a Group of Filters</span>
-	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-remove" title="Remove"><i class="fa fa-minus-square-o"></i> Remove</span>
+	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add" title="<?php _e( 'Add a filter', 'pw-bulk-edit' ); ?>"><i class="fa fa-plus-square-o"></i> <?php _e( 'Add a filter', 'pw-bulk-edit' ); ?></span>
+	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add-group" title="<?php _e( 'Add a group of filters', 'pw-bulk-edit' ); ?>"><i class="fa fa-plus-square-o"></i> <?php _e( 'Add a Group of Filters', 'pw-bulk-edit' ); ?></span>
+	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-remove" title="<?php _e( 'Remove', 'pw-bulk-edit' ); ?>"><i class="fa fa-minus-square-o"></i> <?php _e( 'Remove', 'pw-bulk-edit' ); ?></span>
 	<hr class="pwbe-filter-container-break"/>
 </div>
 
@@ -104,18 +104,18 @@ if ( !defined( 'ABSPATH' ) ) {
 	<input name="filter_value" class="pwbe-filter-field pwbe-filter-field-input pwbe-filter-value" type="text" value="" autocomplete="off" />
 
 	<span class="pwbe-filter-required">
-		* required
+		* <?php _e( 'required', 'pw-bulk-edit' ); ?>
 	</span>
 
 	<span class="pwbe-pull-right">
-		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-remove" title="Remove"><i class="fa fa-minus-square-o"></i></span>
-		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-add" title="Add a filter"><i class="fa fa-plus-square-o"></i></span>
+		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-remove" title="<?php _e( 'Remove', 'pw-bulk-edit' ); ?>"><i class="fa fa-minus-square-o"></i></span>
+		<span class="pwbe-filter-link pwbe-filter-icon pwbe-filter-add" title="<?php _e( 'Add a filter', 'pw-bulk-edit' ); ?>"><i class="fa fa-plus-square-o"></i></span>
 	</span>
 
 	<br />
-	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add" title="Add a filter"><i class="fa fa-plus-square-o"></i> Add a filter</span>
-	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add-group" title="Add a group of filters"><i class="fa fa-plus-square-o"></i> Add a group of filters</span>
-	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-remove" title="Remove"><i class="fa fa-minus-square-o"></i> Remove</span>
+	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add" title="<?php _e( 'Add a filter', 'pw-bulk-edit' ); ?>"><i class="fa fa-plus-square-o"></i> <?php _e( 'Add a filter', 'pw-bulk-edit' ); ?></span>
+	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-add-group" title="<?php _e( 'Add a group of filters', 'pw-bulk-edit' ); ?>"><i class="fa fa-plus-square-o"></i> <?php _e( 'Add a group of filters', 'pw-bulk-edit' ); ?></span>
+	<span class="pwbe-filter-link pwbe-filter-criteria pwbe-filter-remove" title="<?php _e( 'Remove', 'pw-bulk-edit' ); ?>"><i class="fa fa-minus-square-o"></i> <?php _e( 'Remove', 'pw-bulk-edit' ); ?></span>
 	<hr class="pwbe-filter-container-break"/>
 </div>
 

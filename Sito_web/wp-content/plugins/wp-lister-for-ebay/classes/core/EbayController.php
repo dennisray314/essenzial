@@ -14,7 +14,6 @@ class EbayController {
     var $sandbox;
     var $compLevel;
 
-    #public $data = array();    
     public $session;            // ebay session
     public $sp;                 // ebay service proxy    
     public $message     = false;    
@@ -25,18 +24,13 @@ class EbayController {
     public $hasWarnings = null;
 
     public function __construct() {
-        // global $wpl_logger;
-        // $this->logger = &$wpl_logger;
-        // $this->config();
 
         // set up autoloader for eBay classes
         self::loadEbayClasses();
+
     }
 
     public function config() {
-        // add EbatNs folder to include path - required for SDK
-        // $incPath = WPLISTER_PATH . '/includes/EbatNs';
-        // set_include_path( get_include_path() . ':' . $incPath );        
     }
 
     static function loadEbayClasses() {
@@ -195,8 +189,6 @@ class EbayController {
         } else {
 
             // production keys
-            // $this->appId  = 'LWSWerbu-6147-****-****-853f7b5dc6cb';
-            // $this->appId  = urlencode( get_option( 'wple_instance' ) );
             $instance_key = str_replace( array('http://','https://','www.'), '', get_site_url() ); // example.com
             $admin_email  = get_option( 'wple_activation_email' );
             $this->appId  = urlencode( $instance_key );
@@ -263,7 +255,6 @@ class EbayController {
         // }
 
         // attach custom DB Logger for Tools page
-        // if ( get_option('wplister_log_to_db') == '1' ) {
         if ( isset($_REQUEST['page']) && $_REQUEST['page'] == 'wplister-tools' ) {
             $sp->attachLogger( new WPL_EbatNs_Logger( false, 'db', $account_id, $site_id ) );
         }
@@ -289,12 +280,10 @@ class EbayController {
 
     // get SessionID for Auth&Auth
     public function GetSessionID( $RuName ){ 
-        // require_once 'GetSessionIDRequestType.php';
 
         // prepare request
         $req = new GetSessionIDRequestType();
         $req->setRuName($RuName);
-        #$req->setErrorLanguage('en_US');
         
         // send request
         $res = $this->sp->GetSessionID($req);
@@ -315,12 +304,10 @@ class EbayController {
         
     }
     public function FetchToken( $SessionID ){ 
-        // require_once 'FetchTokenRequestType.php';
 
         // prepare request
         $req = new FetchTokenRequestType();
         $req->setSessionID($SessionID);
-        #$req->setErrorLanguage(0);
         
         // send request
         $res = $this->sp->FetchToken($req);
@@ -328,7 +315,6 @@ class EbayController {
         // TODO: handle error
         if ( ! $res->eBayAuthToken ) {
             echo "<pre>Error in FetchToken(): ";print_r($res);echo"</pre>";
-            // echo "<pre>Request: ";print_r($req);echo"</pre>";
             return false;
         }
 
@@ -336,12 +322,10 @@ class EbayController {
     }
 
     public function fetchTokenExpirationTime( $SessionID ){ 
-        // require_once 'GetTokenStatusRequestType.php';
 
         // prepare request
         $req = new GetTokenStatusRequestType();
         $req->setSessionID($SessionID);
-        #$req->setErrorLanguage(0);
         
         // send request
         $res = $this->sp->GetTokenStatus($req);
@@ -360,17 +344,9 @@ class EbayController {
     // ajax: load single branch of ebay categories
     // returns: result
     public function loadEbayCategoriesBranch( $cat_id, $site_id ){ 
-        // $site_id = get_option('wplister_ebay_site_id');
         $cm = new EbayCategoriesModel();
         return $cm->loadEbayCategoriesBranch( $cat_id, $this->session, $site_id );
     }
-
-    // // load full categories list and insert to db (old)
-    // public function loadCategories(){ 
-    //     $site_id = get_option('wplister_ebay_site_id');
-    //     $cm = new EbayCategoriesModel();
-    //     $cm->downloadCategories( $this->session, $site_id );
-    // }
 
     // load Store categories list and insert to db
     public function loadStoreCategories( $account_id ) { 
@@ -444,12 +420,6 @@ class EbayController {
     }
 
 
-    // update transactions
-    // public function loadTransactions( $days = null ){ 
-    //     $tm = new TransactionsModel();
-    //     $tm->updateTransactions( $this->session, $days );
-    //     return $tm;
-    // }
     // update ebay orders (deprecated)
     public function loadEbayOrders( $days = null ){ 
         $m = new EbayOrdersModel();
@@ -745,21 +715,6 @@ class EbayController {
 
 
     // delete selected items
-    public function deleteListings( $id ){ 
-        
-        // $sm = new ListingsModel();
-
-        // if ( is_array( $id )) {
-        //     foreach( $id as $single_id ) {
-        //         $sm->deleteItem( $single_id );  
-        //     }
-        // } else {
-        //     $sm->deleteItem( $id );         
-        // }
-        
-    }
-
-    // delete selected items
     public function deleteProfiles( $id ){ 
         
         $sm = new ProfilesModel();
@@ -822,18 +777,6 @@ class EbayController {
         }
         
     }
-
-    // call updateItemDetails on all published and changed items
-    // public function updateAllPublishedItems(){   
-
-    //     $sm = new ListingsModel();
-    //     $items = WPLE_ListingQueryHelper::getAllPublished();
-        
-    //     foreach( $items as $item ) {
-    //         $sm->updateItemDetails( $item['id'], $this->session );  
-    //     }
-        
-    // }
 
 
     // call updateSingleTransaction on selected transactions
@@ -1118,7 +1061,6 @@ class EbayController {
 
     // GetTokenStatus
     public function GetTokenStatus( $return_result = false ){ 
-        // require_once 'GetTokenStatusRequestType.php';
 
         // prepare request
         $req = new GetTokenStatusRequestType();
@@ -1155,7 +1097,6 @@ class EbayController {
     // test connection to ebay api by single GetItem request
     // (used by import plugin until version 1.3.8)
     public function testConnection(){ 
-        // require_once 'GeteBayOfficialTimeRequestType.php';
         $req = new GeteBayOfficialTimeRequestType();
         $res = $this->sp->GeteBayOfficialTime($req);
         return ( $res );
@@ -1163,12 +1104,9 @@ class EbayController {
      
     // get current time on ebay
     public function getEbayTime(){ 
-        // require_once 'GetItemRequestType.php';
-        // require_once 'GeteBayOfficialTimeRequestType.php';
 
         // prepare request
         $req = new GeteBayOfficialTimeRequestType();
-        #$req->setItemID($item_id);
         
         // send request
         $res = $this->sp->GeteBayOfficialTime($req);
@@ -1192,10 +1130,11 @@ class EbayController {
 
         // $api_url = 'http://open.api.ebay.com/shopping?callname=FindProducts&responseencoding=XML&appid=MYAPPID&siteid=0&version=525&QueryKeywords=harry%20potter&AvailableItemsOnly=true&MaxEntries=2'
         $api_url = $this->sandbox ? 'http://open.api.sandbox.ebay.com/shopping' : 'http://open.api.ebay.com/shopping';
+        $api_id  = $this->sandbox ? $this->appId                                : 'LWSWerbu-6147-43ed-9835-853f7b5dc6cb';
         $params = array(
             'callname'           => 'FindProducts',
             'responseencoding'   => 'JSON',
-            'appid'              => $this->appId,
+            'appid'              => $api_id,
             'siteid'             => $this->siteId,
             // 'version'            => '885',
             'version'            => '789',
@@ -1204,18 +1143,15 @@ class EbayController {
             'MaxEntries'         => '2',
         );
         $request_url = add_query_arg( $params, $api_url );
-        // echo "<pre>";print_r($request_url);echo"</pre>";#die();
         
         // call API
         $response = wp_remote_get( $request_url );
-        // echo "<pre>";print_r($response);echo"</pre>";#die();
 
         // skip further processing if an error was returned
         if ( is_wp_error( $response ) ) return $response;
 
         // decode result
         $result = json_decode( wp_remote_retrieve_body( $response ) );
-        // echo "<pre>";print_r($result);echo"</pre>";#die();
 
         // check if result was decoded
         if ( ! $result ) return 'Unable to parse FindProducts result for query '.$query;
@@ -1284,7 +1220,7 @@ class EbayController {
         return $sites;
     }
 
-    // 
+    // get domain name by site_id
     static function getDomainnameBySiteId($siteid = 0)
     {
         switch ($siteid) {
@@ -1322,6 +1258,8 @@ class EbayController {
                 return 'ebay.com.hk';
             case 203:
                 return 'ebay.in';
+            case 205:
+                return 'ebay.ie';
             case 207:
                 return 'ebay.com.my';
             case 211:
@@ -1340,4 +1278,4 @@ class EbayController {
     } // getDomainnameBySiteId()
 
 
-}
+} // class EbayController

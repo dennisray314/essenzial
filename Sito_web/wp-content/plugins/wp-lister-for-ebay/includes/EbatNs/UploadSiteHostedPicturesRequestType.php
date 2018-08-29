@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,8 +11,8 @@ require_once 'PictureUploadPolicyCodeType.php';
 require_once 'PictureWatermarkCodeType.php';
 
 /**
-  * Uploads a picture to the eBay Picture Service and returns a URL of the picture. 
-  * You will use this URL when creating the listing using one of the <b>AddItem</b> calls. 
+  * Uploads a picture to the eBay Picture Service and returns a URL of the picture.
+  * You will use this URL when creating, revising, or relisting an item with the Trading API.
   * 
  **/
 

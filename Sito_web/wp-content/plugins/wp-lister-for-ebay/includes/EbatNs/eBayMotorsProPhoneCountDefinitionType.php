@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
-  * Indicates which phone option the category supports 
+  * Indicates which phone option the site supports 
   * for contacting the seller about Classified Ad format listings.
   * Added for EbayMotors Pro users.
   * 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,11 +7,12 @@
 require_once 'EbatNs_ComplexType.php';
 require_once 'ItemIDType.php';
 require_once 'OrderIDType.php';
-require_once 'ExternalProductIDType.php';
 require_once 'PaymentTypeCodeType.php';
 require_once 'AmountType.php';
 
 /**
+  * <span class="tablenote"><b>Note: </b> This type is only applicable to the <b>GetSellerPayments</b> call, and since the Half.com site was shut down, this type is also being deprecated.
+  * </span>
   * A payment between Half.com and a seller. The financial value of a payment is
   * typically based on an amount that a buyer paid to Half.com for one order line
   * item, plus the buyer's shipping cost, minus Half.com's commission.
@@ -44,11 +45,6 @@ class SellerPaymentType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $PrivateNotes;
-
-	/**
-	* @var ExternalProductIDType
-	**/
-	protected $ExternalProductID;
 
 	/**
 	* @var string
@@ -138,14 +134,6 @@ class SellerPaymentType extends EbatNs_ComplexType
 					'required' => false,
 					'type' => 'string',
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'ExternalProductID' =>
-				array(
-					'required' => false,
-					'type' => 'ExternalProductIDType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -297,22 +285,6 @@ class SellerPaymentType extends EbatNs_ComplexType
 	function setPrivateNotes($value)
 	{
 		$this->PrivateNotes = $value;
-	}
-
-	/**
-	 * @return ExternalProductIDType
-	 **/
-	function getExternalProductID()
-	{
-		return $this->ExternalProductID;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setExternalProductID($value)
-	{
-		$this->ExternalProductID = $value;
 	}
 
 	/**

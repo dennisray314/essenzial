@@ -3,12 +3,12 @@
 Plugin Name: WP-Lister Lite for eBay
 Plugin URI: https://www.wplab.com/plugins/wp-lister/
 Description: List your products on eBay the easy way.
-Version: 2.0.31
-Author: Matthias Krok
+Version: 2.0.40
+Author: WP Lab
 Author URI: https://www.wplab.com/ 
-Max WP Version: 4.9.1
+Max WP Version: 4.9.7
 WC requires at least: 3.0.0
-WC tested up to: 3.2.1
+WC tested up to: 3.4.3
 Text Domain: wplister
 Domain Path: /languages/
 License: GPL2+
@@ -16,7 +16,7 @@ License: GPL2+
 
 if ( class_exists('WPL_WPLister') ) die(sprintf( 'WP-Lister for eBay %s is already installed and activated. Please deactivate any other version before you activate this one.', WPLISTER_VERSION ));
 
-define('WPLISTER_VERSION', '2.0.31' );
+define('WPLISTER_VERSION', '2.0.40' );
 define('WPLISTER_PATH', realpath( dirname(__FILE__) ) );
 define('WPLISTER_URL', plugins_url() . '/' . basename(dirname(__FILE__)) . '/' );
 define('WPLE_VERSION', WPLISTER_VERSION );
@@ -47,11 +47,6 @@ require_once( WPLISTER_PATH . '/classes/integration/WooOrderMetaBox.php' );
 
 // set up autoloader
 spl_autoload_register('WPL_Autoloader::autoload');
-
-// init logger
-global $wpl_logger;
-define( 'WPLISTER_DEBUG', get_option('wplister_log_level') );
-$wpl_logger = new WPL_Logger();
 
 if ( ! defined('WPLISTER_LIGHT')) define('WPLISTER_LIGHT', true );
 
@@ -105,8 +100,11 @@ class WPL_WPLister extends WPL_BasePlugin {
 		
 	// initialize logger
 	public function initLogger() {
-		global $wpl_logger;
-		$this->logger = $wpl_logger;
+		// global $wpl_logger;
+
+		define( 'WPLISTER_DEBUG', get_option('wplister_log_level') );
+
+		$this->logger = new WPL_Logger();
 	}
 		
 	// initialize core classes
@@ -202,8 +200,8 @@ class WPL_WPLister extends WPL_BasePlugin {
 		?>
 	    <script type="text/javascript">
     	    jQuery(document).ready(function() {
-        	    jQuery('<option>').val('prepare_auction').text('<?php echo __('List on eBay','wplister') ?>').appendTo("select[name='action']");
-            	jQuery('<option>').val('prepare_auction').text('<?php echo __('List on eBay','wplister') ?>').appendTo("select[name='action2']");
+        	    jQuery('<option>').val('wple_prepare_auction').text('<?php echo __('List on eBay','wplister') ?>').appendTo("select[name='action']");
+            	jQuery('<option>').val('wple_prepare_auction').text('<?php echo __('List on eBay','wplister') ?>').appendTo("select[name='action2']");
 	        });
     	</script>
     	<?php
@@ -215,8 +213,8 @@ class WPL_WPLister extends WPL_BasePlugin {
 		?>
 	    <script type="text/javascript">
     	    jQuery(document).ready(function() {
-        	    jQuery('<option>').val('remove_from_ebay').text('<?php echo __('End listings on eBay','wplister') ?>').appendTo("select[name='action']");
-            	jQuery('<option>').val('remove_from_ebay').text('<?php echo __('End listings on eBay','wplister') ?>').appendTo("select[name='action2']");
+        	    jQuery('<option>').val('wple_remove_from_ebay').text('<?php echo __('End listings on eBay','wplister') ?>').appendTo("select[name='action']");
+            	jQuery('<option>').val('wple_remove_from_ebay').text('<?php echo __('End listings on eBay','wplister') ?>').appendTo("select[name='action2']");
 	        });
 
 		    jQuery(".tablenav .actions input[type='submit'].action").on('click', function() {
@@ -224,7 +222,7 @@ class WPL_WPLister extends WPL_BasePlugin {
 		        if ( 'doaction'  == this.id ) var selected_action = jQuery("select[name='action']").first().val();
 		        if ( 'doaction2' == this.id ) var selected_action = jQuery("select[name='action2']").first().val();
 
-				if ( selected_action == 'remove_from_ebay' ) {
+				if ( selected_action == 'wple_remove_from_ebay' ) {
 					var confirmed = confirm("<?php echo __('Are you sure you want to do this?','wplister') .' '.  __('Ending the listing also removes the sales history for the item. If you were to relist these listings later you would then start out with a lower sales rank.','wplister') ?>");
 					if ( ! confirmed ) return false;
 				}
@@ -237,7 +235,7 @@ class WPL_WPLister extends WPL_BasePlugin {
 	public function printProductsPageScripts() {
 
 		// ProfileSelector
-		wp_register_script( 'wple_profile_selector', self::$PLUGIN_URL.'/js/classes/ProfileSelector.js', array( 'jquery' ), WPLISTER_VERSION );
+		wp_register_script( 'wple_profile_selector', self::$PLUGIN_URL.'js/classes/ProfileSelector.js', array( 'jquery' ), WPLISTER_VERSION );
 		wp_enqueue_script ( 'wple_profile_selector' );
 		wp_localize_script( 'wple_profile_selector', 'wple_ProfileSelector_i18n', array(
 				'WPLE_URL' 	=> WPLISTER_URL
@@ -256,10 +254,10 @@ class WPL_WPLister extends WPL_BasePlugin {
 	public function printOrdersPageStyles() {	
 		?>
     	<style type="text/css">
-			table.wp-list-table .column-wpl_order_src { width: 56px; text-align: center; padding-left: 1px; }
+			.post-type-shop_order table.wp-list-table .column-wpl_order_src { width: 56px; text-align: center; padding-left: 1px; padding-right: 1px; }
 
 			@media screen and (max-width: 782px) {
-				table.wp-list-table .column-wpl_order_src { display: none !important; }
+				.post-type-shop_order table.wp-list-table .column-wpl_order_src { display: none !important; }
 			}
     	</style>
     	<?php

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'NameValueListArrayType.php';
 
 /**
-  * Used to provide input for ItemID and VariationSpecific
+  * Type used by the <b>VariationKey</b> container to identify one or more item variations to either add or remove from an eBay user's Watch List.
   * 
  **/
 

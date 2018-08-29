@@ -16,6 +16,7 @@ class RakutenNewSkuDlg extends PBaseFeedDialog
         $this->service_name = 'RakutenNewSku';
         $this->service_name_long = 'Rakuten New SKU Feed';
         $this->blockCategoryList = false;
+        $this->doc_link = "https://www.exportfeed.com/documentation/rakuten/";
     }
 
 }

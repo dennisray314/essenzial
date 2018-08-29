@@ -70,7 +70,9 @@ if ( ! class_exists( 'WPDesk_Flexible_Shipping_Add_Shipping' ) ) {
 					$flexible_shipping       = $all_shipping_methods['flexible_shipping'];
 					$flexible_shipping_rates = $flexible_shipping->get_all_rates();
 					foreach ( $order_shipping_methods as $order_shipping_method ) {
-						if ( isset( $flexible_shipping_rates[ $order_shipping_method['method_id'] ] ) ) {
+						/** @var WC_Order_Item_Shipping $order_shipping_method */
+						$fs_method = $order_shipping_method->get_meta( '_fs_method' );
+						if ( !empty( $fs_method ) && isset( $flexible_shipping_rates[ $fs_method['id_for_shipping'] ] ) ) {
 							$add_metabox = true;
 						}
 					}

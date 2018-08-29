@@ -275,8 +275,8 @@ class EbayMessagesTable extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'update' 	=> __('Update selected messages from eBay','wplister'),
-            'delete'    => __('Delete selected messages','wplister')
+            'wple_update_messages' => __('Update selected messages from eBay','wplister'),
+            'wple_delete_messages' => __('Delete selected messages','wplister')
         );
 
         // delete messages is only for developers

@@ -5,9 +5,6 @@ class ProfilesModel extends WPL_Model {
 	public function __construct() {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		global $wpdb;
 		$this->tablename = $wpdb->prefix . 'ebay_profiles';
 	}
@@ -96,7 +93,9 @@ class ProfilesModel extends WPL_Model {
 			"title_prefix"            => "",
 			"title_suffix"            => "",
 			"vat_percent"             => "",
-			"with_gallery_image"      => "1"
+			"with_gallery_image"      => "1",
+			"b2b_only"                => "",
+			"ebayplus_enabled"        => "",
 		);
 
 		$item['conditions'] = array();

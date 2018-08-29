@@ -118,7 +118,7 @@ class EbayOrdersTable extends WP_List_Table {
 
         //Build row actions
         $actions = array(
-            'view_ebay_order_details' => sprintf('<a href="?page=%s&action=%s&ebay_order=%s&width=600&height=470" class="thickbox">%s</a>',$page,'view_ebay_order_details',$item['id'],__('Details','wplister')),
+            'view_ebay_order_details' => sprintf('<a href="?page=%s&action=%s&ebay_order=%s&_wpnonce=%s&width=600&height=470" class="thickbox">%s</a>',$page,'view_ebay_order_details',$item['id'], wp_create_nonce( 'wplister_view_order_details' ), __('Details','wplister')),
             // 'create_order' => sprintf('<a href="?page=%s&action=%s&ebay_order=%s">%s</a>',$page,'create_order',$item['id'],__('Create Order','wplister')),
             // 'edit'         => sprintf('<a href="?page=%s&action=%s&auction=%s">%s</a>',$page,'edit',$item['id'],__('Edit','wplister')),
         );
@@ -154,11 +154,11 @@ class EbayOrdersTable extends WP_List_Table {
         if ( $order_exists ) {
             $actions['edit_order'] = sprintf('<a href="post.php?action=%s&post=%s">%s</a>','edit',$item['post_id'],__('View Order','wplister'));
         } else {
-            $actions['create_order'] = sprintf('<a href="?page=%s&action=%s&ebay_order=%s">%s</a>',$page,'create_order',$item['id'],__('Create Order','wplister'));
+            $actions['create_order'] = sprintf('<a href="?page=%s&action=%s&ebay_order=%s&_wpnonce=%s">%s</a>',$page,'wple_create_order',$item['id'], wp_create_nonce( 'wplister_create_order' ), __('Create Order','wplister'));
         }
 
         // free version can't create orders
-        if ( WPLISTER_LIGHT ) unset( $actions['create_order'] );
+        if ( WPLISTER_LIGHT ) unset( $actions['wple_create_order'] );
 
 
         // item title
@@ -171,6 +171,9 @@ class EbayOrdersTable extends WP_List_Table {
         if ( $item_details ) {
             if ( $item_details->IsMultiLegShipping ) {
                 $title .= '<br><small>Global Shipping Program</small>';
+            }
+            if ( $item_details->ContainseBayPlusTransaction == true ) {
+                $title .= '<br><small><strong>eBay Plus</strong></small>';
             }
         }
 
@@ -412,8 +415,8 @@ class EbayOrdersTable extends WP_List_Table {
      **************************************************************************/
     function get_bulk_actions() {
         $actions = array(
-            'update' 	=> __('Update selected orders from eBay','wplister'),
-            'wpl_delete_order'    => __('Delete selected orders','wplister')
+            'wple_bulk_update_orders' 	=> __('Update selected orders from eBay','wplister'),
+            'wple_bulk_delete_orders'   => __('Delete selected orders','wplister')
         );
 
         // wpl_delete_order orders is only for developers

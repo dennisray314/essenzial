@@ -30,10 +30,11 @@ class TransactionsPage extends WPL_Page {
 	}
 
 	public function handleActionsOnInit() {
-        WPLE()->logger->debug("handleActionsOnInit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// these actions have to wait until 'init'
 		if ( $this->requestAction() == 'view_trx_details' ) {
+		    //check_admin_referer( 'wplister_view_trx_details' );
 			$this->showTransactionDetails( $_REQUEST['transaction'] );
 			exit();
 		}
@@ -63,7 +64,8 @@ class TransactionsPage extends WPL_Page {
 		$this->check_wplister_setup();
 
 		// handle update ALL from eBay action
-		if ( $this->requestAction() == 'update_transactions' ) {
+		if ( $this->requestAction() == 'wple_update_transactions' ) {
+		    check_admin_referer( 'wplister_update_transactions' );
 			$this->initEC();
 			$tm = $this->EC->loadTransactions();
 			$this->EC->updateListings();
@@ -78,7 +80,9 @@ class TransactionsPage extends WPL_Page {
 			$this->showMessage( $msg );
 		}
 		// handle update from eBay action
-		if ( $this->requestAction() == 'update' ) {
+		if ( $this->requestAction() == 'wple_update_transactions' ) {
+		    check_admin_referer( 'bulk-transactions' );
+
 			if ( isset( $_REQUEST['transaction'] ) ) {
 				$this->initEC();
 				$this->EC->updateTransactionsFromEbay( $_REQUEST['transaction'] );
@@ -89,7 +93,9 @@ class TransactionsPage extends WPL_Page {
 			}
 		}
 		// handle delete action
-		if ( $this->requestAction() == 'delete' ) {
+		if ( $this->requestAction() == 'wple_delete_transactions' ) {
+		    check_admin_referer( 'bulk-transactions' );
+
 			if ( isset( $_REQUEST['transaction'] ) ) {
 				$this->initEC();
 				$this->EC->deleteTransactions( $_REQUEST['transaction'] );
@@ -101,6 +107,8 @@ class TransactionsPage extends WPL_Page {
 		}
 		// handle wpl_revert_transaction action
 		if ( $this->requestAction() == 'wpl_revert_transaction' ) {
+		    check_admin_referer( 'wplister_revert_transaction' );
+
 			if ( isset( $_REQUEST['id'] ) ) {
 				$tm = new TransactionsModel();
 				$tm->revertTransaction( $_REQUEST['id'] );
@@ -200,7 +208,7 @@ class TransactionsPage extends WPL_Page {
 					$actions = '';
 					if ( $txn['status'] != 'reverted' && $txn['CompleteStatus'] != 'Completed' ) {
 						$button_label = $reduced_product_id ? 'Restore stock' : 'Remove';
-						$url = 'admin.php?page=wplister-transactions&action=wpl_revert_transaction&id='.$txn['id'];
+						$url = 'admin.php?page=wplister-transactions&action=wpl_revert_transaction&id='.$txn['id'].'&_wpnonce='. wp_create_nonce( 'wplister_revert_transaction' );
 						$actions = '<a href="'.$url.'" class="button button-small">'.$button_label.'</a>';
 					}
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'FeeType.php';
 
 /**
-  * This is used in ReviseInventoryStatus response to provide the set of 
-  * fees associated with each unique ItemID..
+  * This is used in the <b>ReviseInventoryStatus</b> response to provide the set of fees associated with each unique <b>ItemID</b>.
   * 
  **/
 

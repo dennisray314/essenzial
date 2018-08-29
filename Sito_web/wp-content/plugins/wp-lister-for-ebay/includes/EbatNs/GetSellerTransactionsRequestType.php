@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,10 +11,7 @@ require_once 'TransactionPlatformCodeType.php';
 require_once 'InventoryTrackingMethodCodeType.php';
 
 /**
-  * Retrieves order line item (transaction) information for the user for which the
-  * call is made, and not for any other user.&nbsp;<b>Also for
-  * Half.com</b>. (To retrieve order line items for another seller's listings, use
-  * GetItemTransactions.)
+  * Retrieves a seller's order line item information. To retrieve order line items for another seller, the <b>GetItemTransactions</b>) call must be used. This call cannot retrieve sales older than 90 days old.
   * 
  **/
 

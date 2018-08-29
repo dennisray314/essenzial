@@ -67,6 +67,7 @@ class NextagDlg extends PBaseFeedDialog
             'Coupon Code Rebate Discount',
             'Coupon Rebate URL Discount',
             'Promo Rebate Discount Is Exclusive');
+        $this->doc_link = "https://www.exportfeed.com/documentation/nextag-integration-guide/";
     }
 
 }

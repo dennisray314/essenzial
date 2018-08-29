@@ -171,7 +171,8 @@
 
 								<div id="major-publishing-actions">
 									<div id="publishing-action">
-										<input type="hidden" name="action" value="save_template" />
+                                        <?php wp_nonce_field( 'wplister_save_template' ); ?>
+										<input type="hidden" name="action" value="wple_save_template" />
 										<input type="hidden" name="wpl_e2e_template_id" value="<?php echo $wpl_item['template_id']; ?>" />
 										<input type="hidden" name="return_to" value="<?php echo @$_GET['return_to']; ?>" />
 										<input type="hidden" name="listing_status" value="<?php echo @$_GET['listing_status']; ?>" />
@@ -332,11 +333,13 @@
 								<code>[[widget_related_listings]]</code><br>
 								<code>[[widget_featured_listings]]</code><br>
 								<?php // echo __('Use these dynamic widgets to add a gallery showing your other listings.','wplister'); ?>
-								<?php echo __('Warning: These widgets use active content and will stop working when eBay bans active content in 2017.','wplister'); ?>
+								<?php echo __('Note: These legacy widgets are deprecated since eBay banned active content in 2017.','wplister'); ?>
 							</p>
+							<!--
 							<p>
-								<small><?php echo __('Note: The related listings widget will only show up-sells or cross-sells, which need to be defined for each product in WooCommerce.','wplister'); ?></small>
+								<small><?php // echo __('Note: The related listings widget will only show up-sells or cross-sells, which need to be defined for each product in WooCommerce.','wplister'); ?></small>
 							</p>
+							-->
 							<p>
 								<b><?php echo __('Shortcodes for advanced developers','wplister'); ?></b><br>
 							</p>
@@ -488,7 +491,8 @@
 
 
 					<div class="submit" style="padding-top: 0; float: right; display:none;">
-						<input type="hidden" name="action" value="save_template" />
+                        <?php wp_nonce_field( 'wplister_save_template' ); ?>
+						<input type="hidden" name="action" value="wple_save_template" />
 						<input type="hidden" name="wpl_e2e_template_id" value="<?php echo $wpl_item['template_id']; ?>" />
 						<input type="submit" value="<?php echo __('Save template','wplister'); ?>" name="submit" class="button-primary">
 					</div>

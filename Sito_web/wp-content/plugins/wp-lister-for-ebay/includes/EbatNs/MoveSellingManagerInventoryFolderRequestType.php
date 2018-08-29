@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,10 +7,10 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  *   Enables a seller to move a Selling Manager inventory folder.
+  *   Moves a Selling Manager inventory folder.
   * <br><br>
   * This call is subject to change without notice; the deprecation process is
-  * inapplicable to this call.
+  * inapplicable to this call. This call is only applicable and accessible by eBay sellers with a Selling Manager Pro subscription.
   * 
  **/
 

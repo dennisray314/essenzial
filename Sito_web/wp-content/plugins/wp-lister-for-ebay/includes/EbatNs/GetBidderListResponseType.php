@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,8 @@ require_once 'UserType.php';
 require_once 'ItemArrayType.php';
 
 /**
-  * Response to a GetBidderList call, which retrieves all items the user is currently bidding on, or
-  * has won or purchased.
+  * Response to a <b>GetBidderList</b> call, which retrieves all items the
+  * user is currently bidding on, or has won or purchased.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,7 +11,8 @@ require_once 'ItemType.php';
   * Defines and lists a new fixed-price listing.
   * The main difference between <b>AddFixedPriceItem</b> and <b>AddItem</b> is that
   * <b>AddFixedPriceItem</b> supports the creation of fixed-price listings only,
-  * whereas <b>AddItem</b> supports all listing formats.<br>
+  * whereas <b>AddItem</b> supports all listing formats.
+  * <br>
   * <br>
   * Also, only <b>AddFixedPriceItem</b> supports multi-variation listings
   * and tracking inventory by SKU. <b>AddItem</b> does not support

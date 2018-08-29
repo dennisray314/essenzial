@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,10 +9,7 @@ require_once 'ItemIDType.php';
 require_once 'SKUType.php';
 
 /**
-  * This container is designed to return all order line items related to specific
-  * multiple-item, fixed-price listings. Additionally, a SKU filter can be used to
-  * return all order line items related to a specific product or variation of an
-  * item.  
+  * This type is used by the <b>ItemTransactionID</b> container in the <b>GetOrderTransactions</b> call. This container is used to specify a specific order line item to retrieve.
   * 
  **/
 

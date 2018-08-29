@@ -26,19 +26,18 @@ class PBonanzaFeed extends PCSVFeedEx
 
         //Create some attributes (Mapping 3.0)
 //Required
-
+        $this->addAttributeMapping('id', 'id', true);
         $this->addAttributeMapping('title', 'title', true, true); //product name (15-70 chars)
         $this->addAttributeMapping('description', 'description', true, true);
         $this->addAttributeMapping('regular_price', 'price', true, true);
-        $this->addAttributeMapping('local_category', 'category', true, true);
-        $this->addAttributeMapping('link', 'URL', true, true); //begin with http://
-        $this->addAttributeMapping('feature_imgurl', 'ImageURL', true, true); //begin with http://
+        $this->addAttributeMapping('feature_imgurl', 'images', true, true); //begin with http://
+        $this->addAttributeMapping('current_category', 'category', true, true);
+        // $this->addAttributeMapping('link', 'URL', true, true); //begin with http://
+        
 //$this->addAttributeMapping('', 'Manufacturer', true,true);
 
         //$this->addAttributeMapping('brand', 'Brand', true,true);
 //Suggested
-        $this->addAttributeMapping('', 'sku', true);
-        $this->addAttributeMapping('', 'id', true);
         $this->addAttributeMapping('', 'booth_category', true);
         $this->addAttributeMapping('', 'shipping_price', true);
         $this->addAttributeMapping('', 'shipping_type', true);
@@ -46,6 +45,11 @@ class PBonanzaFeed extends PCSVFeedEx
         $this->addAttributeMapping('', 'shipping_oz', true);
         $this->addAttributeMapping('', 'shipping_carrier', true);
         $this->addAttributeMapping('', 'shipping_package', true);
+        
+        $this->addAttributeMapping('', 'sku', true);
+        
+        
+        
         $this->addAttributeMapping('', 'worldwide_shipping_price', true);
         $this->addAttributeMapping('', 'worldwide_shipping_type', true);
         $this->addAttributeMapping('', 'worldwide_shipping_carrier', true);
@@ -61,15 +65,17 @@ class PBonanzaFeed extends PCSVFeedEx
 
     function formatProduct($product)
     {
-        //Prepare input:
-
+        // //Prepare input:
+        
         $product->attributes['feature_imgurl'] = str_replace('https://', 'http://', $product->attributes['feature_imgurl']);
 
         if ($product->attributes['stock_status'] == 1)
             $product->attributes['stock_status'] = 'In Stock';
         else
             $product->attributes['stock_status'] = 'Out Of Stock';
-
+        
+        // echo "<pre>";
+        // print_r($product);exit;
         //Allowed condition values: New, Open Box, OEM, Refurbished, Pre-Owned, Like New, Good, Very Good, Acceptable
         return parent::formatProduct($product);
     }

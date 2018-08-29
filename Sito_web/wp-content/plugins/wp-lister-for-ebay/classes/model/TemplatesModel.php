@@ -10,9 +10,6 @@ class TemplatesModel extends WPL_Model {
 	public function __construct( $foldername = false ) {
 		parent::__construct();
 		
-		// global $wpl_logger;
-		// $this->logger = &$wpl_logger;
-
 		if ( $foldername ) {
 
 			// folder name
@@ -613,8 +610,11 @@ class TemplatesModel extends WPL_Model {
             $post_content = apply_filters('the_content', $item['post_content'] );
 
             // remove links again from the HTML that could've possibly been inserted via shortcodes
-            if ( 'default' == get_option( 'wplister_remove_links', 'default' ) ) {
+            $link_handling = get_option( 'wplister_remove_links', 'default' );
+            if ( 'default' == $link_handling ) {
                 $post_content = preg_replace('#<a.*?>(.*?)</a>#i', ' $1 ', $post_content );
+            } elseif ( 'remove_external' == $link_handling ) {
+                $post_content = preg_replace_callback('#<a.*?>(.*?)</a>#i', array( $this, 'stripExternalLinks' ), $post_content );
             }
 
 	 		$tpl_html = str_replace( '[[product_content]]', $post_content, $tpl_html );
@@ -628,10 +628,13 @@ class TemplatesModel extends WPL_Model {
 		$excerpt = WPLE_ListingQueryHelper::getRawPostExcerpt( $product_id );
 
 		// remove ALL links from post content by default
-		if ( 'default' == get_option( 'wplister_remove_links', 'default' ) ) {
+        $link_handling = get_option( 'wplister_remove_links', 'default' );
+		if ( 'default' == $link_handling ) {
 			// improved for multiple links per line case
 			$excerpt = preg_replace('#<a.*?>(.*?)</a>#i', ' $1 ', $excerpt );
-		}
+        } elseif ( 'remove_external' == $link_handling ) {
+            $excerpt = preg_replace_callback('#<a.*?>(.*?)</a>#i', array( $this, 'stripExternalLinks' ), $excerpt );
+        }
 
 		// process and insert main content
 		if ( 'remove' == get_option( 'wplister_process_shortcodes', 'content' ) ) {
@@ -747,10 +750,10 @@ class TemplatesModel extends WPL_Model {
 			';
 
 			// plain iframe - wont verify, but works well for preview
-			if ( isset($_REQUEST['action']) && $_REQUEST['action'] == 'preview_auction' ) {
+			if ( isset($_REQUEST['action']) && $_REQUEST['action'] == 'wple_preview_auction' ) {
 				$html = '<iframe '.$iframe_attributes_html.'></iframe>';
 			}
-			if ( isset($_REQUEST['action']) && $_REQUEST['action'] == 'preview_template' ) {
+			if ( isset($_REQUEST['action']) && $_REQUEST['action'] == 'wple_preview_template' ) {
 				$html = '<iframe '.$iframe_attributes_html.'></iframe>';
 			}
 
@@ -867,7 +870,7 @@ class TemplatesModel extends WPL_Model {
 
 				$meta_value = get_post_meta( $post_id, $meta_name, true );
 				// $meta_value = wpautop( $meta_value ); // might do more harm than good 
-				$meta_value = nl2br( $meta_value );      // required for WYSIWYG fields by Advanced Custom Field plugin (and probably others)
+				$meta_value = apply_filters( 'wplister_meta_shortcode_value', nl2br( $meta_value ), $meta_name, $post_id ); // nl2br() is required for WYSIWYG fields by Advanced Custom Field plugin (and probably others)
 				$processed_html = str_replace( '[[meta_'.$meta_name.']]', $meta_value,  $tpl_html );		
 
 				// check if string exceeds max_length after processing shortcode
@@ -896,7 +899,14 @@ class TemplatesModel extends WPL_Model {
             }
         }
 
-	    return '';
+        $remove_a_tag = apply_filters( 'wple_template_strip_anchor_text', true );
+
+        if ( $remove_a_tag ) {
+            return '';
+        } else {
+            return $matches[1];
+        }
+
     }
 
 	function getAddonsHTML( $item ) {
@@ -1000,7 +1010,7 @@ class TemplatesModel extends WPL_Model {
 
 		// load and embed style.css
 		$tpl_css  = $this->getCSS();
-		$tpl_html = '<style type="text/css">'.$tpl_css.'</style>'."\n\n".$tpl_html;
+		$tpl_html = "<style type=\"text/css\">\n\n".$tpl_css.'</style>'."\n\n".$tpl_html;
 
 		// include header.php
 		$tpl_header  = $this->getDynamicContent( $this->folderpath . '/header.php' );
@@ -1133,31 +1143,5 @@ class TemplatesModel extends WPL_Model {
 	}
 
 
-}
-
-//
-// Template API functions
-// 
-
-function wplister_register_custom_fields( $type, $id, $default, $label, $config = array() ) {
-	global $wpl_tpl_fields;
-	if ( ! $wpl_tpl_fields ) $wpl_tpl_fields = array();
-
-	if ( ! $type || ! $id ) return;
-
-	// create field
-	$field = new stdClass();
-	$field->id      = $id;
-	$field->type    = $type;
-	$field->label   = $label;
-	$field->default = $default;
-	$field->value   = $default;
-	$field->slug    = isset($config['slug']) ? $config['slug'] : $id;
-	$field->options = isset($config['options']) ? $config['options'] : array();
-
-	// add to template fields
-	$wpl_tpl_fields[$id] = $field;
-
-}
-
+} // class TemplatesModel
 

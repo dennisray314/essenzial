@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'CharityAffiliationTypeCodeType.php';
 
 /**
-  *  Defines the affiliation status for a nonprofit charity organization registered with the dedicated eBay Giving Works provider.
+  *  This type is deprecated. Replaced by <b>CharityAffiliationDetailType</b>
   * 
  **/
 

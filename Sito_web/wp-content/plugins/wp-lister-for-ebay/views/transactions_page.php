@@ -20,6 +20,7 @@
     <form id="profiles-filter" method="post" action="<?php echo $wpl_form_action; ?>" >
         <!-- For plugins, we also need to ensure that the form posts back to our current page -->
         <input type="hidden" name="page" value="<?php echo esc_attr( $_REQUEST['page'] ) ?>" />
+        <?php wp_nonce_field( 'bulk-transactions' ); ?>
         <!-- Now we can render the completed list table -->
 		<?php $wpl_transactionsTable->search_box( __('Search','wplister'), 'transaction-search-input' ); ?>
         <?php $wpl_transactionsTable->display() ?>
@@ -39,8 +40,8 @@
 
 		<form method="post" action="<?php echo $wpl_form_action; ?>">
 			<p>
-				<?php #wp_nonce_field( 'e2e_tools_page' ); ?>
-				<input type="hidden" name="action" value="update_transactions" />
+				<?php wp_nonce_field( 'wplister_update_transactions' ); ?>
+				<input type="hidden" name="action" value="wple_update_transactions" />
 				<input type="submit" value="<?php echo __('Update transactions','wplister') ?>" name="submit" class="button"
 					   title="<?php echo __('Update recent transactions from eBay.','wplister') ?>">
 			</p>

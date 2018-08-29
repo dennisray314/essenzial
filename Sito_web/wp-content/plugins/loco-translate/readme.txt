@@ -3,8 +3,8 @@ Contributors: timwhitlock
 Tags: translation, translators, localization, localisation, l10n, i18n, Gettext, PO, MO, productivity, multilingual, internationalization
 Requires at least: 4.1
 Requires PHP: 5.2.4
-Tested up to: 4.9.5
-Stable tag: 2.1.3
+Tested up to: 4.9.8
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,9 @@ Try our [Guides and Tutorials](https://localise.biz/wordpress/plugin#guides) and
 Please see [getting help with Loco Translate](https://localise.biz/wordpress/plugin/support) and note that personal support by email is not available for this plugin. 
 Help is provided via the [plugin support forum](https://wordpress.org/support/plugin/loco-translate) only.
 
+= Is it GDPR compliant? =
+
+Sure thing. See the [plugin privacy notice](https://localise.biz/wordpress/plugin/privacy).
 
 
 == Screenshots ==
@@ -88,6 +91,18 @@ Help is provided via the [plugin support forum](https://wordpress.org/support/pl
 
 
 == Changelog ==
+
+= 2.1.5 =
+* Updated locale data
+* Minor fix to file reference resolution
+* Fixed windows paths with trailing backslash
+* Fixed ssh-keys toggling issue
+* Rejigged buffer handling during Ajax
+* Bumped WP compatibility to 4.9.8
+
+= 2.1.4 =
+* Bumped WP compatibility to 4.9.6
+* Hooked in privacy policy suggestion
 
 = 2.1.3 =
 * Added loco_locale_name filter and updated locale data
@@ -253,7 +268,7 @@ Help is provided via the [plugin support forum](https://wordpress.org/support/pl
 
 == Upgrade Notice ==
 
-= 2.1.3 =
+= 2.1.5 =
 * Various bug fixes and improvements
 
 

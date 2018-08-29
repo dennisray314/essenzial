@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,9 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'NotificationDetailsType.php';
 
 /**
-  * Returns information about notifications sent to the given application
-  * for the given ItemID. It will only be returned if ItemID was specified in the
-  * input parameters.
+  * Type used by the <b>NotificationDetailsArray</b> container that is returned by the <b>GetNotificationsUsage</b> call. The <b>NotificationDetailsArray</b> container consists of one or more notifications that match the input criteria in the call request.
+  * <br><br>
+  * This container is only returned if an <b>ItemID</b> value was specified in the request, and there were notifications related to this listing during the specified time range.
   * 
  **/
 

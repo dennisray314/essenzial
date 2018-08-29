@@ -3,9 +3,9 @@ Contributors: wpdesk, swoboda
 Donate link: https://www.wpdesk.net/products/flexible-shipping-pro-woocommerce/
 Tags: table rate, table rate shipping, woocommerce shipping, flexible shipping, woocommerce table rate shipping, cart based shipping, weight shipping, weight based shipping, totals based shipping, order based shipping, shipping zones, shipping classes
 Requires at least: 4.5
-Tested up to: 4.9.4
-Stable tag: 2.0.1
-Requires PHP: 5.3
+Tested up to: 4.9.6
+Stable tag: 2.1.6
+Requires PHP: 5.5
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -71,11 +71,11 @@ The Location Based Shipping Add-On extends Flexible Shipping for WooCommerce wit
 
 = WooCommerce Compatibility =
 
-**WooCommerce 3.3 ready!** In Flexible Shipping 2.0 we introduced support for WooCommerce 3.3.
+**WooCommerce 3.4 ready!** In Flexible Shipping 2.1.2 we introduced support for WooCommerce 3.4.
 
 **Shipping Zones ready!** Flexible Shipping is compatible with WooCommerce Shipping Zones introduced in version 2.6. Read more about [WooCommerce Shipping Zones](https://www.wpdesk.net/blog/woocommerce-shipping-zones-explained/).
 
-Flexible Shipping also plays well with older versions of WooCommerce. We tested the plugin with WooCommerce 2.6.14 and up.
+Flexible Shipping also plays well with older versions of WooCommerce. We tested the plugin with WooCommerce 3.0.0 and up.
 
 = Docs =
 
@@ -112,6 +112,12 @@ There are several integrations that we provide for Flexible Shipping in Poland:
 * Multi Currency Store
 * WooCommerce Currency Switcher
 * WPML
+
+= Translations =
+
+* English - default, always included
+* Polish
+* German by [jensratzel](https://profiles.wordpress.org/jensratzel/)
 
 = Flexible Shipping in a nutshell =
 
@@ -164,6 +170,32 @@ We provide a limited support for the free version in the [plugin Support Forum](
 If you are upgrading from the old Flexible Shipping version (1.3.2, woo-flexible-shipping) make sure to completely delete the old version first. If you install the new version without deleting the old one you may break your WordPress installation.
 
 == Changelog ==
+
+= 2.1.6 - 2018-06-26 =
+* Fixed error with conflict static tracker
+
+= 2.1.5 - 2018-06-25 =
+* Tweaked tracker data anonymization
+* Fixed tracker notice
+
+= 2.1.4 - 2018-06-11 =
+* Fixed missing metabox Add Shipment in WooCommerce 3.4
+
+= 2.1.3 - 2018-05-29 =
+* Fixed opt-in/opt-out links
+
+= 2.1.2 - 2018-05-23 =
+* Added support for WooCommerce 3.4
+
+= 2.1.1 - 2018-05-10 =
+* Fixed calculation method message when taxes disabled
+* Fixed session starting - do not start session in AJAX calls
+
+= 2.1 - 2018-05-07 =
+* Added Flexible Shipping tab on WooCommerce Shipping
+* Tweaked calculation method for shipping rules - based on WooCommerce tax display
+* Fixed display printer name on order edit
+* Fixed notice after all rules delete
 
 = 2.0.1 - 2018-03-01 =
 * Fixed problems with deactivation plugin on multisite

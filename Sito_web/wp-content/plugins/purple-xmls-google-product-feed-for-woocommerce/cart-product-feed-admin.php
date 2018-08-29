@@ -28,14 +28,31 @@ function register_cart_product_styles_and_scripts( $hook ) {
 	wp_register_style( 'cart-product-style', plugins_url( 'css/cart-product.css', __FILE__ ), '', FEED_PLUGIN_VERSION );
 	wp_enqueue_style( 'cart-product-style' );
 
+    wp_register_style('cpf-datatable-css', plugins_url('css/DataTables/datatables.css', __FILE__));
+    wp_enqueue_style('cpf-datatable-css');
+
+	// wp_register_script( 'Select2js', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js');
+	// wp_enqueue_script( 'Select2js' );
+
+
+	wp_register_style( 'Select2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css' );
+    wp_enqueue_style('Select2');
+
+    wp_register_script( 'Select2js2', 'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js');
+	wp_enqueue_script( 'Select2js2' );
+
 	wp_register_style( 'cart-product-colorstyle', plugins_url( 'css/colorbox.css', __FILE__ ), '', FEED_PLUGIN_VERSION );
 	wp_enqueue_style( 'cart-product-colorstyle' );
 
-	wp_register_script( 'cart-product-script', plugins_url( 'js/cart-product.js', __FILE__ ), array( 'jquery' ), false );
+	wp_register_script( 'cart-product-script', plugins_url( 'js/cart-product.js', __FILE__ ), array( 'jquery' ), FEED_PLUGIN_VERSION );
 	wp_enqueue_script( 'cart-product-script' );
 
 	wp_register_script( 'cart-product-colorbox', plugins_url( 'js/jquery.colorbox-min.js', __FILE__ ), array( 'jquery' ) );
 	wp_enqueue_script( 'cart-product-colorbox' );
+
+	/* Datatables attributes */
+    wp_register_script('cpf-datatable-script', plugins_url('css/DataTables/datatables.js', __FILE__), array('jquery'));
+    wp_enqueue_script('cpf-datatable-script');
 
     wp_localize_script( 'cart-product-script', 'cpf', [
         'cpf_nonce' 				=> wp_create_nonce('cpf_nonce'),
@@ -219,9 +236,9 @@ function cart_product_feed_admin_page_action() {
 	# Get Variables from storage ( retrieve from wherever it's stored - DB, file, etc... )
 
 	$reg = new PLicense();
-	 
+	/*echo "<pre>";
+	print_r($reg);exit;*/
 	global $wpdb;
-
 
 	//Main content
 	echo '
@@ -234,9 +251,10 @@ function cart_product_feed_admin_page_action() {
         feed_id = ' . $source_feed_id . ';
         window.feed_type = ' . $feed_type . ' ;
         if(feed_id > 0  && feed_type == 1){
-            showSelectedProductTables(feed_id);
-            saveTocustomTable(feed_id);
+        	saveTocustomTable(feed_id);
+            showSelectedProductTables(feed_id,null,true);
         }
+        jQuery(".myselect").select2();
     });
     </script>';
 
@@ -256,7 +274,7 @@ function cart_product_feed_admin_page_action() {
 	$message .= $reg->error_message;
 	if ( strlen( $message ) > 0 ) {
 		//echo '<div id="setting-error-settings_updated" class="error settings-error">'
-		echo '<div id="setting-error-settings_updated" class="updated settings-error">
+		echo '<div id="setting-error-settings_updated" class="notice notice-error">
 			  <p>' . $message . '</p>
 			  </div>';
 	}
@@ -274,12 +292,9 @@ function cart_product_feed_admin_page_action() {
 
 
 	}
-
-
 	if ( ! $reg->valid ) {
 		//echo PLicenseKeyDialog::large_registration_dialog( '' );
 	}
-
 }
 
 /**
@@ -306,14 +321,13 @@ function cart_product_feed_manage_page() {
 function cart_product_feed_tutorials_page() {
 	do_action( 'cpf_init_pageview_tutorails' );
 }
-
 function cart_product_feed_tutorials_page_action() {
 
- echo "<div class='postbox'>";
+ echo "<div class='wrap'>";
 	//prints logo/links header info: also version number/check
+ $_GET['tab'] = "tutorials";
 	CPF_print_info();
 	CPF_render_navigation();
-	$_GET['tab'] = "tutorials";
 
 	$path = plugin_dir_path( __FILE__ )."views/tutorials-page.php";
     require_once $path;
@@ -418,3 +432,52 @@ function custom_dashboard_help()
 }*/
 // End of custom widget
 
+/*
+* Custom widget for admin pages
+* Created by: Manoj
+* Created date: 30 March, 2018
+*/
+
+function exportfeed_admin_widget()
+{
+    global $wpdb;
+    $showPlugin = true;
+
+    $notCreateFeedPage = ! stripos($_SERVER['REQUEST_URI'], 'cart-product-feed-admin');
+
+	$create_feed_url = admin_url() . 'admin.php?page=cart-product-feed-admin';
+
+	$imgUrl = plugin_dir_url(__FILE__) . 'images/exf-sm-logo.png';
+
+
+    $table_name = $wpdb->prefix . "cp_feeds";
+	$result = $wpdb->get_results("SELECT COUNT(id) as feed_count FROM $table_name");
+
+	if(is_array($result) && $result[0]->feed_count > 0) {
+		$showPlugin = false;
+	} else {
+		$table_name = $wpdb->prefix . "cpf_custom_products";
+		$result = $wpdb->get_results("SELECT COUNT(id) as feed_count FROM $table_name");
+		if(is_array($result) && $result[0]->feed_count > 0) {
+			$showPlugin = false;
+		}
+	}
+
+	$display = '<a href="' . $create_feed_url . '">Click here to create your first feed now.</a>';
+
+    // Show on all admin pages only if no feed has been created
+    // 'admin.php' === $pagenow (global $pagenow)
+
+	if($showPlugin && $notCreateFeedPage) {
+        echo '<div class="notice notice-info is-dismissible">' 
+        . '<p>'
+        . '<img style="vertical-align:top;" height=20 src="' . $imgUrl . '">'
+        . '<span style="vertical-align:bottom; margin-left:12px" >'
+        . "Howdy! Ready to sell through high-performing merchants? "
+        . $display
+        . '</span></p>' 
+        . '</div>';
+    }
+}
+
+add_action('admin_notices', 'exportfeed_admin_widget');

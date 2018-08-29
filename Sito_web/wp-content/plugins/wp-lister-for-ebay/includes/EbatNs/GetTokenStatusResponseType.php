@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'TokenStatusType.php';
 
 /**
-  * Returns token status.
+  * The base response of the <b>GetTokenStatus</b> call. This call retrieves the status of a user token.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,32 +10,20 @@ require_once 'SellingManagerAutoRelistType.php';
 require_once 'SellingManagerAutoSecondChanceOfferType.php';
 
 /**
-  * Revises, or adds to, the set of Selling Manager automation
-  * rules associated with an item.
+  * Revises, or adds to, the set of Selling Manager automation rules associated with an item.
   * <br>
   * <br>
-  * This call is subject to change without notice; the
-  * deprecation process is inapplicable to this call.
+  * This call is subject to change without notice; the deprecation process is inapplicable to this call. You must have a Selling Manager Pro subscription to use this call.
   * <br>
   * <br>
-  * Using this call, you can add an autolist rule.
-  * You also can add a second chance offer
-  * rule (restricted to auction items and auction templates).
-  * Note that autorelist rules can only be set on templates.
-  * An autorelist rule for an item is inherited from a template.
+  * Using this call, you can add an automated relisting rule. You also can add a Second Chance Offer rule. Note that automated relisting rules can only be set on templates. An automated relisting rule for an item is inherited from a template.
   * <br>
   * <br>
-  * This call also enables you to specify particular information about automation
-  * rules.
+  * This call also enables you to specify particular information about automation rules.
   * <br>
   * <br>
   * If a node is not passed in the call, the setting for the corresponding
   * automation rule remains unchanged.
-  * <br>
-  * <br>
-  * Although this call can revise (overwrite) an existing rule,
-  * this call cannot delete an automation rule.
-  * (Instead, use DeleteSellingManagerItemAutomationRule.)
   * 
  **/
 

@@ -1,5 +1,6 @@
 <?php
 if (!defined('ABSPATH')) exit; // Exit if accessed directly
+
 /********************************************************************
  * Version 2.0
  * Settings for feeds
@@ -24,46 +25,97 @@ class PFeedSettingsDialogs
     {
         $current_delay = get_option('cp_feed_delay');
         return '
-					<select name="delay" class="select_medium" id="selectDelay" style="width: 81%">' . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(604800, '1 Week', $current_delay) . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(86400, '24 Hours', $current_delay) . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(43200, '12 Hours', $current_delay) . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(21600, '6 Hours', $current_delay) . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(3600, '1 Hour', $current_delay) . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(900, '15 Minutes', $current_delay) . "\r\n" .
-        PFeedSettingsDialogs::formatIntervalOption(300, '5 Minutes', $current_delay) . "\r\n" . '
+					<select name="delay" class="select_medium" id="selectDelay">' . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(604800, '1 Week', $current_delay) . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(86400, '24 Hours', $current_delay) . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(43200, '12 Hours', $current_delay) . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(21600, '6 Hours', $current_delay) . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(3600, '1 Hour', $current_delay) . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(900, '15 Minutes', $current_delay) . "\r\n" .
+            PFeedSettingsDialogs::formatIntervalOption(300, '5 Minutes', $current_delay) . "\r\n" . '
 					</select>';
     }
 
     public static function refreshTimeOutDialog()
     {
+        define('IMAGE_PATH', plugins_url('/', __FILE__) . '../../images/');
         global $wpdb;
         return '
 		  <div id="poststuff">
+          <div class="postbox" style="padding:10px;">
+              <div class="logo-am" style="vertical-align: middle; display: inline-block;">
+                    <h4 class="icon-margin">Get standalone plugin for</h4>
+                    <div class="upsell-icon-logo">
+                    <div class="logo amazon" style="display:inline-block;">
+                        <div class="amazon">
+
+                            <a value="" href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-on-amazon-seller-central/" target="_blank">
+
+                                <img src="' . IMAGE_PATH . 'amazon.png">
+                            </a>
+                            <span class="plugin-link"><a href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-on-amazon-seller-central/" target="_blank">Get Amazon plugin</a></span>
+                            <span class="plugin-desc">Manage bulk products + order &amp; inventory sync</span>
+                        </div> 
+                    </div>
+                    <div class="logo ebay" style="display:inline-block;">
+                        <div class="ebay">
+                            <a value="" href="https://www.exportfeed.com/woocommerce-product-feed/send-woocommerce-data-feeds-to-ebay-seller/" target="_blank">
+
+                                <img src="' . IMAGE_PATH . '/ebay.png">
+                            </a>
+                            <span class="plugin-link"><a href="https://www.exportfeed.com/woocommerce-product-feed/send-woocommerce-data-feeds-to-ebay-seller/" target="_blank">Get eBay plugin</a></span>
+                            <span class="plugin-desc">Bulk upload products and variations to eBay</span>
+                        </div> 
+                    </div>
+
+                    <div class="logo etsy" style="display:inline-block;">
+
+                        <div class="etsy">
+                            <a value="" href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-to-etsy/" target="_blank">
+
+                                <img src="' . IMAGE_PATH . '/etsy.png">
+                        </a>
+                        <span class="plugin-link"><a href="https://www.exportfeed.com/woocommerce-product-feed/woocommerce-product-feeds-to-etsy/" target="_blank">Get Etsy plugin</a></span>
+                        <span class="plugin-desc">Bulk products upload with multiple images</span>
+                        </div> 
+                    </div>
+                    </div>
+                </div>
+                
+                <div class="clear"></div>
+                
+            </div>
 			  <div id="post-body" class="metabox-holder columns-2">
-			  	<div id="postbox-container-1" class="postbox-container">
-			  		<div class="postbox">
-			  		<h3 class="hndle"></h3>
-						<div class="inside export-target">
-							<span class="dashicons dashicons-arrow-right"></span><b>Cart product feed will automatically update your feed after the interval set here.</b>
-							<br/><br/>
-							<span class="dashicons dashicons-arrow-right"></span><b>Your feed will be update automatically after <span id="set_interval_time"></span>.</b>
-						</div>
-					</div>
-			  	</div>
 			  	<div id="postbox-container-2" class="postbox-container">
 					<div class="postbox">
 						<h3 class="hndle">Interval at which feed auto-refreshes</h3>
 						<div class="inside export-target">
-							<table class="form-table">
+							<table class="form-table update-table">
 								<tbody>
 									<tr>
 										<th style="width:5%"><label>Interval:</label></th>
-										<td style="width:59%;">' . PFeedSettingsDialogs::fetchRefreshIntervalSelect() . '</td>
-										<td><input class="button-primary" style="float:right;" type="submit" value="Update Interval" id="submit" name="submit" onclick="doUpdateSetting(\'selectDelay\', \'cp_feed_delay\')"><div id="updateSettingMessage"></div></td>
+										<td style="width:15%;">' . PFeedSettingsDialogs::fetchRefreshIntervalSelect() . '</td>
+										<td>
+                                        <span>
+                                        <input class="button-primary" type="submit" value="Update Interval" id="submit" name="submit" onclick="doUpdateSetting(\'selectDelay\', \'cp_feed_delay\')"><div id="updateSettingMessage"></div></td>
+                                        </span>
+
 									</tr>
 								</tbody>
 							</table>
+                            <div id="postbox-container-1" class="postbox-container desc-update">
+                                <div class="postbox description">
+                                    <div class="inside export-target">
+                                        <span class="dashicons dashicons-arrow-right"></span><b>ExportFeed will automatically update your product information in feeds after you set the update  interval here.</b>
+                                        <br/><br/>
+                                        <span class="dashicons dashicons-arrow-right"></span><b>Your feed will be updated automatically after <span id="set_interval_time"></span>.</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="manual-update"><label class="upd-txt">Made recent changes to your products?</label><input style="margin-left: 25px;" class="button-primary" type="submit" value="Update Now" id="submit" name="submit" onclick="doUpdateAllFeeds(this,\'up\')">
+                        <div id="update-message" style="display:none;">&nbsp;</div>
+                        <div class = "update-feed" style="display:none;">&nbsp;</div>
+                    </div>
 						</div>
 					</div>
 				</div>	

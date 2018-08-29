@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'MyMessagesFolderOperationCodeType.php';
 
 /**
-  * Renames, removes, or restores the specified My Messages folders for
+  * This call can rename, remove, or restore My Messages folders for
   * a given user.
   * 
  **/

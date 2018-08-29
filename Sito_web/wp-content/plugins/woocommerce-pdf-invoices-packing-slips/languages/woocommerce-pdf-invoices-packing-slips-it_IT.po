@@ -1,21 +1,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce PDF Invoices & Packing Slips\n"
-"POT-Creation-Date: 2017-06-13 13:13+0200\n"
-"PO-Revision-Date: 2018-06-05 10:14+0000\n"
-"Last-Translator: jenny <jennygazzotti@hotmail.it>\n"
-"Language-Team: Italiano\n"
-"Language: it_IT\n"
+"POT-Creation-Date: 2017-06-09 16:38+0200\n"
+"PO-Revision-Date: 2017-06-09 16:38+0200\n"
+"Last-Translator: Astrid Virili <avirili@gmail.com>\n"
+"Language-Team: WP Overnight <support@wpovernight.com>\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco https://localise.biz/\n"
+"X-Generator: Poedit 1.8.12\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_x;_n:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"Report-Msgid-Bugs-To: "
 
 #: includes/class-wcpdf-admin.php:72 includes/class-wcpdf-admin.php:174
 msgid "Invoice Number"
@@ -82,9 +81,9 @@ msgstr ""
 
 #: includes/class-wcpdf-settings-callbacks.php:36
 msgid ""
-"These are used for the (optional) footer columns in the <em>Modern (Premium)"
-"</em> template, but can also be used for other elements in your custom "
-"template"
+"These are used for the (optional) footer columns in the <em>Modern "
+"(Premium)</em> template, but can also be used for other elements in your "
+"custom template"
 msgstr ""
 "Questi sono utilizzati per le colonne a piè di pagina (opzionali) nel "
 "template <em>Modern (Premium)</ em> di modello, ma possono essere utilizzati "
@@ -170,8 +169,9 @@ msgid ""
 "Want to use your own template? Copy all the files from <code>%s</code> to "
 "your (child) theme in <code>%s</code> to customize them"
 msgstr ""
-"Vuoi usare il tuo template? Copia tutti i file della cartella <code>%s</code>"
-" nel tuo tema (o child theme) nella cartella <code>%s</code> e personalizzali"
+"Vuoi usare il tuo template? Copia tutti i file della cartella <code>%s</"
+"code> nel tuo tema (o child theme) nella cartella <code>%s</code> e "
+"personalizzali"
 
 #: includes/class-wcpdf-settings-general.php:71
 msgid "Paper size"
@@ -328,11 +328,11 @@ msgstr "Totale (IVA esclusa)"
 msgid "Total"
 msgstr "Totale"
 
-#: includes/documents/abstract-wcpdf-order-document.php:679
+#: includes/documents/abstract-wcpdf-order-document.php:674
 msgid "Admin email"
 msgstr ""
 
-#: includes/documents/abstract-wcpdf-order-document.php:682
+#: includes/documents/abstract-wcpdf-order-document.php:677
 msgid "Manual email"
 msgstr ""
 
@@ -512,20 +512,6 @@ msgstr ""
 msgid "Legacy Document"
 msgstr ""
 
-#: includes/legacy/class-wcpdf-legacy.php:70
-msgid "Error"
-msgstr ""
-
-#: includes/legacy/class-wcpdf-legacy.php:71
-msgid ""
-"An outdated template or action hook was used to generate the PDF. Legacy "
-"mode has been activated, please try again by reloading this page."
-msgstr ""
-
-#: includes/legacy/class-wcpdf-legacy.php:74
-msgid "The following function was called"
-msgstr ""
-
 #: includes/views/wcpdf-extensions.php:15
 msgid "Check out these premium extensions!"
 msgstr "Prova queste estensioni Premium"
@@ -560,8 +546,8 @@ msgstr ""
 #: includes/views/wcpdf-extensions.php:27
 #: includes/views/wcpdf-extensions.php:57
 msgid ""
-"Send out a separate <b>notification email</b> with (or without) PDF "
-"invoices/packing slips, for example to a drop-shipper or a supplier."
+"Send out a separate <b>notification email</b> with (or without) PDF invoices/"
+"packing slips, for example to a drop-shipper or a supplier."
 msgstr ""
 "Invia una <b>email di notifica</> separata con (o senza) Fattura o DDT in "
 "PDF, per esempio a uno spedizioniere o un fornitore."
@@ -806,7 +792,7 @@ msgstr "Indirizzo di spedizione:"
 msgid "Shipping Method:"
 msgstr "Metodo di spedizione:"
 
-#: woocommerce-pdf-invoices-packingslips.php:229
+#: woocommerce-pdf-invoices-packingslips.php:231
 #, php-format
 msgid ""
 "WooCommerce PDF Invoices & Packing Slips requires %sWooCommerce%s to be "
@@ -815,12 +801,141 @@ msgstr ""
 "WooCommerce PDF Invoices & Packing Slips richiede %sWooCommerce%s per essere "
 "installato e attivato!"
 
-#: woocommerce-pdf-invoices-packingslips.php:241
+#: woocommerce-pdf-invoices-packingslips.php:243
 msgid ""
 "WooCommerce PDF Invoices & Packing Slips requires PHP 5.3 or higher (5.6 or "
 "higher recommended)."
 msgstr ""
 
-#: woocommerce-pdf-invoices-packingslips.php:242
+#: woocommerce-pdf-invoices-packingslips.php:244
 msgid "How to update your PHP version"
 msgstr ""
+
+#~ msgid "Attach invoice to:"
+#~ msgstr "Allega la fattura a:"
+
+#~ msgid ""
+#~ "Display shipping address on invoice (in addition to the default billing "
+#~ "address) if different from billing address"
+#~ msgstr ""
+#~ "Mostra l'indirizzo del destinatario sulla fattura (oltre all'indirizzo di "
+#~ "fatturazione) se è differente dall'indirizzo di fatturazione"
+
+#~ msgid ""
+#~ "This is the number that will be used on the next invoice that is created. "
+#~ "By default, numbering starts from the WooCommerce Order Number of the "
+#~ "first invoice that is created and increases for every new invoice. Note "
+#~ "that if you override this and set it lower than the highest (PDF) invoice "
+#~ "number, this could create double invoice numbers!"
+#~ msgstr ""
+#~ "Questo è il numero che verrà utilizzato nella prossima fattura creata. La "
+#~ "numerazione di default inizia dal numero d'ordine WooCommerce della prima "
+#~ "fattura creata e si incrementa con ogni nuova fattura. Attenzione: se qui "
+#~ "viene impostato un numero più basso del numero di fattura più elevato, "
+#~ "questo può portare alla creazione di numeri di fattura doppi!"
+
+#~ msgid "Invoice number format"
+#~ msgstr "Formato numero fattura"
+
+#~ msgid ""
+#~ "Disable automatic creation/attachment of invoices when only free products "
+#~ "are ordered"
+#~ msgstr ""
+#~ "Disabilita la creazione automatica della fattura quando nell'ordine sono "
+#~ "presenti soltanto prodotti gratuiti"
+
+#~ msgid ""
+#~ "Display billing address on packing slip (in addition to the default "
+#~ "shipping address) if different from shipping address"
+#~ msgstr ""
+#~ "Mostra indirizzo di fatturazione sul DDT (oltre all'indirizzo di "
+#~ "spedizione) se è differente dall'indirizzo di spedizione"
+
+#~ msgid "Template"
+#~ msgstr "Modello"
+
+#~ msgid "Admin New Order email"
+#~ msgstr "Email Amministrazione Nuovo Ordine"
+
+#~ msgid "Customer Processing Order email"
+#~ msgstr "Email Cliente Ordine in Lavorazione"
+
+#~ msgid "Customer Completed Order email"
+#~ msgstr "Email Cliente Ordine Completato"
+
+#~ msgid "Customer Invoice email"
+#~ msgstr "Email Cliente Fattura"
+
+#~ msgid "Interface"
+#~ msgstr "Interfaccia"
+
+#~ msgid "PDF Template settings"
+#~ msgstr "Impostazioni modello PDF "
+
+#~ msgid "Display built-in sequential invoice number"
+#~ msgstr "Mostra numero fattura sequenziale generato automaticamente"
+
+#~ msgid ""
+#~ "to use the order year and/or month, use [order_year] or [order_month] "
+#~ "respectively"
+#~ msgstr ""
+#~ "per utilizzare l'anno o il mese dell'ordine, inserisci rispettivamente "
+#~ "[order_year] o [order_month]"
+
+#~ msgid "Use old tmp folder"
+#~ msgstr "Usa la vecchia cartella 'tmp'"
+
+#~ msgid ""
+#~ "Before version 1.5 of PDF Invoices, temporary files were stored in the "
+#~ "plugin folder. This setting is only intended for backwards compatibility, "
+#~ "not recommended on new installs!"
+#~ msgstr ""
+#~ "Dalla versione 1.5 di PDF Invoices, i file temporanei sono registrati "
+#~ "nella cartella del plugin. Questa impostazione è intesa solo per "
+#~ "compatibilità con le versioni precedenti. È sconsigliata per le nuove "
+#~ "installazioni."
+
+#~ msgid "PDF Packing Slips"
+#~ msgstr "PDF Documenti di Trasporto"
+
+#~ msgid "PDF Invoice"
+#~ msgstr "Fattura PDF"
+
+#~ msgid "PDF Packing Slip"
+#~ msgstr "PDF Documento di Trasporto"
+
+#~ msgid "PDF Invoice Number (unformatted!)"
+#~ msgstr "Numero Fattura PDF (non formattato)"
+
+#~ msgid "More advanced templates"
+#~ msgstr "Molti altri modelli avanzati"
+
+#~ msgid "Stylish modern invoices & packing slips with product thumbnails!"
+#~ msgstr ""
+#~ "Fatture e Documenti di trasporto eleganti e moderni con le miniature dei "
+#~ "prodotti!"
+
+#~ msgid "More tax details on the invoices!"
+#~ msgstr "Più dettagli sulle imposte nelle fatture!"
+
+#~ msgid "Number to display on invoice"
+#~ msgstr "Numero da visualizzare sulla fattura"
+
+#~ msgid ""
+#~ "If you are using the WooCommerce Sequential Order Numbers plugin, select "
+#~ "the WooCommerce order number"
+#~ msgstr ""
+#~ "Se stai utilizzando il plugin WooCommerce Sequential Order Numbers, "
+#~ "seleziona il numero ordine WooCommerce"
+
+#~ msgid "Order date"
+#~ msgstr "Data Ordine"
+
+#~ msgid "PDF invoice"
+#~ msgstr "PDF Fattura"
+
+#~ msgid "..."
+#~ msgstr "..."
+
+#~ msgid "Email invoice (attach to order confirmation or invoice email)"
+#~ msgstr "Email Fattura (allegare alla conferma dell'ordine o e-mail fattura)"

@@ -392,11 +392,15 @@ class WPL_API_Hooks extends WPL_Core {
 
 		$post_type = get_post_type( $post_id );
 
-		// handle product
-		if ( $post_type == 'product' || $post_type == 'product_variation' ) {
+		// Handle product. Run wplister_product_has_changed on the parent product when dealing with variations
+		if ( $post_type == 'product' ) {
 			do_action( 'wplister_product_has_changed', $post_id );
 			return;			
-		}
+		} elseif ( $post_type == 'product_variation' ) {
+		    $product = wc_get_product( $post_id );
+            do_action( 'wplister_product_has_changed', $product->get_parent_id() );
+            return;
+        }
 
 		// handle order
 		if ( $post_type == 'shop_order' ) {

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'SellingManagerTemplateDetailsArrayType.php';
 
 /**
-  * Contains the templates requested on input. 
-  * Each SellingManagerTemplateType object in the response contains the data for one
-  * Selling Manager template.
+  * The base response of the <b>GetSellingManagerTemplates</b> call. A <b>SellingManagerTemplateDetails</b> container is returned for each Selling Manager Template that matches the input criteria.
   * 
  **/
 

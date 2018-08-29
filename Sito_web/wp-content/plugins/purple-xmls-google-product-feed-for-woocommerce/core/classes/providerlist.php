@@ -19,34 +19,41 @@ class PProviderList
         //***************************************************
         //Targetted Feeds
         //***************************************************
-
-        $this->addProvider('Admarkt', 'Admarkt', 'xml');
-
         $this->addProvider('Google', 'Google Merchant Feed');
+        $this->addProvider('eBaySeller', 'eBay Seller', 'csv');
+        $this->addProvider('Miinto', 'Miinto', 'tsv');
+        $this->addProvider('MiintoBrand', 'Miinto Brand', 'tsv');
+        $this->addProvider('Admarkt', 'Admarkt', 'xml');
+        $this->addProvider('Bing', 'Bing Ads', 'txt');
+        $this->addProvider('eBay', 'eBayCommerceNetwork'); //xml
+        $this->addProvider('FacebookXML', 'Facebook Catalog');
+        $this->addProvider('etsy', 'Etsy');
+        $this->addProvider('Houzz', 'Houzz', 'csv');
+        $this->addProvider('ShareASale', 'ShareASale', 'csv');
+        $this->addProvider('Bonanza', 'Bonanza', 'csv');
+        $this->addProvider('Rakuten', 'Rakuten Inventory Feed', 'txt');
+        
         $this->addProvider('Amazon', 'Amazon Product Ads', 'txt');
         $np = $this->addProvider('AmazonPAUK', 'Amazon Product Ads (UK)', 'txt');
         $np = $this->addProvider('AmazonSC', 'Amazon Seller Central', 'txt');
         $np->prettyName = 'Amazon Seller';
-        $this->addProvider('eBaySeller', 'eBay Seller', 'csv');
-        $this->addProvider('Miinto', 'Miinto', 'tsv');
-        $this->addProvider('MiintoBrand', 'Miinto Brand', 'tsv');
+        
+        
         $this->addProvider('', '------'); //A gap for dialogfeedpage
         $this->addProvider('ElevenMain', '11 Main', 'csv');
         $this->addProvider('AffiliateWindow', 'Affiliate Window', 'csv');
         $this->addProvider('AffiliateWindowXML', 'Affiliate Window XML', 'xml');
         $this->addProvider('AmmoSeek', 'AmmoSeek');
         $this->addProvider('Become', 'Become Europe', 'csv');
-        $this->addProvider('Bonanza', 'Bonanza', 'csv');
+        
         $this->addProvider('Beslist', 'Beslist');
-        $this->addProvider('Bing', 'Bing Ads', 'txt');
-        $this->addProvider('eBay', 'eBayCommerceNetwork'); //xml
-        $this->addProvider('FacebookXML', 'Facebook Catalog');
+        
         /*$this->addProvider('GoDataFeed', 'GoDataFeedXML');
         $this->addProvider('GoDataFeedCSV', 'GoDataFeedCSV', 'csv');*/
         $this->addProvider('GPAnalysis', 'GPAnalysis');
         $this->addProvider('GraziaShop', 'GraziaShop', 'csv');
         $this->addProvider('HardwareInfo', 'HardwareInfo', 'csv');
-        $this->addProvider('Houzz', 'Houzz', 'csv');
+       
         $this->addProvider('Kelkoo', 'Kelkoo');
         $this->addProvider('Newegg', 'Newegg', 'csv');
         $this->addProvider('Nextag', 'Nextag', 'csv');
@@ -55,14 +62,14 @@ class PProviderList
         $this->addProvider('PriceGrabber', 'PriceGrabber', 'csv');
         $this->addProvider('PriceRunner', 'PriceRunner', 'xml');
         $this->addProvider('Pronto', 'Pronto', 'txt');
-        $this->addProvider('Rakuten', 'Rakuten Inventory Feed', 'txt');
+        
         $this->addProvider('RakutenNewSku', 'Rakuten New SKU Feed', 'txt');
         $this->addProvider('RakutenUK', 'Rakuten UK', 'csv');
-        $this->addProvider('ShareASale', 'ShareASale', 'csv');
+       
         $this->addProvider('Shopzilla', 'Shopzilla', 'txt');
         $this->addProvider('Slickguns', 'Slickguns');
         $this->addProvider('Webgains', 'Webgains', 'csv');
-        $this->addProvider('Winesearcher', 'Winesearcher', 'txt');
+        $this->addProvider('Winesearcher', 'Winesearcher', 'xml');
         $this->addProvider('Atterley', 'Atterley Product Feed', 'xml');
         $this->addProvider('Avantlink', 'Avantlink', 'xml');
         $this->addProvider('TradeTracker', 'TradeTracker', 'xml');

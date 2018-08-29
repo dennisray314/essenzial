@@ -1,15 +1,14 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'AbstractRequestType.php';
 require_once 'ItemType.php';
-require_once 'ExternalProductIDType.php';
 
 /**
-  * Enables a seller to specify the definition of a new item and submit the definition to eBay without creating a listing.&nbsp;<b>Also for Half.com</b>.
+  * Enables a seller to specify the definition of a new item and submit the definition to eBay without creating a listing.
   * <br><br>
   * Sellers who engage in cross-border trade on sites that require a recoupment agreement, must agree to the
   * recoupment terms before adding or verifying items. This agreement allows eBay to reimburse
@@ -26,16 +25,6 @@ class VerifyAddItemRequestType extends AbstractRequestType
 	**/
 	protected $Item;
 
-	/**
-	* @var boolean
-	**/
-	protected $IncludeExpressRequirements;
-
-	/**
-	* @var ExternalProductIDType
-	**/
-	protected $ExternalProductID;
-
 
 	/**
 	 * Class Constructor 
@@ -51,22 +40,6 @@ class VerifyAddItemRequestType extends AbstractRequestType
 				array(
 					'required' => false,
 					'type' => 'ItemType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'IncludeExpressRequirements' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'ExternalProductID' =>
-				array(
-					'required' => false,
-					'type' => 'ExternalProductIDType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -91,38 +64,6 @@ class VerifyAddItemRequestType extends AbstractRequestType
 	function setItem($value)
 	{
 		$this->Item = $value;
-	}
-
-	/**
-	 * @return boolean
-	 **/
-	function getIncludeExpressRequirements()
-	{
-		return $this->IncludeExpressRequirements;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setIncludeExpressRequirements($value)
-	{
-		$this->IncludeExpressRequirements = $value;
-	}
-
-	/**
-	 * @return ExternalProductIDType
-	 **/
-	function getExternalProductID()
-	{
-		return $this->ExternalProductID;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setExternalProductID($value)
-	{
-		$this->ExternalProductID = $value;
 	}
 
 }

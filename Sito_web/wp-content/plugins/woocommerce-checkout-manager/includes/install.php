@@ -47,7 +47,7 @@ function wooccm_install() {
 		$ship = 0;
 		foreach( $shipping as $name => $value ) {
 
-			$options2['shipping_buttons'][$ship]['label'] = __( $value, 'woocommerce-checkout-manager' );
+			$options2['shipping_buttons'][$ship]['label'] = ( !empty( $value ) ? __( $value, 'woocommerce-checkout-manager' ) : false );
 			$options2['shipping_buttons'][$ship]['cow'] = $name;
 			$options2['shipping_buttons'][$ship]['checkbox']  = 'true';
 			$options2['shipping_buttons'][$ship]['order'] = $ship + 1;
@@ -72,17 +72,17 @@ function wooccm_install() {
 
 			if ( $name == 'address_1') {
 				$options2['shipping_buttons'][$ship]['position'] = 'form-row-wide';
-				$options2['shipping_buttons'][$ship]['placeholder'] = __('Street address', 'woocommerce-checkout-manager');
+				$options2['shipping_buttons'][$ship]['placeholder'] = __( 'Street address', 'woocommerce-checkout-manager' );
 			}
 
 			if ( $name == 'address_2') {
 				$options2['shipping_buttons'][$ship]['position'] = 'form-row-wide';
-				$options2['shipping_buttons'][$ship]['placeholder'] = __('Apartment, suite, unit etc. (optional)', 'woocommerce-checkout-manager');
+				$options2['shipping_buttons'][$ship]['placeholder'] = __( 'Apartment, suite, unit etc. (optional)', 'woocommerce-checkout-manager' );
 			}
 
 			if ( $name == 'city') {
 				$options2['shipping_buttons'][$ship]['position'] = 'form-row-wide';
-				$options2['shipping_buttons'][$ship]['placeholder'] = __('Town / City', 'woocommerce-checkout-manager');
+				$options2['shipping_buttons'][$ship]['placeholder'] = __( 'Town / City', 'woocommerce-checkout-manager' );
 			}
 
 			if ( $name == 'state') {
@@ -91,7 +91,7 @@ function wooccm_install() {
 
 			if ( $name == 'postcode') {
 				$options2['shipping_buttons'][$ship]['position'] = 'form-row-last';
-				$options2['shipping_buttons'][$ship]['placeholder'] = __('Postcode / Zip', 'woocommerce-checkout-manager');
+				$options2['shipping_buttons'][$ship]['placeholder'] = __( 'Postcode / Zip', 'woocommerce-checkout-manager' );
 				$options2['shipping_buttons'][$ship]['clear_row'] = true;
 			}
 
@@ -116,7 +116,7 @@ function wooccm_install() {
 		$bill = 0;
 		foreach( $billing as $name => $value ) {
 
-			$options3['billing_buttons'][$bill]['label'] = __( $value, 'woocommerce-checkout-manager' );
+			$options3['billing_buttons'][$bill]['label'] = ( !empty( $value ) ? __( $value, 'woocommerce-checkout-manager' ) : false );
 			$options3['billing_buttons'][$bill]['cow'] = $name;
 			$options3['billing_buttons'][$bill]['checkbox']  = 'true';
 			$options3['billing_buttons'][$bill]['order'] = $bill + 1;
@@ -141,17 +141,17 @@ function wooccm_install() {
 
 			if ( $name == 'address_1') {
 				$options3['billing_buttons'][$bill]['position'] = 'form-row-wide';
-				$options3['billing_buttons'][$bill]['placeholder'] = __('Street address', 'woocommerce-checkout-manager');
+				$options3['billing_buttons'][$bill]['placeholder'] = __( 'Street address', 'woocommerce-checkout-manager' );
 			}
 
 			if ( $name == 'address_2') {
 				$options3['billing_buttons'][$bill]['position'] = 'form-row-wide';
-				$options3['billing_buttons'][$bill]['placeholder'] = __('Apartment, suite, unit etc. (optional)', 'woocommerce-checkout-manager');
+				$options3['billing_buttons'][$bill]['placeholder'] = __( 'Apartment, suite, unit etc. (optional)', 'woocommerce-checkout-manager' );
 			}
 
 			if ( $name == 'city') {
 				$options3['billing_buttons'][$bill]['position'] = 'form-row-wide';
-				$options3['billing_buttons'][$bill]['placeholder'] = __('Town / City', 'woocommerce-checkout-manager');
+				$options3['billing_buttons'][$bill]['placeholder'] = __( 'Town / City', 'woocommerce-checkout-manager' );
 			}
 
 			if ( $name == 'state') {
@@ -160,7 +160,7 @@ function wooccm_install() {
 
 			if ( $name == 'postcode') {
 				$options3['billing_buttons'][$bill]['position'] = 'form-row-last';
-				$options3['billing_buttons'][$bill]['placeholder'] = __('Postcode / Zip', 'woocommerce-checkout-manager');
+				$options3['billing_buttons'][$bill]['placeholder'] = __( 'Postcode / Zip', 'woocommerce-checkout-manager' );
 				$options3['billing_buttons'][$bill]['clear_row'] = true;
 			}
 

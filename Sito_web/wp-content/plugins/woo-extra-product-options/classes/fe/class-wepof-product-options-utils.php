@@ -161,5 +161,15 @@ abstract class WEPOF_Product_Options_Utils {
 		);
 		wp_update_post( $post );
 	}
+
+	public static function woo_version_check( $version = '3.0' ) {
+	  	if(function_exists( 'is_woocommerce_active' ) && is_woocommerce_active() ) {
+			global $woocommerce;
+			if( version_compare( $woocommerce->version, $version, ">=" ) ) {
+		  		return true;
+			}
+	  	}
+	  	return false;
+	}
 }
 endif;

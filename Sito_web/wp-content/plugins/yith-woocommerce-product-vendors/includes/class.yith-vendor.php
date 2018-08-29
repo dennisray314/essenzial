@@ -683,21 +683,17 @@ if ( ! class_exists ( 'YITH_Vendor' ) ) {
         /**
          * Pay commitions unpaid, in base of payment type choosen
          *
+         * @param string $type all or only after threeshold
+         *
          * @return array
          */
-        public function commissions_to_pay () {
-            if ( empty( $this->paypal_email ) ) {
-                return array ();
-            }
-
+        public function commissions_to_pay ( $type = '' ) {
             $commissions = array ();
 
-            if ( 'threshold' == $this->payment_type ) {
+            if ( 'threshold' == $type ) {
                 $commissions = $this->get_unpaid_commissions_if_out_threshold (); // could be empty
             } else {
-                if ( 'instant' == $this->payment_type ) {
-                    $commissions = $this->get_unpaid_commissions ();
-                }
+	            $commissions = $this->get_unpaid_commissions ();
             }
 
             return $commissions;

@@ -16,6 +16,7 @@ class GPAnalysisDlg extends PBaseFeedDialog
         $this->service_name = 'GPAnalysis';
         $this->service_name_long = 'GPAnalysis XML Feed';
         $this->blockCategoryList = true;
+        $this->doc_link = "https://www.exportfeed.com/documentation/gpanalysis-merchant-integration-guide/";
     }
 
 }

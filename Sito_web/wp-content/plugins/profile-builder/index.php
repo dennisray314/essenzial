@@ -2,9 +2,9 @@
 /*
 Plugin Name: Profile Builder
 Plugin URI: https://www.cozmoslabs.com/wordpress-profile-builder/
-Description: Login, registration and edit profile shortcodes for the front-end. Also you can chose what fields should be displayed or add new (custom) ones both in the front-end and in the dashboard.
-Version: 2.8.0
-Author: Cozmoslabs, Madalin Ungureanu, Antohe Cristian, Barina Gabriel, Mihai Iova
+Description: Login, registration and edit profile shortcodes for the front-end. Also you can choose what fields should be displayed or add new (custom) ones both in the front-end and in the dashboard.
+Version: 2.8.7
+Author: Cozmoslabs
 Author URI: https://www.cozmoslabs.com/
 Text Domain: profile-builder
 Domain Path: /translation
@@ -75,9 +75,10 @@ function wppb_free_plugin_init() {
          *
          *
          */
-        define('PROFILE_BUILDER_VERSION', '2.8.0' );
+        define('PROFILE_BUILDER_VERSION', '2.8.7' );
         define('WPPB_PLUGIN_DIR', plugin_dir_path(__FILE__));
         define('WPPB_PLUGIN_URL', plugin_dir_url(__FILE__));
+        define('WPPB_PLUGIN_BASENAME', plugin_basename(__FILE__));
         define('WPPB_SERVER_MAX_UPLOAD_SIZE_BYTE', apply_filters('wppb_server_max_upload_size_byte_constant', wppb_return_bytes(ini_get('upload_max_filesize'))));
         define('WPPB_SERVER_MAX_UPLOAD_SIZE_MEGA', apply_filters('wppb_server_max_upload_size_mega_constant', ini_get('upload_max_filesize')));
         define('WPPB_SERVER_MAX_POST_SIZE_BYTE', apply_filters('wppb_server_max_post_size_byte_constant', wppb_return_bytes(ini_get('post_max_size'))));
@@ -129,6 +130,7 @@ function wppb_free_plugin_init() {
         include_once(WPPB_PLUGIN_DIR . '/admin/admin-bar.php');
         include_once(WPPB_PLUGIN_DIR . '/admin/manage-fields.php');
         include_once(WPPB_PLUGIN_DIR . '/admin/pms-cross-promotion.php');
+        include_once(WPPB_PLUGIN_DIR . '/admin/feedback.php');
         include_once(WPPB_PLUGIN_DIR . '/features/email-confirmation/email-confirmation.php');
         include_once(WPPB_PLUGIN_DIR . '/features/email-confirmation/class-email-confirmation.php');
         if (file_exists(WPPB_PLUGIN_DIR . '/features/admin-approval/admin-approval.php')) {
@@ -161,10 +163,14 @@ function wppb_free_plugin_init() {
             } else
             add_shortcode('wppb-list-users', 'wppb_list_all_users_display_error');
 
-            if (isset($wppb_module_settings['wppb_emailCustomizerAdmin']) && ($wppb_module_settings['wppb_emailCustomizerAdmin'] == 'show'))
+            $wppb_email_customizer_activate = 'hide';
+            if ( ( !empty( $wppb_module_settings['wppb_emailCustomizer'] ) && $wppb_module_settings['wppb_emailCustomizer'] == 'show' ) || ( !empty( $wppb_module_settings['wppb_emailCustomizerAdmin'] ) && $wppb_module_settings['wppb_emailCustomizerAdmin'] == 'show' ) )
+                $wppb_email_customizer_activate = 'show';
+
+            if ( $wppb_email_customizer_activate == 'show')
             include_once(WPPB_PLUGIN_DIR . '/modules/email-customizer/admin-email-customizer.php');
 
-            if (isset($wppb_module_settings['wppb_emailCustomizer']) && ($wppb_module_settings['wppb_emailCustomizer'] == 'show'))
+            if ( $wppb_email_customizer_activate == 'show' )
             include_once(WPPB_PLUGIN_DIR . '/modules/email-customizer/user-email-customizer.php');
         }
 
@@ -202,3 +208,13 @@ add_action( 'plugins_loaded', 'wppb_free_plugin_init' );
 
 if (file_exists( plugin_dir_path(__FILE__) . '/front-end/extra-fields/upload/upload_helper_functions.php'))
     include_once( plugin_dir_path(__FILE__) . '/front-end/extra-fields/upload/upload_helper_functions.php');
+
+/* add a redirect when plugin is activated */
+if( !function_exists( 'wppb_activate_plugin_redirect' ) ){
+    function wppb_activate_plugin_redirect( $plugin ) {
+        if( $plugin == plugin_basename( __FILE__ ) ) {
+            exit( wp_redirect( admin_url( 'admin.php?page=profile-builder-basic-info' ) ) );
+        }
+    }
+    add_action( 'activated_plugin', 'wppb_activate_plugin_redirect' );
+}

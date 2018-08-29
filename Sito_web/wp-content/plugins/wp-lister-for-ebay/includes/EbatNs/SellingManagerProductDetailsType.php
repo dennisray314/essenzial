@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,8 +9,7 @@ require_once 'AmountType.php';
 require_once 'SellingManagerVendorDetailsType.php';
 
 /**
-  * Returned if the user is a Selling Manager user. Defines product information for Selling Manager
-  * users.
+  * Returned if the user is a Selling Manager user. Defines product information for Selling Manager users.
   * 
  **/
 

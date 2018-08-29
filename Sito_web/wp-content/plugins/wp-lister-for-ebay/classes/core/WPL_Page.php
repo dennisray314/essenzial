@@ -38,7 +38,7 @@ class WPL_Page extends WPL_Core {
 
 	// display view
 	public function display( $insView, $inaData = array(), $echo = true ) {
-		// $sFile = dirname(__FILE__).DS.self::ViewDir.DS.$insView.self::ViewExt;
+
 		$sFile = WPLISTER_PATH . '/views/' . $insView . '.php';
 		
 		if ( !is_file( $sFile ) ) {

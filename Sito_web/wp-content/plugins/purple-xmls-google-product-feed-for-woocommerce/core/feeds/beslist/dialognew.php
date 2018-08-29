@@ -15,6 +15,7 @@ class BeslistDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Beslist';
         $this->service_name_long = 'Beslist XML Export';
+        $this->doc_link = "https://www.exportfeed.com/documentation/beslist-integration-guide/";
     }
 
     function convert_option($option)

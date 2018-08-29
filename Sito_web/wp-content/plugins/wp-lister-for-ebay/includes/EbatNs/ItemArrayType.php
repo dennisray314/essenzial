@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'ItemType.php';
 
 /**
   * Container for a list of items. Can contain zero, one, or multiple
-  * ItemType objects, each of which conveys the data for one item listing.
+  * <b>ItemType</b> objects, each of which conveys the data for one item listing.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ListingDurationDefinitionType.php';
 
 /**
-  * A container node for sets of durations, each set describing the durations allowed for
-  * one listing type.
+  * A type used by the <b>ListingDurations</b> container node that is returned in the response of <b>GetCategoryFeatures</b> call. A <b>ListingDurations</b> container is returned for each listing type supported for the eBay site, and the supported listing duration times for those listing types.
   * 
  **/
 

@@ -19,6 +19,7 @@ class GoDataFeedCSVDlg extends PBaseFeedDialog
         // 	'brand', 'keywords', 'UPC', 'mpn'
         // 	);
         $this->blockCategoryList = true;
+        // $this->doc_link = "https://www.exportfeed.com/documentation/";
     }
 
 }

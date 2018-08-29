@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,7 +7,7 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Requests current status of user token.
+  * This call is used to get the current status of a user token. There are no call-specific fields in the request payload.
   * 
  **/
 

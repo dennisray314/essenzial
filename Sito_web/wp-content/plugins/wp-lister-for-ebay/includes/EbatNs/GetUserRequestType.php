@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,10 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'ItemIDType.php';
 
 /**
-  * Retrieves data pertaining to a single eBay user. Callers can use this call to
-  * return their own user data or the data of another eBay user. Unless the caller
-  * passes in an ItemID that identifies a current or past common order, not all
-  * data (like email addresses) will be returned in the User object.
+  * Retrieves data pertaining to a single eBay user. Callers can use this call to return their own user data or the data of another eBay user. Unless the caller passes in an <strong>ItemID</strong> value that identifies a current or past common order, not all data (like email addresses) will be returned in the response.
   * 
  **/
 

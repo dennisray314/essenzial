@@ -170,7 +170,7 @@
 							// console.log('primary_category_id: ',primary_category_id);
 
 							if ( ( ! specs ) || ( specs == 'none' ) ) {
-								container.html( '<?php echo __('There are no recommended item specifics for the primary category.','wplister') ?>' );
+								container.html( '<?php echo addslashes( __('There are no recommended item specifics for the primary category.','wplister') ); ?>' );
 								return;
 							}
 

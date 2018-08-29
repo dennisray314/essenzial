@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -14,6 +14,8 @@ require_once 'eBayPaymentMismatchDetailsType.php';
 require_once 'InquiryStatusCodeType.php';
 require_once 'ReturnStatusCodeType.php';
 require_once 'BuyerPaymentInstrumentCodeType.php';
+require_once 'DigitalStatusCodeType.php';
+require_once 'CancelStatusCodeType.php';
 
 /**
   * Contains the order status, e.g. the buyer's online
@@ -82,6 +84,16 @@ class TransactionStatusType extends EbatNs_ComplexType
 	* @var BuyerPaymentInstrumentCodeType
 	**/
 	protected $PaymentInstrument;
+
+	/**
+	* @var DigitalStatusCodeType
+	**/
+	protected $DigitalStatus;
+
+	/**
+	* @var CancelStatusCodeType
+	**/
+	protected $CancelStatus;
 
 
 	/**
@@ -186,6 +198,22 @@ class TransactionStatusType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'BuyerPaymentInstrumentCodeType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'DigitalStatus' =>
+				array(
+					'required' => false,
+					'type' => 'DigitalStatusCodeType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'CancelStatus' =>
+				array(
+					'required' => false,
+					'type' => 'CancelStatusCodeType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -386,6 +414,38 @@ class TransactionStatusType extends EbatNs_ComplexType
 	function setPaymentInstrument($value)
 	{
 		$this->PaymentInstrument = $value;
+	}
+
+	/**
+	 * @return DigitalStatusCodeType
+	 **/
+	function getDigitalStatus()
+	{
+		return $this->DigitalStatus;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setDigitalStatus($value)
+	{
+		$this->DigitalStatus = $value;
+	}
+
+	/**
+	 * @return CancelStatusCodeType
+	 **/
+	function getCancelStatus()
+	{
+		return $this->CancelStatus;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setCancelStatus($value)
+	{
+		$this->CancelStatus = $value;
 	}
 
 }

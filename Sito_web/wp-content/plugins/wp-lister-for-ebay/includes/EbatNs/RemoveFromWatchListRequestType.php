@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,9 @@ require_once 'ItemIDType.php';
 require_once 'VariationKeyType.php';
 
 /**
-  * Enables a user to remove one or more items from their My eBay watch list.
+  * The call enables a user to remove one or more items from their Watch List. A user can view the items that they are currently watching by calling <b>GetMyeBayBuying</b>.
+  * <br/><br/>
+  * The user has the option of removing one or more single-variation listings, one or more product variations within a multiple-variation listing, or removing all items from the Watch List.
   * 
  **/
 

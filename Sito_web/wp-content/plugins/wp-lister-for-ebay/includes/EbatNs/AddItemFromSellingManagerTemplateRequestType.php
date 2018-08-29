@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'ItemType.php';
 
 /**
-  * Creates listings from Selling Manager templates.
-  * This call is subject to change without notice; the
-  * deprecation process is inapplicable to this call.
+  * This is the base request type of the <b>AddItemFromSellingManagerTemplate</b> call, which is used to create listings based on settings contained in a Selling Manager template.
   * 
  **/
 

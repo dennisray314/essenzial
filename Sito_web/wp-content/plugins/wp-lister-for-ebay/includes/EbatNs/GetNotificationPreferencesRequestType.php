@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,10 +8,7 @@ require_once 'AbstractRequestType.php';
 require_once 'NotificationRoleCodeType.php';
 
 /**
-  * Retrieves the requesting application's notification preferences. Details are only returned for events for which a
-  * preference has been set. For example, if you enabled notification for the EndOfAuction event and later disabled it,
-  * the GetNotificationPreferences response would cite the EndOfAuction event preference as Disabled. Otherwise, no
-  * details would be returned regarding EndOfAuction.
+  * Retrieves the requesting application's notification preferences. Details are only returned for events for which a preference has been set. For example, if you enabled notification for the <b>EndOfAuction</b> event and later disabled it, the <b>GetNotificationPreferences</b> response would cite the <b>EndOfAuction</b> event preference as <b>Disabled</b>. Otherwise, no details would be returned regarding <b>EndOfAuction</b>.
   * 
  **/
 

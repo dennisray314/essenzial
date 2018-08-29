@@ -16,9 +16,6 @@ function yith_wcmv_get_paypal_options_array(){
 		'paypal_api_signature'                     => '',
 		'paypal_payment_mail_subject'              => '',
 		'paypal_ipn_notification_url'              => site_url() . '/?paypal_ipn_response=true',
-
-		//Add-ons Tab
-		'yith_wpv_vendors_option_adaptive_payment' => 'no',
 	);
 }
 
@@ -293,6 +290,31 @@ function yith_vendors_update_db_1_1_4() {
 	update_option( 'yith_product_vendors_db_version', '1.1.4' );
 }
 
+function yith_vendors_update_db_1_1_5() {
+	$vendors_db_option = get_option( 'yith_product_vendors_db_version', '1.0.0' );
+	if ( $vendors_db_option && version_compare( $vendors_db_option, '1.1.5', '<' ) ) {
+		delete_option( 'yith_wpv_vendors_option_adaptive_payment' );
+	}
+
+	update_option( 'yith_product_vendors_db_version', '1.1.5' );
+}
+
+function yith_vendors_update_db_1_1_6() {
+	$vendors_db_option = get_option( 'yith_product_vendors_db_version', '1.0.0' );
+	if ( $vendors_db_option && version_compare( $vendors_db_option, '1.1.6', '<' ) ) {
+		foreach( YITH_Vendors()->get_vendors() as $vendor ){
+		    if( $vendor instanceof YITH_Vendor ){
+		        if( empty( $vendor->get_owner() ) ){
+		            $vendor->owner = '';
+                }
+            }
+        }
+	}
+
+	update_option( 'yith_product_vendors_db_version', '1.1.6' );
+}
+
+
 add_action( 'admin_init', 'yith_vendors_update_db_1_0_1' );
 add_action( 'admin_init', 'yith_vendors_update_db_1_0_2' );
 add_action( 'admin_init', 'yith_vendors_update_db_1_0_3' );
@@ -307,6 +329,8 @@ add_action( 'admin_init', 'yith_vendors_update_db_1_1_1' );
 add_action( 'admin_init', 'yith_vendors_update_db_1_1_2' );
 add_action( 'admin_init', 'yith_vendors_update_db_1_1_3' );
 add_action( 'admin_init', 'yith_vendors_update_db_1_1_4' );
+add_action( 'admin_init', 'yith_vendors_update_db_1_1_5' );
+add_action( 'admin_init', 'yith_vendors_update_db_1_1_6' );
 
 /**
  * Plugin Version Update

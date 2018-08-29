@@ -4,7 +4,7 @@
     $.fn.yith_wpv_option_deps = function( dep, type, disabled_value, readonly ){
 
         var main_option = $(this),
-            disable     = $(dep).parents('tr'),
+            disable     = dep != 'all' ? $(dep).parents('tr') : main_option.parents('table').find('tr:not(:first)'),
             get_value   = function( type ){
                 if (type == 'checkbox') {
                     return main_option.attr('checked');
@@ -14,8 +14,9 @@
                     return main_option.val();
                 }
             },
-
             value = get_value( type );
+
+
 
         var disable_opt = function(){
                 disable.css('opacity', '0.3');
@@ -23,6 +24,7 @@
                 if( readonly ){
                     disable.attr( 'readonly', 'readonly' );
                 }
+                $(document).trigger('yith_wcmv_disable_opt');
             },
 
             enable_opt = function(){
@@ -31,6 +33,7 @@
                 if( readonly ){
                     disable.removeAttr( 'readonly' );
                 }
+                $(document).trigger('yith_wcmv_enable_opt');
             };
 
         if (value == disabled_value) {
@@ -48,7 +51,7 @@
             }
         });
 
-        main_option.add( $(dep)).trigger( 'yith_wcmv_after_option_deps' );
+        main_option.add( $(dep)).trigger( 'yith_wcmv_after_option_deps', main_option );
     }
 
     var button = $('#yith_wpv_vendors_skip_review_for_all'),
@@ -106,6 +109,8 @@
     paypal_service.yith_wpv_option_deps( payment_method, 'select', 'standard', true );
     payment_method.yith_wpv_option_deps( '#payment_minimum_withdrawals', 'select', 'manual', true );
     $('#yith_wpv_show_vendor_tab_in_single').yith_wpv_option_deps( '#yith_wpv_vendor_tab_text_text', 'checkbox', undefined, false );
+    $('#yith_wcmv_enable_paypal-masspay_gateway').yith_wpv_option_deps( 'all', 'checkbox', undefined, false );
+    $('#yith_vendor_remove_vendor_profile_data').yith_wpv_option_deps( '#yith_vendor_delete_vendor_media_profile_data', 'checkbox', undefined, false );
 
     // Vendor taxonomy table
     var tax_table = $( '#the-list');
@@ -206,4 +211,10 @@
             }
         };
     }
+
+     $body.on( 'init_tooltips', function(){
+         if( $( '.vendor_limited_access.edit-php.post-type-product' ).length == 1 ){
+             $( '.page-title-action' ).eq(0).siblings('.page-title-action').remove();
+         }
+     });
 }(jQuery));

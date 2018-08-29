@@ -1,17 +1,16 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
-require_once 'ExternalProductIDType.php';
 require_once 'NameValueListArrayType.php';
 require_once 'ReviewDetailsType.php';
 require_once 'ProductStateCodeType.php';
 
 /**
-  * Information about an eBay catalog product.
+  * This type is deprecated.
   * 
  **/
 
@@ -41,11 +40,6 @@ class CatalogProductType extends EbatNs_ComplexType
 	* @var int
 	**/
 	protected $ItemCount;
-
-	/**
-	* @var ExternalProductIDType
-	**/
-	protected $ExternalProductID;
 
 	/**
 	* @var long
@@ -125,14 +119,6 @@ class CatalogProductType extends EbatNs_ComplexType
 					'required' => false,
 					'type' => 'int',
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'ExternalProductID' =>
-				array(
-					'required' => false,
-					'type' => 'ExternalProductIDType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -268,22 +254,6 @@ class CatalogProductType extends EbatNs_ComplexType
 	function setItemCount($value)
 	{
 		$this->ItemCount = $value;
-	}
-
-	/**
-	 * @return ExternalProductIDType
-	 **/
-	function getExternalProductID()
-	{
-		return $this->ExternalProductID;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setExternalProductID($value)
-	{
-		$this->ExternalProductID = $value;
 	}
 
 	/**

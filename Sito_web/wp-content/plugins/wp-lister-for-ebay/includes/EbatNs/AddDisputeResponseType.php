@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,8 +8,7 @@ require_once 'AbstractResponseType.php';
 require_once 'DisputeIDType.php';
 
 /**
-  * Type defining the response of the <b>AddDispute</b> call. Upon a successful 
-  * call, the response contains a newly created <b>DisputeID</b> value, which confirms that the Unpaid Item or Mutually Canceled Transaction case was successfully created.
+  * Type defining the response of the <b>AddDispute</b> call. Upon a successful call, the response contains a newly created <b>DisputeID</b> value, which confirms that an Unpaid Item case was created, or that a single line item order was successfully cancelled.
   * 
  **/
 

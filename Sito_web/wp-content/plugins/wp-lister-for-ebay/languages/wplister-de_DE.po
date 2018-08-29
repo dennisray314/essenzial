@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WP-Lister for eBay 2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-11-15 09:19+0000\n"
-"PO-Revision-Date: 2017-11-15 09:19+0000\n"
+"PO-Revision-Date: 2017-12-12 11:42+0000\n"
 "Last-Translator: admin <info@wplab.com>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -28,7 +28,7 @@ msgstr ""
 
 #: wp-lister-ebay.php:234 wp-lister-ebay.php:235
 msgid "End listings on eBay"
-msgstr ""
+msgstr "Beende Artikel auf eBay"
 
 #: wp-lister-ebay.php:244
 msgid ""
@@ -36,14 +36,17 @@ msgid ""
 "to relist these listings later you would then start out with a lower sales "
 "rank."
 msgstr ""
+"Das Beenden eines Angebots löscht die Verkaufshistorie, d.h. wenn Sie diesen "
+"Artikel erneut einstellen wird er mit einem niedrigeren Verkaufsrang "
+"gelistet werden."
 
 #: includes/WPLE_CustomUpdater_v2.php:164
 msgid "License Activation"
-msgstr ""
+msgstr "Lizenzaktivierung"
 
 #: includes/WPLE_CustomUpdater_v2.php:165
 msgid "License Deactivation"
-msgstr ""
+msgstr "Lizenzdeaktivierung"
 
 #: includes/WPLE_CustomUpdater_v2.php:435
 #, php-format
@@ -52,6 +55,9 @@ msgid ""
 "updates and support! %sClick here%s to activate the license key and the "
 "plugin."
 msgstr ""
+"Die Lizenz für dieses Plugin wurde noch nicht aktiviert, d.h. Sie erhalten "
+"weder Updates noch Support! %sKlicken Sie hier%s um Ihre Lizenz und das "
+"Plugin zu aktivieren."
 
 #: includes/WPLE_CustomUpdater_v2.php:454
 #, php-format
@@ -65,262 +71,301 @@ msgstr ""
 msgid ""
 "You should not delete listings which have been recently published on eBay!"
 msgstr ""
+"Sie sollten keine Artikel löschen die noch vor kurzem auf eBay gelistet "
+"waren!"
 
 #: views/listings_page.php:195
 msgid ""
 "This will reset the status of all selected items to prepared. Only use this "
 "if you want to list them as new listings instead of relisting."
 msgstr ""
+"Der Status aller ausgewählten Artikel wird auf vorbereitet zurückgesetzt. "
+"Benutzen Sie diese Funktion nur um Produkte, die bereits gelistet waren, als "
+"neue Artikel einzustellen, anstatt das letzte Angebot wiedereinzustellen."
 
 #: views/messages_page.php:50 views/orders_page.php:42
 msgid "Background updates are executed by an external cron job."
 msgstr ""
+"Hintergrundaktualisierungen werden durch einen externen Cron Job ausgeführt."
 
 #: views/orders_page.php:66
 msgid "-- since last updated order --"
-msgstr ""
+msgstr "-- seit der zuletzt aktualisierten Bestellung --"
 
 #: views/products_quick_edit.php:8
 msgid "eBay Listing"
-msgstr ""
+msgstr "eBay Artikel"
 
 #: views/products_quick_edit.php:13
 msgid "Revise on update"
-msgstr ""
+msgstr "Jetzt aktualisieren"
 
 #: views/profiles_edit_page.php:294 views/profiles_edit_page.php:421
 #: views/profile/edit_shipping_loc.php:198
 msgid "no policy"
-msgstr ""
+msgstr "keine"
 
 #: views/profiles_page.php:45
 msgid "Upload Profile"
-msgstr ""
+msgstr "Profil hochladen"
 
 #: views/settings_accounts.php:67
 msgid ""
 "The default account will always be used by WP-Lister unless specified "
 "otherwise."
 msgstr ""
+"Das Standardkonto wird immer von WP-Lister verwendet, sofern nicht anders "
+"angegeben."
 
 #: views/settings_accounts.php:153
 msgid ""
 "Before you can begin listing your products on eBay, you need to set up your "
 "eBay account."
 msgstr ""
+"Bevor Sie mit dem Einstellen Ihrer Produkte bei eBay beginnen können, müssen "
+"Sie Ihr eBay-Konto einrichten."
 
 #: views/settings_accounts.php:156
 msgid ""
 "Please select the eBay site you want to use and follow the instructions that "
 "will appear below."
 msgstr ""
+"Bitte wählen Sie die eBay Website, die Sie verwenden möchten, und folgen Sie "
+"den Anweisungen, die unten angezeigt werden.\n"
 
 #: views/settings_accounts.php:216 views/settings_accounts.php:220
 msgid "Are you sure you want to remove this account from WP-Lister?"
-msgstr ""
+msgstr "Möchten Sie dieses Konto wirklich aus WP-Lister entfernen?"
 
 #: views/settings_advanced.php:43
 msgid "This page contains some advanced options for special use cases."
 msgstr ""
+"Diese Seite enthält seltener genutzte Optionen für spezielle Anwendungsfälle."
 
 #: views/settings_advanced.php:93
 msgid "Roles and Capabilities"
-msgstr ""
+msgstr "Rollen und Fähigkeiten"
 
 #: views/settings_advanced.php:98
 msgid "Manage Listings"
-msgstr ""
+msgstr "Artikel verwalten"
 
 #: views/settings_advanced.php:99
 msgid "Manage Settings"
-msgstr ""
+msgstr "Einstellungen verwalten"
 
 #: views/settings_advanced.php:101
 msgid "Publish Listings"
-msgstr ""
+msgstr "Artikel veröffentlichen"
 
 #: views/settings_advanced.php:170
 msgid "remove all non-eBay links from description"
-msgstr ""
+msgstr "entferne alle Nicht-eBay-Links aus Beschreibung"
 
 #: views/settings_advanced.php:174
 msgid ""
 "Links are removed from product descriptions by default to avoid violating "
 "the eBay Links policy."
 msgstr ""
+"Links werden standardmäßig aus den Produktbeschreibungen entfernt, um eine "
+"Verletzung von eBay's Regeln zur Verwendung von Links zu vermeiden."
 
 #: views/settings_advanced.php:177
 msgid "Read more about eBay's Link policy"
 msgstr ""
+"Weitere Informationen zur Verwendung von Links auf den eBay-Artikelseiten"
 
 #: views/settings_advanced.php:178
 msgid "http://pages.ebay.com/help/policies/listing-links.html"
-msgstr ""
+msgstr "https://pages.ebay.de/help/policies/listing-links.html"
 
 #: views/settings_advanced.php:178
 msgid "here"
-msgstr ""
+msgstr "hier"
 
 #: views/settings_advanced.php:196
 msgid "use attached images if no Gallery found"
-msgstr ""
+msgstr "verwende angehängte Bilder, wenn keine Galerie gefunden wurde"
 
 #: views/settings_advanced.php:197
 msgid "use Product Gallery images"
-msgstr ""
+msgstr "verwende nur Bilder aus der Produktgalerie"
 
 #: views/settings_advanced.php:201
 msgid "If you find unwanted images in your listings try disabling this option."
 msgstr ""
+"Wenn Sie unerwünschte Bilder in Ihren Artikeln finden, deaktivieren Sie "
+"diese Option bitte."
 
 #: views/settings_advanced.php:206
 msgid "Gallery Widget limit"
-msgstr ""
+msgstr "Limit für Gallerie-Widgets"
 
 #: views/settings_advanced.php:218
 msgid "The maximum number of items shown by listings template gallery widgets."
 msgstr ""
+"Die maximale Anzahl von Artikeln, die in den Gallerie-Widgets angezeigt "
+"werden."
 
 #: views/settings_advanced.php:225
 msgid "User Interface"
-msgstr ""
+msgstr "Benutzeroberfläche"
 
 #: views/settings_advanced.php:230
 msgid "Menu label"
-msgstr ""
+msgstr "Menütitel"
 
 #: views/settings_advanced.php:235
 msgid "Customize the main admin menu label of WP-Lister."
-msgstr ""
+msgstr "Passen Sie die Bezeichnung des Hauptmenü's an."
 
 #: views/settings_advanced.php:240
 msgid "Open preview in new tab"
-msgstr ""
+msgstr "Vorschau in neuem Tab"
 
 #: views/settings_advanced.php:248
 msgid "Select if you want the listing preview open in a new tab by default."
 msgstr ""
+"Wählen Sie, ob die Vorschau standardmäßig in einem neuen Tab geöffnet werden "
+"soll."
 
 #: views/settings_advanced.php:252
 msgid "Listing thumbnails"
-msgstr ""
+msgstr "Produktbilder"
 
 #: views/settings_advanced.php:260
 msgid "Show product images on listings page."
-msgstr ""
+msgstr "Zeige Produktbilder in Artikel-Übersicht"
 
 #: views/settings_advanced.php:264
 msgid "Enable custom price field"
-msgstr ""
+msgstr "Aktiviere benutzerdefiniertes Preisfeld"
 
 #: views/settings_advanced.php:270 views/settings_advanced.php:280
 msgid "Hide for variations"
-msgstr ""
+msgstr "Für Variationen ausblenden"
 
 #: views/settings_advanced.php:274
 msgid "Enable MPN and ISBN fields"
-msgstr ""
+msgstr "Aktiviere MPN und ISBN Felder"
 
 #: views/settings_advanced.php:284
 msgid "Categories in main menu"
-msgstr ""
+msgstr "Kategorien in Hauptmenü"
 
 #: views/settings_advanced.php:292
 msgid ""
 "Enable this to make category settings available to users without access to "
 "other eBay settings."
 msgstr ""
+"Aktivieren Sie diese Option, um die eBay-Kategorien für Benutzer ohne "
+"Zugriff auf andere eBay-Einstellungen verfügbar zu machen."
 
 #: views/settings_advanced.php:296
 msgid "Store Categories Sorting"
-msgstr ""
+msgstr "Sortierung der Shop-Kategorien"
 
 #: views/settings_advanced.php:300
 msgid "Manual Sorting"
-msgstr ""
+msgstr "Manuelle Sortierung"
 
 #: views/settings_advanced.php:301
 msgid "Alphabetical"
-msgstr ""
+msgstr "Alphabetisch"
 
 #: views/settings_advanced.php:305
 msgid "Accounts in main menu"
-msgstr ""
+msgstr "eBay-Konten in Hauptmenü"
 
 #: views/settings_advanced.php:313
 msgid ""
 "Enable this to make account settings available to users without access to "
 "other eBay settings."
 msgstr ""
+"Aktivieren Sie diese Option, um Kontoeinstellungen für Benutzer ohne Zugriff "
+"auf andere eBay-Einstellungen verfügbar zu machen."
 
 #: views/settings_advanced.php:317
 msgid "Disable WYSIWYG editor"
-msgstr ""
+msgstr "Deaktiviere WYSIWYG-Editor"
 
 #: views/settings_advanced.php:325
 msgid "Select the editor you want to use to edit listing templates."
 msgstr ""
+"Wählen Sie den Editor aus, den Sie zum Bearbeiten der Angebotsvorlagen "
+"verwenden möchten."
 
 #: views/settings_advanced.php:337
 msgid ""
 "If you do not plan to use the synchronize sales feature, you can safely list "
 "one product multiple times."
 msgstr ""
+"Wenn Sie die Synchronisierungsfunktion nicht verwenden möchten, können Sie "
+"ein Produkt problemlos mehrmals einstellen.\n"
 
 #: views/settings_advanced.php:345
 msgid "Order Processing"
-msgstr ""
+msgstr "Bestellungen"
 
 #: views/settings_advanced.php:349
 msgid "Disable New Order emails"
-msgstr ""
+msgstr "Deaktiviere Neue Bestellung Emails"
 
 #: views/settings_advanced.php:358
 msgid "Disable Processing Order emails"
-msgstr ""
+msgstr "Deaktiviere In Bearbeitung Emails"
 
 #: views/settings_advanced.php:367
 msgid "Disable Completed Order emails"
-msgstr ""
+msgstr "Deaktiviere Bestellung Vollständig Emails"
 
 #: views/settings_advanced.php:376
 msgid "Disable emails on status change"
-msgstr ""
+msgstr "Deaktiviere Emails bei Statusänderung"
 
 #: views/settings_advanced.php:385
 msgid ""
 "WooCommerce sends out various notifications when an order status is changed."
 msgstr ""
+"WooCommerce versendet verschiedene Benachrichtigungen, wenn der Status einer "
+"Bestellung geändert wird."
 
 #: views/settings_advanced.php:386
 msgid ""
 "Here you can disable these notifications when creating eBay orders in "
 "WooCommerce."
 msgstr ""
+"Hier können Sie diese Benachrichtigungen beim Importieren von eBay-"
+"Bestellungen nach WooCommerce deaktivieren."
 
 #: views/settings_advanced.php:390
 msgid "Use eBay Order Number"
-msgstr ""
+msgstr "Verwende eBay-Bestellnummer"
 
 #: views/settings_advanced.php:399
 msgid "Complete sale on eBay automatically"
-msgstr ""
+msgstr "Bestellung auf eBay automatisch abschliessen"
 
 #: views/settings_advanced.php:408
 msgid ""
 "Automatically complete the sale on eBay when an order is completed in "
 "WooCommerce."
 msgstr ""
+"Schließen Sie den Verkauf bei eBay automatisch ab, wenn eine Bestellung in "
+"WooCommerce abgeschlossen ist."
 
 #: views/settings_advanced.php:415
 msgid "Default feedback text"
 msgstr ""
+"Standard-Feedback-Text\n"
 
 #: views/settings_advanced.php:420
 msgid ""
 "This is what will be sent as your seller feedback when sales are completed "
 "automatically."
 msgstr ""
+"Dies wird als Ihr Verkäufer-Feedback gesendet, wenn der Verkauf automatisch "
+"abgeschlossen wird."
 
 #: views/settings_advanced.php:426
 msgid "Create orders when"
@@ -490,7 +535,7 @@ msgstr ""
 #: views/settings_advanced.php:644 views/settings_dev.php:258
 #: views/settings_dev.php:380 views/account/account_edit_page.php:79
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: views/settings_advanced.php:647
 msgid ""
@@ -731,7 +776,7 @@ msgstr ""
 
 #: views/settings_dev.php:235
 msgid "Disable variations"
-msgstr ""
+msgstr "Deaktiviere Variationen"
 
 #: views/settings_dev.php:244
 msgid "Disable parts compatibility"
@@ -744,7 +789,7 @@ msgstr ""
 #: views/settings_dev.php:259 views/settings_dev.php:381
 #: views/account/account_edit_page.php:78
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: views/settings_dev.php:264
 msgid "Allow direct editing"
@@ -768,7 +813,7 @@ msgstr ""
 
 #: views/settings_dev.php:311
 msgid "Limit scheduled order fetching"
-msgstr ""
+msgstr "Begrenze Bestellungsabruf"
 
 #: views/settings_dev.php:323
 msgid "Multithreading Limit"
@@ -804,49 +849,51 @@ msgstr ""
 
 #: views/settings_license.php:49
 msgid "Activate license"
-msgstr ""
+msgstr "Aktiviere Lizenz"
 
 #: views/settings_page.php:34
 msgid "Sync Status"
-msgstr ""
+msgstr "Synchronisierung"
 
 #: views/settings_page.php:42
 msgid "No eBay account has been set up yet."
-msgstr ""
+msgstr "Es wurde noch kein eBay-Konto eingerichtet."
 
 #: views/settings_page.php:44
 msgid "Sync is enabled."
-msgstr ""
+msgstr "Die Synchronisierung der Verkäufe ist aktiviert."
 
 #: views/settings_page.php:45
 msgid "Sales will be synchronized between WooCommerce and eBay."
-msgstr ""
+msgstr "Verkäufe werden zwischen WooCommerce und eBay synchronisiert."
 
 #: views/settings_page.php:47
 msgid "Sync is not available in WP-Lister Lite."
-msgstr ""
+msgstr "Die Synchronisierungsfunktion ist in WP-Lister Lite nicht verfügbar."
 
 #: views/settings_page.php:48
 msgid ""
 "To synchronize sales across eBay and WooCommerce you need to upgrade to WP-"
 "Lister Pro."
 msgstr ""
+"Um Ihre Verkäufe zwischen eBay und WooCommerce zu synchronisieren, müssen "
+"Sie auf WP-Lister Pro upgraden."
 
 #: views/settings_page.php:50
 msgid "Sync is currently disabled."
-msgstr ""
+msgstr "Die Synchronisierung ist derzeit deaktiviert."
 
 #: views/settings_page.php:51
 msgid "eBay and WooCommerce sales will not be synchronized!"
-msgstr ""
+msgstr "eBay- und WooCommerce-Verkäufe werden nicht synchronisiert!"
 
 #: views/settings_page.php:93
 msgid "Background updates are handled by an external cron job."
-msgstr ""
+msgstr "Hintergrundaufgaben werden von einem externen Cron Job durchgeführt."
 
 #: views/settings_page.php:100
 msgid "How to set up an external cron job"
-msgstr ""
+msgstr "So richten Sie einen externen Cron Job ein"
 
 #: views/settings_page.php:103
 msgid ""
@@ -889,29 +936,32 @@ msgstr ""
 
 #: views/settings_page.php:165
 msgid "Background Tasks"
-msgstr ""
+msgstr "Hintergrundaufgaben"
 
 #: views/settings_page.php:207
 msgid "Status for shipped orders"
-msgstr ""
+msgstr "Status für versendete Bestellungen"
 
 #: views/settings_page.php:223
 msgid "Status for paid orders"
-msgstr ""
+msgstr "Status für bezahlte Bestellungen"
 
 #: views/settings_page.php:287
 msgid ""
 "Enable this to modify the product details page for items currently on "
 "auction."
 msgstr ""
+"Aktivieren Sie diese Option, um die Produktdetailseite für Artikel "
+"anzupassen, die sich aktuell in einer Auktion befinden."
 
 #: views/settings_page.php:291
 msgid "Send weight and dimensions"
-msgstr ""
+msgstr "Sende Gewicht und Abmessungen"
 
 #: views/settings_page.php:295
 msgid "Only for calculated shipping services"
 msgstr ""
+"Nur für berechnete Versandkosten\n"
 
 #: views/settings_page.php:296
 msgid "Always send weight and dimensions if set"
@@ -946,69 +996,71 @@ msgstr ""
 
 #: views/templates_edit_page.php:260
 msgid "product title"
-msgstr ""
+msgstr "Produktname"
 
 #: views/templates_edit_page.php:264
 msgid "product main description"
-msgstr ""
+msgstr "Produktbeschreibung"
 
 #: views/templates_edit_page.php:270
 msgid "additional product description"
-msgstr ""
+msgstr "Kurzbeschreibung"
 
 #: views/templates_edit_page.php:274
 msgid "product price"
-msgstr ""
+msgstr "Produktpreis"
 
 #: views/templates_edit_page.php:282
 msgid "main product image as HTML tag"
-msgstr ""
+msgstr "Hauptproduktbild als HTML"
 
 #: views/templates_edit_page.php:286
 msgid "main product image as raw URL"
-msgstr ""
+msgstr "Hauptproduktbild als URL"
 
 #: views/templates_edit_page.php:290
 msgid "clickable thumbnails for all images"
-msgstr ""
+msgstr "Thumbnails für alle Bilder"
 
 #: views/templates_edit_page.php:294
 msgid "additional images with JS (deprecated)"
-msgstr ""
+msgstr "zusätzliche Bilder mit JS (veraltet!)"
 
 #: views/templates_edit_page.php:299
 msgid "single images or their urls"
-msgstr ""
+msgstr "einzelne Bilder und URLs"
 
 #: views/templates_edit_page.php:306
 msgid "product dimensions"
-msgstr ""
+msgstr "Produktabmessungen"
 
 #: views/templates_edit_page.php:311
 msgid "example for custom product attributes"
-msgstr ""
+msgstr "Beispiel für benutzerdefinierte Produktattribute"
 
 #: views/templates_edit_page.php:315
 msgid "product variations as HTML table"
-msgstr ""
+msgstr "Produktvarianten als HTML-Tabelle"
 
 #: views/templates_edit_page.php:319
 msgid "main product category name"
-msgstr ""
+msgstr "Name der Hauptkategorie"
 
 #: views/templates_edit_page.php:323
 msgid "comma-separated product tags"
-msgstr ""
+msgstr "Produkt-Tags (getrennt durch Komma)"
 
 #: views/templates_edit_page.php:327
 msgid "custom meta values"
-msgstr ""
+msgstr "Benutzerdefinierte Meta-Felder"
 
 #: views/templates_edit_page.php:335
 msgid ""
 "Warning: These widgets use active content and will stop working when eBay "
 "bans active content in 2017."
 msgstr ""
+"Warnung: Diese Widgets verwenden aktive Inhalte und sollten nicht mehr "
+"verwendet werden, da eBay seit 2017 aktive Inhalte verbietet."
 
 #: views/templates_edit_page.php:338
 msgid ""
@@ -1018,19 +1070,21 @@ msgstr ""
 
 #: views/templates_edit_page.php:341
 msgid "Shortcodes for advanced developers"
-msgstr ""
+msgstr "Shortcodes für fortgeschrittene Entwickler"
 
 #: views/templates_edit_page.php:440
 msgid "Note: You can disable the WYSIWYG editor on the advanced settings page."
 msgstr ""
+"Hinweis: Sie können den WYSIWYG-Editor auf der Seite für weitere "
+"Einstellungen deaktivieren."
 
 #: views/templates_edit_page.php:445
 msgid "Template Content"
-msgstr ""
+msgstr "Inhalt der Vorlage"
 
 #: views/templates_edit_page.php:451
 msgid "You have disabled the WYSIWYG editor."
-msgstr ""
+msgstr "Sie haben den WYSIWYG-Editor deaktiviert."
 
 #: views/tools_page.php:167
 msgid "and update your business policies for shipping, payment and returns."
@@ -1116,92 +1170,94 @@ msgstr ""
 
 #: views/tools_page.php:311
 msgid "Lock all items"
-msgstr ""
+msgstr "Alle Artikel sperren"
 
 #: views/tools_page.php:312
 msgid "Lock all items."
-msgstr ""
+msgstr "Sperre alle Artikel um versehentliche Änderungen zu vermeiden."
 
 #: views/tools_page.php:320
 msgid "Unlock all items"
-msgstr ""
+msgstr "Alle Artikel entsperren"
 
 #: views/tools_page.php:321
 msgid "Unlock all items."
-msgstr ""
+msgstr "Entsperre alle Artikel um Änderungen zu ermöglichen."
 
 #: views/tools_page.php:329
 msgid "Import WPLA Product IDs"
-msgstr ""
+msgstr "Importiere WPLA Produkt-IDs"
 
 #: views/tools_page.php:338
 msgid "Update Shipped Time"
-msgstr ""
+msgstr "Aktualisiere Versandzeit"
 
 #: views/tools_page.php:339
 msgid "Scan and update the Shipped Time data from your eBay orders."
-msgstr ""
+msgstr "Scanne alle eBay-Bestellungen und aktualisiere die Versandzeit."
 
 #: views/tools_page.php:347
 msgid "Convert tables to utf8mb4"
-msgstr ""
+msgstr "Konvertiere Tabellen nach uft8mb4"
 
 #: views/tools_page.php:349
 msgid "Manually upgrade tables that were skipped by the WordPress updater."
-msgstr ""
+msgstr "Aktualisiere Tabellen, die vom WordPress-Updater übersprungen wurden."
 
 #: views/tools_page.php:350
 msgid "Please backup your database. Only applicable for WordPress 4.2+."
-msgstr ""
+msgstr "Bitte sichern Sie Ihre Datenbank. Nur anwendbar ab WordPress 4.2+."
 
 #: views/tools_page.php:359
 msgid "Repair crashed tables"
-msgstr ""
+msgstr "Repariere Datenbank"
 
 #: views/tools_page.php:361
 msgid "Check and repair MySQL tables."
-msgstr ""
+msgstr "Überprüfe und repariere MySQL-Tabellen."
 
 #: views/tools_page.php:376
 msgid "Run daily schedule"
-msgstr ""
+msgstr "Täglichen Zeitplan ausführen"
 
 #: views/tools_page.php:378
 msgid "Manually trigger the daily task schedule."
-msgstr ""
+msgstr "Die täglichen Hintergrundaktivitäten manuell ausführen."
 
 #: views/tools_page.php:379
 #, php-format
 msgid "Last run: %s ago"
-msgstr ""
+msgstr "Zuletzt ausgeführt: vor %s"
 
 #: views/tools_page.php:387
 msgid "Run update schedule"
-msgstr ""
+msgstr "Hintergrundaufgaben ausführen"
 
 #: views/tools_page.php:388
 msgid "Manually run scheduled background tasks."
-msgstr ""
+msgstr "Die regelmässigen Hintergrundaktivitäten manuell ausführen."
 
 #: views/tools_page.php:413
 msgid "Test PHP time limit"
-msgstr ""
+msgstr "Teste PHP Zeitlimit"
 
 #: views/tools_page.php:415
 msgid "Test if your server regards the PHP max_execution_time setting"
 msgstr ""
+"Testen Sie, ob Ihr Server die PHP-Einstellung max_execution_time "
+"berücksichtigt"
 
 #: views/tools_page.php:427
 msgid "Check eBay time offset"
-msgstr ""
+msgstr "Teste eBay-Zeitversatz"
 
 #: views/tools_page.php:428
 msgid "Check eBay time to server time offset"
-msgstr ""
+msgstr "Vergleichen Sie die aktuelle Zeit auf eBay's Servern und Ihrem Server"
 
 #: views/tools_page.php:436
 msgid "Show cURL debug info"
-msgstr ""
+msgstr "Zeige cURL Debug-Informationen"
 
 #: classes/core/WPL_Setup.php:810
 #, php-format
@@ -1255,40 +1311,42 @@ msgstr ""
 #: classes/integration/WooBackendIntegration.php:1464
 #: classes/integration/WooBackendIntegration.php:1495
 msgid "Switch Profile"
-msgstr ""
+msgstr "Profil wechseln"
 
 #: classes/integration/WooOrderBuilder.php:198
 #, php-format
 msgid "eBay User ID: %s"
-msgstr ""
+msgstr "eBay User ID: %s"
 
 #: classes/integration/WooOrderBuilder.php:201
 #, php-format
 msgid "eBay Sales Record ID: %s"
-msgstr ""
+msgstr "eBay Sales Record ID: %s"
 
 #: classes/integration/WooOrderBuilder.php:1105
 #, php-format
 msgid "eBay order refund %s (eBay Order #: %s)"
-msgstr ""
+msgstr "eBay Rückzahlung %s (eBay Bestellung #: %s)"
 
 #: classes/integration/WooOrderMetaBox.php:409
 msgid "Preparing to complete sale on eBay..."
-msgstr ""
+msgstr "Schliesse den Verkauf bei eBay ab..."
 
 #: classes/integration/WooOrderMetaBox.php:435
 msgid "eBay sale was completed successfully."
-msgstr ""
+msgstr "eBay-Verkauf wurde erfolgreich abgeschlossen."
 
 #: classes/integration/WooOrderMetaBox.php:438
 msgid "There was a problem completing the sale on eBay."
-msgstr ""
+msgstr "Es gab ein Problem, den Verkauf bei eBay abzuschließen."
 
 #: classes/integration/WooOrderMetaBox.php:441
 msgid ""
 "There was a problem completing the sale on eBay! Please check the database "
 "log and contact support."
 msgstr ""
+"Es gab ein Problem, den Verkauf bei eBay abzuschließen! Bitte überprüfen Sie "
+"das Datenbankprotokoll und kontaktieren Sie den Support."
 
 #: classes/integration/WooProductMetaBox.php:278
 #: classes/integration/WooProductMetaBox.php:288
@@ -1509,7 +1567,7 @@ msgstr ""
 
 #: classes/page/ListingsPage.php:477
 msgid "Update all relisted items"
-msgstr ""
+msgstr "Aktualisiere alle wiedereingestellten Artikel"
 
 #: classes/page/ListingsPage.php:647
 #, php-format
@@ -1583,15 +1641,15 @@ msgstr ""
 
 #: classes/page/ToolsPage.php:367
 msgid "Orders were loaded from eBay."
-msgstr ""
+msgstr "Bestellungen wurden von eBay eingelesen."
 
 #: classes/page/ToolsPage.php:912
 msgid "Perform Deep Scan"
-msgstr ""
+msgstr "Tiefenscan durchführen"
 
 #: classes/page/ToolsPage.php:970
 msgid "Resize all"
-msgstr ""
+msgstr "Alle anpassen"
 
 #: classes/page/TransactionsPage.php:113
 msgid "Selected transaction was reverted."
@@ -1607,69 +1665,72 @@ msgstr ""
 
 #: classes/table/EbayOrdersTable.php:482
 msgid "Unshipped"
-msgstr ""
+msgstr "Nicht versendet"
 
 #: classes/table/EbayOrdersTable.php:500
 msgid "Refunded"
-msgstr ""
+msgstr "Erstattet"
 
 #: classes/table/EbayOrdersTable.php:508
 msgid "In WooCommerce"
-msgstr ""
+msgstr "In WooCommerce"
 
 #: classes/table/EbayOrdersTable.php:514
 msgid "Not in WooCommerce"
-msgstr ""
+msgstr "Nicht in WooCommerce"
 
 #: classes/table/ListingsTable.php:1072
 msgid "Update status from eBay"
-msgstr ""
+msgstr "Aktualisiere Status von eBay"
 
 #: classes/table/ListingsTable.php:1083
 msgid "Cancel relist schedule"
-msgstr ""
+msgstr "Auto-Wiedereinstellen abbrechen"
 
 #: templates/default/functions.php:8
 #: templates/default-with-gallery/functions.php:8
 msgid "Section Header Bar"
-msgstr ""
+msgstr "Kopfzeile"
 
 #: templates/default/functions.php:9 templates/default/functions.php:13
 #: templates/default-with-gallery/functions.php:9
 #: templates/default-with-gallery/functions.php:13
 msgid "Text Color"
-msgstr ""
+msgstr "Textfarbe"
 
 #: templates/default/functions.php:10
 #: templates/default-with-gallery/functions.php:10
 msgid "Background Top"
-msgstr ""
+msgstr "Hintergrund oben"
 
 #: templates/default/functions.php:11
 #: templates/default-with-gallery/functions.php:11
 msgid "Background Bottom"
-msgstr ""
+msgstr "Hintergrund unten"
 
 #: templates/default/functions.php:12
 #: templates/default-with-gallery/functions.php:12
 msgid "Hotline Box"
-msgstr ""
+msgstr "Hotline Box"
 
 #: templates/default/functions.php:14
 #: templates/default-with-gallery/functions.php:14
 msgid "Background Color"
-msgstr ""
+msgstr "Hintergrundfarbe"
 
 #: templates/default/functions.php:15
 #: templates/default-with-gallery/functions.php:15
 msgid "Other Colors"
-msgstr ""
+msgstr "Andere Farben"
 
 #: views/profile/edit_shipping_loc.php:3
 msgid ""
 "Freight shipping may be used when flat or calculated shipping cannot be used "
 "due to the greater weight of the item."
 msgstr ""
+"Der Frachtversand kann verwendet werden, wenn aufgrund des größeren "
+"Gewichtes des Artikels pauschale oder berechnete Versandkosten nicht möglich "
+"sind."
 
 #: views/profile/edit_shipping_loc.php:4
 msgid ""
@@ -1687,7 +1748,7 @@ msgstr ""
 
 #: views/profile/edit_sidebar.php:579
 msgid "Schedule day"
-msgstr ""
+msgstr "Tag"
 
 #: views/profile/edit_sidebar.php:582
 msgid "+0 days"
@@ -1775,11 +1836,11 @@ msgstr ""
 
 #: views/profile/edit_sidebar.php:807
 msgid "Use SKU as EAN"
-msgstr ""
+msgstr "Benutze SKU als EAN"
 
 #: views/profile/edit_sidebar.php:829
 msgid "Secondary Category"
-msgstr ""
+msgstr "Sekundäre Kategorie"
 
 #: views/profile/edit_sidebar.php:851
 msgid "MAP Pricing"
@@ -2242,7 +2303,7 @@ msgstr "Wollen Sie diese Auktion wirklich beenden?"
 
 #: views/listings_page.php:169
 msgid "Are you sure you want to relist this ended listing?"
-msgstr "Wollen Sie diese beendete Auktion erneut einstellen?"
+msgstr "Wollen Sie diesen beendete Artikel erneut einstellen?"
 
 #: views/listings_page.php:174 views/listings_page.php:177
 msgid "Are you sure you want to remove this listing?"

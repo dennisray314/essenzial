@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,18 +9,17 @@ require_once 'DisputeIDType.php';
 require_once 'DisputeResolutionReasonCodeType.php';
 
 /**
-  * Enables a seller to "reverse" an Unpaid Item dispute that has been closed, for
-  * example, if buyer and seller reach an agreement. The seller's Final Value Fee
-  * credit and the buyer's strike are both reversed, if applicable.
+  * Enables a seller to "reverse" an Unpaid Item dispute that has been closed in case the buyer and seller are able to reach a mutual agreement. If this action is successful, the seller receives a Final Value Fee
+  * credit and the buyer's Unpaid Item strike are both reversed, if applicable.
   * The dispute might have resulted
   * in a strike to the buyer and a Final Value Fee credit to the seller. A buyer and
   * seller sometimes come to agreement after a dispute has been closed. In particular,
   * the seller might discover that the buyer actually paid, or the buyer might agree
   * to pay the seller's fees in exchange for having the strike removed.
   * <br><br>
-  * A dispute can only be reversed if it was closed with DisputeActivity set to
-  * SellerEndCommunication, CameToAgreementNeedFVFCredit, or
-  * MutualAgreementOrNoBuyerResponse.
+  * A dispute can only be reversed if it was closed with <b>DisputeActivity</b> set to
+  * <b>SellerEndCommunication</b>, <b>CameToAgreementNeedFVFCredit</b>, or
+  * <b>MutualAgreementOrNoBuyerResponse</b>.
   * 
  **/
 

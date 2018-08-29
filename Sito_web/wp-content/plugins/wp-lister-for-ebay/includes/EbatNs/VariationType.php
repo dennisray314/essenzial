@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -15,7 +15,7 @@ require_once 'VariationProductListingDetailsType.php';
 
 /**
   * This type defines the <b>Variation</b> container, which provides full
-  * details on each item variation in a multi-variation listing.
+  * details on each item variation in a multiple-variation listing.
   * 
  **/
 

@@ -111,7 +111,7 @@
 						<h3 class="hndle"><span><?php echo __('Developer','wplister'); ?></span></h3>
 						<div class="inside">
 							<p>
-								<a href="<?php echo $wpl_form_action ?>&action=wple_add_dev_account" class="button-secondary" >Add Developer Account</a>
+								<a href="<?php echo $wpl_form_action ?>&action=wple_add_dev_account&_wp_nonce=<?php echo wp_create_nonce( 'wple_add_dev_account' ); ?>" class="button-secondary" >Add Developer Account</a>
 							</p>
 							<p>
 								This is only intended for developers.

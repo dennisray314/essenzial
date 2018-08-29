@@ -15,6 +15,7 @@ class AvantlinkDlg extends PBaseFeedDialog
         parent::__construct();
         $this->service_name = 'Avantlink';
         $this->service_name_long = 'Avantlink Products XML Export';
+        $this->doc_link = "https://www.exportfeed.com/documentation/avantlink-integration-guide/";
     }
 
     function convert_option($option)

@@ -26,6 +26,27 @@ class PProductlistrawFeed extends PBasicFeed
     function formatProduct($product)
     {
 
+      /*****************************************************************/
+      /*                  If all tag is needed                         */
+      /*****************************************************************/
+          
+           if(isset($product->attributes['tag'])){
+                $tags = null;
+                $terms = get_the_terms( $product->id, 'product_tag' );
+                foreach ($terms as $key => $value) {
+                    if($tags!==null){
+                      $tags .= ','.$value->name;   
+                  }else{
+                    $tags = $value->name;
+                  }
+                }
+                $product->attributes['tag'] = $tags;
+            }
+            
+     /******************************************************************/
+        
+
+
         //Images now soft-coded
         foreach ($product->imgurls as $image_count => $imgurl) {
             $product->attributes['additional_image_link' . $image_count] = $imgurl;

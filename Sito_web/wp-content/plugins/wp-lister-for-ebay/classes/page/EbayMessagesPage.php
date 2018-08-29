@@ -29,7 +29,7 @@ class EbayMessagesPage extends WPL_Page {
 	}
 
 	public function handleActionsOnInit() {
-        WPLE()->logger->debug("handleActionsOnInit()");
+		if ( ! current_user_can('manage_ebay_listings') ) return;
 
 		// these actions have to wait until 'init'
 		if ( $this->requestAction() == 'view_ebay_message_details' ) {
@@ -61,7 +61,8 @@ class EbayMessagesPage extends WPL_Page {
 		$this->check_wplister_setup();
 
 		// handle update ALL from eBay action
-		if ( $this->requestAction() == 'update_messages' ) {
+		if ( $this->requestAction() == 'wple_update_messages' ) {
+            check_admin_referer( 'wplister_update_messages' );
 
 			$accounts = WPLE_eBayAccount::getAll();
 			$msg = '';
@@ -86,7 +87,9 @@ class EbayMessagesPage extends WPL_Page {
 		}
 
 		// handle update from eBay bulk action
-		if ( $this->requestAction() == 'update' ) {
+		if ( $this->requestAction() == 'wple_update_messages' ) {
+		    check_admin_referer( 'wplister_messages_action' );
+
 			if ( isset( $_REQUEST['ebay_message'] ) ) {
 
 				// use account_id of first item (todo: group items by account)
@@ -111,7 +114,9 @@ class EbayMessagesPage extends WPL_Page {
 		}
 
 		// handle delete action
-		if ( $this->requestAction() == 'delete' ) {
+		if ( $this->requestAction() == 'wple_delete_messages' ) {
+            check_admin_referer( 'wplister_messages_action' );
+
 			if ( isset( $_REQUEST['ebay_message'] ) ) {
 				$mm = new EbayMessagesModel();
 				foreach ( $_REQUEST['ebay_message'] as $id ) {

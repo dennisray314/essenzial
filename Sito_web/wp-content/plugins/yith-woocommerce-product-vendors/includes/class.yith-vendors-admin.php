@@ -183,11 +183,17 @@ if ( !class_exists( 'YITH_Vendors_Admin' ) ) {
                 return;
             }
 
-            $admin_tabs = apply_filters( 'yith_vendors_admin_tabs', array(
-                    'commissions' => __( 'Commissions', 'yith-woocommerce-product-vendors' ),
-                    'vendors'     => __( 'Vendors', 'yith-woocommerce-product-vendors' ),
-                    'premium'     => __( 'Premium Version', 'yith-woocommerce-product-vendors' ),
-                ) );
+	        $admin_tabs = apply_filters( 'yith_vendors_admin_tabs', array(
+			        'commissions'      => __( 'Commissions', 'yith-woocommerce-product-vendors' ),
+			        'vendors'          => __( 'Vendors', 'yith-woocommerce-product-vendors' ),
+			        'accounts-privacy' => __( 'Accounts & Privacy', 'yith-woocommerce-product-vendors' ),
+			        'premium'          => __( 'Premium Version', 'yith-woocommerce-product-vendors' ),
+		        )
+	        );
+
+            if( ! YITH_Vendors()->is_wp_4_9_6_or_greater ){
+                unset( $admin_tabs['accounts-privacy'] );
+            }
 
             $args = array(
                 'create_menu_page' => true,
@@ -762,7 +768,7 @@ if ( !class_exists( 'YITH_Vendors_Admin' ) ) {
 
 		        // set values
 		        foreach ( $post_value as $key => $value ) {
-		            error_log( print_r( $post_value, true ) );
+
 			        if ( $key == 'description' ) {
 				        $vendor->$key = $value;
 			        }
@@ -810,7 +816,7 @@ if ( !class_exists( 'YITH_Vendors_Admin' ) ) {
 				        $user->remove_role( YITH_Vendors()->get_role_name() );
 				        $user->add_role( 'customer' );
 			        }
-			        $owner = '';
+			        $vendor->owner = $owner = '';
 		        }
 
 		        //Add Vendor Owner
@@ -1244,7 +1250,7 @@ if ( !class_exists( 'YITH_Vendors_Admin' ) ) {
          * @return  string The premium landing link
          */
         public function show_premium_tab() {
-            yith_wcpv_get_template( 'premium', array(), 'admin' );
+            yith_wcpv_get_template( 'premium-tab', array(), 'admin' );
         }
 
         /**

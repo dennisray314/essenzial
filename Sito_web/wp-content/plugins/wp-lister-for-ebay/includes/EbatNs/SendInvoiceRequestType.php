@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -16,7 +16,10 @@ require_once 'BuyerPaymentMethodCodeType.php';
 require_once 'SKUType.php';
 
 /**
-  * Enables a seller to send an order invoice to a buyer. Where applicable, updates to shipping, payment methods, and sales tax made in this request are applied to the specified order as a whole and to the individual order line items whose data are stored in individual <b>Transaction</b> objects.
+  * Enables a seller to send an order invoice to a buyer. Where applicable, updates
+  * to shipping, payment methods, and sales tax made in this request are applied to
+  * the specified order as a whole and to the individual order line items whose data
+  * are stored in individual <b>Transaction</b> objects.
   * 
  **/
 

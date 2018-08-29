@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -14,7 +14,7 @@ require_once 'ShippingInsuranceType.php';
 require_once 'CombinedPaymentPeriodCodeType.php';
 
 /**
-  * Response to call of GetShippingDiscountProfiles.
+  * The base response of the <b>GetShippingDiscountProfiles</b> call.
   * 
  **/
 

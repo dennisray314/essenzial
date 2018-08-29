@@ -88,6 +88,11 @@ final class PWBE_DB {
             return;
         }
 
+        if ( defined( 'PW_BULK_EDIT_USE_MYSQLI' ) ) {
+            PWBE_DB::$use_mysqli = PW_BULK_EDIT_USE_MYSQLI;
+            return;
+        }
+
         // Default
         PWBE_DB::$use_mysqli = false;
 

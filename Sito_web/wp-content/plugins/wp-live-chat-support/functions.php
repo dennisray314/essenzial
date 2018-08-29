@@ -8,8 +8,8 @@ function wplc_log_user_on_page($name,$email,$session, $is_mobile = false) {
     $wplc_settings = get_option('WPLC_SETTINGS');
 
 
-
-    if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
+    /** DEPRECATED DUE TO GDPR */
+    /*if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
 
         if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
             $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -26,7 +26,12 @@ function wplc_log_user_on_page($name,$email,$session, $is_mobile = false) {
             'ip' => "",
             'user_agent' => $_SERVER['HTTP_USER_AGENT']
         );
-    }
+    }*/
+
+    $user_data = array(
+        'ip' => "",
+        'user_agent' => $_SERVER['HTTP_USER_AGENT']
+    );
 
 
     /* user types
@@ -89,7 +94,8 @@ function wplc_update_user_on_page($cid, $status = 5,$session) {
     global $wplc_tblname_chats;
     $wplc_settings = get_option('WPLC_SETTINGS');
 
-    if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
+    /** DEPRECATED BY GDPR */
+    /*if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
 
         if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
             $ip_address = sanitize_text_field($_SERVER['HTTP_X_FORWARDED_FOR']);
@@ -105,7 +111,12 @@ function wplc_update_user_on_page($cid, $status = 5,$session) {
             'ip' => "",
             'user_agent' => sanitize_text_field($_SERVER['HTTP_USER_AGENT'])
         );
-    }
+    }*/
+
+    $user_data = array(
+        'ip' => "",
+        'user_agent' => sanitize_text_field($_SERVER['HTTP_USER_AGENT'])
+    );
 
 
 
@@ -218,7 +229,7 @@ function wplc_record_chat_msg($from, $cid, $msg, $rest_check = false, $aid = fal
     }
 
     $msg_id = '';
-    
+
     if ($other !== false) {
         if (!empty($other->msgID)) {
             $msg_id = $other->msgID;
@@ -234,7 +245,7 @@ function wplc_record_chat_msg($from, $cid, $msg, $rest_check = false, $aid = fal
 
     if (!$aid) {
         $wplc_current_user = get_current_user_id();
-        
+
         if( get_user_meta( $wplc_current_user, 'wplc_ma_agent', true ) ){
             $other_data = array('aid'=>$wplc_current_user);
         } else {
@@ -719,6 +730,7 @@ function wplc_return_user_chat_messages($cid,$wplc_settings = false,$cdata = fal
 
         $timestamp = strtotime( $result->timestamp );
         $other_data['datetime'] = $timestamp;
+	    $other_data['datetimeUTC'] = strtotime( get_gmt_from_date( $result->timestamp ) );
 
         //
         if($result->originates == 1){
@@ -992,7 +1004,7 @@ function wplc_return_chat_messages($cid, $transcript = false, $html = true, $wpl
 
         } else if ($result->originates == 0 || $result->originates == 3) {
 
-            
+
 
             $system_notification = true;
             $cuid = get_current_user_id();
@@ -1035,9 +1047,9 @@ function wplc_return_chat_messages($cid, $transcript = false, $html = true, $wpl
                 $msg = stripslashes($msg);
             }
 
-            if ( isset( $result->afrom ) && intval( $result->afrom ) > 0 ) { 
+            if ( isset( $result->afrom ) && intval( $result->afrom ) > 0 ) {
                 $msg_array[$id]['afrom'] = intval( $result->afrom ); $other_data['aid'] = intval( $result->afrom );
-                
+
             }
             if ( isset( $result->ato ) && intval( $result->ato ) > 0 ) { $msg_array[$id]['ato'] = intval( $result->ato ); }
 
@@ -1058,7 +1070,7 @@ function wplc_return_chat_messages($cid, $transcript = false, $html = true, $wpl
             } else {
                 $user_from = 'User';
             }
-        
+
 
             $msg_array[$id]['msg'] = $msg;
 
@@ -1067,7 +1079,7 @@ function wplc_return_chat_messages($cid, $transcript = false, $html = true, $wpl
             } else {
                 $msg_hist .= $user_from . ": " . $msg . "<br />";
             }
-            
+
 
             $msg_array[$id]['originates'] = $result->originates;
             $msg_array[$id]['other'] = $other_data;
@@ -1234,6 +1246,7 @@ function wplc_return_admin_chat_messages($cid) {
 
             $timestamp = strtotime( $result->timestamp );
             $other_data['datetime'] = $timestamp;
+	        $other_data['datetimeUTC'] = strtotime( get_gmt_from_date( $result->timestamp ) );
 
             if (intval($result->originates) == 3) {
                 /*
@@ -1645,7 +1658,8 @@ function wplc_store_offline_message($name, $email, $message){
 
     $wplc_settings = get_option('WPLC_SETTINGS');
 
-    if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
+    /** DEPRECATED BY GDPR */
+    /**if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
         if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
             $ip_address = sanitize_text_field($_SERVER['HTTP_X_FORWARDED_FOR']);
         } else {
@@ -1654,7 +1668,9 @@ function wplc_store_offline_message($name, $email, $message){
         $offline_ip_address = $ip_address;
     } else {
         $offline_ip_address = "";
-    }
+    }*/
+
+    $offline_ip_address = "";
 
 
     $ins_array = array(
@@ -1692,7 +1708,8 @@ function wplc_user_initiate_chat($name,$email,$cid = null,$session) {
 
     $wplc_settings = get_option('WPLC_SETTINGS');
 
-    if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
+    /** DEPRECATED BY GDPR */
+    /*if(isset($wplc_settings['wplc_record_ip_address']) && $wplc_settings['wplc_record_ip_address'] == 1){
         if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
             $ip_address = sanitize_text_field($_SERVER['HTTP_X_FORWARDED_FOR']);
         } else {
@@ -1709,7 +1726,13 @@ function wplc_user_initiate_chat($name,$email,$cid = null,$session) {
             'user_agent' => sanitize_text_field($_SERVER['HTTP_USER_AGENT'])
         );
         $wplc_ce_ip = null;
-    }
+    }*/
+
+    $user_data = array(
+        'ip' => "",
+        'user_agent' => sanitize_text_field($_SERVER['HTTP_USER_AGENT'])
+    );
+    $wplc_ce_ip = null;
 
     if(function_exists('wplc_ce_activate')){
         /* Log the chat for statistical purposes as well */
@@ -2100,11 +2123,20 @@ function wplc_admin_display_missed_chats() {
             </thead>
             <tbody id=\"the-list\" class='list:wp_list_text_link'>";
 
+	$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
+	$limit = 20; // number of rows in page
+	$offset = ( $pagenum - 1 ) * $limit;
+	if (function_exists("wplc_register_pro_version")) {
+		$total = $wpdb->get_var( "SELECT COUNT(`id`) FROM $wplc_tblname_chats WHERE (`status` = 0  OR `agent_id` = 0)" );
+	} else {
+		$total = $wpdb->get_var( "SELECT COUNT(`id`) FROM $wplc_tblname_chats WHERE `status` = 0" );
+	}
+	$num_of_pages = ceil( $total / $limit );
 
     if (function_exists("wplc_register_pro_version")) {
-        $sql = "SELECT * FROM $wplc_tblname_chats WHERE (`status` = 0  OR `agent_id` = 0) ORDER BY `timestamp` DESC";
+        $sql = "SELECT * FROM $wplc_tblname_chats WHERE (`status` = 0  OR `agent_id` = 0) ORDER BY `timestamp` DESC LIMIT $limit OFFSET $offset";
     } else {
-        $sql = "SELECT * FROM $wplc_tblname_chats WHERE `status` = 0 ORDER BY `timestamp` DESC";
+        $sql = "SELECT * FROM $wplc_tblname_chats WHERE `status` = 0 ORDER BY `timestamp` DESC LIMIT $limit OFFSET $offset";
     }
 
     $results = $wpdb->get_results($sql);
@@ -2122,9 +2154,9 @@ function wplc_admin_display_missed_chats() {
                 ";
 
             echo "<tr id=\"record_" . $result->id . "\">";
-            echo "<td class='chat_id column-chat_d'>" . $result->timestamp . "</td>";
-            echo "<td class='chat_name column_chat_name' id='chat_name_" . $result->id . "'><img src=\"//www.gravatar.com/avatar/" . md5($result->email) . "?s=30\"  class='wplc-user-message-avatar' /> " . $result->name . "</td>";
-            echo "<td class='chat_email column_chat_email' id='chat_email_" . $result->id . "'><a href='mailto:" . $result->email . "' title='Email " . ".$result->email." . "'>" . $result->email . "</a></td>";
+            echo "<td class='chat_id column-chat_d'>" . sanitize_text_field($result->timestamp) . "</td>";
+            echo "<td class='chat_name column_chat_name' id='chat_name_" . $result->id . "'><img src=\"//www.gravatar.com/avatar/" . md5($result->email) . "?s=30\"  class='wplc-user-message-avatar' /> " . sanitize_text_field($result->name) . "</td>";
+            echo "<td class='chat_email column_chat_email' id='chat_email_" . $result->id . "'><a href='mailto:" . sanitize_text_field($result->email) . "' title='Email " . ".$result->email." . "'>" . sanitize_text_field($result->email) . "</a></td>";
             echo "<td class='chat_name column_chat_url' id='chat_url_" . $result->id . "'>" . esc_url($result->url) . "</td>";
             echo "<td class='chat_name column_chat_url'>".$actions."</td>";
             echo "</tr>";
@@ -2134,6 +2166,19 @@ function wplc_admin_display_missed_chats() {
     echo "
             </tbody>
         </table>";
+
+	$page_links = paginate_links( array(
+		'base' => add_query_arg( 'pagenum', '%#%' ),
+		'format' => '',
+		'prev_text' => __( '&laquo;', 'wplivechat' ),
+		'next_text' => __( '&raquo;', 'wplivechat' ),
+		'total' => $num_of_pages,
+		'current' => $pagenum
+	) );
+
+	if ( $page_links ) {
+		echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0;float:none;text-align:center;">' . $page_links . '</div></div>';
+	}
 }
 
 

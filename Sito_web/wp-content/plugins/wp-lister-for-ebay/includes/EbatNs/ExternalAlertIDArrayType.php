@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,6 +7,8 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
+  * This type is deprecated.
+  * 
  **/
 
 class ExternalAlertIDArrayType extends EbatNs_ComplexType

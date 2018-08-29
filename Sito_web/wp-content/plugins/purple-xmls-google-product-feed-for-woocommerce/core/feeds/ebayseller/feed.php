@@ -44,13 +44,13 @@ class PeBaySellerFeed extends PCSVFeedEx
         $this->addAttributeMapping('PostalCode', 'PostalCode', true, true); //state and country where item is located
 
         //brand and MPN must be used together
-        $this->addAttributeMapping('brand', 'C:Brand', true);
-        $this->addAttributeMapping('sku', 'C:MPN');
+        $this->addAttributeMapping('brand', 'Product:Brand', true);
+        $this->addAttributeMapping('sku', 'Product:MPN');
         $this->addAttributeMapping('', 'C:Color');
         $this->addAttributeMapping('', 'C:Size');
         $this->addAttributeMapping('', 'C:Style');
-        $this->addAttributeMapping('', 'C:ProductEAN');
-        $this->addAttributeMapping('', 'C:UPC');
+        $this->addAttributeMapping('', 'Product:EAN');
+        $this->addAttributeMapping('', 'Product:UPC');
 
         /** Returns **/
         $this->addAttributeMapping('ReturnsAcceptedOption', 'ReturnsAcceptedOption', true, true); //ReturnsAccepted

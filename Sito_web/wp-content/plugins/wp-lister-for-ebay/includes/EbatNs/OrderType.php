@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -266,6 +266,11 @@ class OrderType extends EbatNs_ComplexType
 	* @var string
 	**/
 	protected $ExtendedOrderID;
+
+	/**
+	* @var boolean
+	**/
+	protected $ContainseBayPlusTransaction;
 
 
 	/**
@@ -634,6 +639,14 @@ class OrderType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'string',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'ContainseBayPlusTransaction' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -1466,6 +1479,22 @@ class OrderType extends EbatNs_ComplexType
 	function setExtendedOrderID($value)
 	{
 		$this->ExtendedOrderID = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getContainseBayPlusTransaction()
+	{
+		return $this->ContainseBayPlusTransaction;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setContainseBayPlusTransaction($value)
+	{
+		$this->ContainseBayPlusTransaction = $value;
 	}
 
 }

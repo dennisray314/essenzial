@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,7 @@ require_once 'EbatNs_ComplexType.php';
 require_once 'ItemIDType.php';
 
 /**
-  * Type defining the <b>PromotionalSaleItemIDArray</b> container, which 
+  * Type defining the <b>PromotionalSaleItemIDArray</b> container, which
   * consists of an array of listings to which a Promotional Sale applies.
   * 
  **/

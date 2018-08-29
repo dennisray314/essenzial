@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,7 +10,7 @@ require_once 'VeROReportPacketStatusCodeType.php';
 require_once 'VeROReportedItemDetailsType.php';
 
 /**
-  * Contains status information for items reported by the VeRO Program member. 
+  * Base response of the <strong>GetVeROReportStatus</strong> call. This response contains status information for items reported by the VeRO Program member.
   * 
  **/
 

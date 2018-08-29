@@ -1,14 +1,12 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
 
 require_once 'EbatNs_ComplexType.php';
 require_once 'MeasurementSystemCodeType.php';
-require_once 'MeasureType.php';
 require_once 'AmountType.php';
-require_once 'ShippingPackageCodeType.php';
 
 /**
   * Details pertinent to one or more items for which
@@ -18,7 +16,7 @@ require_once 'ShippingPackageCodeType.php';
   * with the data for an item's transaction.
   * <br><br>
   * <span class="tablenote"><strong>Note:</strong>
-  * The <strong>CalculatedShippingRate</strong> container should only be used to specify values for the <strong>InternationalPackagingHandlingCosts</strong>, <strong>OriginatingPostalCode</strong>, and/or <strong>PackagingHandlingCosts</strong> fields. The rest of the fields in the <strong>CalculatedShippingRate</strong> container are used to specify package dimensions and package weight, and these values should now be specified in the <strong>ShippingPackageDetails</strong> container instead.
+  * The <strong>CalculatedShippingRate</strong> container should only be used to specify values for the <strong>InternationalPackagingHandlingCosts</strong>, <strong>OriginatingPostalCode</strong>, and/or <strong>PackagingHandlingCosts</strong> fields. The rest of the fields in the <strong>CalculatedShippingRate</strong> container should now be specified in the <strong>ShipPackageDetails</strong> container instead.
   * </span>
   * 
  **/
@@ -36,21 +34,6 @@ class CalculatedShippingRateType extends EbatNs_ComplexType
 	protected $MeasurementUnit;
 
 	/**
-	* @var MeasureType
-	**/
-	protected $PackageDepth;
-
-	/**
-	* @var MeasureType
-	**/
-	protected $PackageLength;
-
-	/**
-	* @var MeasureType
-	**/
-	protected $PackageWidth;
-
-	/**
 	* @var AmountType
 	**/
 	protected $PackagingHandlingCosts;
@@ -59,21 +42,6 @@ class CalculatedShippingRateType extends EbatNs_ComplexType
 	* @var boolean
 	**/
 	protected $ShippingIrregular;
-
-	/**
-	* @var ShippingPackageCodeType
-	**/
-	protected $ShippingPackage;
-
-	/**
-	* @var MeasureType
-	**/
-	protected $WeightMajor;
-
-	/**
-	* @var MeasureType
-	**/
-	protected $WeightMinor;
 
 	/**
 	* @var AmountType
@@ -107,30 +75,6 @@ class CalculatedShippingRateType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'PackageDepth' =>
-				array(
-					'required' => false,
-					'type' => 'MeasureType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'PackageLength' =>
-				array(
-					'required' => false,
-					'type' => 'MeasureType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'PackageWidth' =>
-				array(
-					'required' => false,
-					'type' => 'MeasureType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
 				'PackagingHandlingCosts' =>
 				array(
 					'required' => false,
@@ -144,30 +88,6 @@ class CalculatedShippingRateType extends EbatNs_ComplexType
 					'required' => false,
 					'type' => 'boolean',
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'ShippingPackage' =>
-				array(
-					'required' => false,
-					'type' => 'ShippingPackageCodeType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'WeightMajor' =>
-				array(
-					'required' => false,
-					'type' => 'MeasureType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'WeightMinor' =>
-				array(
-					'required' => false,
-					'type' => 'MeasureType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -218,54 +138,6 @@ class CalculatedShippingRateType extends EbatNs_ComplexType
 	}
 
 	/**
-	 * @return MeasureType
-	 **/
-	function getPackageDepth()
-	{
-		return $this->PackageDepth;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setPackageDepth($value)
-	{
-		$this->PackageDepth = $value;
-	}
-
-	/**
-	 * @return MeasureType
-	 **/
-	function getPackageLength()
-	{
-		return $this->PackageLength;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setPackageLength($value)
-	{
-		$this->PackageLength = $value;
-	}
-
-	/**
-	 * @return MeasureType
-	 **/
-	function getPackageWidth()
-	{
-		return $this->PackageWidth;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setPackageWidth($value)
-	{
-		$this->PackageWidth = $value;
-	}
-
-	/**
 	 * @return AmountType
 	 **/
 	function getPackagingHandlingCosts()
@@ -295,54 +167,6 @@ class CalculatedShippingRateType extends EbatNs_ComplexType
 	function setShippingIrregular($value)
 	{
 		$this->ShippingIrregular = $value;
-	}
-
-	/**
-	 * @return ShippingPackageCodeType
-	 **/
-	function getShippingPackage()
-	{
-		return $this->ShippingPackage;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setShippingPackage($value)
-	{
-		$this->ShippingPackage = $value;
-	}
-
-	/**
-	 * @return MeasureType
-	 **/
-	function getWeightMajor()
-	{
-		return $this->WeightMajor;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setWeightMajor($value)
-	{
-		$this->WeightMajor = $value;
-	}
-
-	/**
-	 * @return MeasureType
-	 **/
-	function getWeightMinor()
-	{
-		return $this->WeightMinor;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setWeightMinor($value)
-	{
-		$this->WeightMinor = $value;
 	}
 
 	/**

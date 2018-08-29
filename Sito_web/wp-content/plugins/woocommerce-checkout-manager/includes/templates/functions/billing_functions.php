@@ -213,7 +213,7 @@ jQuery(document).ready(function($) {
 
 	jQuery('#billing_<?php echo $btn['cow']; ?>_field input').click(function() {
 
-		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 		var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 		data = {
@@ -242,7 +242,7 @@ jQuery(document).ready(function($) {
 <?php } ?>
 	jQuery('#billing_<?php echo $btn['cow']; ?>_field input').click(function() {
 
-		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 		var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 		data = {
@@ -273,7 +273,7 @@ jQuery(document).ready(function($) {
 <?php } ?>
 	jQuery('#billing_<?php echo $btn['cow']; ?>_field select').change(function() {
 
-		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 		var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 		data = {
@@ -303,7 +303,7 @@ jQuery(document).ready(function($) {
 
 	jQuery('#billing_<?php echo $btn['cow']; ?>_field select').change(function() {
 
-		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 		var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 		data = {
@@ -339,7 +339,7 @@ jQuery(document).ready(function($) {
 
 	jQuery('#billing_<?php echo $btn['cow']; ?>_field #billing_<?php echo $btn['cow']; ?>_applynow').click(function() {
 
-		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+		$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 		var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 		data = {
@@ -447,7 +447,7 @@ jQuery(document).ready(function($){
 
 <?php if( !empty( $btn2['fee_name'] ) && !empty( $btn2['add_amount'] ) ) { ?>
 
-			$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+			$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 			var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 			data = {
@@ -514,7 +514,7 @@ jQuery(document).ready(function($){
 
 <?php if( !empty( $btn2['fee_name'] ) && !empty( $btn2['add_amount'] ) ) { ?>
 
-			$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+			$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 			var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 			data = {
@@ -579,7 +579,7 @@ jQuery(document).ready(function($){
 
 <?php if( !empty( $btn2['fee_name'] ) && !empty( $btn2['add_amount'] ) ) { ?>
 
-			$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + wc_checkout_params.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
+			$( 'form.checkout' ).block({ message: null, overlayCSS: { background: '#fff url(' + woocommerce_get_script_data.ajax_loader_url + ') no-repeat center', backgroundSize: '16px 16px', opacity: 0.6 } });
 
 			var ajaxurl = '<?php echo admin_url('/admin-ajax.php'); ?>';
 			data = {

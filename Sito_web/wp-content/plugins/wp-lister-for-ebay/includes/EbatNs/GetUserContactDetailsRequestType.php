@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,8 +7,7 @@
 require_once 'AbstractRequestType.php';
 
 /**
-  * Returns contact information for a specified user, given that a bidding relationship
-  * (as either a buyer or seller) exists between the caller and the user.
+  * This call is used to retrieve contact information for a specified eBay user, given that a bidding relationship (as either a buyer or seller) exists between the caller and the user.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,7 +10,6 @@ require_once 'EbatNs_ComplexType.php';
   * Contains data indicating whether an item has been revised since the
   * listing became active and, if so, which among a subset of properties
   * have been changed by the revision.
-  * Output only.
   * 
  **/
 

@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'FlatRateInsuranceRangeCodeType.php';
 require_once 'AmountType.php';
 
 /**
-  * A pairing of range and insurance cost.
+  * This type is used by the <b>FlatRateInsuranceRangeCost</b> container to specify the shipping insurance cost and price range for domestic and international flat-rate shipping.
   * 
  **/
 

@@ -19,14 +19,15 @@ function write_log($txt){
 	return fwrite($logfile,  $message );
 }
 
-
 add_filter( 'x_enqueue_parent_stylesheet', '__return_true' );
 
-function google_fonts() {
+function inserisci_scripts() {
     wp_enqueue_style( 'spectral', 'https://fonts.googleapis.com/css?family=Spectral' );
+    wp_enqueue_script('sconti2x1', get_stylesheet_directory_uri() . '/sconti2x1.js', array('jquery'), true );
+    
 }
 
-add_action( 'wp_enqueue_scripts', 'google_fonts' );
+add_action( 'wp_enqueue_scripts', 'inserisci_scripts' );
 
 
 if( is_admin() ) {
@@ -472,7 +473,8 @@ function add_content_after_addtocart_button_func() {
 /**
  * WOOCOMMERCE 3 NUOVA IMPLEMENTAZIONE
  */
-add_action( 'woocommerce_before_calculate_totals', 'add_custom_price');
+/** commentato da roberto 32/08*/
+//add_action( 'woocommerce_before_calculate_totals', 'add_custom_price');
 function add_custom_price( $cart_object) {
     
     if ( is_admin() && !defined( 'DOING_AJAX' ) )
@@ -500,7 +502,7 @@ function add_custom_price( $cart_object) {
         }
 }
 
-add_filter('woocommerce_available_variation','return_custom_available_variation', 10,3);
+//add_filter('woocommerce_available_variation','return_custom_available_variation', 10,3);
 
 function return_custom_available_variation( $variation_get_max_purchase_quantity, $instance, $variation ){
     global $product;
@@ -524,15 +526,15 @@ function return_custom_available_variation( $variation_get_max_purchase_quantity
 
 
 
-
-add_filter('woocommerce_product_get_price', 'return_custom_price', 10,2);
+/**Modificato da roberto 23/08 */
+//add_filter('woocommerce_product_get_price', 'return_custom_price', 10,2);
 
 function return_custom_price($price, $product) {
     global  $woocommerce;
     // Grab the product id
 
     //$post_id = $product->id;
-
+    //Inserito nel caso che il prezzo sia non percentuale, ma particolare per l'evoluter 
     if ( !is_null( $product ) ){
         $prezzo_evoluter = $product->get_attribute( 'prezzo_evoluter' );
         
@@ -540,6 +542,7 @@ function return_custom_price($price, $product) {
             return $prezzo_evoluter;
         }
     }
+//Fine prezzo particolare per evoluter
 
     if (isset($_GET['evoluter'])) {
         $user_meta=get_userdata($_GET['evoluter']);
@@ -552,9 +555,12 @@ function return_custom_price($price, $product) {
     $id = $user_meta->ID;
     $id_user = 'user_'.$id;
     $sconto = get_field('sconto', $id_user);
-    
+    $totale_carrello = WC()->cart->cart_contents_total;
+    //print_r($totale_carrello);
 
+    //lo sconto è derivato dal campo sconto dell'evoluter, ma ora lo calcolo con il plugin quindi lo metto a 0
     $sconto = 100 - $sconto;
+    
     if (($sconto==0) || (!$sconto)) {
         $sconto = 100;
     }
@@ -568,7 +574,8 @@ function return_custom_price($price, $product) {
             
         }
     }
-    
+   //Senza sconto equivale allo sconto=100
+    //$sconto = 100; 
     $sconto = $sconto / 100;
 
     // If the IP detection is enabled look for the correct price
@@ -578,14 +585,17 @@ function return_custom_price($price, $product) {
 }
 
 // Modifica prezzi variabili
-add_filter( 'woocommerce_variable_price_html', 'wc_wc20_variation_price_format', 10, 2 );
+//add_filter( 'woocommerce_variable_price_html', 'wc_wc20_variation_price_format', 10, 2 );
 function wc_wc20_variation_price_format( $price, $product ) {
     
     $id = get_current_user_id();
     $id_user = 'user_'. $id;
+    
 
     $sconto = get_field('sconto', $id_user);
-    $sconto = 100 - $sconto;
+   //Azzero lo sconto  non prendo quello dell'evoluter ma lo metto senza sconto
+      //$sconto = 100 - $sconto;
+   //$sconto = 100;
     if (($sconto==0) || (!$sconto)) {
         $sconto = 100;
     }
@@ -638,7 +648,7 @@ function wc_ninja_change_flat_rates_cost( $rates, $package ) {
     return $rates;
 }
 
-add_filter( 'woocommerce_package_rates', 'wc_ninja_change_flat_rates_cost', 10, 2 );
+//add_filter( 'woocommerce_package_rates', 'wc_ninja_change_flat_rates_cost', 10, 2 );
 
 
 function add_this_script_footer(){
@@ -802,8 +812,8 @@ function filter_woocommerce_my_account_my_orders_query( $args ) {
 };
 
 // add the filter
-add_filter( 'woocommerce_my_account_my_orders_query', 'filter_woocommerce_my_account_my_orders_query', 10, 1 );
-add_filter('woocommerce_after_my_account', 'myAccountDashboardCapoArea',10,1);
+//add_filter( 'woocommerce_my_account_my_orders_query', 'filter_woocommerce_my_account_my_orders_query', 10, 1 );
+//add_filter('woocommerce_after_my_account', 'myAccountDashboardCapoArea',10,1);
 
 
 
@@ -973,7 +983,7 @@ function is_original_present() {
 
 }
 
-add_filter('woocommerce_coupon_get_discount_amount', 'woocommerce_coupon_get_discount_amount', 10, 5 );
+//add_filter('woocommerce_coupon_get_discount_amount', 'woocommerce_coupon_get_discount_amount', 10, 5 );
 	function woocommerce_coupon_get_discount_amount( $discount, $discounting_amount, $cart_item, $single, $coupon ) {
 		if ($coupon->type == 'percent_product' || $coupon->type == 'percent') {
 			global $woocommerce;
@@ -994,5 +1004,28 @@ add_filter('woocommerce_coupon_get_discount_amount', 'woocommerce_coupon_get_dis
 		}
 		return $discount;
 	}
+
+
+
+
+
+add_action( 'wp_ajax_update_sconto_user_meta', 'update_sconto_user_meta' );
+add_action( 'wp_ajax_nopriv_update_sconto_user_meta', 'update_sconto_user_meta' );
+
+function update_sconto_user_meta() {
+    
+    $nuovo_valore = $_POST['radiovalue'];
+    $user_id = get_current_user_id();
+    update_user_meta( $user_id,  'sconto_2x1', $nuovo_valore );
+    
+    echo $nuovo_valore;
+    die();
+    
+}
+
+
+
+
+
 
 

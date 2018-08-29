@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,6 +7,7 @@
 require_once 'EbatNs_ComplexType.php';
 
 /**
+  * Type used by the <b>ReturnPolicyDetails.WarrantyOffered</b> container, which is returned in <b>GeteBayDetails</b> response to indicate if a warranty may be offered by the seller to the buyer in a listing.
   * 
  **/
 

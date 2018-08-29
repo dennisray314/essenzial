@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,9 +8,9 @@ require_once 'AbstractResponseType.php';
 require_once 'SuggestedCategoryArrayType.php';
 
 /**
-  * Returns a list of categories with the highest number
-  * of listings whose titles or descriptions contain the keywords
-  * specified in a GetSuggestedCategoriesRequest.
+  * The base response of a <b>GetSuggestedCategories</b> call. This response includes an array of categories with the highest number
+  * of listings whose listing titles or descriptions contain the keywords
+  * specified in the <b>Query</b> field of the call request.
   *     
  **/
 

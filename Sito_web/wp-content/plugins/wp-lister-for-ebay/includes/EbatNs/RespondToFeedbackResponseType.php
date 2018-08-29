@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -7,10 +7,7 @@
 require_once 'AbstractResponseType.php';
 
 /**
-  * Indicates the success or failure of the attempt to reply
-  * to feedback that has been left for a user, or to post a
-  * follow-up comment to a feedback comment a user has left
-  * for someone else.
+  * Base response for the <b>RespondToFeedback</b>. This response will indicate the success or failure of the attempt to reply to Feedback that has been left for a user, or to post a follow-up comment to a Feedback comment a user has left for someone else. This response has no call-specific output fields.
   * 
  **/
 

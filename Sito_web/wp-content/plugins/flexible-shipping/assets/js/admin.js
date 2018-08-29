@@ -158,3 +158,17 @@ function fs_ajax(button, id, fs_action) {
         jQuery('#flexible_shipping_shipment_' + id + ' .flexible_shipping_shipment_message').html("Request failed: " + textStatus + " " + jqXHR.status);
     })
 }
+
+/* Notice */
+
+jQuery(function($) {
+    $( document ).on( 'click', '.flexible-shipping-taxes-notice .notice-dismiss', function () {
+        $.ajax( ajaxurl,
+            {
+                type: 'POST',
+                data: {
+                    action: 'flexible_shipping_taxes_notice',
+                }
+            } );
+    } );
+});

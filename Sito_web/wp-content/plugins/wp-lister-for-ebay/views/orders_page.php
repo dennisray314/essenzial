@@ -51,8 +51,8 @@
 
 	<form method="post" action="<?php echo $wpl_form_action; ?>">
 		<p>
-			<?php #wp_nonce_field( 'e2e_tools_page' ); ?>
-			<input type="hidden" name="action" value="update_orders" />
+			<?php wp_nonce_field( 'wplister_update_orders' ); ?>
+			<input type="hidden" name="action" value="wple_update_orders" />
 			<input type="submit" value="<?php echo __('Update orders','wplister') ?>" name="submit" class="button"
 				   title="<?php echo __('Update recent orders from eBay.','wplister') ?>">
 			&nbsp; <a href="#" onclick="jQuery('#wpl_advanced_order_options').toggle();return false;" class="button"><?php echo __('Options','wplister') ?></a>

@@ -27,7 +27,7 @@ if ( !defined( 'ABSPATH' ) ) {
 <span id="pwbe-dialog-content-checkbox" class="pwbe-dialog-content" data-function="pwbeBulkEditorCheckboxHandler">
 	<span class="pwbe-bulkedit-field-name"></span>?
 	<p>
-		&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="pwbe-bulkedit-editor-checkbox-field" class="pwbe-bulkedit-editor-checkbox-field" /><label for="pwbe-bulkedit-editor-checkbox-field">Yes</label>
+		&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="pwbe-bulkedit-editor-checkbox-field" class="pwbe-bulkedit-editor-checkbox-field" /><label for="pwbe-bulkedit-editor-checkbox-field"><?php _e( 'Yes', 'pw-bulk-edit' ); ?></label>
 	</p>
 </span>
 <script>

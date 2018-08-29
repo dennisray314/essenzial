@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -10,7 +10,7 @@ require_once 'PromotionalSaleType.php';
 
 /**
   * Creates or modifies a promotional sale. Promotional sales enable sellers
-  * to apply discounts and/or free shipping across many listings.
+  * to apply discounts and/or free shipping across many listings. To use this call, the seller must be a registered eBay Store owner.
   * 
  **/
 

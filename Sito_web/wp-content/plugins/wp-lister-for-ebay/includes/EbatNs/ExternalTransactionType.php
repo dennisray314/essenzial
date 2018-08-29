@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -11,7 +11,7 @@ require_once 'PaymentTransactionStatusCodeType.php';
 /**
   * Container consisting of details related to payment of an eBay order on an
   * external system such as PayPal. This container is only returned if payment has
-  * been made on an order. For GetSellerTransaactions and GetItemTransactions, this
+  * been made on an order. For <b>GetSellerTransaactions</b> and <b>GetItemTransactions</b>, this
   * container is not returned for multiple line item orders.
   * 
  **/

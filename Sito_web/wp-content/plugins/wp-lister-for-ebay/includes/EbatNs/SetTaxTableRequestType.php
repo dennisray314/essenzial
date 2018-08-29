@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -8,7 +8,9 @@ require_once 'AbstractRequestType.php';
 require_once 'TaxTableType.php';
 
 /**
-  * Sets the tax table for a seller on a given site.
+  * This call allows you to add or modify sales tax rates for one or more tax jurisdictions within the specified site. Any additions or modifications made with this call is saved in the seller's Sales Tax Table in My eBay.
+  * <br/><br/>
+  * Sales Tax Tables are only supported on the US, Canada (English  and French versions), and India sites, so this call is only applicable to those sites. To view their current Sales Tax Table, a seller may go to the Sales Tax Table in My eBay, or they can make a <b>GetTaxTable</b> call.
   * 
  **/
 

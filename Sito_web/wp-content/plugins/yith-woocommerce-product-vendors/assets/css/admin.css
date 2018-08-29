@@ -78,6 +78,10 @@ select#tax-input-yith_shop_vendor {
     z-index: 999;
 }
 
+.yith.status-enabled:before{
+    color: #acc327;
+}
+
 /* Add-ons tab */
 
 #yith_wpv_panel_add-ons #plugin-fw-wc h2,
@@ -86,7 +90,6 @@ select#tax-input-yith_shop_vendor {
     display: inline-block;
     margin-right: 10px;
 }
-
 
 /* Orders */
 
@@ -442,11 +445,6 @@ input#yith_vendor_vat.valid {
   margin-top: 10px;
 }
 
-/* Edit Product */
-.vendor_limited_access #shipping_product_data div.options_group:last-of-type {
-    display: none;
-}
-
 /* Hide WP Submenu item */
 .yith-wcpv-hide-submenu-item {
     display: none;
@@ -729,6 +727,31 @@ label[for=yith_vendor_social_live-chat] small em {
 
 label[for=yith_vendor_social_live-chat] small {
     font-weight: 400;
+}
+
+/* === Gateways Tab === */
+
+.yith-wcmv-gateway-required-external{
+    color: #e40000;
+}
+
+#stripe_connect_coming_soon{
+    max-width: 100%;
+}
+
+#stripe_connect_coming_soon img{
+    margin-bottom: 15px;
+}
+
+#stripe_connect_coming_soon:after{
+    clear: both;
+}
+
+.yith_wcmv_gateways td.name.is_coming_soon a::after {
+    content: "(Coming Soon)";
+    color: #e40000;
+    display: inline-block;
+    margin-left: 2px;
 }
 
 /* WC 3.0 fix */

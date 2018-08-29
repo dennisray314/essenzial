@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -9,7 +9,7 @@ require_once 'StoreCategoryUpdateActionCodeType.php';
 require_once 'StoreCustomCategoryArrayType.php';
 
 /**
-  * Changes the category structure of an eBay store.
+  * This call allows you to set or modify the category structure of an eBay Store. Sellers must have an eBay Store subscription in order to use this call.
   * 
  **/
 

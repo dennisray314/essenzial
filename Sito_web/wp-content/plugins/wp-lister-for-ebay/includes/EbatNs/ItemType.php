@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -18,7 +18,6 @@ require_once 'CrossPromotionsType.php';
 require_once 'CurrencyCodeType.php';
 require_once 'DescriptionReviseModeCodeType.php';
 require_once 'DistanceType.php';
-require_once 'GiftServicesCodeType.php';
 require_once 'HitCounterCodeType.php';
 require_once 'ItemIDType.php';
 require_once 'ListingDetailsType.php';
@@ -39,10 +38,7 @@ require_once 'VATDetailsType.php';
 require_once 'BestOfferDetailsType.php';
 require_once 'SKUType.php';
 require_once 'SearchDetailsType.php';
-require_once 'ExternalProductIDType.php';
 require_once 'PictureDetailsType.php';
-require_once 'SkypeContactOptionCodeType.php';
-require_once 'ListingCheckoutRedirectPreferenceType.php';
 require_once 'AddressType.php';
 require_once 'ExtendedContactDetailsType.php';
 require_once 'NameValueListArrayType.php';
@@ -60,20 +56,16 @@ require_once 'DiscountPriceInfoType.php';
 require_once 'QuantityInfoType.php';
 require_once 'SellerProfilesType.php';
 require_once 'ShippingServiceCostOverrideListType.php';
+require_once 'ShippingOverrideType.php';
 require_once 'ShipPackageDetailsType.php';
 require_once 'QuantityRestrictionPerBuyerInfoType.php';
 require_once 'UnitInfoType.php';
 require_once 'ReasonHideFromSearchCodeType.php';
 require_once 'PickupInStoreDetailsType.php';
+require_once 'DigitalGoodInfoType.php';
 
 /**
-  * Contains the data defining one item. A seller populates an object of
-  * this type at listing time with the definition of a new item. A seller
-  * also uses an object of this type to relist or revise an item. Calls
-  * that retrieve item data (such as the <b>GetSellerList</b> call) return an object of
-  * this type, filled with the item's data. Some fields are applicable both
-  * to eBay listings and Half.com listings. Some fields are only applicable to eBay listings,
-  * and others are only applicable to Half.com listings.
+  * Contains the data defining one item. A seller populates an object of this type at listing time with the definition of a new item. A seller also uses an object of this type to relist or revise an item. Calls that retrieve item data (such as the <b>GetSellerList</b> call) return an object of this type, filled with the item's data.
   * 
  **/
 
@@ -170,16 +162,6 @@ class ItemType extends EbatNs_ComplexType
 	protected $Distance;
 
 	/**
-	* @var int
-	**/
-	protected $GiftIcon;
-
-	/**
-	* @var GiftServicesCodeType
-	**/
-	protected $GiftServices;
-
-	/**
 	* @var HitCounterCodeType
 	**/
 	protected $HitCounter;
@@ -248,11 +230,6 @@ class ItemType extends EbatNs_ComplexType
 	* @var CategoryType
 	**/
 	protected $PrimaryCategory;
-
-	/**
-	* @var boolean
-	**/
-	protected $PrivateListing;
 
 	/**
 	* @var ProductListingDetailsType
@@ -397,11 +374,6 @@ class ItemType extends EbatNs_ComplexType
 	/**
 	* @var boolean
 	**/
-	protected $ThirdPartyCheckout;
-
-	/**
-	* @var boolean
-	**/
 	protected $UseTaxTable;
 
 	/**
@@ -465,11 +437,6 @@ class ItemType extends EbatNs_ComplexType
 	protected $ShippingTermsInDescription;
 
 	/**
-	* @var ExternalProductIDType
-	**/
-	protected $ExternalProductID;
-
-	/**
 	* @var string
 	**/
 	protected $SellerInventoryID;
@@ -487,37 +454,12 @@ class ItemType extends EbatNs_ComplexType
 	/**
 	* @var boolean
 	**/
-	protected $SkypeEnabled;
-
-	/**
-	* @var string
-	**/
-	protected $SkypeID;
-
-	/**
-	* @var SkypeContactOptionCodeType
-	**/
-	protected $SkypeContactOption;
-
-	/**
-	* @var boolean
-	**/
 	protected $BestOfferEnabled;
 
 	/**
 	* @var boolean
 	**/
 	protected $LocalListing;
-
-	/**
-	* @var boolean
-	**/
-	protected $ThirdPartyCheckoutIntegration;
-
-	/**
-	* @var ListingCheckoutRedirectPreferenceType
-	**/
-	protected $ListingCheckoutRedirectPreference;
 
 	/**
 	* @var AddressType
@@ -685,19 +627,9 @@ class ItemType extends EbatNs_ComplexType
 	protected $QuantityThreshold;
 
 	/**
-	* @var boolean
-	**/
-	protected $PostCheckoutExperienceEnabled;
-
-	/**
 	* @var DiscountPriceInfoType
 	**/
 	protected $DiscountPriceInfo;
-
-	/**
-	* @var boolean
-	**/
-	protected $UseRecommendedProduct;
 
 	/**
 	* @var string
@@ -738,6 +670,11 @@ class ItemType extends EbatNs_ComplexType
 	* @var ShippingServiceCostOverrideListType
 	**/
 	protected $ShippingServiceCostOverrideList;
+
+	/**
+	* @var ShippingOverrideType
+	**/
+	protected $ShippingOverride;
 
 	/**
 	* @var ShipPackageDetailsType
@@ -833,6 +770,31 @@ class ItemType extends EbatNs_ComplexType
 	* @var boolean
 	**/
 	protected $LiveAuction;
+
+	/**
+	* @var DigitalGoodInfoType
+	**/
+	protected $DigitalGoodInfo;
+
+	/**
+	* @var boolean
+	**/
+	protected $eBayPlus;
+
+	/**
+	* @var boolean
+	**/
+	protected $eBayPlusEligible;
+
+	/**
+	* @var boolean
+	**/
+	protected $eMailDeliveryAvailable;
+
+	/**
+	* @var boolean
+	**/
+	protected $IsSecureDescription;
 
 
 	/**
@@ -989,22 +951,6 @@ class ItemType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'GiftIcon' =>
-				array(
-					'required' => false,
-					'type' => 'int',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'GiftServices' =>
-				array(
-					'required' => false,
-					'type' => 'GiftServicesCodeType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => true,
-					'cardinality' => '0..*'
-				),
 				'HitCounter' =>
 				array(
 					'required' => false,
@@ -1114,14 +1060,6 @@ class ItemType extends EbatNs_ComplexType
 					'required' => false,
 					'type' => 'CategoryType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'PrivateListing' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -1349,14 +1287,6 @@ class ItemType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'ThirdPartyCheckout' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
 				'UseTaxTable' =>
 				array(
 					'required' => false,
@@ -1461,14 +1391,6 @@ class ItemType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'ExternalProductID' =>
-				array(
-					'required' => false,
-					'type' => 'ExternalProductIDType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
 				'SellerInventoryID' =>
 				array(
 					'required' => false,
@@ -1493,30 +1415,6 @@ class ItemType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'SkypeEnabled' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'SkypeID' =>
-				array(
-					'required' => false,
-					'type' => 'string',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'SkypeContactOption' =>
-				array(
-					'required' => false,
-					'type' => 'SkypeContactOptionCodeType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => true,
-					'cardinality' => '0..*'
-				),
 				'BestOfferEnabled' =>
 				array(
 					'required' => false,
@@ -1530,22 +1428,6 @@ class ItemType extends EbatNs_ComplexType
 					'required' => false,
 					'type' => 'boolean',
 					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'ThirdPartyCheckoutIntegration' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'ListingCheckoutRedirectPreference' =>
-				array(
-					'required' => false,
-					'type' => 'ListingCheckoutRedirectPreferenceType',
-					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -1813,27 +1695,11 @@ class ItemType extends EbatNs_ComplexType
 					'array' => false,
 					'cardinality' => '0..1'
 				),
-				'PostCheckoutExperienceEnabled' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
 				'DiscountPriceInfo' =>
 				array(
 					'required' => false,
 					'type' => 'DiscountPriceInfoType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
-					'array' => false,
-					'cardinality' => '0..1'
-				),
-				'UseRecommendedProduct' =>
-				array(
-					'required' => false,
-					'type' => 'boolean',
-					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
 					'array' => false,
 					'cardinality' => '0..1'
 				),
@@ -1897,6 +1763,14 @@ class ItemType extends EbatNs_ComplexType
 				array(
 					'required' => false,
 					'type' => 'ShippingServiceCostOverrideListType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'ShippingOverride' =>
+				array(
+					'required' => false,
+					'type' => 'ShippingOverrideType',
 					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
 					'array' => false,
 					'cardinality' => '0..1'
@@ -2046,6 +1920,46 @@ class ItemType extends EbatNs_ComplexType
 					'cardinality' => '0..1'
 				),
 				'LiveAuction' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'DigitalGoodInfo' =>
+				array(
+					'required' => false,
+					'type' => 'DigitalGoodInfoType',
+					'nsURI' => 'urn:ebay:apis:eBLBaseComponents',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'eBayPlus' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'eBayPlusEligible' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'eMailDeliveryAvailable' =>
+				array(
+					'required' => false,
+					'type' => 'boolean',
+					'nsURI' => 'http://www.w3.org/2001/XMLSchema',
+					'array' => false,
+					'cardinality' => '0..1'
+				),
+				'IsSecureDescription' =>
 				array(
 					'required' => false,
 					'type' => 'boolean',
@@ -2348,64 +2262,6 @@ class ItemType extends EbatNs_ComplexType
 	}
 
 	/**
-	 * @return int
-	 **/
-	function getGiftIcon()
-	{
-		return $this->GiftIcon;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setGiftIcon($value)
-	{
-		$this->GiftIcon = $value;
-	}
-
-	/**
-	 * @return GiftServicesCodeType
-	 * @param integer $index 
-	 **/
-	function getGiftServices($index = null)
-	{
-		if ($index !== null)
-		{
-			return $this->GiftServices[$index];
-		}
-		else
-		{
-			return $this->GiftServices;
-		}
-	}
-
-	/**
-	 * @return void
-	 * @param GiftServicesCodeType $value
-	 * @param integer $index 
-	 **/
-	function setGiftServices($value, $index = null)
-	{
-		if ($index !== null)
-		{
-			$this->GiftServices[$index] = $value;
-		}
-		else
-		{
-			$this->GiftServices= $value;
-		}
-	}
-
-	/**
-	 * @return void
-	 * @param GiftServicesCodeType $value
-	 **/
-	function addGiftServices($value)
-	{
-		$this->GiftServices[] = $value;
-	}
-
-	/**
 	 * @return HitCounterCodeType
 	 **/
 	function getHitCounter()
@@ -2679,22 +2535,6 @@ class ItemType extends EbatNs_ComplexType
 	function setPrimaryCategory($value)
 	{
 		$this->PrimaryCategory = $value;
-	}
-
-	/**
-	 * @return boolean
-	 **/
-	function getPrivateListing()
-	{
-		return $this->PrivateListing;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setPrivateListing($value)
-	{
-		$this->PrivateListing = $value;
 	}
 
 	/**
@@ -3174,22 +3014,6 @@ class ItemType extends EbatNs_ComplexType
 	/**
 	 * @return boolean
 	 **/
-	function getThirdPartyCheckout()
-	{
-		return $this->ThirdPartyCheckout;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setThirdPartyCheckout($value)
-	{
-		$this->ThirdPartyCheckout = $value;
-	}
-
-	/**
-	 * @return boolean
-	 **/
 	function getUseTaxTable()
 	{
 		return $this->UseTaxTable;
@@ -3396,22 +3220,6 @@ class ItemType extends EbatNs_ComplexType
 	}
 
 	/**
-	 * @return ExternalProductIDType
-	 **/
-	function getExternalProductID()
-	{
-		return $this->ExternalProductID;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setExternalProductID($value)
-	{
-		$this->ExternalProductID = $value;
-	}
-
-	/**
 	 * @return string
 	 **/
 	function getSellerInventoryID()
@@ -3462,80 +3270,6 @@ class ItemType extends EbatNs_ComplexType
 	/**
 	 * @return boolean
 	 **/
-	function getSkypeEnabled()
-	{
-		return $this->SkypeEnabled;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setSkypeEnabled($value)
-	{
-		$this->SkypeEnabled = $value;
-	}
-
-	/**
-	 * @return string
-	 **/
-	function getSkypeID()
-	{
-		return $this->SkypeID;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setSkypeID($value)
-	{
-		$this->SkypeID = $value;
-	}
-
-	/**
-	 * @return SkypeContactOptionCodeType
-	 * @param integer $index 
-	 **/
-	function getSkypeContactOption($index = null)
-	{
-		if ($index !== null)
-		{
-			return $this->SkypeContactOption[$index];
-		}
-		else
-		{
-			return $this->SkypeContactOption;
-		}
-	}
-
-	/**
-	 * @return void
-	 * @param SkypeContactOptionCodeType $value
-	 * @param integer $index 
-	 **/
-	function setSkypeContactOption($value, $index = null)
-	{
-		if ($index !== null)
-		{
-			$this->SkypeContactOption[$index] = $value;
-		}
-		else
-		{
-			$this->SkypeContactOption= $value;
-		}
-	}
-
-	/**
-	 * @return void
-	 * @param SkypeContactOptionCodeType $value
-	 **/
-	function addSkypeContactOption($value)
-	{
-		$this->SkypeContactOption[] = $value;
-	}
-
-	/**
-	 * @return boolean
-	 **/
 	function getBestOfferEnabled()
 	{
 		return $this->BestOfferEnabled;
@@ -3563,38 +3297,6 @@ class ItemType extends EbatNs_ComplexType
 	function setLocalListing($value)
 	{
 		$this->LocalListing = $value;
-	}
-
-	/**
-	 * @return boolean
-	 **/
-	function getThirdPartyCheckoutIntegration()
-	{
-		return $this->ThirdPartyCheckoutIntegration;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setThirdPartyCheckoutIntegration($value)
-	{
-		$this->ThirdPartyCheckoutIntegration = $value;
-	}
-
-	/**
-	 * @return ListingCheckoutRedirectPreferenceType
-	 **/
-	function getListingCheckoutRedirectPreference()
-	{
-		return $this->ListingCheckoutRedirectPreference;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setListingCheckoutRedirectPreference($value)
-	{
-		$this->ListingCheckoutRedirectPreference = $value;
 	}
 
 	/**
@@ -4178,22 +3880,6 @@ class ItemType extends EbatNs_ComplexType
 	}
 
 	/**
-	 * @return boolean
-	 **/
-	function getPostCheckoutExperienceEnabled()
-	{
-		return $this->PostCheckoutExperienceEnabled;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setPostCheckoutExperienceEnabled($value)
-	{
-		$this->PostCheckoutExperienceEnabled = $value;
-	}
-
-	/**
 	 * @return DiscountPriceInfoType
 	 **/
 	function getDiscountPriceInfo()
@@ -4207,22 +3893,6 @@ class ItemType extends EbatNs_ComplexType
 	function setDiscountPriceInfo($value)
 	{
 		$this->DiscountPriceInfo = $value;
-	}
-
-	/**
-	 * @return boolean
-	 **/
-	function getUseRecommendedProduct()
-	{
-		return $this->UseRecommendedProduct;
-	}
-
-	/**
-	 * @return void
-	 **/
-	function setUseRecommendedProduct($value)
-	{
-		$this->UseRecommendedProduct = $value;
 	}
 
 	/**
@@ -4351,6 +4021,22 @@ class ItemType extends EbatNs_ComplexType
 	function setShippingServiceCostOverrideList($value)
 	{
 		$this->ShippingServiceCostOverrideList = $value;
+	}
+
+	/**
+	 * @return ShippingOverrideType
+	 **/
+	function getShippingOverride()
+	{
+		return $this->ShippingOverride;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setShippingOverride($value)
+	{
+		$this->ShippingOverride = $value;
 	}
 
 	/**
@@ -4655,6 +4341,86 @@ class ItemType extends EbatNs_ComplexType
 	function setLiveAuction($value)
 	{
 		$this->LiveAuction = $value;
+	}
+
+	/**
+	 * @return DigitalGoodInfoType
+	 **/
+	function getDigitalGoodInfo()
+	{
+		return $this->DigitalGoodInfo;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setDigitalGoodInfo($value)
+	{
+		$this->DigitalGoodInfo = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function geteBayPlus()
+	{
+		return $this->eBayPlus;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function seteBayPlus($value)
+	{
+		$this->eBayPlus = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function geteBayPlusEligible()
+	{
+		return $this->eBayPlusEligible;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function seteBayPlusEligible($value)
+	{
+		$this->eBayPlusEligible = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function geteMailDeliveryAvailable()
+	{
+		return $this->eMailDeliveryAvailable;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function seteMailDeliveryAvailable($value)
+	{
+		$this->eMailDeliveryAvailable = $value;
+	}
+
+	/**
+	 * @return boolean
+	 **/
+	function getIsSecureDescription()
+	{
+		return $this->IsSecureDescription;
+	}
+
+	/**
+	 * @return void
+	 **/
+	function setIsSecureDescription($value)
+	{
+		$this->IsSecureDescription = $value;
 	}
 
 }

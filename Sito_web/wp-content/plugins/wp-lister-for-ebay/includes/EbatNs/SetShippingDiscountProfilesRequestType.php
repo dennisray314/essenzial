@@ -1,5 +1,5 @@
 <?php
-/* Generated on 6/26/15 3:23 AM by globalsync
+/* Generated on 14.02.18 14:28 by globalsync
  * $Id: $
  * $Log: $
  */
@@ -15,8 +15,11 @@ require_once 'PromotionalShippingDiscountDetailsType.php';
 require_once 'ShippingInsuranceType.php';
 
 /**
-  * Enables a seller to define shipping cost discount profiles for things such as combined
-  * payments for shipping and handling costs.
+  * This call enables a seller to create and manage shipping discounts rules. These are the same shipping discount rules that can be created or managed in My eBay Shipping Preferences.
+  * <br/><br/>
+  * The types of shipping discount rules that can be created and managed with this call include flat-rate shipping rules, calculated shipping rules, and promotional shipping rules. This call can also be used by sellers to set whether or not they allow buyers to combine separate line items into one Combined Invoice order, and how many days they allow buyers to perform that action.
+  * <br/><br/>
+  * A seller can only create, update, or delete one discount rule type with each call. The action to take (either <code>Add</code>, <code>Update</code>, or <code>Delete</code>) is set and controlled with the <b>ModifyActionCode</b> field.
   * 
  **/
 

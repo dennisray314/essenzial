@@ -184,12 +184,12 @@ function wooccm_order_receipt_checkout_details( $order, $sent_to_admin, $plain_t
 				}
 			}
 
-			if ( !empty( $options['checkness']['set_timezone'] ) ) {
+			if( !empty( $options['checkness']['set_timezone'] ) ) {
 				date_default_timezone_set( $options['checkness']['set_timezone'] );
 			}
-			$date = ( !empty( $options['checkness']['twenty_hour'] ) ) ? date( "G:i T (P" ).' GMT)' : date( "g:i a" );
+			$date = ( !empty( $options['checkness']['twenty_hour'] ) ) ? date( "G:i T (P" ) .' GMT)' : date( "g:i a" );
 			$options['checkness']['time_stamp'] = ( isset( $options['checkness']['time_stamp'] ) ? $options['checkness']['time_stamp'] : false );
-			if ( $options['checkness']['time_stamp'] == true ) {
+			if( $options['checkness']['time_stamp'] == true ) {
 				echo $options['checkness']['time_stamp_title'].' ' . $date . "\n";
 			}
 			if( method_exists( $order, 'get_payment_method_title' ) ) {
@@ -345,10 +345,10 @@ function wooccm_order_receipt_checkout_details( $order, $sent_to_admin, $plain_t
 			}
 
 			// @mod - We are not doing any checking for valid TimeZone
-			if ( !empty($options['checkness']['set_timezone']) ) {
+			if( !empty( $options['checkness']['set_timezone'] ) ) {
 				date_default_timezone_set( $options['checkness']['set_timezone'] );
 			}
-			$date = ( !empty($options['checkness']['twenty_hour'])) ? date("G:i T (P").' GMT)' : date("g:i a");
+			$date = ( !empty( $options['checkness']['twenty_hour'] ) ) ? date( "G:i T (P" ) . ' GMT)' : date( "g:i a" );
 			$options['checkness']['time_stamp'] = ( isset( $options['checkness']['time_stamp'] ) ? $options['checkness']['time_stamp'] : false );
 			if( $options['checkness']['time_stamp'] == true ) {
 				echo '

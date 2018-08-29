@@ -2,7 +2,7 @@
 Contributors: infinitewp
 Tags: admin, administration, amazon, api, authentication, automatic, dashboard, dropbox, events, integration, manage, multisite, multiple, notification, performance, s3, security, seo, stats, tracking, infinitewp, updates, backup, restore, iwp, infinite
 Requires at least: 3.1
-Tested up to: 4.9.4
+Tested up to: 4.9.7
 Stable tag: trunk
 
 Install this plugin on unlimited sites and manage them all from a central dashboard.
@@ -47,6 +47,13 @@ Credits: [Vladimir Prelovac](http://prelovac.com/vladimir) for his worker plugin
 5. One-click updates
 
 == Changelog ==
+= 1.8.3 - May 15th 2018 =
+* Improvement: Auto cron task is enabled by default for Phoenix method backups.
+* Improvement: Calling Next Function failed error when Shell DB dump backup fails error.
+
+= 1.8.2 - Apr 11th 2018 =
+* Fix: Itheme security's action not displaying while generating Report.
+
 = 1.8.1 - Apr 3rd 2018 =
 * Feature: New backup method introduced named Phoenix.
 * Improvement: Multicall method is implemented for Restore process.

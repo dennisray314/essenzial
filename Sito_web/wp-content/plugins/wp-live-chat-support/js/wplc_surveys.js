@@ -1,5 +1,5 @@
 var orig_title_wplc;
-jQuery(document).on("wplc_end_chat", function( e ) { 
+jQuery(document).on("wplc_end_chat bleeper_chat_ended_notification", function( e ) { 
   if (typeof wplc_extra_div_enabled !== "undefined" && wplc_extra_div_enabled === "1") {
 	   jQuery("#wp-live-chat-4").hide();
 	   jQuery("#wplc-extra-div").show();
